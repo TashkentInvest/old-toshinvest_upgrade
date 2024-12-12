@@ -57,7 +57,7 @@ class Project extends Model
         'end_date' =>'date',
         'second_stage_start_date' =>'date',
         'second_stage_end_date' =>'date',
-    ]
+    ];
 
     
 
