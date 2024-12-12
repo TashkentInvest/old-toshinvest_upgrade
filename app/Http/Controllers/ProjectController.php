@@ -149,13 +149,14 @@ class ProjectController extends Controller
 
         if ($request->hasFile('geo_image')) {
             // Delete the old image if exists
-            if ($record->geo_image) {
-                Storage::delete('public/' . $record->geo_image);
+            if ($project->geo_image) {
+                Storage::delete('public/' . $project->geo_image);
             }
-            
+
             $imagePath = $request->file('geo_image')->store('geo_images', 'public');
         } else {
-            $imag
+            $imagePath = null;
+        }
 
         $project->update($data);
 

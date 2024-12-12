@@ -33,6 +33,9 @@
                     @endif
                 </div>
 
+                <button class="download-link"><i class="fas fa-file-download"></i> Modal</button>
+
+
                 @if(Route::has('bidding.show'))
                     <a href="{{ route('bidding.show', $project->id) }}" class="details-btn">Далее</a>
                 @endif
