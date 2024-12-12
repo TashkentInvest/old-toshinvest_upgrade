@@ -20,8 +20,8 @@
                 @endif
 
                 <div class="project-stages">
-                    <p><strong>Первый этап:</strong> {{ $project->start_date ?? 'Не указано' }} - {{ $project->end_date ?? 'Не указано' }}</p>
-                    <p><strong>Второй этап:</strong> {{ $project->second_stage_start_date ?? 'Не указано' }} - {{ $project->second_stage_end_date ?? 'Не указано' }}</p>
+                    <p><strong>Первый этап:</strong> {{ $project->start_date->format('d-m-Y') ?? 'Не указано' }} - {{ $project->end_date->format('d-m-Y') ?? 'Не указано' }}</p>
+                    <p><strong>Второй этап:</strong> {{ $project->second_stage_start_date->format('d-m-Y') ?? 'Не указано' }} - {{ $project->second_stage_end_date->format('d-m-Y') ?? 'Не указано' }}</p>
                 </div>
 
                 <div class="project-links">
