@@ -48,6 +48,8 @@
                     @endif
                 </div>
 
+                Результат отбора
+
                 {{-- Show modal button only if comment is available --}}
                 @if(!empty($project->comment))
                     <button class="download-link" data-bs-toggle="modal" data-bs-target="#projectModal{{ $project->id }}">
@@ -64,7 +66,7 @@
 
     {{-- Modal only if comment is present --}}
     @if(!empty($project->comment))
-        <div class="modal fade" id="projectModal{{ $project->id }}" tabindex="-1" aria-labelledby="projectModalLabel{{ $project->id }}" aria-hidden="true">
+        <div class="modal fade mt-2" id="projectModal{{ $project->id }}" tabindex="-1" aria-labelledby="projectModalLabel{{ $project->id }}" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
