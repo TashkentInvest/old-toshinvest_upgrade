@@ -9,55 +9,65 @@
 
             <div class="project-card-content">
                 <h3>{{ $project->district }} район</h3>
-                
-                @if($project->mahalla)
+
+                @if ($project->mahalla)
                     <p><strong>Махалля:</strong> <span class="highlight">{{ $project->mahalla }}</span></p>
                 @endif
 
-                @if($project->land)
+                @if ($project->land)
                     <p><strong>Площадь:</strong> <span class="highlight">{{ $project->land }} га</span></p>
                 @endif
 
-                @if($project->srok_realizatsi)
-                    <p><strong>Срок реализации:</strong> <span class="highlight">{{ $project->srok_realizatsi }} месяцев</span></p>
+                @if ($project->srok_realizatsi)
+                    <p><strong>Срок реализации:</strong> <span class="highlight">{{ $project->srok_realizatsi }}
+                            месяцев</span></p>
                 @endif
 
                 <div class="project-stages">
                     <p>
-                        <strong>Первый этап:</strong> 
-                        {{ $project->start_date ? $project->start_date->format('d-m-Y') : 'Не указано' }} - 
+                        <strong>Первый этап:</strong>
+                        {{ $project->start_date ? $project->start_date->format('d-m-Y') : 'Не указано' }} -
                         {{ $project->end_date ? $project->end_date->format('d-m-Y') : 'Не указано' }}
                     </p>
+                
                     <p>
-                        <strong>Второй этап:</strong> 
-                        {{ $project->second_stage_start_date ? $project->second_stage_start_date->format('d-m-Y') : 'Не указано' }} - 
+                        <strong>Второй этап:</strong>
+                        {{ $project->second_stage_start_date ? $project->second_stage_start_date->format('d-m-Y') : 'Не указано' }}
+                        -
                         {{ $project->second_stage_end_date ? $project->second_stage_end_date->format('d-m-Y') : 'Не указано' }}
                     </p>
                 </div>
 
                 <div class="project-links">
-                    @if($project->elon_fayl)
+                    @if ($project->elon_fayl)
                         <a href="{{ asset('storage/' . $project->elon_fayl) }}" target="_blank" class="download-link">
                             <i class="fas fa-file-download"></i> Объявление 1 этапа
                         </a>
                     @endif
-                    @if($project->pratakol_fayl)
-                        <a href="{{ asset('storage/' . $project->pratakol_fayl) }}" target="_blank" class="download-link">
+                    @if ($project->pratakol_fayl)
+                        <a href="{{ asset('storage/' . $project->pratakol_fayl) }}" target="_blank"
+                            class="download-link">
                             <i class="fas fa-file-download"></i> Протокол 1 этапа
                         </a>
                     @endif
                 </div>
 
-                Результат отбора
+
+
+                
 
                 {{-- Show modal button only if comment is available --}}
-                @if(!empty($project->comment))
-                    <button class="download-link" data-bs-toggle="modal" data-bs-target="#projectModal{{ $project->id }}">
-                        <i class="fas fa-file-download"></i> Комментарий
-                    </button>
-                @endif
+                @if (!empty($project->comment))
+                <button class="btn btn-primary btn-sm d-flex align-items-center justify-content-center mt-2" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#projectModal{{ $project->id }}">
+                    <i class="fas fa-file-download"></i>
+                    <span>Результат отбора</span>
+                </button>
+            @endif
+            
 
-                @if(Route::has('bidding.show'))
+                @if (Route::has('bidding.show'))
                     <a href="{{ route('bidding.show', $project->id) }}" class="details-btn">Далее</a>
                 @endif
             </div>
@@ -65,8 +75,9 @@
     </div>
 
     {{-- Modal only if comment is present --}}
-    @if(!empty($project->comment))
-        <div class="modal fade mt-2" id="projectModal{{ $project->id }}" tabindex="-1" aria-labelledby="projectModalLabel{{ $project->id }}" aria-hidden="true">
+    @if (!empty($project->comment))
+        <div class="modal fade mt-2" id="projectModal{{ $project->id }}" tabindex="-1"
+            aria-labelledby="projectModalLabel{{ $project->id }}" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -97,7 +108,7 @@
         background: #fff;
         border-radius: 10px;
         overflow: hidden;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         transition: transform 0.2s ease, box-shadow 0.2s ease;
         display: flex;
         flex-direction: column;
@@ -105,7 +116,7 @@
 
     .project-card:hover {
         transform: translateY(-3px);
-        box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
     }
 
     .project-card-content {
@@ -221,16 +232,20 @@
         .projects-container.card-view .project-item {
             width: 100% !important;
         }
+
         .projects-container.list-view .project-card {
             flex-direction: column;
         }
+
         .projects-container.list-view .project-card-image {
             width: 100%;
             height: auto;
         }
+
         .projects-container.list-view .project-card-image img {
             border-radius: 10px 10px 0 0;
         }
+
         .projects-container.list-view .project-card-content {
             width: 100%;
         }
