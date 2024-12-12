@@ -52,6 +52,13 @@ class Project extends Model
         'hokim_resolution_no',
     ];
 
+    protected $casts = [
+        'start_date' =>'date',
+        'end_date' =>'date',
+        'second_stage_start_date' =>'date',
+        'second_stage_end_date' =>'date',
+    ]
+
     
 
     public function category()
