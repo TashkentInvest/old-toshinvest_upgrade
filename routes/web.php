@@ -157,7 +157,7 @@ Route::get('analytics/statistic', [AnalyticsController::class, 'statistic'])->na
 Route::get('calendar', [CalendarController::class, 'index'])->name('calendar.index');
 Route::get('search', [SearchController::class, 'search'])->name('search');
 
-Route::get('/bidding.html', function () {
+Route::get('/ru/bidding.html', function () {
     return redirect()->route('frontend.investoram'); 
 });
 
