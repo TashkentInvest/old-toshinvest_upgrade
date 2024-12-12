@@ -1,6 +1,6 @@
 @extends('layouts.frontend_app')
 @section('frontent_content')
-    @include('inc.__frontend_home_nav')
+    {{-- @include('inc.__frontend_home_nav') --}}
     <div id="rec748107216" class="r t-rec" style="" data-animationappear="off" data-record-type="244">
         <!-- cover -->
         <div class="t-cover" id="recorddiv748107216" bgimgfield="img"
