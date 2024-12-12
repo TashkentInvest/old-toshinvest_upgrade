@@ -17,6 +17,7 @@ use App\Http\Controllers\Blade\ApiUserController;
 use App\Http\Controllers\Blade\PermissionController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProjectController;
 
 Auth::routes(['register' => false]);
 
@@ -46,6 +47,15 @@ Route::group(['middleware' => ['auth', 'checkUserRole']], function () {
     Route::put('products/{product}', [ProductController::class, 'update'])->name('products.update');
     Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
     Route::post('products/check-yer-uchastkasi-uniq', [ProductController::class, 'checkYerUchastkasiUniq'])->name('products.checkYerUchastkasiUniq');
+
+
+    
+    Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+    Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
+    Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
+    Route::get('/projects/{id}/edit', [ProjectController::class, 'edit'])->name('projects.edit');
+    Route::post('/projects/{id}', [ProjectController::class, 'update'])->name('projects.update');
+    Route::delete('/projects/{id}', [ProjectController::class, 'destroy'])->name('projects.destroy');
 
 
     // Permissions
