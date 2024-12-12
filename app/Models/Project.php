@@ -50,6 +50,11 @@ class Project extends Model
         'investor_initiative_date',
         'company_name',
         'hokim_resolution_no',
+        'comment',
+        'latitude',         // New field for latitude
+        'longitude',        // New field for longitude
+        'geolocation',      // New field for geolocation (e.g., could be a JSON or text)
+        'geo_image',        // New field for geo_image (could store an image path or URL)
     ];
 
     protected $casts = [

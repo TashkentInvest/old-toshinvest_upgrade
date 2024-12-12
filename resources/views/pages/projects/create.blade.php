@@ -128,6 +128,35 @@
             </select>
         </div>
 
+        <div class="form-group">
+            <label for="latitude">Latitude</label>
+            <input type="text" name="latitude" class="form-control" value="{{ old('latitude') }}" placeholder="Enter Latitude">
+        </div>
+
+        <!-- Longitude Field -->
+        <div class="form-group">
+            <label for="longitude">Longitude</label>
+            <input type="text" name="longitude" class="form-control" value="{{ old('longitude') }}" placeholder="Enter Longitude">
+        </div>
+
+        <div class="form-group">
+            <label for="comment">comment</label>
+            <input type="text" name="comment" class="form-control" value="{{ old('comment') }}" placeholder="Enter comment">
+        </div>
+
+
+        <!-- Geolocation Field -->
+        <div class="form-group">
+            <label for="geolocation">Geolocation</label>
+            <textarea name="geolocation" class="form-control" placeholder="Enter Geolocation">{{ old('geolocation') }}</textarea>
+        </div>
+
+        <!-- Geo Image Field -->
+        <div class="form-group">
+            <label for="geo_image">Geo Image</label>
+            <input type="file" name="geo_image" class="form-control-file">
+        </div>
+
         <!-- Srok realizatsi (optional) -->
         <div class="form-group mb-3">
             <label for="srok_realizatsi">Srok Realizatsi (months)</label>

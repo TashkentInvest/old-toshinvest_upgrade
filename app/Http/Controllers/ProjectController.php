@@ -47,6 +47,13 @@ class ProjectController extends Controller
             'end_date' => 'nullable',
             'second_stage_start_date' => 'nullable',
             'second_stage_end_date' => 'nullable',
+
+            'latitude' => 'nullable',
+            'longitude' => 'nullable',
+            'comment' => 'nullable',
+
+            'geolocation' => 'nullable|string',
+            'geo_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $data = $request->all();
@@ -59,6 +66,12 @@ class ProjectController extends Controller
         }
         if ($request->hasFile('qoshimcha_fayl')) {
             $data['qoshimcha_fayl'] = $request->file('qoshimcha_fayl')->store('project_images/qoshimcha', 'public');
+        }
+
+        if ($request->hasFile('geo_image')) {
+            $imagePath = $request->file('geo_image')->store('geo_images', 'public');
+        } else {
+            $imagePath = null;
         }
 
         Project::create($data);
@@ -100,6 +113,12 @@ class ProjectController extends Controller
             'end_date' => 'nullable',
             'second_stage_start_date' => 'nullable',
             'second_stage_end_date' => 'nullable',
+
+            'latitude' => 'nullable',
+            'longitude' => 'nullable',
+            'comment' => 'nullable',
+            'geolocation' => 'nullable|string',
+            'geo_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $data = $request->all();
@@ -127,6 +146,16 @@ class ProjectController extends Controller
             }
             $data['qoshimcha_fayl'] = $request->file('qoshimcha_fayl')->store('project_images/qoshimcha', 'public');
         }
+
+        if ($request->hasFile('geo_image')) {
+            // Delete the old image if exists
+            if ($record->geo_image) {
+                Storage::delete('public/' . $record->geo_image);
+            }
+            
+            $imagePath = $request->file('geo_image')->store('geo_images', 'public');
+        } else {
+            $imag
 
         $project->update($data);
 
