@@ -46,7 +46,7 @@
                     </a>
                     <ul class="pc-submenu">
                         <li class="pc-item">
-                            <a class="pc-link" href="{{ route('products.index') }}">
+                            <a class="pc-link" href="{{ route('investoram') }}">
                                 Investorlar uchun
                             </a>
                         </li>
