@@ -647,6 +647,12 @@
                             <a class="t-menu__link-item" href="ru/contacts.html" data-menu-submenu-hook=""
                                 data-menu-item-number="6">Контакты</a>
                         </li>
+
+                        <li class="t228__list_item" style="padding: 0 0 0 30px">
+                            <a class="t-menu__link-item" href="https://old.toshkentinvest.uz/" data-menu-submenu-hook=""
+                                data-menu-item-number="6">Старый сайт
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
