@@ -8,10 +8,10 @@
             --}}
 
             <div class="project-card-content">
-                <h3>{{ $project->district }} район</h3>
+                <h3>{{ $project->district }}ский район</h3>
 
                 @if ($project->mahalla)
-                    <p><strong>Махалля:</strong> <span class="highlight">{{ $project->mahalla }}ский</span></p>
+                    <p><strong>Махалля:</strong> <span class="highlight">{{ $project->mahalla }}</span></p>
                 @endif
 
                 @if ($project->land)
