@@ -158,7 +158,7 @@ Route::get('calendar', [CalendarController::class, 'index'])->name('calendar.ind
 Route::get('search', [SearchController::class, 'search'])->name('search');
 
 Route::get('/bidding.html', function () {
-    return redirect()->route('investoram'); 
+    return redirect()->route('frontend.investoram'); 
 });
 
 Route::prefix('')->name('frontend.')->group(function () {
