@@ -1,9 +1,9 @@
 @forelse($projects as $project)
     <div class="project-item">
         <div class="project-card">
-            <div class="project-card-image">
+            {{-- <div class="project-card-image">
                 <img src="{{ asset('assets/images/flats.png') }}" alt="Project Image">
-            </div>
+            </div> --}}
             <div class="project-card-content">
                 <h3>{{ $project->district }} район</h3>
 
