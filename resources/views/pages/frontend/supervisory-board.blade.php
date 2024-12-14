@@ -55,6 +55,33 @@
                 <div class="t-col t-col_2 t-prefix_3 t531__leftcol">
                     <div class="t531__imgwrapper t531__imgwrapper_2">
                         <div class="t531__blockimg t-bgimg loaded"
+                            data-original="{{asset('images/Б.Х. Хайдаров фото1.jpg')}}"
+                            bgimgfield="li_img__6237107501540" data-image-width="160" data-image-height="200"
+                            style="background-image: url('{{asset('images/Б.Х. Хайдаров фото1.jpg')}}'); padding-bottom: 125%;"
+                            itemscope="" itemtype="http://schema.org/ImageObject">
+                            <meta itemprop="image"
+                                content="{{asset('images/Б.Х. Хайдаров фото1.jpg')}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="t-col t-col_5 t531__rightcol">
+                    <div class="t531__textwrapper t-align_left" style="height: 200px;">
+                        <div class="t531__content t-valign_middle">
+                            <div class="t531__box">
+                                <div class="t531__title t-name t-name_xl t531__bottommargin_sm"
+                                    field="li_persname__6237107501540">Хайдаров Бахтиёр Халимович</div>
+                                <div class="t531__persdescr t-descr t-descr_xs " field="li_persdescr__6237107501540">
+                                    Член
+                                    наблюдательного совета<br>Первый заместитель Хокима города Ташкента</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="t531__row" style="">
+                <div class="t-col t-col_2 t-prefix_3 t531__leftcol">
+                    <div class="t531__imgwrapper t531__imgwrapper_2">
+                        <div class="t531__blockimg t-bgimg loaded"
                             data-original="https://static.tildacdn.one/tild6533-3266-4265-b966-376336363163/__.jpg"
                             bgimgfield="li_img__6237107501541" data-image-width="160" data-image-height="200"
                             style="background-image: url(&quot;https://optim.tildacdn.one/tild6533-3266-4265-b966-376336363163/-/cover/320x400/center/center/-/format/webp/__.jpg&quot;); padding-bottom: 125%;"

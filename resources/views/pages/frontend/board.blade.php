@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </li>
-            <li class="t531__row" style="">
+            {{-- <li class="t531__row" style="">
                 <div class="t-col t-col_2 t-prefix_3 t531__leftcol">
                     <div class="t531__imgwrapper t531__imgwrapper_2">
                         <div class="t531__blockimg t-bgimg loaded"
@@ -76,7 +76,7 @@
                         </div>
                     </div>
                 </div>
-            </li>
+            </li> --}}
             <li class="t531__row" style="">
                 <div class="t-col t-col_2 t-prefix_3 t531__leftcol">
                     <div class="t531__imgwrapper t531__imgwrapper_2">
@@ -130,6 +130,33 @@
                 </div>
             </li>
             <li class="t531__row" style="">
+                <div class="t-col t-col_2 t-prefix_3 t531__leftcol">
+                    <div class="t531__imgwrapper t531__imgwrapper_2">
+                        <div class="t531__blockimg t-bgimg loaded"
+                            data-original="{{asset('images/peregudov.png')}}"
+                            bgimgfield="li_img__1715767352107" data-image-width="160" data-image-height="200"
+                            style="background-image: url('{{asset('images/peregudov.png')}}'); padding-bottom: 125%;"
+                            itemscope="" itemtype="http://schema.org/ImageObject">
+                            <meta itemprop="image"
+                                content="{{asset('images/peregudov.png')}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="t-col t-col_5 t531__rightcol">
+                    <div class="t531__textwrapper t-align_left" style="height: 200px;">
+                        <div class="t531__content t-valign_middle">
+                            <div class="t531__box">
+                                <div class="t531__title t-name t-name_xl t531__bottommargin_sm"
+                                    field="li_persname__1715767352107">Перегудов Андрей Николаевич  </div>
+                                <div class="t531__persdescr t-descr t-descr_xs " field="li_persdescr__1715767352107">
+                                    Заместитель председателя правления
+по строительству и реновации</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="t531__row" style="margin-bottom: 50px">
                 <div class="t-col t-col_2 t-prefix_3 t531__leftcol">
                     <div class="t531__imgwrapper t531__imgwrapper_2">
                         <div class="t531__blockimg t-bgimg loaded"
