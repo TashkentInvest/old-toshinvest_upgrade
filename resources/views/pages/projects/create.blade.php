@@ -123,7 +123,7 @@
             <select name="status" class="form-control">
                 <option value="1_step">Step 1</option>
                 <option value="2_step">Step 2</option>
-                <option value="archived">Archived</option>
+                <option value="archive">Archived</option>
                 <option value="completed">Completed</option>
             </select>
         </div>
