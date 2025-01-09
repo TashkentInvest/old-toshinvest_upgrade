@@ -84,10 +84,9 @@
         const thousands = ["минг", "минг", "минг"];
         const millions = ["миллион", "миллион", "миллион"];
         const milliards = ["миллиард", "миллиард", "миллиард"];
-        const femaleThousands = ["бир", "икки"];
 
         function convertNumberToText() {
-            const value = document.getElementById("numberInput").value.replace(/,/g, "");
+            const value = document.getElementById("numberInput").value.replace(/[\s,]/g, "");
             const result = numberToUzbekText(value);
             document.getElementById("result").textContent = result;
         }
@@ -153,22 +152,10 @@
             }
 
             if (digitClass.length > 0) {
-                text += addDigitClassName(digitClass, value);
+                text += digitClass[0] + " ";
             }
 
             return text;
-        }
-
-        function addDigitClassName(digitClassArr, lastNumber) {
-            let tempText = "";
-            if (lastNumber === 1) {
-                tempText += digitClassArr[0] + " ";
-            } else if ([2, 3, 4].includes(lastNumber)) {
-                tempText += digitClassArr[1] + " ";
-            } else {
-                tempText += digitClassArr[2] + " ";
-            }
-            return tempText;
         }
     </script>
 
