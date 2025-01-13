@@ -1,22 +1,22 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Edit Project</h1>
+    <h1>Лойиҳани таҳрирлаш</h1>
 
     <form action="{{ route('projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
 
-        <!-- Unique Number -->
+        <!-- Уникал рақам -->
         <div class="form-group mb-3">
-            <label for="unique_number">Unique Number</label>
-            <input type="text" name="unique_number" class="form-control" value="{{ $project->unique_number }}" placeholder="e.g., YUN0001">
+            <label for="unique_number">Уникал рақам</label>
+            <input type="text" name="unique_number" class="form-control" value="{{ $project->unique_number }}" placeholder="мас., YUN0001">
         </div>
 
-        <!-- Category -->
+        <!-- Категория -->
         <div class="form-group mb-3">
-            <label for="category_id">Category</label>
+            <label for="category_id">Категория</label>
             <select name="category_id" class="form-control">
-                <option value="">— Select Category —</option>
+                <option value="">— Категорияни танланг —</option>
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}" {{ $project->category_id == $category->id ? 'selected' : '' }}>
                         {{ $category->name }}
@@ -25,163 +25,112 @@
             </select>
         </div>
 
-        <!-- District -->
+        <!-- Туман -->
         <div class="form-group mb-3">
-            <label for="district">District <span style="color:red;">*</span></label>
+            <label for="district">Туман <span style="color:red;">*</span></label>
             <input type="text" name="district" class="form-control" value="{{ $project->district }}" required>
         </div>
 
-        <!-- Street -->
+        <!-- Кўча -->
         <div class="form-group mb-3">
-            <label for="street">Street</label>
-            <input type="text" name="street" class="form-control" value="{{ $project->street }}" placeholder="Enter street">
+            <label for="street">Кўча</label>
+            <input type="text" name="street" class="form-control" value="{{ $project->street }}" placeholder="Кўчани киритинг">
         </div>
 
-        <!-- Mahalla Name -->
+        <!-- Маҳалла -->
         <div class="form-group mb-3">
-            <label for="mahalla">Mahalla Name</label>
-            <input type="text" name="mahalla" class="form-control" value="{{ $project->mahalla }}" placeholder="Enter mahalla name">
+            <label for="mahalla">Маҳалла</label>
+            <input type="text" name="mahalla" class="form-control" value="{{ $project->mahalla }}" placeholder="Маҳалла номи">
         </div>
 
-        <!-- Land -->
+        <!-- Ер майдони -->
         <div class="form-group mb-3">
-            <label for="land">Land (ha)</label>
-            <input type="number" step="0.01" name="land" class="form-control" value="{{ $project->land }}" placeholder="e.g., 0.12">
+            <label for="land">Ер майдони (га)</label>
+            <input type="number" step="0.01" name="land" class="form-control" value="{{ $project->land }}" placeholder="мас., 0.12">
         </div>
 
-        <!-- Investor Initiative Date -->
+        <!-- Инвестор ташаббуси санаси -->
         <div class="form-group mb-3">
-            <label for="investor_initiative_date">Investor Initiative Date</label>
+            <label for="investor_initiative_date">Инвестор ташаббуси санаси</label>
             <input type="date" name="investor_initiative_date" class="form-control" value="{{ $project->investor_initiative_date }}">
         </div>
 
-        <!-- Company Name -->
+        <!-- Компания номи -->
         <div class="form-group mb-3">
-            <label for="company_name">Company Name</label>
-            <input type="text" name="company_name" class="form-control" value="{{ $project->company_name }}" placeholder="Enter company name">
+            <label for="company_name">Компания номи</label>
+            <input type="text" name="company_name" class="form-control" value="{{ $project->company_name }}" placeholder="Компания номи">
         </div>
 
-        <!-- Contact Person -->
+        <!-- Контакт шахс -->
         <div class="form-group mb-3">
-            <label for="contact_person">Contact Person</label>
-            <input type="text" name="contact_person" class="form-control" value="{{ $project->contact_person }}" placeholder="Enter contact person">
+            <label for="contact_person">Контакт шахс</label>
+            <input type="text" name="contact_person" class="form-control" value="{{ $project->contact_person }}" placeholder="Контакт шахс">
         </div>
 
-        <!-- Hokim Resolution Number -->
+        <!-- Ҳоким қарори рақами -->
         <div class="form-group mb-3">
-            <label for="hokim_resolution_no">Hokim Resolution No</label>
-            <input type="text" name="hokim_resolution_no" class="form-control" value="{{ $project->hokim_resolution_no }}" placeholder="Enter Hokim resolution number">
+            <label for="hokim_resolution_no">Ҳоким қарори рақами</label>
+            <input type="text" name="hokim_resolution_no" class="form-control" value="{{ $project->hokim_resolution_no }}" placeholder="Қарор рақами">
         </div>
 
-
-        {{-- @dd($project) --}}
+        <!-- Босқичлар -->
         <div class="form-group mb-3">
-            <label for="start_date">1-etap Start Date</label>
+            <label for="start_date">1-босқич бошланиш санаси</label>
             <input type="date" name="start_date" class="form-control" value="{{ old('start_date', optional($project->start_date)->format('Y-m-d')) }}">
         </div>
-        
         <div class="form-group mb-3">
-            <label for="end_date">1-etap End Date</label>
+            <label for="end_date">1-босқич тугаш санаси</label>
             <input type="date" name="end_date" class="form-control" value="{{ old('end_date', optional($project->end_date)->format('Y-m-d')) }}">
         </div>
-        
         <div class="form-group mb-3">
-            <label for="second_stage_start_date">2-etap Second Stage Start Date</label>
+            <label for="second_stage_start_date">2-босқич бошланиш санаси</label>
             <input type="date" name="second_stage_start_date" class="form-control" value="{{ old('second_stage_start_date', optional($project->second_stage_start_date)->format('Y-m-d')) }}">
         </div>
-        
         <div class="form-group mb-3">
-            <label for="second_stage_end_date">2-etap Second Stage End Date</label>
+            <label for="second_stage_end_date">2-босқич тугаш санаси</label>
             <input type="date" name="second_stage_end_date" class="form-control" value="{{ old('second_stage_end_date', optional($project->second_stage_end_date)->format('Y-m-d')) }}">
         </div>
-        
 
-        <!-- Image -->
-        <div class="form-group mb-3">
-            <label for="elon_fayl">Elon</label>
-            @if($project->elon_fayl)
-                <div class="mb-2">
-                    <img src="{{ asset('storage/' . $project->elon_fayl) }}" alt="Project Image" width="200">
-                </div>
-            @endif
-            <input type="file" name="elon_fayl" class="form-control-file">
-        </div>
+        <!-- Файллар -->
+        @foreach (['elon_fayl' => 'Элон', 'pratakol_fayl' => 'Протокол', 'qoshimcha_fayl' => 'Қўшимча'] as $field => $label)
+            <div class="form-group mb-3">
+                <label for="{{ $field }}">{{ $label }}</label>
+                @if($project->$field)
+                    <div class="mb-2">
+                        <img src="{{ asset('storage/' . $project->$field) }}" alt="{{ $label }}" width="200">
+                    </div>
+                @endif
+                <input type="file" name="{{ $field }}" class="form-control-file">
+            </div>
+        @endforeach
 
-        <div class="form-group mb-3">
-            <label for="pratakol_fayl">Protokol</label>
-            @if($project->pratakol_fayl)
-                <div class="mb-2">
-                    <img src="{{ asset('storage/' . $project->pratakol_fayl) }}" alt="Project Image" width="200">
-                </div>
-            @endif
-            <input type="file" name="pratakol_fayl" class="form-control-file">
-        </div>
+        <!-- Қўшимча маълумотлар -->
+        @foreach ([
+            'implementation_period' => 'Бажариш муддати (ой)',
+            'status' => 'Статус',
+            'latitude' => 'Кенглик',
+            'longitude' => 'Узунлик',
+            'comment' => 'Изоҳ',
+            'geolocation' => 'Геолокация',
+            'srok_realizatsi' => 'Реализация муддати (ой)'
+        ] as $field => $label)
+            <div class="form-group mb-3">
+                <label for="{{ $field }}">{{ $label }}</label>
+                <input type="{{ in_array($field, ['latitude', 'longitude', 'comment', 'geolocation']) ? 'text' : 'number' }}" 
+                       name="{{ $field }}" class="form-control" 
+                       value="{{ old($field, $project->$field) }}" placeholder="{{ $label }}">
+            </div>
+        @endforeach
 
-
-        <div class="form-group mb-3">
-            <label for="qoshimcha_fayl">Qoshimcha</label>
-            @if($project->qoshimcha_fayl)
-                <div class="mb-2">
-                    <img src="{{ asset('storage/' . $project->qoshimcha_fayl) }}" alt="Project Image" width="200">
-                </div>
-            @endif
-            <input type="file" name="qoshimcha_fayl" class="form-control-file">
-        </div>
-
-        <!-- Implementation Period -->
-        <div class="form-group mb-3">
-            <label for="implementation_period">Implementation Period (months)</label>
-            <input type="number" name="implementation_period" class="form-control" value="{{ $project->implementation_period }}" placeholder="e.g., 36">
-        </div>
-
-        <!-- Status -->
-        <div class="form-group mb-3">
-            <label for="status">Status <span style="color:red;">*</span></label>
-            <select name="status" class="form-control">
-                <option value="1_step" {{ $project->status == '1_step' ? 'selected' : '' }}>Step 1</option>
-                <option value="2_step" {{ $project->status == '2_step' ? 'selected' : '' }}>Step 2</option>
-                <option value="archive" {{ $project->status == 'archive' ? 'selected' : '' }}>Archived</option>
-                <option value="completed" {{ $project->status == 'completed' ? 'selected' : '' }}>Completed</option>
-            </select>
-        </div>
-
+        <!-- Гео расм -->
         <div class="form-group">
-            <label for="latitude">Latitude</label>
-            <input type="text" name="latitude" class="form-control" value="{{ old('latitude', $project->latitude) }}" placeholder="Enter Latitude">
-        </div>
-
-        <!-- Longitude Field -->
-        <div class="form-group">
-            <label for="longitude">Longitude</label>
-            <input type="text" name="longitude" class="form-control" value="{{ old('longitude', $project->longitude) }}" placeholder="Enter Longitude">
-        </div>
-
-        <div class="form-group">
-            <label for="comment">comment</label>
-            <input type="text" name="comment" class="form-control" value="{{ old('comment', $project->comment) }}" placeholder="Enter comment">
-        </div>
-
-        <!-- Geolocation Field -->
-        <div class="form-group">
-            <label for="geolocation">Geolocation</label>
-            <textarea name="geolocation" class="form-control" placeholder="Enter Geolocation">{{ old('geolocation', $project->geolocation) }}</textarea>
-        </div>
-
-        <!-- Geo Image Field -->
-        <div class="form-group">
-            <label for="geo_image">Geo Image</label>
+            <label for="geo_image">Гео расм</label>
             <input type="file" name="geo_image" class="form-control-file">
             @if($project->geo_image)
-                <img src="{{ asset('storage/'.$project->geo_image) }}" alt="Geo Image" width="100">
+                <img src="{{ asset('storage/'.$project->geo_image) }}" alt="Гео расм" width="100">
             @endif
         </div>
 
-        <!-- Srok Realizatsi -->
-        <div class="form-group mb-3">
-            <label for="srok_realizatsi">Srok Realizatsi (months)</label>
-            <input type="number" name="srok_realizatsi" class="form-control" value="{{ $project->srok_realizatsi }}" placeholder="e.g., 12">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Update Project</button>
+        <button type="submit" class="btn btn-primary">Янгилаш</button>
     </form>
 @endsection
