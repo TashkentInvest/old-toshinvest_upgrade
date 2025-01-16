@@ -91,6 +91,17 @@
             <input type="date" name="second_stage_end_date" class="form-control" value="{{ old('second_stage_end_date', optional($project->second_stage_end_date)->format('Y-m-d')) }}">
         </div>
 
+          <!-- Status -->
+          <div class="form-group mb-3">
+            <label for="status">Status <span style="color:red;">*</span></label>
+            <select name="status" class="form-control">
+                <option value="1_step" {{ $project->status == '1_step' ? 'selected' : '' }}>Step 1</option>
+                <option value="2_step" {{ $project->status == '2_step' ? 'selected' : '' }}>Step 2</option>
+                <option value="archive" {{ $project->status == 'archive' ? 'selected' : '' }}>Archived</option>
+                <option value="completed" {{ $project->status == 'completed' ? 'selected' : '' }}>Completed</option>
+            </select>
+        </div>
+
         <!-- Файллар -->
         @foreach (['elon_fayl' => 'Элон', 'pratakol_fayl' => 'Протокол', 'qoshimcha_fayl' => 'Қўшимча'] as $field => $label)
             <div class="form-group mb-3">
