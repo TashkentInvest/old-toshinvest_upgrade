@@ -23,7 +23,7 @@
                 <option value="1_step" {{ request('status') == '1_step' ? 'selected' : '' }}>1-й этап</option>
                 <option value="2_step" {{ request('status') == '2_step' ? 'selected' : '' }}>2-й этап</option>
                 <option value="completed" {{ request('status') == 'completed' ? 'selected' : '' }}>Завершенные</option>
-                <option value="archive" {{ request('status') == 'archive' ? 'selected' : '' }}>Архив</option>
+                <option value="archived" {{ request('status') == 'archived' ? 'selected' : '' }}>Архив</option>
             </select>
 
             <!-- Search Input -->

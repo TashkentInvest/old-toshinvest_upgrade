@@ -33,7 +33,7 @@ class FrontendController extends Controller
     {
         $category = Category::where('slug', $subcategory)->first();
     
-        $validStatuses = ['1_step', '2_step', 'completed', 'archive'];
+        $validStatuses = ['1_step', '2_step', 'completed', 'archived'];
         $status = in_array($request->status, $validStatuses) ? $request->status : null;
     
         $projects = Project::when($status, function ($query, $status) {

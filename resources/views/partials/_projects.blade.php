@@ -3,7 +3,7 @@
         '1_step' => 'Проекты на 1-м этапе',
         '2_step' => 'Проекты на 2-м этапе',
         'completed' => 'Завершенные проекты',
-        'archive' => 'Архивированные проекты'
+        'archive' => 'Архивированные проекты',
     ];
 
     // Group projects by status
@@ -11,15 +11,16 @@
 @endphp
 
 @forelse($statusTitles as $statusKey => $statusTitle)
-    @if(isset($groupedProjects[$statusKey]) && $groupedProjects[$statusKey]->count() > 0)
+    @if (isset($groupedProjects[$statusKey]) && $groupedProjects[$statusKey]->count() > 0)
         <div class="status-group-container">
             <h2 class="status-heading">{{ $statusTitle }}</h2>
             <div class="status-group">
-                @foreach($groupedProjects[$statusKey] as $project)
+                @foreach ($groupedProjects[$statusKey] as $project)
                     <div class="project-item">
-                        <div class="project-card" style="{{ $project->status == 'archive' ? 'background-color: #f8d7da;' : '' }}">
-                            
-                            @if(isset($statusTitles[$project->status]))
+                        <div class="project-card"
+                            style="{{ $project->status == 'archive' ? 'background-color: #f8d7da;' : '' }}">
+
+                            @if (isset($statusTitles[$project->status]))
                                 <div class="project-status-title">
                                     {{ $statusTitles[$project->status] }}
                                 </div>
@@ -29,24 +30,28 @@
                                 <h3>{{ $project->district }}ский район</h3>
 
                                 @if ($project->mahalla)
-                                    <p><strong>Махалля:</strong> <span class="highlight">{{ $project->mahalla }}</span></p>
+                                    <p><strong>Махалля:</strong> <span class="highlight">{{ $project->mahalla }}</span>
+                                    </p>
                                 @endif
 
                                 @if ($project->land)
-                                    <p><strong>Площадь:</strong> <span class="highlight">{{ $project->land }} га</span></p>
+                                    <p><strong>Площадь:</strong> <span class="highlight">{{ $project->land }} га</span>
+                                    </p>
                                 @endif
 
                                 @if ($project->srok_realizatsi)
-                                    <p><strong>Срок реализации:</strong> <span class="highlight">{{ $project->srok_realizatsi }} месяцев</span></p>
+                                    <p><strong>Срок реализации:</strong> <span
+                                            class="highlight">{{ $project->srok_realizatsi }} месяцев</span></p>
                                 @endif
 
                                 <div class="project-stages">
                                     <p>
                                         <strong>Первый этап:</strong>
-                                        {{ $project->start_date ? $project->start_date->format('d-m-Y') : 'Не указано' }} -
+                                        {{ $project->start_date ? $project->start_date->format('d-m-Y') : 'Не указано' }}
+                                        -
                                         {{ $project->end_date ? $project->end_date->format('d-m-Y') : 'Не указано' }}
                                     </p>
-                                
+
                                     <p>
                                         <strong>Второй этап:</strong>
                                         {{ $project->second_stage_start_date ? $project->second_stage_start_date->format('d-m-Y') : 'Не указано' }}
@@ -57,22 +62,33 @@
 
                                 <div class="project-links">
                                     @if ($project->elon_fayl)
-                                        <a href="{{ asset('storage/' . $project->elon_fayl) }}" target="_blank" class="download-link">
+                                        <a href="{{ asset('storage/' . $project->elon_fayl) }}" target="_blank"
+                                            class="download-link">
                                             <i class="fas fa-file-download"></i> Объявление 1 этапа
                                         </a>
                                     @endif
                                     @if ($project->pratakol_fayl)
-                                        <a href="{{ asset('storage/' . $project->pratakol_fayl) }}" target="_blank" class="download-link">
+                                        <a href="{{ asset('storage/' . $project->pratakol_fayl) }}" target="_blank"
+                                            class="download-link">
                                             <i class="fas fa-file-download"></i> Протокол 1 этапа
                                         </a>
                                     @endif
+
+                                    @if ($project->status == 'archived' && $project->qoshimcha_fayl)
+                                        <a href="{{ asset('storage/' . $project->qoshimcha_fayl) }}" target="_blank"
+                                            class="download-link">
+                                            <i class="fas fa-file-download"></i> Архивный файл
+                                        </a>
+                                    @endif
+
+
                                 </div>
 
                                 {{-- Show modal button only if comment is available --}}
                                 @if (!empty($project->comment))
-                                    <button class="btn btn-primary btn-sm d-flex align-items-center justify-content-center mt-2" 
-                                            data-bs-toggle="modal" 
-                                            data-bs-target="#projectModal{{ $project->id }}">
+                                    <button
+                                        class="btn btn-primary btn-sm d-flex align-items-center justify-content-center mt-2"
+                                        data-bs-toggle="modal" data-bs-target="#projectModal{{ $project->id }}">
                                         <i class="fas fa-file-download"></i>
                                         <span>Результат отбора</span>
                                     </button>
@@ -92,20 +108,22 @@
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="projectModalLabel{{ $project->id }}">Комментарий к проекту</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <h5 class="modal-title" id="projectModalLabel{{ $project->id }}">Комментарий к
+                                            проекту</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <p>{{ $project->comment }}</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Закрыть</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     @endif
-
                 @endforeach
             </div>
         </div>
@@ -167,7 +185,8 @@
 
     .project-card-content {
         padding: 15px;
-        margin-top: 30px; /* space for the status title */
+        margin-top: 30px;
+        /* space for the status title */
     }
 
     .project-card-content h3 {
@@ -274,7 +293,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        font-size: 1.2em; 
+        font-size: 1.2em;
     }
 
     .projects-container.list-view .project-card {
