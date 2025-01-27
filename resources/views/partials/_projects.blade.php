@@ -74,7 +74,7 @@
                                         </a>
                                     @endif
 
-                                    @if ($project->status == 'archived' && $project->qoshimcha_fayl)
+                                    @if ($project->status == 'archive' && $project->qoshimcha_fayl)
                                         <a href="{{ asset('storage/' . $project->qoshimcha_fayl) }}" target="_blank"
                                             class="download-link">
                                             <i class="fas fa-file-download"></i> Архивный файл

@@ -134,7 +134,7 @@
             <select name="status" class="form-control">
                 <option value="1_step">1-Қадам</option>
                 <option value="2_step">2-Қадам</option>
-                <option value="archived">Архивланган</option>
+                <option value="archive">Архивланган</option>
                 <option value="completed">Якунланган</option>
             </select>
         </div>
