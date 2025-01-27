@@ -111,7 +111,7 @@
             <select name="status" class="form-control">
                 <option value="1_step" {{ $project->status == '1_step' ? 'selected' : '' }}>Step 1</option>
                 <option value="2_step" {{ $project->status == '2_step' ? 'selected' : '' }}>Step 2</option>
-                <option value="archive" {{ $project->status == 'archive' ? 'selected' : '' }}>Archived</option>
+                <option value="archived" {{ $project->status == 'archived' ? 'selected' : '' }}>Archived</option>
                 <option value="completed" {{ $project->status == 'completed' ? 'selected' : '' }}>Completed</option>
             </select>
         </div>
