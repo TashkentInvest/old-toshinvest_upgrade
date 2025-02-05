@@ -103,65 +103,65 @@ class ProjectController extends Controller
             'company_name' => 'nullable|string',
             'contact_person' => 'nullable|string',
             'hokim_resolution_no' => 'nullable|string',
-            'elon_fayl' => 'nullable',
-            'pratakol_fayl' => 'nullable',
-            'qoshimcha_fayl' => 'nullable',
+            'elon_fayl' => 'nullable|file',
+            'pratakol_fayl' => 'nullable|file',
+            'qoshimcha_fayl' => 'nullable|file',
             'implementation_period' => 'nullable|integer',
             'status' => 'required|in:1_step,2_step,archive,completed',
             'srok_realizatsi' => 'nullable|integer',
-            'start_date' => 'nullable',
-            'end_date' => 'nullable',
-            'second_stage_start_date' => 'nullable',
-            'second_stage_end_date' => 'nullable',
-
-            'latitude' => 'nullable',
-            'longitude' => 'nullable',
-            'comment' => 'nullable',
+            'start_date' => 'nullable|date',
+            'end_date' => 'nullable|date',
+            'second_stage_start_date' => 'nullable|date',
+            'second_stage_end_date' => 'nullable|date',
+            'latitude' => 'nullable|string',
+            'longitude' => 'nullable|string',
+            'comment' => 'nullable|string',
             'geolocation' => 'nullable|string',
             'geo_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $data = $request->all();
 
-        if ($request->hasFile('elon_fayl')) {
-            // Delete old elon_fayl if exists
-            if ($project->elon_fayl) {
-                Storage::disk('public')->delete($project->elon_fayl);
+        // Handle file deletions
+        foreach (['elon_fayl', 'pratakol_fayl', 'qoshimcha_fayl'] as $field) {
+            if ($request->has("delete_{$field}")) {
+                if ($project->$field) {
+                    Storage::disk('public')->delete($project->$field);
+                }
+                $data[$field] = null;
             }
-            $data['elon_fayl'] = $request->file('elon_fayl')->store('project_images/pratakol', 'public');
         }
 
-        if ($request->hasFile('pratakol_fayl')) {
-            // Delete old pratakol_fayl if exists
-            if ($project->pratakol_fayl) {
-                Storage::disk('public')->delete($project->pratakol_fayl);
+        // Handle file uploads
+        foreach (['elon_fayl', 'pratakol_fayl', 'qoshimcha_fayl'] as $field) {
+            if ($request->hasFile($field)) {
+                if ($project->$field) {
+                    Storage::disk('public')->delete($project->$field);
+                }
+                $data[$field] = $request->file($field)->store('project_images/' . $field, 'public');
             }
-            $data['pratakol_fayl'] = $request->file('pratakol_fayl')->store('project_images', 'public');
         }
 
-        if ($request->hasFile('qoshimcha_fayl')) {
-            // Delete old qoshimcha_fayl if exists
-            if ($project->qoshimcha_fayl) {
-                Storage::disk('public')->delete($project->qoshimcha_fayl);
+        // Handle geo image separately
+        if ($request->has("delete_geo_image")) {
+            if ($project->geo_image) {
+                Storage::disk('public')->delete($project->geo_image);
             }
-            $data['qoshimcha_fayl'] = $request->file('qoshimcha_fayl')->store('project_images/qoshimcha', 'public');
+            $data['geo_image'] = null;
         }
 
         if ($request->hasFile('geo_image')) {
-            // Delete the old image if exists
             if ($project->geo_image) {
-                Storage::delete('public/' . $project->geo_image);
+                Storage::disk('public')->delete($project->geo_image);
             }
-
-            $imagePath = $request->file('geo_image')->store('geo_images', 'public');
-        } else {
-            $imagePath = null;
+            $data['geo_image'] = $request->file('geo_image')->store('geo_images', 'public');
         }
 
         $project->update($data);
 
         return redirect()->route('projects.index')->with('success', 'Project updated successfully.');
     }
+
 
     // Remove the specified project from storage
     public function destroy($id)
