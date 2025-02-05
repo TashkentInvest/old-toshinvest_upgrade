@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="{{ asset('assets/new/assets/css/style.css') }}" id="main-style-link">
     <link rel="stylesheet" href="{{ asset('assets/new/assets/css/style-preset.css') }}">
 
-    <link rel="stylesheet" href="{{asset('assets/new/assets/css/plugins/dropzone.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/new/assets/css/plugins/dropzone.min.css') }}">
 
 
 
@@ -76,7 +76,7 @@
                 }
             }
         </style>
-    
+
         <header class="pc-header">
             <div class="header-wrapper"> <!-- [Mobile Media Block] start -->
                 <div class="me-auto pc-mob-drp">
@@ -100,14 +100,16 @@
                             <div class="dropdown-menu pc-h-dropdown drp-search">
                                 <form action="{{ route('search') }}" method="GET" class="px-3">
                                     <div class="mb-0 d-flex align-items-center">
-                                        <input type="search" name="query" class="form-control border-0 shadow-none" placeholder="Search...">
-                                        <button type="submit" class="btn btn-light-secondary btn-search">Qidirish</button>
+                                        <input type="search" name="query" class="form-control border-0 shadow-none"
+                                            placeholder="Search...">
+                                        <button type="submit"
+                                            class="btn btn-light-secondary btn-search">Qidirish</button>
                                     </div>
-                                </form>    
+                                </form>
                             </div>
                         </li>
-                   
-                        <li class="pc-h-item d-none d-md-inline-flex">
+
+                        {{-- <li class="pc-h-item d-none d-md-inline-flex">
                             <form action="{{ route('search') }}" method="GET" class="form-search">
                                 <i class="ph-duotone ph-magnifying-glass icon-search"></i>
                                 <input type="search" name="query" class="form-control" placeholder="Search...">
@@ -116,13 +118,13 @@
                             
                             
                             <h6 class="text-danger text-bold px-2">MG, MFY, Manzili va Maydoni orqali qidirishingiz mumkin !</h4>
-                        </li>
+                        </li> --}}
 
 
                     </ul>
                 </div>
                 <!-- [Mobile Media Block end] -->
-                <div class="ms-auto">
+                {{-- <div class="ms-auto">
                     <ul class="list-unstyled">
                         <li class="dropdown pc-h-item">
                             <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown"
@@ -211,7 +213,7 @@
                         </div>
                       
                     </ul>
-                </div>
+                </div> --}}
             </div>
         </header>
 
@@ -222,28 +224,28 @@
         <div class="pc-container">
             <div class="pc-content">
                 @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
 
-        <!-- Display error message -->
-        @if (session('error'))
-            <div class="alert alert-danger">
-                {{ session('error') }}
-            </div>
-        @endif
+                <!-- Display error message -->
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
 
-        <!-- Display validation errors -->
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+                <!-- Display validation errors -->
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
                 @yield('content')
             </div>
@@ -261,7 +263,7 @@
                         <p class="m-0">Copyright &copy; {{ date('Y') }} by <a target="_blank"
                                 href="https://toshkentinvest.uz">toshkentinvest.uz</a></a></p>
                     </div>
-                  
+
                 </div>
             </div>
         </footer>
@@ -270,9 +272,9 @@
     {{-- new --}}
     <!-- [Page Specific JS] start -->
 
-    <script src="{{asset('assets/new/assets/js/plugins/dropzone-amd-module.min.js')}}"></script>
+    <script src="{{ asset('assets/new/assets/js/plugins/dropzone-amd-module.min.js') }}"></script>
 
-    
+
     <script src="{{ asset('assets/new/assets/js/plugins/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/new/assets/js/plugins/jsvectormap.min.js') }}"></script>
     <script src="{{ asset('assets/new/assets/js/plugins/world.js') }}"></script>
@@ -499,13 +501,13 @@
     <script>
         $(document).ready(function() {
             $('.phone2').inputmask('+998 (99) 999-99-99');
-            
+
             $('#contact').on('focus', function() {
                 if ($(this).val().startsWith('+998') === false) {
                     $(this).val('+998 ');
                 }
             });
-            
+
             $('#contact').on('input', function() {
                 if ($(this).val().length > 14) {
                     $(this).val($(this).val().substring(0, 14));

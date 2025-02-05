@@ -9,30 +9,30 @@
             </a>
         </div>
 
-        <div class="table-responsive" style="overflow-x: auto;">
-            <table class="table table-bordered table-hover text-center" style="font-size: 0.875rem;">
+        <div class="table-responsive" style="overflow-x: hidden;">
+            <table id="projectsTable" class="table table-bordered table-hover text-center" style="font-size: 0.875rem;">
                 <thead class="bg-primary">
                     <tr>
-                        <th style="width: 10%;">Уникал рақам</th>
-                        <th style="width: 12%;">Туман</th>
-                        <th style="width: 12%;">Маҳалла</th>
-                        <th style="width: 10%;">Ер (га)</th>
-                        <th style="width: 15%;">Реализация муддати</th>
-                        <th style="width: 10%;">Ҳолат</th>
-                        <th style="width: 15%;">Файллар</th>
-                        <th style="width: 15%;">Таҳрирлаш</th>
+                        {{-- <th style="width: 10%;">Уникал рақам</th> --}}
+                        <th>Туман</th>
+                        <th>Маҳалла</th>
+                        <th>Ер (га)</th>
+                        <th>Реализация муддати</th>
+                        <th>Ҳолат</th>
+                        <th>Файллар</th>
+                        <th>Таҳрирлаш</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($projects as $project)
+                    @foreach ($projects as $project)
                         <tr>
-                            <td><strong>{{ $project->unique_number }}</strong></td>
+                            {{-- <td><strong>{{ $project->unique_number }}</strong></td> --}}
                             <td>{{ $project->district }}</td>
                             <td>{{ $project->mahalla }}</td>
                             <td>{{ $project->land }}</td>
                             <td>{{ $project->srok_realizatsi ?? '—' }}</td>
                             <td>
-                                @if($project->status == 'completed')
+                                @if ($project->status == 'completed')
                                     <span class="badge bg-success">Якунланган</span>
                                 @elseif($project->status == '1_step')
                                     <span class="badge bg-primary">1-Қадам</span>
@@ -43,33 +43,38 @@
                                 @endif
                             </td>
                             <td>
-                                @if($project->elon_fayl && file_exists(public_path('storage/' . $project->elon_fayl)))
-                                    <a class="btn btn-sm btn-info text-light" target="_blank" href="{{ asset('storage/' . $project->elon_fayl) }}">
+                                @if ($project->elon_fayl && file_exists(public_path('storage/' . $project->elon_fayl)))
+                                    <a class="btn btn-sm btn-info text-light" target="_blank"
+                                        href="{{ asset('storage/' . $project->elon_fayl) }}">
                                         <i class="fas fa-file-alt"></i> Эълон
                                     </a>
                                 @endif
-                            
-                                @if($project->pratakol_fayl && file_exists(public_path('storage/' . $project->pratakol_fayl)))
-                                    <a class="btn btn-sm btn-info text-light" target="_blank" href="{{ asset('storage/' . $project->pratakol_fayl) }}">
+
+                                @if ($project->pratakol_fayl && file_exists(public_path('storage/' . $project->pratakol_fayl)))
+                                    <a class="btn btn-sm btn-info text-light" target="_blank"
+                                        href="{{ asset('storage/' . $project->pratakol_fayl) }}">
                                         <i class="fas fa-file-contract"></i> Протокол
                                     </a>
                                 @endif
-                            
-                                @if($project->qoshimcha_fayl && file_exists(public_path('storage/' . $project->qoshimcha_fayl)))
-                                    <a class="btn btn-sm btn-info text-light" target="_blank" href="{{ asset('storage/' . $project->qoshimcha_fayl) }}">
+
+                                @if ($project->qoshimcha_fayl && file_exists(public_path('storage/' . $project->qoshimcha_fayl)))
+                                    <a class="btn btn-sm btn-info text-light" target="_blank"
+                                        href="{{ asset('storage/' . $project->qoshimcha_fayl) }}">
                                         <i class="fas fa-file-archive"></i> Қўшимча
                                     </a>
                                 @endif
                             </td>
                             <td>
-                                <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-sm btn-warning text-dark">
+                                <a href="{{ route('projects.edit', $project->id) }}"
+                                    class="btn btn-sm btn-warning text-dark">
                                     <i class="fas fa-edit"></i> Таҳрирлаш
                                 </a>
-                                <form action="{{ route('projects.destroy', $project->id) }}" method="POST" style="display:inline-block;">
+                                <form action="{{ route('projects.destroy', $project->id) }}" method="POST"
+                                    style="display:inline-block;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger"
-                                            onclick="return confirm('Сиз ростан ҳам бу лойиҳани ўчирмоқчимисиз?')">
+                                        onclick="return confirm('Сиз ростан ҳам бу лойиҳани ўчирмоқчимисиз?')">
                                         <i class="fas fa-trash-alt"></i> Ўчириш
                                     </button>
                                 </form>
@@ -80,4 +85,26 @@
             </table>
         </div>
     </div>
+
+    <style>
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            padding: 0 !important;
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js">
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#projectsTable').DataTable({
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "scrollX": true
+            });
+        });
+    </script>
 @endsection
