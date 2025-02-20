@@ -85,6 +85,19 @@
             );
         }, 2000);
     </script>
+
+
+<script>
+    window.replainSettings = { id: '707b8c53-47df-40de-b0bb-2e7750eaea1a' };
+    (function(u){var s=document.createElement('script');s.async=true;s.src=u;
+    var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
+    })('https://widget.replain.cc/dist/client.js');
+    </script>
+<style>
+body{
+overflow-x: hidden;
+}
+</style>
 </body>
 
 </html>
