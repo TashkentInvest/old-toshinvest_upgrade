@@ -502,7 +502,7 @@
                 <div class="t228__centerside">
                     <nav class="t228__centercontainer">
                         <ul role="list" class="t228__list t-menu__list t228__list_hidden">
-                            <li class="t228__list_item" style="padding: 0 30px 0 0">
+                            <li class="t228__list_item" style="padding: 0 15px 0 0">
                                 <a class="t-menu__link-item" href="" aria-expanded="false" role="button"
                                     data-menu-submenu-hook="link_sub1_748107215" data-menu-item-number="1">О
                                     компании</a>
@@ -1383,7 +1383,7 @@
                 <div class="t228__centerside">
                     <nav class="t228__centercontainer">
                         <ul role="list" class="t228__list t-menu__list t228__list_hidden">
-                            <li class="t228__list_item" style="padding: 0 30px 0 0">
+                            <li class="t228__list_item" style="padding: 0 15px 0 0">
                                 <a class="t-menu__link-item" href="" aria-expanded="false" role="button"
                                     data-menu-submenu-hook="link_sub1_748905478" data-menu-item-number="1">О
                                     компании</a>
