@@ -661,7 +661,7 @@
                                         display: inline-block;
                                         animation: creative-pulse 2s infinite;
                                         background: white;
-                                        color: #163772;
+                                        color: #fff;
                                         padding: 8px 15px;
                                         border-radius: 4px;
                                         text-decoration: none;
