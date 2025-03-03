@@ -650,8 +650,8 @@
                             </li>
                             <li class="t228__list_item" style="padding: 0 0 0 15px">
                                 <a class="t-menu__link-item click-me-animation" target="_blank" id="interactive_map"
-                                    href="https://projects.toshkentinvest.uz/" data-menu-submenu-hook=""
-                                    data-menu-item-number="6">
+                                    href="https://projects.toshkentinvest.uz?from_toshknetinvest_official_website/"
+                                    data-menu-submenu-hook="" data-menu-item-number="6">
                                     Интерактивная карта
                                 </a>
                                 <style>
@@ -1520,9 +1520,10 @@
                                     data-menu-submenu-hook="" data-menu-item-number="6">Контакты</a>
                             </li>
                             <li class="t228__list_item" style="padding: 0 0 0 15px">
-                                <a class="t-menu__link-item click-me-animation" target="_blank" id="interactive_map_blue"
-                                    href="https://projects.toshkentinvest.uz/" data-menu-submenu-hook=""
-                                    data-menu-item-number="6">
+                                <a class="t-menu__link-item click-me-animation" target="_blank"
+                                    id="interactive_map_blue"
+                                    href="https://projects.toshkentinvest.uz?from_toshknetinvest_official_website/"
+                                    data-menu-submenu-hook="" data-menu-item-number="6">
                                     Интерактивная карта
                                 </a>
                                 <style>
