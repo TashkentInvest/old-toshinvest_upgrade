@@ -649,23 +649,24 @@
                                     data-menu-submenu-hook="" data-menu-item-number="6">Контакты</a>
                             </li>
                             <li class="t228__list_item" style="padding: 0 0 0 15px">
-                                <a class="t-menu__link-item click-me-animation" id="interactive_map"
+                                <a class="t-menu__link-item click-me-animation" target="_blank" id="interactive_map"
                                     href="https://projects.toshkentinvest.uz/" data-menu-submenu-hook=""
                                     data-menu-item-number="6">
                                     Интерактивная карта
                                 </a>
                                 <style>
                                     /* Enhanced creative animation styles */
-                                    #interactive_map {
-                                        position: relative !important;
-                                        display: inline-block !important;
-                                        animation: creative-pulse 2s infinite !important;
-                                        background: white !important;
-                                        color: #163772 !important;
-                                        padding: 8px 15px !important;
-                                        border-radius: 4px !important;
-                                        text-decoration: none !important;
-                                        box-shadow: 0 0 0 0 rgba(22, 55, 114, 0.7) !important;
+                                    .t-menu__link-item#interactive_map {
+                                        position: relative;
+                                        display: inline-block;
+                                        animation: creative-pulse 2s infinite;
+                                        background: white;
+                                        color: #163772;
+                                        padding: 8px 15px;
+                                        border-radius: 4px;
+                                        text-decoration: none;
+                                        box-shadow: 0 0 0 0 rgba(22, 55, 114, 0.7);
+                                        transition: all 0.3s ease;
                                     }
 
                                     @keyframes creative-pulse {
@@ -688,17 +689,18 @@
                                         }
                                     }
 
-                                    #interactive_map::before {
+                                    .t-menu__link-item#interactive_map::before {
                                         content: '';
-                                        position: absolute !important;
-                                        top: -2px !important;
-                                        left: -2px !important;
-                                        right: -2px !important;
-                                        bottom: -2px !important;
-                                        border-radius: 6px !important;
-                                        background: linear-gradient(45deg, #163772, #2860c4) !important;
-                                        z-index: -1 !important;
-                                        animation: border-pulse 2s infinite !important;
+                                        position: absolute;
+                                        top: -2px;
+                                        left: -2px;
+                                        right: -2px;
+                                        bottom: -2px;
+                                        border-radius: 6px;
+                                        background: linear-gradient(45deg, #163772, #2860c4);
+                                        z-index: -1;
+                                        animation: border-pulse 2s infinite;
+                                        pointer-events: none;
                                     }
 
                                     @keyframes border-pulse {
@@ -712,24 +714,6 @@
 
                                         100% {
                                             opacity: 0.6;
-                                        }
-                                    }
-
-                                    /* Only show animation in production */
-                                    @media screen and (min-width: 1px) {
-                                        #interactive_map {
-                                            animation: creative-pulse 2s infinite !important;
-                                        }
-                                    }
-
-                                    /* Optional: disable animation for users who prefer reduced motion */
-                                    @media (prefers-reduced-motion: reduce) {
-                                        #interactive_map {
-                                            animation: none !important;
-                                        }
-
-                                        #interactive_map::before {
-                                            animation: none !important;
                                         }
                                     }
                                 </style>
