@@ -1519,6 +1519,76 @@
                                 <a class="t-menu__link-item" href="{{ route('frontend.contact') }}"
                                     data-menu-submenu-hook="" data-menu-item-number="6">Контакты</a>
                             </li>
+                            <li class="t228__list_item" style="padding: 0 0 0 15px">
+                                <a class="t-menu__link-item click-me-animation" target="_blank" id="interactive_map_blue"
+                                    href="https://projects.toshkentinvest.uz/" data-menu-submenu-hook=""
+                                    data-menu-item-number="6">
+                                    Интерактивная карта
+                                </a>
+                                <style>
+                                    /* Enhanced creative animation styles */
+                                    .t-menu__link-item#interactive_map_blue {
+                                        position: relative;
+                                        display: inline-block;
+                                        animation: creative-pulse 2s infinite;
+                                        background: #163772;
+                                        color: #fff !important;
+                                        padding: 8px 15px;
+                                        border-radius: 4px;
+                                        text-decoration: none;
+                                        box-shadow: 0 0 0 0 rgba(22, 55, 114, 0.7);
+                                        transition: all 0.3s ease;
+                                    }
+
+                                    @keyframes creative-pulse {
+                                        0% {
+                                            transform: scale(0.95);
+                                            box-shadow: 0 0 0 0 rgba(22, 55, 114, 0.7);
+                                            background: white !important;
+                                        }
+
+                                        70% {
+                                            transform: scale(1);
+                                            box-shadow: 0 0 0 10px rgba(22, 55, 114, 0);
+                                            background: rgba(22, 55, 114, 0.1);
+                                        }
+
+                                        100% {
+                                            transform: scale(0.95);
+                                            box-shadow: 0 0 0 0 rgba(22, 55, 114, 0);
+                                            background: white;
+                                        }
+                                    }
+
+                                    .t-menu__link-item#interactive_map_blue::before {
+                                        content: '';
+                                        position: absolute;
+                                        top: -2px;
+                                        left: -2px;
+                                        right: -2px;
+                                        bottom: -2px;
+                                        border-radius: 6px;
+                                        background: linear-gradient(45deg, #163772, #2860c4);
+                                        z-index: -1;
+                                        animation: border-pulse 2s infinite;
+                                        pointer-events: none;
+                                    }
+
+                                    @keyframes border-pulse {
+                                        0% {
+                                            opacity: 0.6;
+                                        }
+
+                                        50% {
+                                            opacity: 1;
+                                        }
+
+                                        100% {
+                                            opacity: 0.6;
+                                        }
+                                    }
+                                </style>
+                            </li>
                         </ul>
                     </nav>
                 </div>
