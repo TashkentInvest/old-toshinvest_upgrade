@@ -32,10 +32,10 @@ class FrontendController extends Controller
     public function investoram(Request $request, $subcategory = null)
     {
         $category = Category::where('slug', $subcategory)->first();
-    
+
         $validStatuses = ['1_step', '2_step', 'completed', 'archive'];
         $status = in_array($request->status, $validStatuses) ? $request->status : null;
-    
+
         $projects = Project::when($status, function ($query, $status) {
                 return $query->where('status', $status);
             })
@@ -48,17 +48,17 @@ class FrontendController extends Controller
             })
             ->orderBy('created_at', 'desc')
             ->get();
-        
+
         // If AJAX request, return only the HTML of filtered projects
         if ($request->ajax()) {
             return response()->json([
                 'html' => view('partials._projects', compact('projects'))->render()
             ]);
         }
-    
+
         return view('pages.frontend.investoram', compact('category', 'projects'));
     }
-    
+
 
 
 
@@ -110,8 +110,17 @@ class FrontendController extends Controller
     {
         return view('pages.frontend.share-sturukture');
     }
+    public function zakupki()
+    {
+        return view('pages.frontend.zakupki');
+    }
     public function kodeks()
     {
         return view('pages.frontend.kodeks');
     }
+    public function vacancies()
+    {
+        return view('pages.frontend.vacancies');
+    }
+
 }

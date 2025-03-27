@@ -42,11 +42,11 @@ Route::group(['middleware' => ['auth', 'checkUserRole']], function () {
     Route::get('products/jarayonda', [ProductController::class, 'jarayonda'])->name('products.jarayonda');
     Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
     Route::post('products', [ProductController::class, 'store'])->name('products.store');
- 
-    Route::get('products/add', [ProductController::class, 'add'])->name('productAdd');
-    
 
-    
+    Route::get('products/add', [ProductController::class, 'add'])->name('productAdd');
+
+
+
     Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');
     Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
     Route::put('products/{product}', [ProductController::class, 'update'])->name('products.update');
@@ -54,7 +54,7 @@ Route::group(['middleware' => ['auth', 'checkUserRole']], function () {
     Route::post('products/check-yer-uchastkasi-uniq', [ProductController::class, 'checkYerUchastkasiUniq'])->name('products.checkYerUchastkasiUniq');
 
 
-    
+
     Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
     Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
     Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
@@ -163,7 +163,7 @@ Route::get('calendar', [CalendarController::class, 'index'])->name('calendar.ind
 Route::get('search', [SearchController::class, 'search'])->name('search');
 
 Route::get('/ru/bidding.html', function () {
-    return redirect()->route('frontend.investoram'); 
+    return redirect()->route('frontend.investoram');
 });
 
 Route::prefix('')->name('frontend.')->group(function () {
@@ -185,4 +185,5 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/spisok', [FrontendController::class, 'spisok'])->name('spisok');
     Route::get('/share-struktura', [FrontendController::class, 'share_struktura'])->name('share_struktura');
     Route::get('/kodeks', [FrontendController::class, 'kodeks'])->name('kodeks');
+    Route::get('/vacancies', [FrontendController::class, 'vacancies'])->name('vacancies');
 });

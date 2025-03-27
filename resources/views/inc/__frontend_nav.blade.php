@@ -617,8 +617,8 @@
                                 </div>
                             </li>
                             <li class="t228__list_item" style="padding: 0 15px">
-                                <a class="t-menu__link-item" href="" data-menu-submenu-hook=""
-                                    data-menu-item-number="3">Бизнесу</a>
+                                <a class="t-menu__link-item" href="{{route('frontend.vacancies')}}" data-menu-submenu-hook=""
+                                    data-menu-item-number="3">Вакансии</a>
                             </li>
                             <li class="t228__list_item" style="padding: 0 15px">
                                 <a class="t-menu__link-item" href="{{ route('frontend.zakupki') }}"
@@ -1489,8 +1489,8 @@
                                 </div>
                             </li>
                             <li class="t228__list_item" style="padding: 0 15px">
-                                <a class="t-menu__link-item" href="" data-menu-submenu-hook=""
-                                    data-menu-item-number="3">Бизнесу</a>
+                                <a class="t-menu__link-item" href="{{route('frontend.vacancies')}}" data-menu-submenu-hook=""
+                                    data-menu-item-number="3">Вакансии</a>
                             </li>
                             <li class="t228__list_item" style="padding: 0 15px">
                                 <a class="t-menu__link-item" href="{{ route('frontend.zakupki') }}"
