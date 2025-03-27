@@ -511,14 +511,14 @@
                                     <div class="t-menusub__menu">
                                         <div class="t-menusub__content">
                                             <ul role="list" class="t-menusub__list">
-                                                <li class="t-menusub__list-item t-name t-name_xs">
+                                                {{-- <li class="t-menusub__list-item t-name t-name_xs">
                                                     <a class="t-menusub__link-item t-name t-name_xs" href="  "
                                                         data-menu-item-number="1">Об обществе</a>
                                                 </li>
                                                 <li class="t-menusub__list-item t-name t-name_xs">
                                                     <a class="t-menusub__link-item t-name t-name_xs"
                                                         href="./ru/error.html" data-menu-item-number="1">Миссия</a>
-                                                </li>
+                                                </li> --}}
                                                 <li class="t-menusub__list-item t-name t-name_xs">
                                                     <a class="t-menusub__link-item t-name t-name_xs"
                                                         href{{ route('frontend.ustav') }}-menu-item-number="1">Устав
@@ -549,12 +549,12 @@
                                                         href="./ru/error.html" data-menu-item-number="1">Внутренние
                                                         документы</a>
                                                 </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
+                                                {{-- <li class="t-menusub__list-item t-name t-name_xs">
                                                     <a class="t-menusub__link-item t-name t-name_xs"
                                                         href="ru/material-facts.html"
                                                         data-menu-item-number="1">Существенные
                                                         факты</a>
-                                                </li>
+                                                </li> --}}
                                                 <li class="t-menusub__list-item t-name t-name_xs">
                                                     <a class="t-menusub__link-item t-name t-name_xs"
                                                         href="{{ route('frontend.decision') }}"
@@ -584,13 +584,13 @@
                                                         data-menu-item-number="1">Кодекс и правила
                                                         поведения</a>
                                                 </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
+                                                {{-- <li class="t-menusub__list-item t-name t-name_xs">
                                                     <a class="t-menusub__link-item t-name t-name_xs"
                                                         href="./ru/error.html" data-menu-item-number="1">Приоритетные
                                                         направления
                                                         деятельности
                                                         Компании</a>
-                                                </li>
+                                                </li> --}}
                                             </ul>
                                         </div>
                                     </div>
@@ -1392,14 +1392,14 @@
                                     <div class="t-menusub__menu">
                                         <div class="t-menusub__content">
                                             <ul role="list" class="t-menusub__list">
-                                                <li class="t-menusub__list-item t-name t-name_xs">
+                                                {{-- <li class="t-menusub__list-item t-name t-name_xs">
                                                     <a class="t-menusub__link-item t-name t-name_xs" href="error.html"
                                                         data-menu-item-number="1">Об обществе</a>
                                                 </li>
                                                 <li class="t-menusub__list-item t-name t-name_xs">
                                                     <a class="t-menusub__link-item t-name t-name_xs" href="error.html"
                                                         data-menu-item-number="1">Миссия</a>
-                                                </li>
+                                                </li> --}}
                                                 <li class="t-menusub__list-item t-name t-name_xs">
                                                     <a class="t-menusub__link-item t-name t-name_xs"
                                                         href="{{ route('frontend.ustav') }}"
@@ -1429,10 +1429,10 @@
                                                         href="./error.html" data-menu-item-number="1">Внутренние
                                                         документы</a>
                                                 </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
+                                                {{-- <li class="t-menusub__list-item t-name t-name_xs">
                                                     <a class="t-menusub__link-item t-name t-name_xs" href="error.html"
                                                         data-menu-item-number="1">Существенные факты</a>
-                                                </li>
+                                                </li> --}}
                                                 <li class="t-menusub__list-item t-name t-name_xs">
                                                     <a class="t-menusub__link-item t-name t-name_xs"
                                                         href="{{ route('frontend.decision') }}"
@@ -1458,11 +1458,11 @@
                                                         href="{{ route('frontend.kodeks') }}"
                                                         data-menu-item-number="1">Кодекс и правила поведения</a>
                                                 </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
+                                                {{-- <li class="t-menusub__list-item t-name t-name_xs">
                                                     <a class="t-menusub__link-item t-name t-name_xs" href="error.html"
                                                         data-menu-item-number="1">Приоритетные направления деятельности
                                                         Компании</a>
-                                                </li>
+                                                </li> --}}
                                             </ul>
                                         </div>
                                     </div>

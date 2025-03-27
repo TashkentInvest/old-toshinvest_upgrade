@@ -32,16 +32,16 @@
                     <div class="t650__inner-col" style="background-color: rgb(255, 255, 255); height: 196px;">
                         <div class="t650__text">
                             <div class="t-card__title t-name t-name_lg" field="li_title__4974161772310"><a
-                                    href="corporate-governance-code.html" class="t-card__link" id="cardtitle1_748394760"
+                                    href="https://drive.google.com/file/d/1UuT6P6HBe_nVKuFdBH2ZlHiI5lhFS26P/preview" class="t-card__link" id="cardtitle1_748394760"
                                     aria-labelledby="cardtitle1_748394760 cardbtn1_748394760">Кодекс корпоративного
                                     управления</a></div>
                         </div>
                         <div class="t650__btn-container">
                             <div class="t-card__btntext-wrapper">
-                                <div class="t-card__btn-text t-btntext t-btntext_sm " id="cardbtn1_748394760"
+                                <a href="https://drive.google.com/file/d/1UuT6P6HBe_nVKuFdBH2ZlHiI5lhFS26P/preview" class="t-card__btn-text t-btntext t-btntext_sm " id="cardbtn1_748394760"
                                     data-field="li_buttontitle__4974161772310" style="color:#193d88;font-weight:600;"
                                     aria-hidden="true" data-buttonfieldset="li_button" data-lid="4974161772310">Просмотреть
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -50,16 +50,16 @@
                     <div class="t650__inner-col" style="background-color: rgb(255, 255, 255); height: 196px;">
                         <div class="t650__text">
                             <div class="t-card__title t-name t-name_lg" field="li_title__1715716888277"><a
-                                    href="corporate-governance-rules.html" class="t-card__link" id="cardtitle2_748394760"
+                                    href="https://drive.google.com/file/d/1L5wG3AEPZMyvsd723vnCRcDfG-UM3cTa/preview" class="t-card__link" id="cardtitle2_748394760"
                                     aria-labelledby="cardtitle2_748394760 cardbtn2_748394760">Правила корпоративного
                                     управления</a></div>
                         </div>
                         <div class="t650__btn-container">
                             <div class="t-card__btntext-wrapper">
-                                <div class="t-card__btn-text t-btntext t-btntext_sm " id="cardbtn2_748394760"
+                                <a href="https://drive.google.com/file/d/1L5wG3AEPZMyvsd723vnCRcDfG-UM3cTa/preview" class="t-card__btn-text t-btntext t-btntext_sm " id="cardbtn2_748394760"
                                     data-field="li_buttontitle__1715716888277" style="color:#193d88;font-weight:600;"
                                     aria-hidden="true" data-buttonfieldset="li_button" data-lid="1715716888277">Просмотреть
-                                </div>
+                                </a >
                             </div>
                         </div>
                     </div>
@@ -68,17 +68,17 @@
                     <div class="t650__inner-col" style="background-color: rgb(255, 255, 255); height: 196px;">
                         <div class="t650__text">
                             <div class="t-card__title t-name t-name_lg" field="li_title__1715716892123"><a
-                                    href="results-of-the-assessment-of-the-corporate-governance-system.html"
+                                    href="https://drive.google.com/file/d/1ruf4z4qfecZDd81yioCkfSkQ2lCATMag/preview"
                                     class="t-card__link" id="cardtitle3_748394760"
                                     aria-labelledby="cardtitle3_748394760 cardbtn3_748394760">Результаты оценки системы
                                     корпоративного управления</a></div>
                         </div>
                         <div class="t650__btn-container">
                             <div class="t-card__btntext-wrapper">
-                                <div class="t-card__btn-text t-btntext t-btntext_sm " id="cardbtn3_748394760"
+                                <a href="https://drive.google.com/file/d/1ruf4z4qfecZDd81yioCkfSkQ2lCATMag/preview" class="t-card__btn-text t-btntext t-btntext_sm " id="cardbtn3_748394760"
                                     data-field="li_buttontitle__1715716892123" style="color:#193d88;font-weight:600;"
                                     aria-hidden="true" data-buttonfieldset="li_button" data-lid="1715716892123">Просмотреть
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -88,17 +88,17 @@
                     <div class="t650__inner-col" style="background-color: rgb(255, 255, 255); height: 250px;">
                         <div class="t650__text">
                             <div class="t-card__title t-name t-name_lg" field="li_title__1715716893512"><a
-                                    href="notification-on-the-adoption-of-the-corporate-governance-rules-in-its-activities.html"
+                                    href="https://drive.google.com/file/d/1TFvghHgmYuoRSSxDdYWaLoX5Q9CMVh8J/preview"
                                     class="t-card__link" id="cardtitle4_748394760"
                                     aria-labelledby="cardtitle4_748394760 cardbtn4_748394760">Сообщение о принятии Правил
                                     корпоративного управления в своей деятельности</a></div>
                         </div>
                         <div class="t650__btn-container">
                             <div class="t-card__btntext-wrapper">
-                                <div class="t-card__btn-text t-btntext t-btntext_sm " id="cardbtn4_748394760"
+                                <a href="https://drive.google.com/file/d/1TFvghHgmYuoRSSxDdYWaLoX5Q9CMVh8J/preview" class="t-card__btn-text t-btntext t-btntext_sm " id="cardbtn4_748394760"
                                     data-field="li_buttontitle__1715716893512" style="color:#193d88;font-weight:600;"
                                     aria-hidden="true" data-buttonfieldset="li_button" data-lid="1715716893512">Просмотреть
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -107,17 +107,17 @@
                     <div class="t650__inner-col" style="background-color: rgb(255, 255, 255); height: 250px;">
                         <div class="t650__text">
                             <div class="t-card__title t-name t-name_lg" field="li_title__1715716895372"><a
-                                    href="notice-of-acceptance-of-the-recommendations-of-the-corporate-governance-code.html"
+                                    href="https://drive.google.com/file/d/1CJXescFyTKxU5wMSK9c0AtMkkIbm5eoI/preview"
                                     class="t-card__link" id="cardtitle5_748394760"
                                     aria-labelledby="cardtitle5_748394760 cardbtn5_748394760">Сообщение о принятии
                                     рекомендаций Кодекса корпоративного управления в своей деятельности</a></div>
                         </div>
                         <div class="t650__btn-container">
                             <div class="t-card__btntext-wrapper">
-                                <div class="t-card__btn-text t-btntext t-btntext_sm " id="cardbtn5_748394760"
+                                <a href="https://drive.google.com/file/d/1CJXescFyTKxU5wMSK9c0AtMkkIbm5eoI/preview" class="t-card__btn-text t-btntext t-btntext_sm " id="cardbtn5_748394760"
                                     data-field="li_buttontitle__1715716895372" style="color:#193d88;font-weight:600;"
                                     aria-hidden="true" data-buttonfieldset="li_button" data-lid="1715716895372">
-                                    Просмотреть</div>
+                                    Просмотреть</a>
                             </div>
                         </div>
                     </div>
