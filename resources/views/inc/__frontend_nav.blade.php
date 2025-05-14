@@ -519,9 +519,11 @@
                                                     <a class="t-menusub__link-item t-name t-name_xs"
                                                         href="./ru/error.html" data-menu-item-number="1">Миссия</a>
                                                 </li> --}}
+
                                                 <li class="t-menusub__list-item t-name t-name_xs">
                                                     <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href{{ route('frontend.ustav') }}-menu-item-number="1">Устав
+                                                        href="{{ route('frontend.ustav') }}"
+                                                        data-menu-item-number="1">Устав
                                                         компании</a>
                                                 </li>
                                                 <li class="t-menusub__list-item t-name t-name_xs">
@@ -617,8 +619,8 @@
                                 </div>
                             </li>
                             <li class="t228__list_item" style="padding: 0 15px">
-                                <a class="t-menu__link-item" href="{{route('frontend.vacancies')}}" data-menu-submenu-hook=""
-                                    data-menu-item-number="3">Вакансии</a>
+                                <a class="t-menu__link-item" href="{{ route('frontend.vacancies') }}"
+                                    data-menu-submenu-hook="" data-menu-item-number="3">Вакансии</a>
                             </li>
                             <li class="t228__list_item" style="padding: 0 15px">
                                 <a class="t-menu__link-item" href="{{ route('frontend.zakupki') }}"
@@ -1405,6 +1407,7 @@
                                                         href="{{ route('frontend.ustav') }}"
                                                         data-menu-item-number="1">Устав компании</a>
                                                 </li>
+
                                                 <li class="t-menusub__list-item t-name t-name_xs">
                                                     <a class="t-menusub__link-item t-name t-name_xs"
                                                         href="{{ route('frontend.struktura') }}"
@@ -1489,8 +1492,8 @@
                                 </div>
                             </li>
                             <li class="t228__list_item" style="padding: 0 15px">
-                                <a class="t-menu__link-item" href="{{route('frontend.vacancies')}}" data-menu-submenu-hook=""
-                                    data-menu-item-number="3">Вакансии</a>
+                                <a class="t-menu__link-item" href="{{ route('frontend.vacancies') }}"
+                                    data-menu-submenu-hook="" data-menu-item-number="3">Вакансии</a>
                             </li>
                             <li class="t228__list_item" style="padding: 0 15px">
                                 <a class="t-menu__link-item" href="{{ route('frontend.zakupki') }}"
