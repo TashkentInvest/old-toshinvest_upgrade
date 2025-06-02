@@ -97,7 +97,18 @@
 body{
 overflow-x: hidden;
 }
+
+
 </style>
+ {{-- .r t-rec t-rec_pt_15 t-rec_pb_30, #rec748903937{
+    padding-top: 15px !important;
+    padding-bottom: 30px !important;
+    bottom: 0 !important;
+background-color: #193d88 !important;
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+} --}}
 </body>
 
 </html>

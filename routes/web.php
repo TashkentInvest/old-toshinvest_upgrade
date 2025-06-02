@@ -19,6 +19,11 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProjectController;
 
+
+Route::get('/investment-project', function () {
+    return view('pages.frontend.investment-projects');
+})->name('frontend.investment-projects');
+
 Auth::routes(['register' => false]);
 
 // Welcome page
@@ -156,6 +161,7 @@ Route::get('/language/{lang}', function ($lang) {
 
 // new -----------------------
 
+
 Route::get('analytics/index', [AnalyticsController::class, 'index'])->name('analytics.index');
 Route::get('analytics/statistic', [AnalyticsController::class, 'statistic'])->name('analytics.statistic');
 
@@ -170,6 +176,8 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/', [FrontendController::class, 'index'])->name('index');
     // Route::get('/investoram', [FrontendController::class, 'investoram'])->name('investoram');
     Route::get('/investoram/{subcategory?}', [FrontendController::class, 'investoram'])->name('investoram');
+
+
 
     Route::get('/zakupki', [FrontendController::class, 'zakupki'])->name('zakupki');
     Route::get('/media', [FrontendController::class, 'media'])->name('media');

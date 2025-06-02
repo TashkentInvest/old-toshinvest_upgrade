@@ -37,8 +37,8 @@ class FrontendController extends Controller
         $status = in_array($request->status, $validStatuses) ? $request->status : null;
 
         $projects = Project::when($status, function ($query, $status) {
-                return $query->where('status', $status);
-            })
+            return $query->where('status', $status);
+        })
             ->when($request->q, function ($query, $search) {
                 return $query->where(function ($q) use ($search) {
                     $q->where('district', 'LIKE', '%' . $search . '%')
@@ -122,5 +122,4 @@ class FrontendController extends Controller
     {
         return view('pages.frontend.vacancies');
     }
-
 }

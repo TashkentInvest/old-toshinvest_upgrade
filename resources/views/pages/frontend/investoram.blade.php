@@ -10,7 +10,7 @@
 
 <div class="container" style="margin-bottom: 20px;">
     <div class="text-center mb-4">
-        <h1 class="text-primary fw-bold">Строительные инвестиционные проекты</h1>
+        <h1 class="text-primary fw-bold">Проекты ренавации</h1>
         <p class="text-secondary fs-5">АО «Компания Ташкент Инвест» объявляет конкурс для отбора наилучшего предложения</p>
     </div>
 
