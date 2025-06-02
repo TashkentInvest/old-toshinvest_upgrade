@@ -30,7 +30,7 @@
                         <ul class="list-group list-group-flush mb-3">
                             <li class="list-group-item"><strong>Махалля:</strong> Янгитарнов</li>
                             <li class="list-group-item"><strong>Площадь:</strong> 0,8528 га</li>
-                            <li class="list-group-item"><strong>Стадия 1:</strong> 02.06.2025 – 09.06.2025</li>
+                            <li class="list-group-item"><strong>Последняя дата и время подачи заявки:</strong> 09.06.2025г. 18:00 часов.</li>
                         </ul>
 
                         <div class="d-grid gap-2 mt-3">
