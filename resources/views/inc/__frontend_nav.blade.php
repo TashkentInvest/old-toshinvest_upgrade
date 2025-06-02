@@ -609,10 +609,20 @@
                                             <ul role="list" class="t-menusub__list">
                                                 <li class="t-menusub__list-item t-name t-name_xs">
                                                     <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.investoram') }}"
+                                                        href="{{ route('frontend.investment-projects') }}"
                                                         data-menu-item-number="2">Строительные инвестиционные
                                                         проекты</a>
+
+
                                                 </li>
+
+                                                <li class="t-menusub__list-item t-name t-name_xs">
+                                                    <a class="t-menusub__link-item t-name t-name_xs"
+                                                        href="{{ route('frontend.investoram') }}"
+                                                        data-menu-item-number="2">Проекты ренавации</a>
+
+                                                </li>
+
                                             </ul>
                                         </div>
                                     </div>
