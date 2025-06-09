@@ -165,7 +165,7 @@
                                         Срок подачи заявок
                                     </div>
                                     <div class="detail-value deadline-active">
-                                        16.00.2025г., 18:00
+                                        16.06.2025г., 18:00
                                         <span class="status-text">Активный</span>
                                     </div>
                                 </div>
