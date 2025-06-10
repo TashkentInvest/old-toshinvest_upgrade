@@ -43,8 +43,8 @@
                             <div class="t531__box">
                                 <div class="t531__title t-name t-name_xl t531__bottommargin_sm"
                                     field="li_persname__6237107501540">Шакиров Бахром Аскаралиевич</div>
-                                <div class="t531__persdescr t-descr t-descr_xs " field="li_persdescr__6237107501540">И. о.
-                                    председателя правления </div>
+                                <div class="t531__persdescr t-descr t-descr_xs " field="li_persdescr__6237107501540">
+                                    Председателя правления </div>
                             </div>
                         </div>
                     </div>
@@ -129,7 +129,7 @@
                     </div>
                 </div>
             </li>
-            <li class="t531__row" style="">
+            {{-- <li class="t531__row" style="">
                 <div class="t-col t-col_2 t-prefix_3 t531__leftcol">
                     <div class="t531__imgwrapper t531__imgwrapper_2">
                         <div class="t531__blockimg t-bgimg loaded"
@@ -181,7 +181,7 @@
                         </div>
                     </div>
                 </div>
-            </li>
+            </li> --}}
         </ul>
     </div>
 @endsection
