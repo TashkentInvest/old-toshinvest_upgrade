@@ -1,1772 +1,737 @@
-@if (request()->path() === '/')
-    <div id="rec748107215" class="r t-rec" style="" data-animationappear="off" data-record-type="257">
-        <!-- T228 -->
-        <div id="nav748107215marker"></div>
-        <div class="tmenu-mobile">
-            <div class="tmenu-mobile__container">
-                <div class="tmenu-mobile__burgerlogo">
-                    <a href="{{ route('frontend.board') }}"><img
-                            src="{{ asset('assets/frontend/tild3636-3735-4861-a236-666663383164/TIC_white.png') }}"
-                            class="tmenu-mobile__imglogo" imgfield="img" style="max-width: 100px; width: 100px"
-                            alt="" /></a>
+    <div id="rec748107215" class="parliament-clean-nav" data-animationappear="off" data-record-type="257">
+        {{-- Top Notice Bar --}}
+        <div class="notice-bar">
+            <div class="container">
+                <div class="notice-left">
+                    <span class="test-notice">SAYT SINOV TARIQASIDA ISHGA TUSHIRILGAN</span>
                 </div>
-                <button type="button" class="t-menuburger t-menuburger_third" aria-label="Навигационное меню"
-                    aria-expanded="false">
-                    <span style="background-color: #ffffff"></span><span style="background-color: #ffffff"></span><span
-                        style="background-color: #ffffff"></span><span style="background-color: #ffffff"></span>
-                </button>
-                <script>
-                    function t_menuburger_init(recid) {
-                        var rec = document.querySelector("#rec" + recid);
-                        if (!rec) return;
-                        var burger = rec.querySelector(".t-menuburger");
-                        if (!burger) return;
-                        var isSecondStyle = burger.classList.contains(
-                            "t-menuburger_second"
-                        );
-                        if (
-                            isSecondStyle &&
-                            !window.isMobile &&
-                            !("ontouchend" in document)
-                        ) {
-                            burger.addEventListener("mouseenter", function() {
-                                if (burger.classList.contains("t-menuburger-opened"))
-                                    return;
-                                burger.classList.remove("t-menuburger-unhovered");
-                                burger.classList.add("t-menuburger-hovered");
-                            });
-                            burger.addEventListener("mouseleave", function() {
-                                if (burger.classList.contains("t-menuburger-opened"))
-                                    return;
-                                burger.classList.remove("t-menuburger-hovered");
-                                burger.classList.add("t-menuburger-unhovered");
-                                setTimeout(function() {
-                                    burger.classList.remove("t-menuburger-unhovered");
-                                }, 300);
-                            });
-                        }
-                        burger.addEventListener("click", function() {
-                            if (
-                                !burger.closest(".tmenu-mobile") &&
-                                !burger.closest(".t450__burger_container") &&
-                                !burger.closest(".t466__container") &&
-                                !burger.closest(".t204__burger") &&
-                                !burger.closest(".t199__js__menu-toggler")
-                            ) {
-                                burger.classList.toggle("t-menuburger-opened");
-                                burger.classList.remove("t-menuburger-unhovered");
-                            }
-                        });
-                        var menu = rec.querySelector('[data-menu="yes"]');
-                        if (!menu) return;
-                        var menuLinks = menu.querySelectorAll(".t-menu__link-item");
-                        var submenuClassList = [
-                            "t978__menu-link_hook",
-                            "t978__tm-link",
-                            "t966__tm-link",
-                            "t794__tm-link",
-                            "t-menusub__target-link",
-                        ];
-                        Array.prototype.forEach.call(menuLinks, function(link) {
-                            link.addEventListener("click", function() {
-                                var isSubmenuHook = submenuClassList.some(function(
-                                    submenuClass
-                                ) {
-                                    return link.classList.contains(submenuClass);
-                                });
-                                if (isSubmenuHook) return;
-                                burger.classList.remove("t-menuburger-opened");
-                            });
-                        });
-                        menu.addEventListener(
-                            "clickedAnchorInTooltipMenu",
-                            function() {
-                                burger.classList.remove("t-menuburger-opened");
-                            }
-                        );
-                    }
-                    t_onReady(function() {
-                        t_onFuncLoad("t_menuburger_init", function() {
-                            t_menuburger_init("748107215");
-                        });
-                    });
-                </script>
-                <style>
-                    .t-menuburger {
-                        position: relative;
-                        flex-shrink: 0;
-                        width: 28px;
-                        height: 20px;
-                        padding: 0;
-                        border: none;
-                        background-color: transparent;
-                        outline: none;
-                        -webkit-transform: rotate(0deg);
-                        transform: rotate(0deg);
-                        transition: transform 0.5s ease-in-out;
-                        cursor: pointer;
-                        z-index: 999;
-                    }
-
-                    /*---menu burger lines---*/
-                    .t-menuburger span {
-                        display: block;
-                        position: absolute;
-                        width: 100%;
-                        opacity: 1;
-                        left: 0;
-                        -webkit-transform: rotate(0deg);
-                        transform: rotate(0deg);
-                        transition: 0.25s ease-in-out;
-                        height: 3px;
-                        background-color: #000;
-                    }
-
-                    .t-menuburger span:nth-child(1) {
-                        top: 0px;
-                    }
-
-                    .t-menuburger span:nth-child(2),
-                    .t-menuburger span:nth-child(3) {
-                        top: 8px;
-                    }
-
-                    .t-menuburger span:nth-child(4) {
-                        top: 16px;
-                    }
-
-                    /*menu burger big*/
-                    .t-menuburger__big {
-                        width: 42px;
-                        height: 32px;
-                    }
-
-                    .t-menuburger__big span {
-                        height: 5px;
-                    }
-
-                    .t-menuburger__big span:nth-child(2),
-                    .t-menuburger__big span:nth-child(3) {
-                        top: 13px;
-                    }
-
-                    .t-menuburger__big span:nth-child(4) {
-                        top: 26px;
-                    }
-
-                    /*menu burger small*/
-                    .t-menuburger__small {
-                        width: 22px;
-                        height: 14px;
-                    }
-
-                    .t-menuburger__small span {
-                        height: 2px;
-                    }
-
-                    .t-menuburger__small span:nth-child(2),
-                    .t-menuburger__small span:nth-child(3) {
-                        top: 6px;
-                    }
-
-                    .t-menuburger__small span:nth-child(4) {
-                        top: 12px;
-                    }
-
-                    /*menu burger opened*/
-                    .t-menuburger-opened span:nth-child(1) {
-                        top: 8px;
-                        width: 0%;
-                        left: 50%;
-                    }
-
-                    .t-menuburger-opened span:nth-child(2) {
-                        -webkit-transform: rotate(45deg);
-                        transform: rotate(45deg);
-                    }
-
-                    .t-menuburger-opened span:nth-child(3) {
-                        -webkit-transform: rotate(-45deg);
-                        transform: rotate(-45deg);
-                    }
-
-                    .t-menuburger-opened span:nth-child(4) {
-                        top: 8px;
-                        width: 0%;
-                        left: 50%;
-                    }
-
-                    .t-menuburger-opened.t-menuburger__big span:nth-child(1) {
-                        top: 6px;
-                    }
-
-                    .t-menuburger-opened.t-menuburger__big span:nth-child(4) {
-                        top: 18px;
-                    }
-
-                    .t-menuburger-opened.t-menuburger__small span:nth-child(1),
-                    .t-menuburger-opened.t-menuburger__small span:nth-child(4) {
-                        top: 6px;
-                    }
-
-                    /*---menu burger first style---*/
-                    @media (hover),
-                    (min-width: 0\0) {
-                        .t-menuburger_first:hover span:nth-child(1) {
-                            transform: translateY(1px);
-                        }
-
-                        .t-menuburger_first:hover span:nth-child(4) {
-                            transform: translateY(-1px);
-                        }
-
-                        .t-menuburger_first.t-menuburger__big:hover span:nth-child(1) {
-                            transform: translateY(3px);
-                        }
-
-                        .t-menuburger_first.t-menuburger__big:hover span:nth-child(4) {
-                            transform: translateY(-3px);
-                        }
-                    }
-
-                    /*---menu burger second style---*/
-                    .t-menuburger_second span:nth-child(2),
-                    .t-menuburger_second span:nth-child(3) {
-                        width: 80%;
-                        left: 20%;
-                        right: 0;
-                    }
-
-                    @media (hover),
-                    (min-width: 0\0) {
-
-                        .t-menuburger_second.t-menuburger-hovered span:nth-child(2),
-                        .t-menuburger_second.t-menuburger-hovered span:nth-child(3) {
-                            animation: t-menuburger-anim 0.3s ease-out normal forwards;
-                        }
-
-                        .t-menuburger_second.t-menuburger-unhovered span:nth-child(2),
-                        .t-menuburger_second.t-menuburger-unhovered span:nth-child(3) {
-                            animation: t-menuburger-anim2 0.3s ease-out normal forwards;
-                        }
-                    }
-
-                    .t-menuburger_second.t-menuburger-opened span:nth-child(2),
-                    .t-menuburger_second.t-menuburger-opened span:nth-child(3) {
-                        left: 0;
-                        right: 0;
-                        width: 100% !important;
-                    }
-
-                    /*---menu burger third style---*/
-                    .t-menuburger_third span:nth-child(4) {
-                        width: 70%;
-                        left: unset;
-                        right: 0;
-                    }
-
-                    @media (hover),
-                    (min-width: 0\0) {
-                        .t-menuburger_third:not(.t-menuburger-opened):hover span:nth-child(4) {
-                            width: 100%;
-                        }
-                    }
-
-                    .t-menuburger_third.t-menuburger-opened span:nth-child(4) {
-                        width: 0 !important;
-                        right: 50%;
-                    }
-
-                    /*---menu burger fourth style---*/
-                    .t-menuburger_fourth {
-                        height: 12px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger__small {
-                        height: 8px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger__big {
-                        height: 18px;
-                    }
-
-                    .t-menuburger_fourth span:nth-child(2),
-                    .t-menuburger_fourth span:nth-child(3) {
-                        top: 4px;
-                        opacity: 0;
-                    }
-
-                    .t-menuburger_fourth span:nth-child(4) {
-                        top: 8px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger__small span:nth-child(2),
-                    .t-menuburger_fourth.t-menuburger__small span:nth-child(3) {
-                        top: 3px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger__small span:nth-child(4) {
-                        top: 6px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger__small span:nth-child(2),
-                    .t-menuburger_fourth.t-menuburger__small span:nth-child(3) {
-                        top: 3px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger__small span:nth-child(4) {
-                        top: 6px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger__big span:nth-child(2),
-                    .t-menuburger_fourth.t-menuburger__big span:nth-child(3) {
-                        top: 6px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger__big span:nth-child(4) {
-                        top: 12px;
-                    }
-
-                    @media (hover),
-                    (min-width: 0\0) {
-                        .t-menuburger_fourth:not(.t-menuburger-opened):hover span:nth-child(1) {
-                            transform: translateY(1px);
-                        }
-
-                        .t-menuburger_fourth:not(.t-menuburger-opened):hover span:nth-child(4) {
-                            transform: translateY(-1px);
-                        }
-
-                        .t-menuburger_fourth.t-menuburger__big:not(.t-menuburger-opened):hover span:nth-child(1) {
-                            transform: translateY(3px);
-                        }
-
-                        .t-menuburger_fourth.t-menuburger__big:not(.t-menuburger-opened):hover span:nth-child(4) {
-                            transform: translateY(-3px);
-                        }
-                    }
-
-                    .t-menuburger_fourth.t-menuburger-opened span:nth-child(1),
-                    .t-menuburger_fourth.t-menuburger-opened span:nth-child(4) {
-                        top: 4px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger-opened span:nth-child(2),
-                    .t-menuburger_fourth.t-menuburger-opened span:nth-child(3) {
-                        opacity: 1;
-                    }
-
-                    /*---menu burger animations---*/
-                    @keyframes t-menuburger-anim {
-                        0% {
-                            width: 80%;
-                            left: 20%;
-                            right: 0;
-                        }
-
-                        50% {
-                            width: 100%;
-                            left: 0;
-                            right: 0;
-                        }
-
-                        100% {
-                            width: 80%;
-                            left: 0;
-                            right: 20%;
-                        }
-                    }
-
-                    @keyframes t-menuburger-anim2 {
-                        0% {
-                            width: 80%;
-                            left: 0;
-                        }
-
-                        50% {
-                            width: 100%;
-                            right: 0;
-                            left: 0;
-                        }
-
-                        100% {
-                            width: 80%;
-                            left: 20%;
-                            right: 0;
-                        }
-                    }
-                </style>
+                {{-- <div class="notice-right">
+                    <a href="#" class="old-version-link">AVVALGI KO'RINISHIGA O'TISH</a>
+                </div> --}}
             </div>
         </div>
-        <style>
-            .tmenu-mobile {
-                background-color: #111;
-                display: none;
-                width: 100%;
-                top: 0;
-                z-index: 990;
-            }
 
-            .tmenu-mobile_positionfixed {
-                position: fixed;
-            }
-
-            .tmenu-mobile__text {
-                color: #fff;
-            }
-
-            .tmenu-mobile__container {
-                min-height: 64px;
-                padding: 20px;
-                position: relative;
-                box-sizing: border-box;
-                display: -webkit-flex;
-                display: -ms-flexbox;
-                display: flex;
-                -webkit-align-items: center;
-                -ms-flex-align: center;
-                align-items: center;
-                -webkit-justify-content: space-between;
-                -ms-flex-pack: justify;
-                justify-content: space-between;
-            }
-
-            .tmenu-mobile__list {
-                display: block;
-            }
-
-            .tmenu-mobile__burgerlogo {
-                display: inline-block;
-                font-size: 24px;
-                font-weight: 400;
-                white-space: nowrap;
-                vertical-align: middle;
-            }
-
-            .tmenu-mobile__imglogo {
-                height: auto;
-                display: block;
-                max-width: 300px !important;
-                box-sizing: border-box;
-                padding: 0;
-                margin: 0 auto;
-            }
-
-            @media screen and (max-width: 980px) {
-                .tmenu-mobile__menucontent_hidden {
-                    display: none;
-                    height: 100%;
-                }
-
-                .tmenu-mobile {
-                    display: block;
-                }
-            }
-
-            @media screen and (max-width: 980px) {
-                #rec748107215 .tmenu-mobile {
-                    background-color: #193d88;
-                }
-
-                #rec748107215 .t-menuburger {
-                    -webkit-order: 1;
-                    -ms-flex-order: 1;
-                    order: 1;
-                }
-            }
-        </style>
-
-        <div id="nav748107215" class="t228 t228__positionabsolute tmenu-mobile__menucontent_hidden"
-            style="background-color: rgba(25, 61, 136, 0); height: 70px" data-bgcolor-hex="#193d88"
-            data-bgcolor-rgba="rgba(25,61,136,0.0)" data-navmarker="nav748107215marker" data-appearoffset=""
-            data-bgopacity-two="100" data-menushadow="" data-menushadow-css="" data-bgopacity="0.0"
-            data-bgcolor-rgba-afterscroll="rgba(25,61,136,1)" data-menu-items-align="center" data-menu="yes">
-            <div class="t228__maincontainer" style="height: 70px">
-                <div class="t228__padding40px"></div>
-                <div class="t228__leftside">
-                    <div class="t228__leftcontainer">
-                        <a href="{{ route('frontend.board') }}" class="t228__imgwrapper"><img
-                                class="t228__imglogo t228__imglogomobile"
-                                src="{{ asset('assets/frontend/tild3636-3735-4861-a236-666663383164/TIC_white.png') }}"
-                                imgfield="img"
-                                style="
-              max-width: 100px;
-              width: 100px;
-              min-width: 100px;
-              height: auto;
-              display: block;
-            "
-                                alt="" /></a>
+        {{-- Main Header --}}
+        <header class="parliament-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="emblem-section">
+                        <img src="{{ asset('assets/frontend/tild6238-3031-4265-a564-343037346231/tic_logo_blue.png') }}"
+                            alt="Emblem" class="emblem-img">
                     </div>
-                </div>
-                <div class="t228__centerside">
-                    <nav class="t228__centercontainer">
-                        <ul role="list" class="t228__list t-menu__list t228__list_hidden">
-                            <li class="t228__list_item" style="padding: 0 15px 0 0">
-                                <a class="t-menu__link-item" href="" aria-expanded="false" role="button"
-                                    data-menu-submenu-hook="link_sub1_748107215" data-menu-item-number="1">О
-                                    компании</a>
-                                <div class="t-menusub" data-submenu-hook="link_sub1_748107215"
-                                    data-submenu-margin="15px" data-add-submenu-arrow="">
-                                    <div class="t-menusub__menu">
-                                        <div class="t-menusub__content">
-                                            <ul role="list" class="t-menusub__list">
-                                                {{-- <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs" href="  "
-                                                        data-menu-item-number="1">Об обществе</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="./ru/error.html" data-menu-item-number="1">Миссия</a>
-                                                </li> --}}
-
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.ustav') }}"
-                                                        data-menu-item-number="1">Устав
-                                                        компании</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.struktura') }}"
-                                                        data-menu-item-number="1">Организационная структура</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.supervisory_board') }}"
-                                                        data-menu-item-number="1">Наблюдательный совет</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.board') }}"
-                                                        data-menu-item-number="1">Правление</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="ru/development-fund.html" data-menu-item-number="1">Фонд
-                                                        Развития</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="./ru/error.html" data-menu-item-number="1">Внутренние
-                                                        документы</a>
-                                                </li>
-                                                {{-- <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="ru/material-facts.html"
-                                                        data-menu-item-number="1">Существенные
-                                                        факты</a>
-                                                </li> --}}
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.decision') }}"
-                                                        data-menu-item-number="1">Решение о первичном выпуске
-                                                        акций</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.reports') }}"
-                                                        data-menu-item-number="1">Отчеты</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.spisok') }}"
-                                                        data-menu-item-number="1">Список
-                                                        аффилированных лиц</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="share-capital-structure.html"
-                                                        data-menu-item-number="1">Структура акционерного
-                                                        капитала</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.kodeks') }}"
-                                                        data-menu-item-number="1">Кодекс и правила
-                                                        поведения</a>
-                                                </li>
-                                                {{-- <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="./ru/error.html" data-menu-item-number="1">Приоритетные
-                                                        направления
-                                                        деятельности
-                                                        Компании</a>
-                                                </li> --}}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="t228__list_item" style="padding: 0 15px">
-                                <a class="t-menu__link-item" href="" aria-expanded="false" role="button"
-                                    data-menu-submenu-hook="link_sub2_748107215"
-                                    data-menu-item-number="2">Инвесторам</a>
-                                <div class="t-menusub" data-submenu-hook="link_sub2_748107215"
-                                    data-submenu-margin="15px" data-add-submenu-arrow="">
-                                    <div class="t-menusub__menu">
-                                        <div class="t-menusub__content">
-                                            <ul role="list" class="t-menusub__list">
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.investment-projects') }}"
-                                                        data-menu-item-number="2">Строительные инвестиционные
-                                                        проекты</a>
-
-
-                                                </li>
-
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.investoram') }}"
-                                                        data-menu-item-number="2">Проекты ренавации</a>
-
-                                                </li>
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="t228__list_item" style="padding: 0 15px">
-                                <a class="t-menu__link-item" href="{{ route('frontend.vacancies') }}"
-                                    data-menu-submenu-hook="" data-menu-item-number="3">Вакансии</a>
-                            </li>
-                            <li class="t228__list_item" style="padding: 0 15px">
-                                <a class="t-menu__link-item" href="{{ route('frontend.zakupki') }}"
-                                    data-menu-submenu-hook="" data-menu-item-number="4">Закупки</a>
-                            </li>
-                            <li class="t228__list_item" style="padding: 0 15px">
-                                <a class="t-menu__link-item" href="" aria-expanded="false" role="button"
-                                    data-menu-submenu-hook="link_sub5_748107215"
-                                    data-menu-item-number="5">Медиа-центр</a>
-                                <div class="t-menusub" data-submenu-hook="link_sub5_748107215"
-                                    data-submenu-margin="15px" data-add-submenu-arrow="">
-                                    <div class="t-menusub__menu">
-                                        <div class="t-menusub__content">
-                                            <ul role="list" class="t-menusub__list">
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.media') }}"
-                                                        data-menu-item-number="5">Новости
-                                                        компании</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="t228__list_item" style="padding: 0 0 0 15px">
-                                <a class="t-menu__link-item" href="{{ route('frontend.contact') }}"
-                                    data-menu-submenu-hook="" data-menu-item-number="6">Контакты</a>
-                            </li>
-                            <li class="t228__list_item" style="padding: 0 0 0 15px">
-                                <a class="t-menu__link-item click-me-animation" target="_blank" id="interactive_map"
-                                    href="https://projects.toshkentinvest.uz?from_toshknetinvest_official_website/"
-                                    data-menu-submenu-hook="" data-menu-item-number="6">
-                                    Интерактивная карта
-                                </a>
-                                <style>
-                                    /* Enhanced creative animation styles */
-                                    .t-menu__link-item#interactive_map {
-                                        position: relative;
-                                        display: inline-block;
-                                        animation: creative-pulse 2s infinite;
-                                        background: white;
-                                        color: #fff;
-                                        padding: 8px 15px;
-                                        border-radius: 4px;
-                                        text-decoration: none;
-                                        box-shadow: 0 0 0 0 rgba(22, 55, 114, 0.7);
-                                        transition: all 0.3s ease;
-                                    }
-
-                                    @keyframes creative-pulse {
-                                        0% {
-                                            transform: scale(0.95);
-                                            box-shadow: 0 0 0 0 rgba(22, 55, 114, 0.7);
-                                            background: white;
-                                        }
-
-                                        70% {
-                                            transform: scale(1);
-                                            box-shadow: 0 0 0 10px rgba(22, 55, 114, 0);
-                                            background: rgba(22, 55, 114, 0.1);
-                                        }
-
-                                        100% {
-                                            transform: scale(0.95);
-                                            box-shadow: 0 0 0 0 rgba(22, 55, 114, 0);
-                                            background: white;
-                                        }
-                                    }
-
-                                    .t-menu__link-item#interactive_map::before {
-                                        content: '';
-                                        position: absolute;
-                                        top: -2px;
-                                        left: -2px;
-                                        right: -2px;
-                                        bottom: -2px;
-                                        border-radius: 6px;
-                                        background: linear-gradient(45deg, #163772, #2860c4);
-                                        z-index: -1;
-                                        animation: border-pulse 2s infinite;
-                                        pointer-events: none;
-                                    }
-
-                                    @keyframes border-pulse {
-                                        0% {
-                                            opacity: 0.6;
-                                        }
-
-                                        50% {
-                                            opacity: 1;
-                                        }
-
-                                        100% {
-                                            opacity: 0.6;
-                                        }
-                                    }
-                                </style>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="t228__rightside">
-                    <div class="t228__rightcontainer">
-                        <div class="t228__right_langs">
-                            <div class="t228__right_buttons_wrap">
-                                {{-- <div class="t228__right_langs_lang">
-                                <a style="opacity: 0.5" href="">En</a>
-                            </div> --}}
-                                <div class="t228__right_langs_lang">
-                                    <a style="opacity: 0.5" href="">Uz</a>
-                                </div>
-                            </div>
+                    <div class="title-section">
+                        <h1 class="main-title">TASHKENT INVEST COMPANY</h1>
+                        <h2 class="main-subtitle">ИНВЕСТИЦИОННАЯ КОМПАНИЯ</h2>
+                    </div>
+                    <div class="header-controls">
+                        <div class="language-controls">
+                            <a href="#" class="lang-btn">O'zbek</a>
+                            <button class="login-btn">Kirish</button>
                         </div>
                     </div>
                 </div>
-                <div class="t228__padding40px"></div>
             </div>
-        </div>
-        <style>
-            @media screen and (max-width: 980px) {
-                #rec748107215 .t228__leftcontainer {
-                    display: none;
-                }
-            }
-        </style>
-        <style>
-            @media screen and (max-width: 980px) {
-                #rec748107215 .t228__leftcontainer {
-                    padding: 20px;
-                }
+        </header>
 
-                #rec748107215 .t228__imglogo {
-                    padding: 20px 0;
-                }
-
-                #rec748107215 .t228 {
-                    position: static;
-                }
-            }
-        </style>
-        <script>
-            window.addEventListener("load", function() {
-                t_onFuncLoad("t228_setWidth", function() {
-                    t228_setWidth("748107215");
-                });
-            });
-            window.addEventListener(
-                "resize",
-                t_throttle(function() {
-                    t_onFuncLoad("t228_setWidth", function() {
-                        t228_setWidth("748107215");
-                    });
-                    t_onFuncLoad("t_menu__setBGcolor", function() {
-                        t_menu__setBGcolor("748107215", ".t228");
-                    });
-                })
-            );
-            t_onReady(function() {
-                t_onFuncLoad("t_menu__highlightActiveLinks", function() {
-                    t_menu__highlightActiveLinks(".t228__list_item a");
-                });
-                t_onFuncLoad("t228__init", function() {
-                    t228__init("748107215");
-                });
-                t_onFuncLoad("t_menu__setBGcolor", function() {
-                    t_menu__setBGcolor("748107215", ".t228");
-                });
-                t_onFuncLoad("t_menu__interactFromKeyboard", function() {
-                    t_menu__interactFromKeyboard("748107215");
-                });
-                t_onFuncLoad("t228_setWidth", function() {
-                    t228_setWidth("748107215");
-                });
-                t_onFuncLoad("t_menu__createMobileMenu", function() {
-                    t_menu__createMobileMenu("748107215", ".t228");
-                });
-            });
-        </script>
-
-        <style>
-            #rec748107215 .t-menu__link-item {}
-
-            @supports (overflow: -webkit-marquee) and (justify-content: inherit) {
-
-                #rec748107215 .t-menu__link-item,
-                #rec748107215 .t-menu__link-item.t-active {
-                    opacity: 1 !important;
-                }
-            }
-        </style>
-        <script>
-            t_onReady(function() {
-                setTimeout(function() {
-                    t_onFuncLoad("t_menusub_init", function() {
-                        t_menusub_init("748107215");
-                    });
-                }, 500);
-            });
-        </script>
-        <style>
-            #rec748107215 .t-menusub__link-item {
-                -webkit-transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
-                transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
-            }
-
-            #rec748107215 .t-menusub__link-item.t-active {
-                color: #193d88 !important;
-            }
-
-            #rec748107215 .t-menusub__link-item:not(.t-active):not(.tooltipstered):hover {
-                color: #193d88 !important;
-            }
-
-            @supports (overflow: -webkit-marquee) and (justify-content: inherit) {
-
-                #rec748107215 .t-menusub__link-item,
-                #rec748107215 .t-menusub__link-item.t-active {
-                    opacity: 1 !important;
-                }
-            }
-
-            @media screen and (max-width: 980px) {
-                #rec748107215 .t-menusub__menu .t-menusub__link-item {
-                    color: #ffffff !important;
-                }
-
-                #rec748107215 .t-menusub__menu .t-menusub__link-item.t-active {
-                    color: #193d88 !important;
-                }
-            }
-
-            @media screen and (min-width: 981px) {
-                #rec748107215 .t-menusub__menu {
-                    text-align: left;
-                }
-            }
-        </style>
-        <style>
-            #rec748107215 a.t-menusub__link-item {
-                font-size: 10px;
-                text-transform: uppercase;
-            }
-        </style>
-        <style>
-            #rec748107215 a.t-menu__link-item {
-                font-size: 14px;
-                color: #ffffff;
-                font-weight: 700;
-                text-transform: uppercase;
-            }
-
-            #rec748107215 .t228__right_langs_lang a {
-                font-size: 14px;
-                color: #ffffff;
-                font-weight: 700;
-                text-transform: uppercase;
-            }
-        </style>
-
-    </div>
-@else
-    <div id="rec748905478" class="r t-rec" style="" data-animationappear="off" data-record-type="257">
-        <!-- T228 -->
-        <div id="nav748905478marker"></div>
-        <div class="tmenu-mobile">
-            <div class="tmenu-mobile__container">
-                <div class="tmenu-mobile__burgerlogo">
-                    <a href="{{ route('frontend.index') }}"><img
-                            src="{{ asset('assets/frontend/tild6238-3031-4265-a564-343037346231/tic_logo_blue.png') }}"
-                            class="tmenu-mobile__imglogo" imgfield="img" style="max-width: 150px; width: 150px"
-                            alt="" /></a>
+        {{-- Mobile Menu --}}
+        <div class="mobile-menu-header">
+            <div class="container">
+                <div class="mobile-brand">
+                    <img src="{{ asset('assets/frontend/tild6238-3031-4265-a564-343037346231/tic_logo_blue.png') }}"
+                        alt="TIC" class="mobile-logo">
                 </div>
-                <button type="button" class="t-menuburger t-menuburger_third" aria-label="Навигационное меню"
-                    aria-expanded="false">
-                    <span style="background-color: #193d88"></span><span
-                        style="background-color: #193d88"></span><span style="background-color: #193d88"></span><span
-                        style="background-color: #193d88"></span>
+                <button class="mobile-hamburger" onclick="toggleMobileNav()">
+                    <span></span><span></span><span></span>
                 </button>
-                <script>
-                    function t_menuburger_init(recid) {
-                        var rec = document.querySelector("#rec" + recid);
-                        if (!rec) return;
-                        var burger = rec.querySelector(".t-menuburger");
-                        if (!burger) return;
-                        var isSecondStyle = burger.classList.contains(
-                            "t-menuburger_second"
-                        );
-                        if (
-                            isSecondStyle &&
-                            !window.isMobile &&
-                            !("ontouchend" in document)
-                        ) {
-                            burger.addEventListener("mouseenter", function() {
-                                if (burger.classList.contains("t-menuburger-opened"))
-                                    return;
-                                burger.classList.remove("t-menuburger-unhovered");
-                                burger.classList.add("t-menuburger-hovered");
-                            });
-                            burger.addEventListener("mouseleave", function() {
-                                if (burger.classList.contains("t-menuburger-opened"))
-                                    return;
-                                burger.classList.remove("t-menuburger-hovered");
-                                burger.classList.add("t-menuburger-unhovered");
-                                setTimeout(function() {
-                                    burger.classList.remove("t-menuburger-unhovered");
-                                }, 300);
-                            });
-                        }
-                        burger.addEventListener("click", function() {
-                            if (
-                                !burger.closest(".tmenu-mobile") &&
-                                !burger.closest(".t450__burger_container") &&
-                                !burger.closest(".t466__container") &&
-                                !burger.closest(".t204__burger") &&
-                                !burger.closest(".t199__js__menu-toggler")
-                            ) {
-                                burger.classList.toggle("t-menuburger-opened");
-                                burger.classList.remove("t-menuburger-unhovered");
-                            }
-                        });
-                        var menu = rec.querySelector('[data-menu="yes"]');
-                        if (!menu) return;
-                        var menuLinks = menu.querySelectorAll(".t-menu__link-item");
-                        var submenuClassList = [
-                            "t978__menu-link_hook",
-                            "t978__tm-link",
-                            "t966__tm-link",
-                            "t794__tm-link",
-                            "t-menusub__target-link",
-                        ];
-                        Array.prototype.forEach.call(menuLinks, function(link) {
-                            link.addEventListener("click", function() {
-                                var isSubmenuHook = submenuClassList.some(function(
-                                    submenuClass
-                                ) {
-                                    return link.classList.contains(submenuClass);
-                                });
-                                if (isSubmenuHook) return;
-                                burger.classList.remove("t-menuburger-opened");
-                            });
-                        });
-                        menu.addEventListener(
-                            "clickedAnchorInTooltipMenu",
-                            function() {
-                                burger.classList.remove("t-menuburger-opened");
-                            }
-                        );
-                    }
-                    t_onReady(function() {
-                        t_onFuncLoad("t_menuburger_init", function() {
-                            t_menuburger_init("748905478");
-                        });
-                    });
-                </script>
-                <style>
-                    .t-menuburger {
-                        position: relative;
-                        flex-shrink: 0;
-                        width: 28px;
-                        height: 20px;
-                        padding: 0;
-                        border: none;
-                        background-color: transparent;
-                        outline: none;
-                        -webkit-transform: rotate(0deg);
-                        transform: rotate(0deg);
-                        transition: transform 0.5s ease-in-out;
-                        cursor: pointer;
-                        z-index: 999;
-                    }
-
-                    /*---menu burger lines---*/
-                    .t-menuburger span {
-                        display: block;
-                        position: absolute;
-                        width: 100%;
-                        opacity: 1;
-                        left: 0;
-                        -webkit-transform: rotate(0deg);
-                        transform: rotate(0deg);
-                        transition: 0.25s ease-in-out;
-                        height: 3px;
-                        background-color: #000;
-                    }
-
-                    .t-menuburger span:nth-child(1) {
-                        top: 0px;
-                    }
-
-                    .t-menuburger span:nth-child(2),
-                    .t-menuburger span:nth-child(3) {
-                        top: 8px;
-                    }
-
-                    .t-menuburger span:nth-child(4) {
-                        top: 16px;
-                    }
-
-                    /*menu burger big*/
-                    .t-menuburger__big {
-                        width: 42px;
-                        height: 32px;
-                    }
-
-                    .t-menuburger__big span {
-                        height: 5px;
-                    }
-
-                    .t-menuburger__big span:nth-child(2),
-                    .t-menuburger__big span:nth-child(3) {
-                        top: 13px;
-                    }
-
-                    .t-menuburger__big span:nth-child(4) {
-                        top: 26px;
-                    }
-
-                    /*menu burger small*/
-                    .t-menuburger__small {
-                        width: 22px;
-                        height: 14px;
-                    }
-
-                    .t-menuburger__small span {
-                        height: 2px;
-                    }
-
-                    .t-menuburger__small span:nth-child(2),
-                    .t-menuburger__small span:nth-child(3) {
-                        top: 6px;
-                    }
-
-                    .t-menuburger__small span:nth-child(4) {
-                        top: 12px;
-                    }
-
-                    /*menu burger opened*/
-                    .t-menuburger-opened span:nth-child(1) {
-                        top: 8px;
-                        width: 0%;
-                        left: 50%;
-                    }
-
-                    .t-menuburger-opened span:nth-child(2) {
-                        -webkit-transform: rotate(45deg);
-                        transform: rotate(45deg);
-                    }
-
-                    .t-menuburger-opened span:nth-child(3) {
-                        -webkit-transform: rotate(-45deg);
-                        transform: rotate(-45deg);
-                    }
-
-                    .t-menuburger-opened span:nth-child(4) {
-                        top: 8px;
-                        width: 0%;
-                        left: 50%;
-                    }
-
-                    .t-menuburger-opened.t-menuburger__big span:nth-child(1) {
-                        top: 6px;
-                    }
-
-                    .t-menuburger-opened.t-menuburger__big span:nth-child(4) {
-                        top: 18px;
-                    }
-
-                    .t-menuburger-opened.t-menuburger__small span:nth-child(1),
-                    .t-menuburger-opened.t-menuburger__small span:nth-child(4) {
-                        top: 6px;
-                    }
-
-                    /*---menu burger first style---*/
-                    @media (hover),
-                    (min-width: 0\0) {
-                        .t-menuburger_first:hover span:nth-child(1) {
-                            transform: translateY(1px);
-                        }
-
-                        .t-menuburger_first:hover span:nth-child(4) {
-                            transform: translateY(-1px);
-                        }
-
-                        .t-menuburger_first.t-menuburger__big:hover span:nth-child(1) {
-                            transform: translateY(3px);
-                        }
-
-                        .t-menuburger_first.t-menuburger__big:hover span:nth-child(4) {
-                            transform: translateY(-3px);
-                        }
-                    }
-
-                    /*---menu burger second style---*/
-                    .t-menuburger_second span:nth-child(2),
-                    .t-menuburger_second span:nth-child(3) {
-                        width: 80%;
-                        left: 20%;
-                        right: 0;
-                    }
-
-                    @media (hover),
-                    (min-width: 0\0) {
-
-                        .t-menuburger_second.t-menuburger-hovered span:nth-child(2),
-                        .t-menuburger_second.t-menuburger-hovered span:nth-child(3) {
-                            animation: t-menuburger-anim 0.3s ease-out normal forwards;
-                        }
-
-                        .t-menuburger_second.t-menuburger-unhovered span:nth-child(2),
-                        .t-menuburger_second.t-menuburger-unhovered span:nth-child(3) {
-                            animation: t-menuburger-anim2 0.3s ease-out normal forwards;
-                        }
-                    }
-
-                    .t-menuburger_second.t-menuburger-opened span:nth-child(2),
-                    .t-menuburger_second.t-menuburger-opened span:nth-child(3) {
-                        left: 0;
-                        right: 0;
-                        width: 100% !important;
-                    }
-
-                    /*---menu burger third style---*/
-                    .t-menuburger_third span:nth-child(4) {
-                        width: 70%;
-                        left: unset;
-                        right: 0;
-                    }
-
-                    @media (hover),
-                    (min-width: 0\0) {
-                        .t-menuburger_third:not(.t-menuburger-opened):hover span:nth-child(4) {
-                            width: 100%;
-                        }
-                    }
-
-                    .t-menuburger_third.t-menuburger-opened span:nth-child(4) {
-                        width: 0 !important;
-                        right: 50%;
-                    }
-
-                    /*---menu burger fourth style---*/
-                    .t-menuburger_fourth {
-                        height: 12px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger__small {
-                        height: 8px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger__big {
-                        height: 18px;
-                    }
-
-                    .t-menuburger_fourth span:nth-child(2),
-                    .t-menuburger_fourth span:nth-child(3) {
-                        top: 4px;
-                        opacity: 0;
-                    }
-
-                    .t-menuburger_fourth span:nth-child(4) {
-                        top: 8px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger__small span:nth-child(2),
-                    .t-menuburger_fourth.t-menuburger__small span:nth-child(3) {
-                        top: 3px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger__small span:nth-child(4) {
-                        top: 6px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger__small span:nth-child(2),
-                    .t-menuburger_fourth.t-menuburger__small span:nth-child(3) {
-                        top: 3px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger__small span:nth-child(4) {
-                        top: 6px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger__big span:nth-child(2),
-                    .t-menuburger_fourth.t-menuburger__big span:nth-child(3) {
-                        top: 6px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger__big span:nth-child(4) {
-                        top: 12px;
-                    }
-
-                    @media (hover),
-                    (min-width: 0\0) {
-                        .t-menuburger_fourth:not(.t-menuburger-opened):hover span:nth-child(1) {
-                            transform: translateY(1px);
-                        }
-
-                        .t-menuburger_fourth:not(.t-menuburger-opened):hover span:nth-child(4) {
-                            transform: translateY(-1px);
-                        }
-
-                        .t-menuburger_fourth.t-menuburger__big:not(.t-menuburger-opened):hover span:nth-child(1) {
-                            transform: translateY(3px);
-                        }
-
-                        .t-menuburger_fourth.t-menuburger__big:not(.t-menuburger-opened):hover span:nth-child(4) {
-                            transform: translateY(-3px);
-                        }
-                    }
-
-                    .t-menuburger_fourth.t-menuburger-opened span:nth-child(1),
-                    .t-menuburger_fourth.t-menuburger-opened span:nth-child(4) {
-                        top: 4px;
-                    }
-
-                    .t-menuburger_fourth.t-menuburger-opened span:nth-child(2),
-                    .t-menuburger_fourth.t-menuburger-opened span:nth-child(3) {
-                        opacity: 1;
-                    }
-
-                    /*---menu burger animations---*/
-                    @keyframes t-menuburger-anim {
-                        0% {
-                            width: 80%;
-                            left: 20%;
-                            right: 0;
-                        }
-
-                        50% {
-                            width: 100%;
-                            left: 0;
-                            right: 0;
-                        }
-
-                        100% {
-                            width: 80%;
-                            left: 0;
-                            right: 20%;
-                        }
-                    }
-
-                    @keyframes t-menuburger-anim2 {
-                        0% {
-                            width: 80%;
-                            left: 0;
-                        }
-
-                        50% {
-                            width: 100%;
-                            right: 0;
-                            left: 0;
-                        }
-
-                        100% {
-                            width: 80%;
-                            left: 20%;
-                            right: 0;
-                        }
-                    }
-                </style>
             </div>
         </div>
-        <style>
-            .tmenu-mobile {
-                background-color: #111;
-                display: none;
-                width: 100%;
-                top: 0;
-                z-index: 990;
-            }
 
-            .tmenu-mobile_positionfixed {
-                position: fixed;
-            }
-
-            .tmenu-mobile__text {
-                color: #fff;
-            }
-
-            .tmenu-mobile__container {
-                min-height: 64px;
-                padding: 20px;
-                position: relative;
-                box-sizing: border-box;
-                display: -webkit-flex;
-                display: -ms-flexbox;
-                display: flex;
-                -webkit-align-items: center;
-                -ms-flex-align: center;
-                align-items: center;
-                -webkit-justify-content: space-between;
-                -ms-flex-pack: justify;
-                justify-content: space-between;
-            }
-
-            .tmenu-mobile__list {
-                display: block;
-            }
-
-            .tmenu-mobile__burgerlogo {
-                display: inline-block;
-                font-size: 24px;
-                font-weight: 400;
-                white-space: nowrap;
-                vertical-align: middle;
-            }
-
-            .tmenu-mobile__imglogo {
-                height: auto;
-                display: block;
-                max-width: 300px !important;
-                box-sizing: border-box;
-                padding: 0;
-                margin: 0 auto;
-            }
-
-            @media screen and (max-width: 980px) {
-                .tmenu-mobile__menucontent_hidden {
-                    display: none;
-                    height: 100%;
-                }
-
-                .tmenu-mobile {
-                    display: block;
-                }
-            }
-
-            @media screen and (max-width: 980px) {
-                #rec748905478 .tmenu-mobile {
-                    background-color: #ffffff;
-                }
-
-                #rec748905478 .t-menuburger {
-                    -webkit-order: 1;
-                    -ms-flex-order: 1;
-                    order: 1;
-                }
-            }
-        </style>
-        <div id="nav748905478" class="t228 t228__positionstatic tmenu-mobile__menucontent_hidden"
-            style="height: 100px" data-bgcolor-hex="" data-bgcolor-rgba="" data-navmarker="nav748905478marker"
-            data-appearoffset="" data-bgopacity-two="100" data-menushadow="" data-menushadow-css=""
-            data-bgopacity="0.0" data-bgcolor-rgba-afterscroll="" data-menu-items-align="center" data-menu="yes">
-            <div class="t228__maincontainer" style="height: 100px">
-                <div class="t228__padding40px"></div>
-                <div class="t228__leftside">
-                    <div class="t228__leftcontainer">
-                        <a href="{{ route('frontend.index') }}" class="t228__imgwrapper"><img
-                                class="t228__imglogo t228__imglogomobile"
-                                src="{{ asset('assets/frontend/tild6238-3031-4265-a564-343037346231/tic_logo_blue.png') }}"
-                                imgfield="img"
-                                style="
-                        max-width: 150px;
-                        width: 150px;
-                        min-width: 150px;
-                        height: auto;
-                        display: block;
-                      "
-                                alt="" /></a>
-                    </div>
-                </div>
-                <div class="t228__centerside">
-                    <nav class="t228__centercontainer">
-                        <ul role="list" class="t228__list t-menu__list t228__list_hidden">
-                            <li class="t228__list_item" style="padding: 0 15px 0 0">
-                                <a class="t-menu__link-item" href="" aria-expanded="false" role="button"
-                                    data-menu-submenu-hook="link_sub1_748905478" data-menu-item-number="1">О
-                                    компании</a>
-                                <div class="t-menusub" data-submenu-hook="link_sub1_748905478"
-                                    data-submenu-margin="15px" data-add-submenu-arrow="">
-                                    <div class="t-menusub__menu">
-                                        <div class="t-menusub__content">
-                                            <ul role="list" class="t-menusub__list">
-                                                {{-- <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs" href="error.html"
-                                                        data-menu-item-number="1">Об обществе</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs" href="error.html"
-                                                        data-menu-item-number="1">Миссия</a>
-                                                </li> --}}
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.ustav') }}"
-                                                        data-menu-item-number="1">Устав компании</a>
-                                                </li>
-
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.struktura') }}"
-                                                        data-menu-item-number="1">Организационная структура</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.supervisory_board') }}"
-                                                        data-menu-item-number="1">Наблюдательный совет</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.board') }}"
-                                                        data-menu-item-number="1">Правление</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs" href="error.html"
-                                                        data-menu-item-number="1">Фонд Развития</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="./error.html" data-menu-item-number="1">Внутренние
-                                                        документы</a>
-                                                </li>
-                                                {{-- <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs" href="error.html"
-                                                        data-menu-item-number="1">Существенные факты</a>
-                                                </li> --}}
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.decision') }}"
-                                                        data-menu-item-number="1">Решение о первичном выпуске акций</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.reports') }}"
-                                                        data-menu-item-number="1">Отчеты</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.spisok') }}"
-                                                        data-menu-item-number="1">Список аффилированных лиц</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.share_struktura') }}"
-                                                        data-menu-item-number="1">Структура акционерного капитала</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.kodeks') }}"
-                                                        data-menu-item-number="1">Кодекс и правила поведения</a>
-                                                </li>
-                                                {{-- <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs" href="error.html"
-                                                        data-menu-item-number="1">Приоритетные направления деятельности
-                                                        Компании</a>
-                                                </li> --}}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="t228__list_item" style="padding: 0 15px">
-                                <a class="t-menu__link-item" href="" aria-expanded="false" role="button"
-                                    data-menu-submenu-hook="link_sub2_748905478"
-                                    data-menu-item-number="2">Инвесторам</a>
-                                <div class="t-menusub" data-submenu-hook="link_sub2_748905478"
-                                    data-submenu-margin="15px" data-add-submenu-arrow="">
-                                    <div class="t-menusub__menu">
-                                        <div class="t-menusub__content">
-                                            <ul role="list" class="t-menusub__list">
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.investment-projects') }}"
-                                                        data-menu-item-number="2">Строительные инвестиционные
-                                                        проекты</a>
-                                                </li>
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.investoram') }}"
-                                                        data-menu-item-number="2">Проекты ренавации </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="t228__list_item" style="padding: 0 15px">
-                                <a class="t-menu__link-item" href="{{ route('frontend.vacancies') }}"
-                                    data-menu-submenu-hook="" data-menu-item-number="3">Вакансии</a>
-                            </li>
-                            <li class="t228__list_item" style="padding: 0 15px">
-                                <a class="t-menu__link-item" href="{{ route('frontend.zakupki') }}"
-                                    data-menu-submenu-hook="" data-menu-item-number="4">Закупки</a>
-                            </li>
-                            <li class="t228__list_item" style="padding: 0 15px">
-                                <a class="t-menu__link-item" href="" aria-expanded="false" role="button"
-                                    data-menu-submenu-hook="link_sub5_748905478"
-                                    data-menu-item-number="5">Медиа-центр</a>
-                                <div class="t-menusub" data-submenu-hook="link_sub5_748905478"
-                                    data-submenu-margin="15px" data-add-submenu-arrow="">
-                                    <div class="t-menusub__menu">
-                                        <div class="t-menusub__content">
-                                            <ul role="list" class="t-menusub__list">
-                                                <li class="t-menusub__list-item t-name t-name_xs">
-                                                    <a class="t-menusub__link-item t-name t-name_xs"
-                                                        href="{{ route('frontend.media') }}"
-                                                        data-menu-item-number="5">Новости компании</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="t228__list_item" style="padding: 0 0 0 15px">
-                                <a class="t-menu__link-item" href="{{ route('frontend.contact') }}"
-                                    data-menu-submenu-hook="" data-menu-item-number="6">Контакты</a>
-                            </li>
-                            <li class="t228__list_item" style="padding: 0 0 0 15px">
-                                <a class="t-menu__link-item click-me-animation" target="_blank"
-                                    id="interactive_map_blue"
-                                    href="https://projects.toshkentinvest.uz?from_toshknetinvest_official_website/"
-                                    data-menu-submenu-hook="" data-menu-item-number="6">
-                                    Интерактивная карта
-                                </a>
-                                <style>
-                                    /* Enhanced creative animation styles */
-                                    .t-menu__link-item#interactive_map_blue {
-                                        position: relative;
-                                        display: inline-block;
-                                        animation: creative-pulse 2s infinite;
-                                        background: #163772;
-                                        color: #fff !important;
-                                        padding: 8px 15px;
-                                        border-radius: 4px;
-                                        text-decoration: none;
-                                        box-shadow: 0 0 0 0 rgba(22, 55, 114, 0.7);
-                                        transition: all 0.3s ease;
-                                    }
-
-                                    @keyframes creative-pulse {
-                                        0% {
-                                            transform: scale(0.95);
-                                            box-shadow: 0 0 0 0 rgba(22, 55, 114, 0.7);
-                                            background: white !important;
-                                        }
-
-                                        70% {
-                                            transform: scale(1);
-                                            box-shadow: 0 0 0 10px rgba(22, 55, 114, 0);
-                                            background: rgba(22, 55, 114, 0.1);
-                                        }
-
-                                        100% {
-                                            transform: scale(0.95);
-                                            box-shadow: 0 0 0 0 rgba(22, 55, 114, 0);
-                                            background: white;
-                                        }
-                                    }
-
-                                    .t-menu__link-item#interactive_map_blue::before {
-                                        content: '';
-                                        position: absolute;
-                                        top: -2px;
-                                        left: -2px;
-                                        right: -2px;
-                                        bottom: -2px;
-                                        border-radius: 6px;
-                                        background: linear-gradient(45deg, #163772, #2860c4);
-                                        z-index: -1;
-                                        animation: border-pulse 2s infinite;
-                                        pointer-events: none;
-                                    }
-
-                                    @keyframes border-pulse {
-                                        0% {
-                                            opacity: 0.6;
-                                        }
-
-                                        50% {
-                                            opacity: 1;
-                                        }
-
-                                        100% {
-                                            opacity: 0.6;
-                                        }
-                                    }
-                                </style>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="t228__rightside">
-                    <div class="t228__rightcontainer">
-                        <div class="t228__right_langs">
-                            <div class="t228__right_buttons_wrap">
-                                {{-- <div class="t228__right_langs_lang">
-                        <a style="opacity: 0.5" href="">En</a>
-                      </div> --}}
-                                <div class="t228__right_langs_lang">
-                                    <a style="opacity: 0.5" href="">Uz</a>
-                                </div>
+        {{-- Main Navigation --}}
+        <nav class="parliament-nav" id="parliamentNav">
+            <div class="container">
+                <ul class="main-nav-menu">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">О компании</a>
+                        <div class="nav-dropdown">
+                            <div class="dropdown-container">
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('frontend.ustav') }}">История</a></li>
+                                    <li><a href="{{ route('frontend.struktura') }}">Руководство</a></li>
+                                    <li><a href="{{ route('frontend.reports') }}">Отчетность предприятия</a></li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Инвесторам</a>
+                        <div class="nav-dropdown">
+                            <div class="dropdown-container">
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('frontend.investment-projects') }}">Инвестиционный потенциал
+                                            города</a></li>
+                                    <li><a href="https://yangiavlodzone.uz">ОПЗ "Янги Авлод"</a></li>
+                                    <li><a href="{{ route('frontend.investoram') }}">Реновация и строительство</a></li>
+                                    <li><a href="#">Проекты ГЧП</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Карьера</a>
+                        <div class="nav-dropdown">
+                            <div class="dropdown-container">
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('frontend.vacancies') }}">Наша команда</a></li>
+                                    <li><a href="{{ route('frontend.vacancies') }}">Вакансии</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Пресс-центр</a>
+                        <div class="nav-dropdown">
+                            <div class="dropdown-container">
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('frontend.media') }}">Новости</a></li>
+                                    <li><a href="{{ route('frontend.media') }}">Медиа</a></li>
+                                    <li><a href="{{ route('frontend.zakupki') }}">Тендеры и конкурсы</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('frontend.contact') }}" class="nav-link">Контакты</a>
+                    </li>
+                </ul>
+
+                {{-- Interactive Map Button --}}
+                <div class="nav-special-btn">
+                    <a href="https://projects.toshkentinvest.uz?from_toshknetinvest_official_website/" target="_blank"
+                        class="map-link">
+                        <span class="map-icon">📍</span>
+                        Интерактивная карта
+                    </a>
                 </div>
-                <div class="t228__padding40px"></div>
+
+                {{-- Mobile Hamburger --}}
+                <button class="nav-hamburger" onclick="toggleMobileNav()">
+                    <span></span><span></span><span></span>
+                </button>
             </div>
-        </div>
-        <style>
-            @media screen and (max-width: 980px) {
-                #rec748905478 .t228__leftcontainer {
-                    display: none;
-                }
-            }
-        </style>
-        <style>
-            @media screen and (max-width: 980px) {
-                #rec748905478 .t228__leftcontainer {
-                    padding: 20px;
-                }
-
-                #rec748905478 .t228__imglogo {
-                    padding: 20px 0;
-                }
-
-                #rec748905478 .t228 {
-                    position: static;
-                }
-            }
-        </style>
-        <script>
-            window.addEventListener("load", function() {
-                t_onFuncLoad("t228_setWidth", function() {
-                    t228_setWidth("748905478");
-                });
-            });
-            window.addEventListener(
-                "resize",
-                t_throttle(function() {
-                    t_onFuncLoad("t228_setWidth", function() {
-                        t228_setWidth("748905478");
-                    });
-                    t_onFuncLoad("t_menu__setBGcolor", function() {
-                        t_menu__setBGcolor("748905478", ".t228");
-                    });
-                })
-            );
-            t_onReady(function() {
-                t_onFuncLoad("t_menu__highlightActiveLinks", function() {
-                    t_menu__highlightActiveLinks(".t228__list_item a");
-                });
-                t_onFuncLoad("t228__init", function() {
-                    t228__init("748905478");
-                });
-                t_onFuncLoad("t_menu__setBGcolor", function() {
-                    t_menu__setBGcolor("748905478", ".t228");
-                });
-                t_onFuncLoad("t_menu__interactFromKeyboard", function() {
-                    t_menu__interactFromKeyboard("748905478");
-                });
-                t_onFuncLoad("t228_setWidth", function() {
-                    t228_setWidth("748905478");
-                });
-                t_onFuncLoad("t_menu__createMobileMenu", function() {
-                    t_menu__createMobileMenu("748905478", ".t228");
-                });
-            });
-        </script>
-        <style>
-            #rec748905478 .t-menu__link-item {}
-
-            @supports (overflow: -webkit-marquee) and (justify-content: inherit) {
-
-                #rec748905478 .t-menu__link-item,
-                #rec748905478 .t-menu__link-item.t-active {
-                    opacity: 1 !important;
-                }
-            }
-        </style>
-        <script>
-            t_onReady(function() {
-                setTimeout(function() {
-                    t_onFuncLoad("t_menusub_init", function() {
-                        t_menusub_init("748905478");
-                    });
-                }, 500);
-            });
-        </script>
-        <style>
-            #rec748905478 .t-menusub__link-item {
-                -webkit-transition: color 0.3s ease-in-out,
-                    opacity 0.3s ease-in-out;
-                transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
-            }
-
-            #rec748905478 .t-menusub__link-item.t-active {
-                color: #193d88 !important;
-            }
-
-            #rec748905478 .t-menusub__link-item:not(.t-active):not(.tooltipstered):hover {
-                color: #193d88 !important;
-            }
-
-            @supports (overflow: -webkit-marquee) and (justify-content: inherit) {
-
-                #rec748905478 .t-menusub__link-item,
-                #rec748905478 .t-menusub__link-item.t-active {
-                    opacity: 1 !important;
-                }
-            }
-
-            @media screen and (max-width: 980px) {
-                #rec748905478 .t-menusub__menu .t-menusub__link-item {
-                    color: #000000 !important;
-                }
-
-                #rec748905478 .t-menusub__menu .t-menusub__link-item.t-active {
-                    color: #193d88 !important;
-                }
-            }
-
-            @media screen and (min-width: 981px) {
-                #rec748905478 .t-menusub__menu {
-                    text-align: left;
-                }
-            }
-        </style>
-        <style>
-            #rec748905478 a.t-menusub__link-item {
-                font-size: 10px;
-                text-transform: uppercase;
-            }
-        </style>
-        <style>
-            #rec748905478 a.t-menu__link-item {
-                font-size: 14px;
-                color: #000000;
-                font-weight: 700;
-                text-transform: uppercase;
-            }
-
-            #rec748905478 .t228__right_langs_lang a {
-                font-size: 14px;
-                color: #000000;
-                font-weight: 700;
-                text-transform: uppercase;
-            }
-        </style>
+        </nav>
     </div>
-@endif
+
+
+    <style>
+        /* Enhanced Parliament.gov.uz Style with Beautiful Fonts & Light Colors */
+
+        /* Import Google Fonts for Professional Typography */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .parliament-clean-nav {
+            font-family: 'Inter', 'Roboto', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-feature-settings: 'liga' 1, 'kern' 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Notice Bar - Light & Elegant */
+        .notice-bar {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 10px 0;
+            font-size: 13px;
+            border-bottom: 1px solid #cbd5e1;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .notice-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .test-notice {
+            color: #e11d48;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .old-version-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .old-version-link:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        /* Parliament Header - Light & Professional */
+        .parliament-header {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            padding: 25px 0;
+            border-bottom: 2px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .parliament-header.inner {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .emblem-section {
+            flex-shrink: 0;
+        }
+
+        .emblem-img {
+            width: 85px;
+            height: 85px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+
+        .emblem-img:hover {
+            transform: scale(1.05);
+        }
+
+        .title-section {
+            flex: 1;
+        }
+
+        .main-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 6px;
+            letter-spacing: 0.3px;
+            font-family: 'Inter', sans-serif;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .main-subtitle {
+            font-size: 15px;
+            color: #64748b;
+            font-weight: 500;
+            letter-spacing: 1.2px;
+            font-family: 'Roboto', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+        }
+
+        .language-controls {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .lang-btn {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .lang-btn:hover {
+            background: rgba(59, 130, 246, 0.1);
+            color: #1d4ed8;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+        }
+
+        .login-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+        }
+
+        /* Mobile Menu Header - Light */
+        .mobile-menu-header {
+            display: none;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            padding: 18px 0;
+            border-bottom: 1px solid #cbd5e1;
+        }
+
+        .mobile-menu-header.inner {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .mobile-menu-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-logo {
+            height: 45px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .mobile-hamburger {
+            width: 32px;
+            height: 24px;
+            background: none;
+            border: none;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .mobile-hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: #475569;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-hamburger:hover span {
+            background: #334155;
+        }
+
+        .mobile-hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-6px, 6px);
+        }
+
+        .mobile-hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-6px, -6px);
+        }
+
+        /* Main Navigation - Light Parliament Style */
+        .parliament-nav {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            border-bottom: 3px solid #cbd5e1;
+        }
+
+        .parliament-nav.inner {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-bottom: 3px solid #e2e8f0;
+        }
+
+        .parliament-nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .main-nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 20px 24px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-link:hover,
+        .nav-item:hover .nav-link {
+            background: rgba(59, 130, 246, 0.08);
+            color: #1e293b;
+            border-bottom-color: #3b82f6;
+            transform: translateY(-1px);
+        }
+
+        /* Navigation Dropdown - Light & Modern */
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            min-width: 320px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            border-radius: 0 0 12px 12px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-12px);
+            transition: all 0.4s ease;
+            z-index: 1001;
+            border: 1px solid #e2e8f0;
+            border-top: 3px solid #3b82f6;
+        }
+
+        .nav-item:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-container {
+            padding: 20px 0;
+        }
+
+        .dropdown-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 14px 24px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-menu a:hover {
+            background: rgba(59, 130, 246, 0.06);
+            color: #1e293b;
+            padding-left: 32px;
+            border-left-color: #3b82f6;
+        }
+
+        /* Serious Government Interactive Map Button */
+        .nav-special-btn {
+            margin-left: 24px;
+        }
+
+        .map-link {
+            background: #fff;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 8px rgba(71, 85, 105, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+
+
+        .map-icon {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* Hamburger Menu */
+        .nav-hamburger {
+            display: none;
+            width: 32px;
+            height: 24px;
+            background: none;
+            border: none;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: #475569;
+            margin: 4px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 992px) {
+            .mobile-menu-header {
+                display: block;
+            }
+
+            .parliament-header {
+                display: none;
+            }
+
+            .nav-hamburger {
+                display: block;
+            }
+
+            .main-nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+                flex-direction: column;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+                border-top: 2px solid #cbd5e1;
+            }
+
+            .parliament-nav.inner .main-nav-menu {
+                background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+                border-top: 2px solid #e2e8f0;
+            }
+
+            .main-nav-menu.mobile-active {
+                display: flex;
+            }
+
+            .nav-link {
+                border-bottom: 1px solid rgba(203, 213, 225, 0.5);
+                border-left: none;
+            }
+
+            .nav-dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                background: rgba(248, 250, 252, 0.95);
+                box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.06);
+                border-radius: 0;
+                border: none;
+                border-top: 1px solid #e2e8f0;
+            }
+
+            .nav-special-btn {
+                margin: 0;
+                padding: 20px 24px;
+                background: #fff;
+                border-top: 1px solid rgba(71, 85, 105, 0.1);
+            }
+
+            .map-link {
+                display: flex;
+                justify-content: center;
+                border-radius: 8px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .emblem-img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .main-title {
+                font-size: 20px;
+            }
+
+            .main-subtitle {
+                font-size: 13px;
+            }
+
+            .notice-bar .container {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+
+            .language-controls {
+                gap: 12px;
+            }
+
+            .lang-btn,
+            .login-btn {
+                font-size: 14px;
+                padding: 10px 16px;
+            }
+        }
+
+        /* Enhanced Focus States for Accessibility */
+        .nav-link:focus,
+        .dropdown-menu a:focus,
+        .lang-btn:focus,
+        .login-btn:focus,
+        .map-link:focus {
+            outline: 3px solid #fbbf24;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .parliament-clean-nav {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Typography Improvements */
+        .parliament-clean-nav {
+            text-rendering: optimizeLegibility;
+        }
+
+        .main-title,
+        .nav-link,
+        .dropdown-menu a {
+            font-variant-ligatures: common-ligatures;
+        }
+
+        /* High DPI Display Optimizations */
+        @media (-webkit-min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi) {
+            .emblem-img {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
+            }
+        }
+    </style>
+
+    <script>
+        // Mobile Navigation Toggle
+        function toggleMobileNav() {
+            const hamburger = document.querySelector('.nav-hamburger, .mobile-hamburger');
+            const menu = document.querySelector('.main-nav-menu');
+
+            if (hamburger) {
+                hamburger.classList.toggle('active');
+            }
+
+            if (menu) {
+                menu.classList.toggle('mobile-active');
+            }
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('.main-nav-menu');
+            const hamburger = document.querySelector('.nav-hamburger, .mobile-hamburger');
+
+            if (!nav || !hamburger) return;
+
+            if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
+                nav.classList.remove('mobile-active');
+                hamburger.classList.remove('active');
+            }
+        });
+
+        // Compatibility functions for existing code
+        function t_menuburger_init(recid) {
+            // Compatibility function
+        }
+
+        function t_onReady(callback) {
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', callback);
+            } else {
+                callback();
+            }
+        }
+
+        function t_onFuncLoad(funcName, callback) {
+            callback();
+        }
+
+        // Initialize
+        t_onReady(function() {
+            t_onFuncLoad("t_menuburger_init", function() {
+                t_menuburger_init("748107215");
+                t_menuburger_init("748905478");
+            });
+        });
+    </script>
