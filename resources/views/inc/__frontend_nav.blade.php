@@ -57,6 +57,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ route('frontend.ustav') }}">История</a></li>
                                     <li><a href="{{ route('frontend.struktura') }}">Руководство</a></li>
+                                    <li><a href="{{ route('frontend.supervisory_board') }}">Наблюдательный совет</a></li>
                                     <li><a href="{{ route('frontend.reports') }}">Отчетность предприятия</a></li>
                                 </ul>
                             </div>
@@ -83,7 +84,7 @@
                         <div class="nav-dropdown">
                             <div class="dropdown-container">
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ route('frontend.vacancies') }}">Наша команда</a></li>
+                                    <li><a href="{{ route('frontend.board') }}">Правление</a></li>
                                     <li><a href="{{ route('frontend.vacancies') }}">Вакансии</a></li>
                                 </ul>
                             </div>

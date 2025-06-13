@@ -26,6 +26,7 @@
                         <li><a href="#" class="footer-link">Существенные факты</a></li>
                         <li><a href="{{ route('frontend.spisok') }}" class="footer-link">Аффилированность</a></li>
                         <li><a href="{{ route('frontend.supervisory_board') }}" class="footer-link">Наблюдательный совет</a></li>
+                        <li><a href="{{ route('frontend.board') }}" class="footer-link">Правление</a></li>
                     </ul>
                 </div>
 
