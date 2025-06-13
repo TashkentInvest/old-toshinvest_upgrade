@@ -116,19 +116,18 @@
 </section>
 
 {{-- News Section --}}
-<section class="news-section">
+{{-- <section class="news-section">
     <div class="container">
         <div class="section-header">
             <h2 class="section-title">Новости</h2>
         </div>
         <div class="news-grid">
-            {{-- Add your news items here --}}
             <div class="news-placeholder">
                 <p>Новости будут добавлены здесь</p>
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 {{-- Contact & Map Section --}}
 <section class="contact-section">

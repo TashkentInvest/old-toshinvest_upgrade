@@ -1,742 +1,1420 @@
 @extends('layouts.frontend_app')
-
 @section('frontent_content')
 
+{{-- Investment Projects Hero Section --}}
+<section class="investment-hero">
+    <div class="hero-background">
+        <div class="hero-pattern"></div>
+        <div class="hero-overlay"></div>
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="breadcrumb">
+                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">Главная</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">Инвестиционные проекты</span>
+            </div>
+            <div class="hero-badge">
+                <span class="badge-icon">🏗️</span>
+                <span class="badge-text">Официальный портал</span>
+            </div>
+            <h1 class="page-title">Инвестиционные проекты в строительстве</h1>
+            <p class="page-subtitle">АО «Компания Ташкент Инвест» объявляет конкурс на отбор лучших предложений для реализации инвестиционных проектов в сфере строительства</p>
 
-    <!-- Government Header Section -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8 mx-auto text-center">
-                    {{-- <div class="hero-badge">
-                        <i class="bi bi-shield-check"></i>
-                        <span>Официальный портал</span>
-                    </div> --}}
-                    <h1 class="hero-title">Инвестиционные проекты в строительстве</h1>
-                    <p class="hero-subtitle">
-                        АО «Компания Ташкент Инвест» объявляет конкурс на отбор лучших предложений для реализации инвестиционных проектов в сфере строительства
-                    </p>
-                    {{-- <div class="hero-stats">
-                        <div class="stat-item">
-                            <strong>2</strong>
-                            <span>Активных проекта</span>
-                        </div>
-                        <div class="stat-item">
-                            <strong>0.85</strong>
-                            <span>Гектар земли</span>
-                        </div>
-                    </div> --}}
+        </div>
+    </div>
+</section>
+
+{{-- Main Projects Section --}}
+<section class="projects-main-section">
+    <div class="container">
+        {{-- Section Header --}}
+        <div class="section-header">
+            <div class="header-content">
+                <div class="header-info">
+                    <h2 class="section-title">Доступные проекты</h2>
+                    <p class="section-subtitle">Выберите подходящий инвестиционный проект для участия</p>
+                </div>
+                <div class="header-controls">
+                    <div class="filter-controls">
+                        <button class="filter-btn active" data-filter="all">
+                            <span class="filter-icon">📋</span>
+                            <span class="filter-text">Все проекты</span>
+                        </button>
+                        <button class="filter-btn" data-filter="active">
+                            <span class="filter-icon">✅</span>
+                            <span class="filter-text">Актуальные</span>
+                        </button>
+                        <button class="filter-btn" data-filter="archive">
+                            <span class="filter-icon">📦</span>
+                            <span class="filter-text">Архив</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Main Content -->
-    <section class="projects-section">
-        <div class="container">
-            <!-- Filter and Search Bar -->
-            <div class="filter-section">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <h2 class="section-title">Доступные проекты</h2>
-                        <p class="section-subtitle">Выберите подходящий инвестиционный проект</p>
+        {{-- Projects Grid --}}
+        <div class="projects-grid">
+            {{-- Project Card 1 - Archived --}}
+            <article class="project-card archived" data-category="archive" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-status-indicator">
+                    <div class="status-badge archive">
+                        <span class="status-icon">📦</span>
+                        <span class="status-text">Архив</span>
                     </div>
-                    {{-- <div class="col-md-6">
-                        <div class="search-filter-group">
-                            <div class="input-group">
-                                <span class="input-group-text">
-                                    <i class="bi bi-search"></i>
-                                </span>
-                                <input type="text" class="form-control" placeholder="Поиск по району или махалле">
-                            </div>
-                            <select class="form-select ms-2">
-                                <option value="">Все статусы</option>
-                                <option value="active">Актуальные</option>
-                                <option value="archive">Архив</option>
-                            </select>
-                        </div>
-                    </div> --}}
+                    <div class="project-id">TI-2025-001</div>
                 </div>
-            </div>
 
-            <!-- Projects Grid -->
-            <div class="row g-4">
-                <!-- Project Card 1 -->
-                <div class="col-xl-6">
-                    <div class="project-card archived">
-                        <div class="card-status-badge archive">
-                            <i class="bi bi-archive"></i>
-                            <span>Архив</span>
+                <div class="card-header">
+                    <div class="location-info">
+                        <div class="location-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+                            </svg>
                         </div>
-
-                        <div class="card-header">
-                            <div class="project-location">
-                                <i class="bi bi-geo-alt-fill"></i>
-                                <h3>Юнусабадский район</h3>
-                            </div>
-                            <div class="project-id">ID: TI-2025-001</div>
-                        </div>
-
-                        <div class="card-body">
-                            <div class="project-details">
-                                <div class="detail-row">
-                                    <div class="detail-label">
-                                        <i class="bi bi-building"></i>
-                                        Махалля
-                                    </div>
-                                    <div class="detail-value">Янгитарнов</div>
-                                </div>
-
-                                <div class="detail-row">
-                                    <div class="detail-label">
-                                        <i class="bi bi-rulers"></i>
-                                        Площадь участка
-                                    </div>
-                                    <div class="detail-value">0,8528 га</div>
-                                </div>
-
-                                <div class="detail-row important">
-                                    <div class="detail-label">
-                                        <i class="bi bi-clock-history"></i>
-                                        Срок подачи заявок
-                                    </div>
-                                    <div class="detail-value deadline-expired">
-                                        09.06.2025г., 18:00
-                                        <span class="status-text">Истёк</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="project-actions">
-                                   <a href="{{asset('investment-projects/Эълон_Yunusobod KSZ  02.06.2025.pdf')}}"
-                                   class="btn btn-primary text-light" download>
-                                    <i class="bi bi-file-earmark-pdf"></i>
-                                    Объявление
-                                </a>
-                                <a href="приложение.zip" class="btn btn-outline-secondary" download>
-                                    <i class="bi bi-file-earmark-zip"></i>
-                                    Приложения
-                                </a>
-                            </div>
+                        <div class="location-details">
+                            <h3 class="location-title">Юнусабадский район</h3>
+                            <p class="location-mahalla">Махалля Янгитарнов</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project Card 2 -->
-                <div class="col-xl-6">
-                    <div class="project-card active">
-                        <div class="card-status-badge active">
-                            <i class="bi bi-circle-fill"></i>
-                            <span>Актуальный</span>
-                        </div>
-
-                        <div class="card-header">
-                            <div class="project-location">
-                                <i class="bi bi-geo-alt-fill"></i>
-                                <h3>Юнусабадский район</h3>
-                            </div>
-                            <div class="project-id">ID: TI-2025-002</div>
-                        </div>
-
-                        <div class="card-body">
-                            <div class="project-details">
-                                <div class="detail-row">
-                                    <div class="detail-label">
-                                        <i class="bi bi-building"></i>
-                                        Махалля
-                                    </div>
-                                    <div class="detail-value">Янгитарнов</div>
+                <div class="card-content">
+                    <div class="project-details">
+                        <div class="detail-group">
+                            <div class="detail-item">
+                                <div class="detail-label">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 3h18v18H3V3zm16 16V5H5v14h14z" fill="currentColor"/>
+                                    </svg>
+                                    <span>Площадь участка</span>
                                 </div>
-
-                                <div class="detail-row">
-                                    <div class="detail-label">
-                                        <i class="bi bi-rulers"></i>
-                                        Площадь участка
-                                    </div>
-                                    <div class="detail-value">0,8528 га</div>
-                                </div>
-
-                                <div class="detail-row important">
-                                    <div class="detail-label">
-                                        <i class="bi bi-clock"></i>
-                                        Срок подачи заявок
-                                    </div>
-                                    <div class="detail-value deadline-active">
-                                        16.06.2025г., 18:00
-                                        <span class="status-text">Активный</span>
-                                    </div>
-                                </div>
+                                <div class="detail-value">0,8528 га</div>
                             </div>
-
-                            <div class="alert alert-info">
-                                <i class="bi bi-info-circle"></i>
-                                <strong>Уведомление:</strong> В связи с отсутствием поступивших предложений по данному ЛОТу, срок и время подачи предложений продлён до 18:00 часов 16 июня 2025 года.
-                            </div>
-
-                            <div class="project-actions">
-                                <a href="{{asset('investment-projects/Эълон_Yunusobod KSZ  02.06.2025.pdf')}}"
-                                   class="btn btn-primary text-light" download>
-                                    <i class="bi bi-file-earmark-pdf"></i>
-                                    Объявление
-                                </a>
-                                <a href="приложение.zip" class="btn btn-outline-primary" download>
-                                    <i class="bi bi-file-earmark-zip"></i>
-                                    Приложения
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact Information -->
-            {{-- <div class="contact-section">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="contact-card">
-                            <h3>Контактная информация</h3>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="contact-item">
-                                        <i class="bi bi-telephone"></i>
-                                        <div>
-                                            <strong>Телефон</strong>
-                                            <p>+998 71 210 02 61</p>
-                                        </div>
-                                    </div>
+                            <div class="detail-item deadline-item expired">
+                                <div class="detail-label">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    <span>Срок подачи заявок</span>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="contact-item">
-                                        <i class="bi bi-envelope"></i>
-                                        <div>
-                                            <strong>Email</strong>
-                                            <p>info@tashkentinvest.com</p>
-                                        </div>
-                                    </div>
+                                <div class="detail-value">
+                                    <span class="deadline-date">09.06.2025г., 18:00</span>
+                                    <span class="deadline-status expired">Истёк</span>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="card-actions">
+                        <a href="{{asset('investment-projects/Эълон_Yunusobod KSZ  02.06.2025.pdf')}}"
+                           class="action-btn primary" style="color: #fff" download>
+                            <span class="btn-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" fill="currentColor"/>
+                                </svg>
+                            </span>
+                            <span class="btn-text">Объявление</span>
+                        </a>
+                        <a href="приложение.zip" class="action-btn secondary" download>
+                            <span class="btn-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7,10L12,15L17,10H7Z" fill="currentColor"/>
+                                </svg>
+                            </span>
+                            <span class="btn-text">Приложения</span>
+                        </a>
+                    </div>
                 </div>
-            </div> --}}
+            </article>
+
+            {{-- Project Card 2 - Active --}}
+            <article class="project-card active" data-category="active" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-status-indicator">
+                    <div class="status-badge active">
+                        <span class="status-icon">✅</span>
+                        <span class="status-text">Актуальный</span>
+                    </div>
+                    <div class="project-id">TI-2025-002</div>
+                </div>
+
+                <div class="card-header">
+                    <div class="location-info">
+                        <div class="location-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="location-details">
+                            <h3 class="location-title">Юнусабадский район</h3>
+                            <p class="location-mahalla">Махалля Янгитарнов</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-content">
+                    <div class="project-details">
+                        <div class="detail-group">
+                            <div class="detail-item">
+                                <div class="detail-label">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 3h18v18H3V3zm16 16V5H5v14h14z" fill="currentColor"/>
+                                    </svg>
+                                    <span>Площадь участка</span>
+                                </div>
+                                <div class="detail-value">0,8528 га</div>
+                            </div>
+                            <div class="detail-item deadline-item active">
+                                <div class="detail-label">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    <span>Срок подачи заявок</span>
+                                </div>
+                                <div class="detail-value">
+                                    <span class="deadline-date">16.06.2025г., 18:00</span>
+                                    <span class="deadline-status active">Активный</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notification-banner">
+                        <div class="notification-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="notification-content">
+                            <strong class="notification-title">Уведомление о продлении:</strong>
+                            <p class="notification-text">В связи с отсутствием поступивших предложений по данному ЛОТу, срок и время подачи предложений продлён до 18:00 часов 16 июня 2025 года.</p>
+                        </div>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="{{asset('investment-projects/Эълон_Yunusobod KSZ  02.06.2025.pdf')}}"
+                           class="action-btn primary" style="color: #fff" download>
+                            <span class="btn-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" fill="currentColor"/>
+                                </svg>
+                            </span>
+                            <span class="btn-text">Объявление</span>
+                        </a>
+                        <a href="приложение.zip" class="action-btn secondary" download>
+                            <span class="btn-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7,10L12,15L17,10H7Z" fill="currentColor"/>
+                                </svg>
+                            </span>
+                            <span class="btn-text">Приложения</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
         </div>
-    </section>
 
-    <style>
-        :root {
-            --primary-color: #1e40af;
-            --secondary-color: #3b82f6;
-            --success-color: #10b981;
-            --warning-color: #f59e0b;
-            --danger-color: #ef4444;
-            --light-gray: #f8fafc;
-            --medium-gray: #e2e8f0;
-            --dark-gray: #475569;
-            --white: #ffffff;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            --border-radius: 12px;
-        }
+    </div>
+</section>
 
-        body {
-            background-color: var(--light-gray);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--dark-gray);
-        }
+<style>
+/* Investment Projects Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap');
 
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--white);
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
+/* Investment Hero Section */
+.investment-hero {
+    position: relative;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    color: white;
+    padding: 120px 0 80px;
+    overflow: hidden;
+}
 
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-        }
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
 
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
+.hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.6;
+}
 
-        .hero-title {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 700;
-            margin-bottom: 24px;
-            line-height: 1.2;
-        }
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+}
 
-        .hero-subtitle {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
 
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 48px;
-            flex-wrap: wrap;
-        }
+.breadcrumb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+}
 
-        .stat-item {
-            text-align: center;
-        }
+.breadcrumb-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
-        .stat-item strong {
-            display: block;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-            color: var(--white);
-        }
+.breadcrumb-link:hover {
+    color: #60a5fa;
+}
 
-        .stat-item span {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
+.breadcrumb-separator {
+    color: rgba(255, 255, 255, 0.5);
+}
 
-        /* Projects Section */
-        .projects-section {
-            padding: 80px 0;
-        }
+.breadcrumb-current {
+    color: #60a5fa;
+    font-weight: 600;
+}
 
-        .filter-section {
-            margin-bottom: 48px;
-        }
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 12px 24px;
+    margin-bottom: 32px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    animation: fadeInDown 0.8s ease-out;
+}
 
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 8px;
-        }
+.badge-icon {
+    font-size: 1.2rem;
+}
 
-        .section-subtitle {
-            color: var(--dark-gray);
-            margin-bottom: 0;
-        }
+.page-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    line-height: 1.2;
+}
 
-        .search-filter-group {
-            display: flex;
-            gap: 12px;
-        }
+.page-subtitle {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Roboto', sans-serif;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
 
-        .search-filter-group .form-control,
-        .search-filter-group .form-select {
-            border: 2px solid var(--medium-gray);
-            border-radius: var(--border-radius);
-            padding: 12px 16px;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
 
-        .search-filter-group .form-control:focus,
-        .search-filter-group .form-select:focus {
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        }
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px 32px;
+    transition: all 0.3s ease;
+    animation: slideInUp 0.8s ease-out;
+}
 
-        .input-group-text {
-            background: var(--white);
-            border: 2px solid var(--medium-gray);
-            border-right: none;
-            color: var(--dark-gray);
-        }
+.stat-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
 
-        /* Project Cards */
-        .project-card {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--medium-gray);
-        }
+.stat-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+}
 
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
+.stat-content {
+    text-align: left;
+}
 
-        .project-card.active {
-            border-left: 4px solid var(--success-color);
-        }
+.stat-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: white;
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+    font-family: 'Inter', sans-serif;
+}
 
-        .project-card.archived {
-            border-left: 4px solid var(--warning-color);
-            opacity: 0.9;
-        }
+.stat-label {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
 
-        .card-status-badge {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+/* Main Projects Section */
+.projects-main-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
 
-        .card-status-badge.active {
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--success-color);
-        }
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
-        .card-status-badge.archive {
-            background: rgba(245, 158, 11, 0.1);
-            color: var(--warning-color);
-        }
+/* Section Header */
+.section-header {
+    margin-bottom: 60px;
+}
 
-        .card-header {
-            padding: 24px 24px 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+}
 
-        .project-location {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+.header-info {
+    flex: 1;
+}
 
-        .project-location i {
-            color: var(--secondary-color);
-            font-size: 1.25rem;
-        }
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 12px;
+    font-family: 'Inter', sans-serif;
+}
 
-        .project-location h3 {
-            margin: 0;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary-color);
-        }
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #64748b;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
 
-        .project-id {
-            font-size: 0.9rem;
-            color: var(--dark-gray);
-            background: var(--light-gray);
-            padding: 4px 8px;
-            border-radius: 6px;
-margin-top: 30px;
-            font-family: 'Monaco', 'Menlo', monospace;
-        }
+.header-controls {
+    flex-shrink: 0;
+}
 
-        .card-body {
-            padding: 0 24px 24px;
-        }
+.filter-controls {
+    display: flex;
+    gap: 8px;
+    background: white;
+    padding: 6px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+}
 
-        .project-details {
-            margin-bottom: 24px;
-        }
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: none;
+    background: transparent;
+    color: #64748b;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
 
-        .detail-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--medium-gray);
-        }
+.filter-btn.active {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    color: white;
+    box-shadow: 0 4px 16px rgba(30, 41, 59, 0.3);
+}
 
-        .detail-row:last-child {
-            border-bottom: none;
-        }
+.filter-btn:hover:not(.active) {
+    background: #f1f5f9;
+    color: #1e293b;
+}
 
-        .detail-row.important {
-            background: rgba(59, 130, 246, 0.03);
-            margin: 0 -12px;
-            padding: 12px;
-            border-radius: 8px;
-            border: none;
-        }
+.filter-icon {
+    font-size: 1rem;
+}
 
-        .detail-label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 500;
-            color: var(--dark-gray);
-            font-size: 0.95rem;
-        }
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 40px;
+    margin-bottom: 80px;
+}
 
-        .detail-label i {
-            color: var(--secondary-color);
-            width: 16px;
-        }
+/* Project Card */
+.project-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
 
-        .detail-value {
-            font-weight: 600;
-            text-align: right;
-            color: var(--primary-color);
-        }
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
 
-        .deadline-expired {
-            color: var(--danger-color);
-        }
+.project-card.active {
+    border-left: 6px solid #10b981;
+}
 
-        .deadline-active {
-            color: var(--success-color);
-        }
+.project-card.archived {
+    border-left: 6px solid #f59e0b;
+}
 
-        .status-text {
-            display: block;
-            font-size: 0.8rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 2px;
-        }
+.card-status-indicator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px 16px;
+    border-bottom: 1px solid #f1f5f9;
+}
 
-        .alert {
-            border: none;
-            border-radius: var(--border-radius);
-            padding: 16px;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--primary-color);
-            border-left: 4px solid var(--secondary-color);
-        }
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
 
-        .alert i {
-            margin-top: 2px;
-            font-size: 1.1rem;
-        }
+.status-badge.active {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
 
-        .project-actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
+.status-badge.archive {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 20px;
-            border-radius: var(--border-radius);
-            font-weight: 500;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
+.status-icon {
+    font-size: 1rem;
+}
 
-        .btn-primary {
-            background: var(--primary-color);
-            color: var(--white);
-        }
+.project-id {
+    font-size: 0.9rem;
+    color: #64748b;
+    background: #f8fafc;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-weight: 600;
+}
 
-        .btn-primary:hover {
-            background: #1d4ed8;
-            transform: translateY(-1px);
-        }
+.card-header {
+    padding: 0 30px 20px;
+}
 
-        .btn-outline-primary {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-            background: transparent;
-        }
+.location-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
 
-        .btn-outline-primary:hover {
-            background: var(--primary-color);
-            color: var(--white);
-        }
+.location-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+}
 
-        .btn-outline-secondary {
-            border-color: var(--dark-gray);
-            color: var(--dark-gray);
-            background: transparent;
-        }
+.location-details {
+    flex: 1;
+}
 
-        .btn-outline-secondary:hover {
-            background: var(--dark-gray);
-            color: var(--white);
-        }
+.location-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 4px;
+    font-family: 'Inter', sans-serif;
+}
 
-        /* Contact Section */
-        .contact-section {
-            margin-top: 80px;
-        }
+.location-mahalla {
+    font-size: 1rem;
+    color: #64748b;
+    margin: 0;
+    font-weight: 500;
+}
 
-        .contact-card {
-            background: var(--white);
-            border-radius: var(--border-radius);
-            padding: 40px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--medium-gray);
-        }
+.card-content {
+    padding: 0 30px 30px;
+}
 
-        .contact-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 32px;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
+.project-details {
+    margin-bottom: 24px;
+}
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
+.detail-group {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+}
 
-        .contact-item i {
-            color: var(--secondary-color);
-            font-size: 1.5rem;
-            width: 24px;
-        }
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
 
-        .contact-item strong {
-            display: block;
-            margin-bottom: 4px;
-            color: var(--primary-color);
-        }
+.detail-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
 
-        .contact-item p {
-            margin: 0;
-            color: var(--dark-gray);
-        }
+.detail-item.deadline-item {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.03) 0%, rgba(59, 130, 246, 0.08) 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px -8px 0;
+    border: 1px solid rgba(59, 130, 246, 0.1);
+}
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-section {
-                padding: 60px 0;
+.detail-item.deadline-item.expired {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.03) 0%, rgba(239, 68, 68, 0.08) 100%);
+    border-color: rgba(239, 68, 68, 0.1);
+}
+
+.detail-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    color: #475569;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+.detail-label svg {
+    color: #3b82f6;
+    flex-shrink: 0;
+}
+
+.detail-value {
+    text-align: right;
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 1rem;
+}
+
+.deadline-date {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.deadline-status {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.deadline-status.active {
+    color: #10b981;
+}
+
+.deadline-status.expired {
+    color: #ef4444;
+}
+
+.notification-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(59, 130, 246, 0.1) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-left: 4px solid #3b82f6;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.notification-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.notification-text {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.card-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 160px;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.action-btn:hover::before {
+    left: 100%;
+}
+
+.action-btn.primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    border: 2px solid transparent;
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+}
+
+.action-btn.primary:hover {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(59, 130, 246, 0.4);
+    color: white;
+}
+
+.action-btn.secondary {
+    background: white;
+    color: #475569;
+    border: 2px solid #e2e8f0;
+}
+
+.action-btn.secondary:hover {
+    background: #f8fafc;
+    border-color: #3b82f6;
+    color: #1e293b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-text {
+    font-weight: 600;
+}
+
+/* Contact Information Panel */
+.contact-info-panel {
+    position: relative;
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    border-radius: 24px;
+    overflow: hidden;
+    margin-top: 60px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.panel-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.panel-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="contact-grid" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M 25 0 L 0 0 0 25" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23contact-grid)"/></svg>');
+    opacity: 0.8;
+}
+
+.panel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 60%);
+}
+
+.panel-content {
+    position: relative;
+    z-index: 2;
+    padding: 60px;
+    color: white;
+}
+
+.panel-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.header-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+    animation: float 4s ease-in-out infinite;
+}
+
+.panel-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    font-family: 'Inter', sans-serif;
+}
+
+.panel-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+.contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.contact-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.contact-card .card-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
+}
+
+.contact-card .card-content {
+    flex: 1;
+    padding: 0;
+}
+
+.contact-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+.contact-card .card-text {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.contact-card .card-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.contact-card .card-action:hover {
+    color: #93c5fd;
+    transform: translateX(4px);
+}
+
+.panel-actions {
+    text-align: center;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    color: white;
+    padding: 18px 32px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 32px rgba(5, 150, 105, 0.3);
+    min-width: 200px;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.contact-btn:hover::before {
+    left: 100%;
+}
+
+.contact-btn:hover {
+    background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(5, 150, 105, 0.4);
+    color: white;
+}
+
+.btn-arrow {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.contact-btn:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+
+    .filter-controls {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .page-title {
+        font-size: 2.8rem;
+    }
+
+    .panel-content {
+        padding: 50px 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .investment-hero {
+        padding: 100px 0 60px;
+    }
+
+    .page-title {
+        font-size: 2.2rem;
+    }
+
+    .page-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .stat-card {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .filter-controls {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .filter-btn {
+        justify-content: center;
+        padding: 14px 20px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-content {
+        padding: 0 20px 20px;
+    }
+
+    .card-header {
+        padding: 0 20px 16px;
+    }
+
+    .card-status-indicator {
+        padding: 16px 20px 12px;
+    }
+
+    .detail-group {
+        padding: 20px;
+    }
+
+    .detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .detail-value {
+        text-align: left;
+    }
+
+    .card-actions {
+        flex-direction: column;
+    }
+
+    .action-btn {
+        min-width: auto;
+    }
+
+    .panel-content {
+        padding: 40px 30px;
+    }
+
+    .contact-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .contact-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .investment-hero {
+        padding: 80px 0 50px;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .breadcrumb {
+        flex-wrap: wrap;
+        font-size: 0.85rem;
+    }
+
+    .hero-badge {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .stat-card {
+        padding: 20px 24px;
+    }
+
+    .stat-number {
+        font-size: 1.8rem;
+    }
+
+    .location-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .location-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .location-title {
+        font-size: 1.3rem;
+    }
+
+    .notification-banner {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .panel-content {
+        padding: 30px 20px;
+    }
+
+    .panel-title {
+        font-size: 1.6rem;
+    }
+
+    .header-icon {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Loading Animations */
+.investment-hero {
+    animation: fadeIn 1s ease-out;
+}
+
+.projects-main-section {
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* High Quality Rendering */
+* {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus States for Accessibility */
+.filter-btn:focus,
+.action-btn:focus,
+.contact-btn:focus,
+.card-action:focus {
+    outline: 2px solid #fbbf24;
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .investment-hero,
+    .contact-info-panel {
+        background: white !important;
+        color: black !important;
+    }
+
+    .filter-controls {
+        display: none;
+    }
+
+    .project-card {
+        break-inside: avoid;
+        margin-bottom: 20px;
+    }
+}
+</style>
+
+<script>
+// Investment Projects JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filter = this.dataset.filter;
+
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            // Filter cards with animation
+            projectCards.forEach((card, index) => {
+                const category = card.dataset.category;
+
+                if (filter === 'all' || category === filter) {
+                    card.style.display = 'block';
+                    card.style.animation = `slideInUp 0.6s ease-out ${index * 0.1}s both`;
+                } else {
+                    card.style.animation = 'fadeOut 0.3s ease-out';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+
+    // Download tracking
+    const downloadLinks = document.querySelectorAll('a[download]');
+    downloadLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            const filename = this.getAttribute('href').split('/').pop();
+            console.log(`Download started: ${filename}`);
+
+            // Add visual feedback
+            const originalText = this.innerHTML;
+            this.innerHTML = this.innerHTML.replace(/Объявление|Приложения/, 'Скачивание...');
+
+            setTimeout(() => {
+                this.innerHTML = originalText;
+            }, 2000);
+        });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Add loading states to buttons
+    const actionBtns = document.querySelectorAll('.action-btn, .contact-btn');
+    actionBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            if (!this.hasAttribute('download') && !this.getAttribute('href').startsWith('tel:') && !this.getAttribute('href').startsWith('mailto:')) {
+                return;
             }
 
-            .hero-stats {
-                gap: 32px;
-            }
+            // Add loading effect
+            this.style.opacity = '0.7';
+            this.style.transform = 'scale(0.98)';
 
-            .projects-section {
-                padding: 60px 0;
-            }
+            setTimeout(() => {
+                this.style.opacity = '';
+                this.style.transform = '';
+            }, 200);
+        });
+    });
 
-            .search-filter-group {
-                flex-direction: column;
-                gap: 16px;
-            }
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
-            .card-header {
-                flex-direction: column;
-                gap: 16px;
-                align-items: flex-start;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
             }
+        });
+    }, observerOptions);
 
-            .project-id {
-                align-self: flex-end;
-            }
+    // Observe project cards
+    projectCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
+});
 
-            .detail-row {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-
-            .detail-value {
-                text-align: left;
-            }
-
-            .project-actions {
-                flex-direction: column;
-            }
-
-            .btn {
-                justify-content: center;
-            }
-
-            .contact-card {
-                padding: 24px;
-            }
+// Add custom fade out animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+            transform: translateY(0);
         }
-
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 1.75rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .filter-section .row {
-                flex-direction: column;
-                gap: 24px;
-            }
-
-            .card-status-badge {
-                position: static;
-                align-self: flex-start;
-                margin-bottom: 16px;
-            }
+        to {
+            opacity: 0;
+            transform: translateY(-20px);
         }
+    }
+`;
+document.head.appendChild(style);
+</script>
 
-        /* Accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-        /* Focus styles for keyboard navigation */
-        .btn:focus,
-        .form-control:focus,
-        .form-select:focus {
-            outline: 2px solid var(--secondary-color);
-            outline-offset: 2px;
-        }
-
-        /* Print styles */
-        @media print {
-            .hero-section {
-                background: none !important;
-                color: black !important;
-            }
-
-            .project-card {
-                box-shadow: none !important;
-                border: 1px solid #ccc !important;
-            }
-        }
-    </style>
 @endsection
