@@ -15,10 +15,10 @@
         <header class="parliament-header">
             <div class="container">
                 <div class="header-content">
-                    <div class="emblem-section">
+                    <a href="/" class="emblem-section">
                         <img src="{{ asset('assets/frontend/tild6238-3031-4265-a564-343037346231/tic_logo_blue.png') }}"
                             alt="Emblem" class="emblem-img">
-                    </div>
+                    </a>
                     <div class="title-section">
                         <h1 class="main-title">TASHKENT INVEST COMPANY</h1>
                         <h2 class="main-subtitle">ИНВЕСТИЦИОННАЯ КОМПАНИЯ</h2>
@@ -36,10 +36,10 @@
         {{-- Mobile Menu --}}
         <div class="mobile-menu-header">
             <div class="container">
-                <div class="mobile-brand">
+                <a class="mobile-brand" href="/">
                     <img src="{{ asset('assets/frontend/tild6238-3031-4265-a564-343037346231/tic_logo_blue.png') }}"
                         alt="TIC" class="mobile-logo">
-                </div>
+                </a>
                 <button class="mobile-hamburger" onclick="toggleMobileNav()">
                     <span></span><span></span><span></span>
                 </button>

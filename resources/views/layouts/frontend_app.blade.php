@@ -98,6 +98,9 @@ body{
 overflow-x: hidden;
 }
 
+.nav-hamburger{
+display: none !important;
+}
 
 </style>
 
