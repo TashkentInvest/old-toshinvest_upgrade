@@ -55,8 +55,8 @@
                         <div class="nav-dropdown">
                             <div class="dropdown-container">
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ route('frontend.ustav') }}">История</a></li>
-                                    <li><a href="{{ route('frontend.struktura') }}">Руководство</a></li>
+                                    <li><a href="{{ route('frontend.ustav') }}">Устав</a></li>
+                                    <li><a href="{{ route('frontend.board') }}">Руководство</a></li>
                                     <li><a href="{{ route('frontend.supervisory_board') }}">Наблюдательный совет</a></li>
                                     <li><a href="{{ route('frontend.reports') }}">Отчетность предприятия</a></li>
                                 </ul>
@@ -72,6 +72,7 @@
                                     <li><a href="{{ route('frontend.investment-projects') }}">Инвестиционный потенциал
                                             города</a></li>
                                     <li><a href="https://yangiavlodzone.uz">ОПЗ "Янги Авлод"</a></li>
+                                    <li><a href="https://promobilitycity.uz/">ООО "PROMOBILITY"</a></li>
                                     <li><a href="{{ route('frontend.investoram') }}">Реновация и строительство</a></li>
                                     <li><a href="#">Проекты ГЧП</a></li>
                                 </ul>
@@ -84,7 +85,6 @@
                         <div class="nav-dropdown">
                             <div class="dropdown-container">
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ route('frontend.board') }}">Правление</a></li>
                                     <li><a href="{{ route('frontend.vacancies') }}">Вакансии</a></li>
                                 </ul>
                             </div>

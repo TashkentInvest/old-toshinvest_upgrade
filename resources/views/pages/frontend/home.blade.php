@@ -5,7 +5,7 @@
 <section class="hero-section">
     <div class="hero-background">
         <div class="hero-overlay"></div>
-        <img src="https://static.tildacdn.one/tild3838-3863-4531-a430-326262316565/tild3566-3633-4039-b.jpeg"
+        <img src="{{asset('assets/users_img/bg.webp')}}"
              alt="Hero Background" class="hero-image">
     </div>
     <div class="hero-content">
