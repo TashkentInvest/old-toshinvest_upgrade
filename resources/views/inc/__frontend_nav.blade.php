@@ -1,739 +1,999 @@
-    <div id="rec748107215" class="parliament-clean-nav" data-animationappear="off" data-record-type="257">
-        {{-- Top Notice Bar --}}
-        <div class="notice-bar">
-            <div class="container">
-                <div class="notice-left">
-                    <span class="test-notice">SAYT SINOV TARIQASIDA ISHGA TUSHIRILGAN</span>
-                </div>
-                {{-- <div class="notice-right">
-                    <a href="#" class="old-version-link">AVVALGI KO'RINISHIGA O'TISH</a>
-                </div> --}}
+<div id="rec748107215" class="parliament-clean-nav" data-animationappear="off" data-record-type="257">
+    <!-- Top Notice Bar -->
+    <div class="notice-bar">
+        <div class="container">
+            <div class="notice-left">
+                <span class="test-notice">SAYT SINOV TARIQASIDA ISHGA TUSHIRILGAN</span>
             </div>
         </div>
-
-        {{-- Main Header --}}
-        <header class="parliament-header">
-            <div class="container">
-                <div class="header-content">
-                    <a href="/" class="emblem-section">
-                        <img src="{{ asset('assets/frontend/tild6238-3031-4265-a564-343037346231/tic_logo_blue.png') }}"
-                            alt="Emblem" class="emblem-img">
-                    </a>
-                    <div class="title-section">
-                        <h1 class="main-title">TASHKENT INVEST COMPANY</h1>
-                        <h2 class="main-subtitle">ИНВЕСТИЦИОННАЯ КОМПАНИЯ</h2>
-                    </div>
-                    <div class="header-controls">
-                        <div class="language-controls">
-                            <a href="#" class="lang-btn">O'zbek</a>
-                            <button class="login-btn">Kirish</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        {{-- Mobile Menu --}}
-        <div class="mobile-menu-header">
-            <div class="container">
-                <a class="mobile-brand" href="/">
-                    <img src="{{ asset('assets/frontend/tild6238-3031-4265-a564-343037346231/tic_logo_blue.png') }}"
-                        alt="TIC" class="mobile-logo">
-                </a>
-                <button class="mobile-hamburger" onclick="toggleMobileNav()">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </div>
-
-        {{-- Main Navigation --}}
-        <nav class="parliament-nav" id="parliamentNav">
-            <div class="container">
-                <ul class="main-nav-menu">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">О компании</a>
-                        <div class="nav-dropdown">
-                            <div class="dropdown-container">
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ route('frontend.ustav') }}">Устав</a></li>
-                                    <li><a href="{{ route('frontend.board') }}">Руководство</a></li>
-                                    <li><a href="{{ route('frontend.supervisory_board') }}">Наблюдательный совет</a></li>
-                                    <li><a href="{{ route('frontend.reports') }}">Отчетность предприятия</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Инвесторам</a>
-                        <div class="nav-dropdown">
-                            <div class="dropdown-container">
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ route('frontend.investment-projects') }}">Инвестиционный потенциал
-                                            города</a></li>
-                                    <li><a href="https://yangiavlodzone.uz">ОПЗ "Янги Авлод"</a></li>
-                                    <li><a href="https://promobilitycity.uz/">ООО "PROMOBILITY"</a></li>
-                                    <li><a href="{{route('frontend.jac-projects')}}">ООО "JAC MOTORS TASHKENT"</a></li>
-                                    <li><a href="{{ route('frontend.investoram') }}">Реновация и строительство</a></li>
-                                    <li><a href="#">Проекты ГЧП</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Карьера</a>
-                        <div class="nav-dropdown">
-                            <div class="dropdown-container">
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ route('frontend.vacancies') }}">Вакансии</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">Пресс-центр</a>
-                        <div class="nav-dropdown">
-                            <div class="dropdown-container">
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ route('frontend.media') }}">Новости</a></li>
-                                    <li><a href="{{ route('frontend.media') }}">Медиа</a></li>
-                                    <li><a href="{{ route('frontend.zakupki') }}">Тендеры и конкурсы</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="{{ route('frontend.contact') }}" class="nav-link">Контакты</a>
-                    </li>
-                </ul>
-
-                {{-- Interactive Map Button --}}
-                <div class="nav-special-btn">
-                    <a href="https://projects.toshkentinvest.uz?from_toshknetinvest_official_website/" target="_blank"
-                        class="map-link">
-                        <span class="map-icon">📍</span>
-                        Интерактивная карта
-                    </a>
-                </div>
-
-                {{-- Mobile Hamburger --}}
-                <button class="nav-hamburger" onclick="toggleMobileNav()">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </nav>
     </div>
 
+    <!-- Main Header -->
+    <header class="parliament-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="emblem-section">
+                    <img src="assets/frontend/tild6238-3031-4265-a564-343037346231/tic_logo_blue.png" alt="Emblem"
+                        class="emblem-img">
+                </a>
+                <div class="title-section">
+                    <h1 class="main-title">TASHKENT INVEST COMPANY</h1>
+                    <h2 class="main-subtitle">ИНВЕСТИЦИОННАЯ КОМПАНИЯ</h2>
+                </div>
+                <div class="header-controls">
+                    <div class="language-controls">
+                        <a href="#" class="lang-btn">O'zbek</a>
+                        <button class="login-btn">Kirish</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <style>
-        /* Enhanced Parliament.gov.uz Style with Beautiful Fonts & Light Colors */
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-header">
+        <div class="container">
+            <a class="mobile-brand" href="/">
+                <img src="assets/frontend/tild6238-3031-4265-a564-343037346231/tic_logo_blue.png" alt="TIC"
+                    class="mobile-logo">
+            </a>
+            <button class="mobile-hamburger" onclick="toggleMobileNav()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
 
-        /* Import Google Fonts for Professional Typography */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+    <!-- Main Navigation -->
+    <nav class="parliament-nav" id="parliamentNav">
+        <div class="container">
+            <ul class="main-nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">О компании</a>
+                    <div class="nav-dropdown">
+                        <div class="dropdown-container">
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Устав</a></li>
+                                <li><a href="#">Руководство</a></li>
+                                <li><a href="#">Наблюдательный совет</a></li>
+                                <li><a href="#">Отчетность предприятия</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
 
-        /* Reset & Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Корпоративное управление</a>
+                    <div class="nav-dropdown mega-dropdown">
+                        <div class="dropdown-container">
+                            <ul class="dropdown-menu">
+                                <!-- Management and Control Bodies -->
+                                <li class="dropdown-section">
+                                    <div class="section-header">
+                                        <a href="#" class="section-title">Органы управления и контроля</a>
+                                        <button class="section-toggle" onclick="toggleSubDropdown(this)">
+                                            <span class="arrow">▶</span>
+                                        </button>
+                                    </div>
+                                    <ul class="sub-dropdown-menu">
+                                        <li><a href="#">Единственный акционер</a></li>
+                                        <li><a href="#">О наблюдательном совете</a></li>
+                                        <li><a href="#">Комитеты при наблюдательном совете</a></li>
+                                        <li><a href="#">Служба внутреннего аудита</a></li>
+                                        <li><a href="#">Исполнительный орган</a></li>
+                                        <li><a href="#">Вознаграждение членов наблюдательного совета</a></li>
+                                    </ul>
+                                </li>
 
-        .parliament-clean-nav {
-            font-family: 'Inter', 'Roboto', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            font-feature-settings: 'liga' 1, 'kern' 1;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+                                <!-- Information Disclosure -->
+                                <li class="dropdown-section">
+                                    <div class="section-header">
+                                        <a href="#" class="section-title">Раскрытие информации</a>
+                                        <button class="section-toggle" onclick="toggleSubDropdown(this)">
+                                            <span class="arrow">▶</span>
+                                        </button>
+                                    </div>
+                                    <ul class="sub-dropdown-menu">
+                                        <li><a href="#">Уставный фонд общества</a></li>
+                                        <li><a href="#">Сведения о выкупе акций обществом</a></li>
+                                        <li><a href="#">Финансовые отчеты</a></li>
+                                        <li><a href="#">Результаты оценки системы корпоративного
+                                                управления</a></li>
+                                        <li><a href="#">Существенные факты</a></li>
+                                        <li><a href="#">Заключение аудитора</a></li>
+                                        <li><a href="#">Отчеты эмитента</a></li>
+                                    </ul>
+                                </li>
 
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+                                <!-- Additional Items -->
+                                <li><a href="#">Информация о проведении общего собрания акционеров</a></li>
+                                <li><a href="#">Риски</a></li>
+                                <li><a href="#">Непрофильные активы</a></li>
+                                <li><a href="#">Стратегии развития</a></li>
+                                <li><a href="#">Критерии оценки эффективности</a></li>
+                                <li><a href="#">Внутренние документы общества</a></li>
+                                <li><a href="#">Список аффилированных лиц</a></li>
+                                <li><a href="#">Дивиденды</a></li>
+                                <li><a href="#">Бизнес-план</a></li>
+                                <li><a href="#">Проспект эмиссии ценных бумаг</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
 
-        /* Notice Bar - Light & Elegant */
-        .notice-bar {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            padding: 10px 0;
-            font-size: 13px;
-            border-bottom: 1px solid #cbd5e1;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Инвесторам</a>
+                    <div class="nav-dropdown">
+                        <div class="dropdown-container">
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Инвестиционный потенциал города</a></li>
+                                <li><a href="https://yangiavlodzone.uz">ОПЗ "Янги Авлод"</a></li>
+                                <li><a href="https://promobilitycity.uz/">ООО "PROMOBILITY"</a></li>
+                                <li><a href="#">ООО "JAC MOTORS TASHKENT"</a></li>
+                                <li><a href="#">Реновация и строительство</a></li>
+                                <li><a href="#">Проекты ГЧП</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
 
-        .notice-bar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Карьера</a>
+                    <div class="nav-dropdown">
+                        <div class="dropdown-container">
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Вакансии</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
 
-        .test-notice {
-            color: #e11d48;
-            font-weight: 600;
-            font-size: 12px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Пресс-центр</a>
+                    <div class="nav-dropdown">
+                        <div class="dropdown-container">
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Новости</a></li>
+                                <li><a href="#">Медиа</a></li>
+                                <li><a href="#">Тендеры и конкурсы</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
 
-        .old-version-link {
-            color: #3b82f6;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 13px;
-            transition: all 0.3s ease;
-        }
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Контакты</a>
+                </li>
+            </ul>
 
-        .old-version-link:hover {
-            color: #1d4ed8;
-            text-decoration: underline;
-        }
+            <!-- Interactive Map Button -->
+            <div class="nav-special-btn">
+                <a href="https://projects.toshkentinvest.uz?from_toshknetinvest_official_website/" target="_blank"
+                    class="map-link">
+                    <span class="map-icon">📍</span>
+                    Интерактивная карта
+                </a>
+            </div>
 
-        /* Parliament Header - Light & Professional */
-        .parliament-header {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            padding: 25px 0;
-            border-bottom: 2px solid #e2e8f0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        }
+            <!-- Mobile Hamburger -->
+            <button class="nav-hamburger" onclick="toggleMobileNav()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+</div>
 
-        .parliament-header.inner {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-        }
+<style>
+    /* Enhanced Parliament.gov.uz Style with Beautiful Fonts & Light Colors */
 
-        .header-content {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
+    /* Import Google Fonts for Professional Typography */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
 
-        .emblem-section {
-            flex-shrink: 0;
-        }
+    /* Reset & Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        .emblem-img {
-            width: 85px;
-            height: 85px;
-            object-fit: contain;
-            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
-            transition: transform 0.3s ease;
-        }
+    .parliament-clean-nav {
+        font-family: 'Inter', 'Roboto', 'Segoe UI', system-ui, -apple-system, sans-serif;
+        font-feature-settings: 'liga' 1, 'kern' 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 
-        .emblem-img:hover {
-            transform: scale(1.05);
-        }
+    /* Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
 
-        .title-section {
-            flex: 1;
-        }
+    /* Notice Bar - Light & Elegant */
+    .notice-bar {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        padding: 10px 0;
+        font-size: 13px;
+        border-bottom: 1px solid #cbd5e1;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
 
-        .main-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 6px;
-            letter-spacing: 0.3px;
-            font-family: 'Inter', sans-serif;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        }
+    .notice-bar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        .main-subtitle {
-            font-size: 15px;
-            color: #64748b;
-            font-weight: 500;
-            letter-spacing: 1.2px;
-            font-family: 'Roboto', sans-serif;
-            text-transform: uppercase;
-        }
+    .test-notice {
+        color: #e11d48;
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
 
-        .header-controls {
-            display: flex;
-            align-items: center;
-        }
+    /* Parliament Header - Light & Professional */
+    .parliament-header {
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        padding: 25px 0;
+        border-bottom: 2px solid #e2e8f0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
 
-        .language-controls {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
+    .header-content {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
 
-        .lang-btn {
-            color: #3b82f6;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            padding: 10px 16px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-            background: rgba(59, 130, 246, 0.05);
-            border: 1px solid rgba(59, 130, 246, 0.1);
-        }
+    .emblem-section {
+        flex-shrink: 0;
+    }
 
-        .lang-btn:hover {
-            background: rgba(59, 130, 246, 0.1);
-            color: #1d4ed8;
-            transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
-        }
+    .emblem-img {
+        width: 85px;
+        height: 85px;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+        transition: transform 0.3s ease;
+    }
 
-        .login-btn {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
-        }
+    .emblem-img:hover {
+        transform: scale(1.05);
+    }
 
-        .login-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
-            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
-        }
+    .title-section {
+        flex: 1;
+    }
 
-        /* Mobile Menu Header - Light */
+    .main-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 6px;
+        letter-spacing: 0.3px;
+        font-family: 'Inter', sans-serif;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .main-subtitle {
+        font-size: 15px;
+        color: #64748b;
+        font-weight: 500;
+        letter-spacing: 1.2px;
+        font-family: 'Roboto', sans-serif;
+        text-transform: uppercase;
+    }
+
+    .header-controls {
+        display: flex;
+        align-items: center;
+    }
+
+    .language-controls {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .lang-btn {
+        color: #3b82f6;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 10px 16px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        font-family: 'Inter', sans-serif;
+        background: rgba(59, 130, 246, 0.05);
+        border: 1px solid rgba(59, 130, 246, 0.1);
+    }
+
+    .lang-btn:hover {
+        background: rgba(59, 130, 246, 0.1);
+        color: #1d4ed8;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+    }
+
+    .login-btn {
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Inter', sans-serif;
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    }
+
+    .login-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+        background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    }
+
+    /* Mobile Menu Header - Light */
+    .mobile-menu-header {
+        display: none;
+        background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+        padding: 18px 0;
+        border-bottom: 1px solid #cbd5e1;
+    }
+
+    .mobile-menu-header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mobile-logo {
+        height: 45px;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .mobile-hamburger {
+        width: 32px;
+        height: 24px;
+        background: none;
+        border: none;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .mobile-hamburger span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: #475569;
+        margin: 4px 0;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    .mobile-hamburger:hover span {
+        background: #334155;
+    }
+
+    .mobile-hamburger.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-6px, 6px);
+    }
+
+    .mobile-hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-hamburger.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-6px, -6px);
+    }
+
+    /* Main Navigation - Light Parliament Style */
+    .parliament-nav {
+        background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        border-bottom: 3px solid #cbd5e1;
+    }
+
+    .parliament-nav .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .main-nav-menu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-item {
+        position: relative;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 20px 24px;
+        color: #475569;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        font-family: 'Inter', sans-serif;
+        letter-spacing: 0.3px;
+        border-bottom: 3px solid transparent;
+    }
+
+    .nav-link:hover,
+    .nav-item:hover .nav-link {
+        background: rgba(59, 130, 246, 0.08);
+        color: #1e293b;
+        border-bottom-color: #3b82f6;
+        transform: translateY(-1px);
+    }
+
+    /* Navigation Dropdown - Light & Modern */
+    .nav-dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        min-width: 320px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        border-radius: 0 0 12px 12px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-12px);
+        transition: all 0.4s ease;
+        z-index: 1001;
+        border: 1px solid #e2e8f0;
+        border-top: 3px solid #3b82f6;
+    }
+
+    /* Mega Dropdown for Corporate Governance */
+    .mega-dropdown {
+        min-width: 500px;
+        max-height: 600px;
+        overflow-y: auto;
+    }
+
+    .nav-item:hover .nav-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .dropdown-container {
+        padding: 20px 0;
+    }
+
+    .dropdown-menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .dropdown-menu li {
+        margin: 0;
+    }
+
+    .dropdown-menu a {
+        display: block;
+        padding: 14px 24px;
+        color: #475569;
+        text-decoration: none;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        border-left: 3px solid transparent;
+    }
+
+    .dropdown-menu a:hover {
+        background: rgba(59, 130, 246, 0.06);
+        color: #1e293b;
+        padding-left: 32px;
+        border-left-color: #3b82f6;
+    }
+
+    /* Section Headers & Sub-dropdowns */
+    .dropdown-section {
+        margin-bottom: 8px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .section-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+        background: rgba(248, 250, 252, 0.8);
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+        margin-bottom: 0 !important;
+    }
+
+
+    .section-header:hover {
+        background: rgba(59, 130, 246, 0.05);
+        border-color: #cbd5e1;
+        box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+    }
+
+    .section-title {
+        flex: 1;
+        font-weight: 700 !important;
+        color: #1e293b !important;
+        background: transparent !important;
+        border-left: none !important;
+        margin: 0;
+        padding: 16px 24px !important;
+        position: relative;
+    }
+
+    .section-title:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 60%;
+        background: #3b82f6;
+        border-radius: 0 2px 2px 0;
+        transition: all 0.3s ease;
+    }
+
+    .section-title:hover {
+        background: transparent !important;
+        padding-left: 28px !important;
+        color: #1d4ed8 !important;
+    }
+
+    .section-title:hover:before {
+        height: 80%;
+        background: #1d4ed8;
+    }
+
+    .section-toggle {
+        background: none;
+        border: none;
+        padding: 16px 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 60px;
+        border-left: 1px solid #e2e8f0;
+    }
+
+    .section-toggle:hover {
+        background: rgba(59, 130, 246, 0.1);
+        border-left-color: #3b82f6;
+    }
+
+    .section-toggle .arrow {
+        font-size: 14px;
+        color: #64748b;
+        transition: all 0.3s ease;
+        font-weight: bold;
+    }
+
+    .section-toggle:hover .arrow {
+        color: #3b82f6;
+        transform: scale(1.1);
+    }
+
+    .section-toggle.active .arrow {
+        transform: rotate(90deg);
+        color: #1d4ed8;
+    }
+
+    .sub-dropdown-menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+        border-top: 1px solid #e2e8f0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.4s ease;
+    }
+
+    .sub-dropdown-menu.active {
+        max-height: 450px;
+        padding: 8px 0;
+    }
+
+    .sub-dropdown-menu a {
+        font-size: 14px;
+        padding: 12px 24px 12px 40px;
+        color: #64748b;
+        border-left: none;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .sub-dropdown-menu a:before {
+        content: '•';
+        position: absolute;
+        left: 28px;
+        color: #cbd5e1;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+
+    .sub-dropdown-menu a:hover {
+        color: #1e293b;
+        background: rgba(59, 130, 246, 0.04);
+        padding-left: 44px;
+    }
+
+    .sub-dropdown-menu a:hover:before {
+        color: #3b82f6;
+        transform: scale(1.2);
+    }
+
+    /* Interactive Map Button */
+    .nav-special-btn {
+        margin-left: 24px;
+    }
+
+    .map-link {
+        color: white;
+        padding: 14px 20px;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        font-family: 'Inter', sans-serif;
+        letter-spacing: 0.3px;
+        box-shadow: 0 2px 8px rgba(71, 85, 105, 0.3);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .map-link:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(71, 85, 105, 0.4);
+        background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+color:#fff !important;
+    }
+
+    .map-icon {
+        font-size: 16px;
+        opacity: 0.9;
+    }
+
+    /* Hamburger Menu */
+    .nav-hamburger {
+        display: none;
+        width: 32px;
+        height: 24px;
+        background: none;
+        border: none;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .nav-hamburger span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: #475569;
+        margin: 4px 0;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    /* Hover Effect for Sub-dropdown Sections */
+    .dropdown-section:hover .section-header {
+        background: rgba(59, 130, 246, 0.02);
+    }
+
+    .dropdown-section:hover .sub-dropdown-menu {
+        max-height: 400px;
+    }
+
+    .dropdown-section:hover .section-toggle .arrow {
+        transform: rotate(90deg);
+        color: #3b82f6;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 992px) {
         .mobile-menu-header {
-            display: none;
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-            padding: 18px 0;
-            border-bottom: 1px solid #cbd5e1;
-        }
-
-        .mobile-menu-header.inner {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .mobile-menu-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .mobile-logo {
-            height: 45px;
-            object-fit: contain;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-        }
-
-        .mobile-hamburger {
-            width: 32px;
-            height: 24px;
-            background: none;
-            border: none;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .mobile-hamburger span {
             display: block;
-            width: 100%;
-            height: 3px;
-            background: #475569;
-            margin: 4px 0;
-            transition: all 0.3s ease;
-            border-radius: 2px;
         }
 
-        .mobile-hamburger:hover span {
-            background: #334155;
+        .parliament-header {
+            display: none;
         }
 
-        .mobile-hamburger.active span:nth-child(1) {
-            transform: rotate(-45deg) translate(-6px, 6px);
-        }
-
-        .mobile-hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-hamburger.active span:nth-child(3) {
-            transform: rotate(45deg) translate(-6px, -6px);
-        }
-
-        /* Main Navigation - Light Parliament Style */
-        .parliament-nav {
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-            border-bottom: 3px solid #cbd5e1;
-        }
-
-        .parliament-nav.inner {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            border-bottom: 3px solid #e2e8f0;
-        }
-
-        .parliament-nav .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .nav-hamburger {
+            display: block;
         }
 
         .main-nav-menu {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-item {
-            position: relative;
-        }
-
-        .nav-link {
-            display: block;
-            padding: 20px 24px;
-            color: #475569;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 0.3px;
-            border-bottom: 3px solid transparent;
-        }
-
-        .nav-link:hover,
-        .nav-item:hover .nav-link {
-            background: rgba(59, 130, 246, 0.08);
-            color: #1e293b;
-            border-bottom-color: #3b82f6;
-            transform: translateY(-1px);
-        }
-
-        /* Navigation Dropdown - Light & Modern */
-        .nav-dropdown {
+            display: none;
             position: absolute;
             top: 100%;
             left: 0;
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            min-width: 320px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-            border-radius: 0 0 12px 12px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-12px);
-            transition: all 0.4s ease;
-            z-index: 1001;
-            border: 1px solid #e2e8f0;
-            border-top: 3px solid #3b82f6;
+            right: 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            flex-direction: column;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            border-top: 2px solid #cbd5e1;
         }
 
-        .nav-item:hover .nav-dropdown {
+        .main-nav-menu.mobile-active {
+            display: flex;
+        }
+
+        .nav-link {
+            border-bottom: 1px solid rgba(203, 213, 225, 0.5);
+            border-left: none;
+        }
+
+        .nav-dropdown,
+        .mega-dropdown {
+            position: static;
             opacity: 1;
             visibility: visible;
-            transform: translateY(0);
+            transform: none;
+            background: rgba(248, 250, 252, 0.95);
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.06);
+            border-radius: 0;
+            border: none;
+            border-top: 1px solid #e2e8f0;
+            min-width: auto;
+            max-height: none;
+            overflow-y: visible;
         }
 
-        .dropdown-container {
-            padding: 20px 0;
-        }
-
-        .dropdown-menu {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .dropdown-menu li {
-            margin: 0;
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 14px 24px;
-            color: #475569;
-            text-decoration: none;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            border-left: 3px solid transparent;
-        }
-
-        .dropdown-menu a:hover {
-            background: rgba(59, 130, 246, 0.06);
-            color: #1e293b;
-            padding-left: 32px;
-            border-left-color: #3b82f6;
-        }
-
-        /* Serious Government Interactive Map Button */
         .nav-special-btn {
-            margin-left: 24px;
+            margin: 0;
+            padding: 20px 24px;
+            background: #fff;
+            border-top: 1px solid rgba(71, 85, 105, 0.1);
         }
 
         .map-link {
-            background: #fff;
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-            font-family: 'Inter', sans-serif;
-            letter-spacing: 0.3px;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 2px 8px rgba(71, 85, 105, 0.3);
             display: flex;
-            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .sub-dropdown-menu {
+            margin-left: 10px;
+        }
+
+        .section-header {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .section-toggle {
+            align-self: flex-end;
+            margin-top: -40px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 0 16px;
+        }
+
+        .header-content {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .emblem-img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .main-title {
+            font-size: 20px;
+        }
+
+        .main-subtitle {
+            font-size: 13px;
+        }
+
+        .notice-bar .container {
+            flex-direction: column;
             gap: 8px;
+            text-align: center;
         }
 
-
-
-        .map-icon {
-            font-size: 16px;
-            opacity: 0.9;
+        .language-controls {
+            gap: 12px;
         }
 
-        /* Hamburger Menu */
-        .nav-hamburger {
-            display: none;
-            width: 32px;
-            height: 24px;
-            background: none;
-            border: none;
-            position: relative;
-            cursor: pointer;
+        .lang-btn,
+        .login-btn {
+            font-size: 14px;
+            padding: 10px 16px;
+        }
+    }
+
+    /* Enhanced Focus States for Accessibility */
+    .nav-link:focus,
+    .dropdown-menu a:focus,
+    .sub-dropdown-menu a:focus,
+    .section-toggle:focus,
+    .lang-btn:focus,
+    .login-btn:focus,
+    .map-link:focus {
+        outline: 3px solid #fbbf24;
+        outline-offset: 2px;
+        border-radius: 4px;
+    }
+
+    /* Smooth Scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Loading Animation */
+    .parliament-clean-nav {
+        animation: fadeInUp 0.6s ease-out;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
         }
 
-        .nav-hamburger span {
-            display: block;
-            width: 100%;
-            height: 3px;
-            background: #475569;
-            margin: 4px 0;
-            transition: all 0.3s ease;
-            border-radius: 2px;
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Typography Improvements */
+    .parliament-clean-nav {
+        text-rendering: optimizeLegibility;
+    }
+
+    .main-title,
+    .nav-link,
+    .dropdown-menu a {
+        font-variant-ligatures: common-ligatures;
+    }
+
+    /* High DPI Display Optimizations */
+    @media (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
+        .emblem-img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+        }
+    }
+
+    /* Custom Scrollbar for Mega Dropdown */
+    .mega-dropdown::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .mega-dropdown::-webkit-scrollbar-track {
+        background: #f1f5f9;
+    }
+
+    .mega-dropdown::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 3px;
+    }
+
+    .mega-dropdown::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+    }
+</style>
+
+<script>
+    // Mobile Navigation Toggle
+    function toggleMobileNav() {
+        const hamburger = document.querySelector('.nav-hamburger, .mobile-hamburger');
+        const menu = document.querySelector('.main-nav-menu');
+
+        if (hamburger) {
+            hamburger.classList.toggle('active');
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 992px) {
-            .mobile-menu-header {
-                display: block;
-            }
-
-            .parliament-header {
-                display: none;
-            }
-
-            .nav-hamburger {
-                display: block;
-            }
-
-            .main-nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-                flex-direction: column;
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-                border-top: 2px solid #cbd5e1;
-            }
-
-            .parliament-nav.inner .main-nav-menu {
-                background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-                border-top: 2px solid #e2e8f0;
-            }
-
-            .main-nav-menu.mobile-active {
-                display: flex;
-            }
-
-            .nav-link {
-                border-bottom: 1px solid rgba(203, 213, 225, 0.5);
-                border-left: none;
-            }
-
-            .nav-dropdown {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                background: rgba(248, 250, 252, 0.95);
-                box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.06);
-                border-radius: 0;
-                border: none;
-                border-top: 1px solid #e2e8f0;
-            }
-
-            .nav-special-btn {
-                margin: 0;
-                padding: 20px 24px;
-                background: #fff;
-                border-top: 1px solid rgba(71, 85, 105, 0.1);
-            }
-
-            .map-link {
-                display: flex;
-                justify-content: center;
-                border-radius: 8px;
-            }
+        if (menu) {
+            menu.classList.toggle('mobile-active');
         }
+    }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 16px;
-            }
+    // Toggle Sub-dropdown
+    function toggleSubDropdown(button) {
+        const section = button.closest('.dropdown-section');
+        const subMenu = section.querySelector('.sub-dropdown-menu');
+        const arrow = button.querySelector('.arrow');
 
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
+        // Toggle active states
+        button.classList.toggle('active');
+        subMenu.classList.toggle('active');
 
-            .emblem-img {
-                width: 70px;
-                height: 70px;
-            }
+        // Prevent event bubbling
+        event.stopPropagation();
+    }
 
-            .main-title {
-                font-size: 20px;
-            }
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const nav = document.querySelector('.main-nav-menu');
+        const hamburger = document.querySelector('.nav-hamburger, .mobile-hamburger');
 
-            .main-subtitle {
-                font-size: 13px;
-            }
+        if (!nav || !hamburger) return;
 
-            .notice-bar .container {
-                flex-direction: column;
-                gap: 8px;
-                text-align: center;
-            }
-
-            .language-controls {
-                gap: 12px;
-            }
-
-            .lang-btn,
-            .login-btn {
-                font-size: 14px;
-                padding: 10px 16px;
-            }
+        if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
+            nav.classList.remove('mobile-active');
+            hamburger.classList.remove('active');
         }
+    });
 
-        /* Enhanced Focus States for Accessibility */
-        .nav-link:focus,
-        .dropdown-menu a:focus,
-        .lang-btn:focus,
-        .login-btn:focus,
-        .map-link:focus {
-            outline: 3px solid #fbbf24;
-            outline-offset: 2px;
-            border-radius: 4px;
-        }
+    // Add hover functionality for sub-dropdowns
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownSections = document.querySelectorAll('.dropdown-section');
 
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
+        dropdownSections.forEach(section => {
+            const subMenu = section.querySelector('.sub-dropdown-menu');
+            const toggle = section.querySelector('.section-toggle');
 
-        /* Loading Animation */
-        .parliament-clean-nav {
-            animation: fadeInUp 0.6s ease-out;
-        }
+            // Hover to open
+            section.addEventListener('mouseenter', function() {
+                if (subMenu && toggle) {
+                    subMenu.classList.add('active');
+                    toggle.classList.add('active');
+                }
+            });
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Typography Improvements */
-        .parliament-clean-nav {
-            text-rendering: optimizeLegibility;
-        }
-
-        .main-title,
-        .nav-link,
-        .dropdown-menu a {
-            font-variant-ligatures: common-ligatures;
-        }
-
-        /* High DPI Display Optimizations */
-        @media (-webkit-min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi) {
-            .emblem-img {
-                image-rendering: -webkit-optimize-contrast;
-                image-rendering: crisp-edges;
-            }
-        }
-    </style>
-
-    <script>
-        // Mobile Navigation Toggle
-        function toggleMobileNav() {
-            const hamburger = document.querySelector('.nav-hamburger, .mobile-hamburger');
-            const menu = document.querySelector('.main-nav-menu');
-
-            if (hamburger) {
-                hamburger.classList.toggle('active');
-            }
-
-            if (menu) {
-                menu.classList.toggle('mobile-active');
-            }
-        }
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const nav = document.querySelector('.main-nav-menu');
-            const hamburger = document.querySelector('.nav-hamburger, .mobile-hamburger');
-
-            if (!nav || !hamburger) return;
-
-            if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
-                nav.classList.remove('mobile-active');
-                hamburger.classList.remove('active');
-            }
-        });
-
-        // Compatibility functions for existing code
-        function t_menuburger_init(recid) {
-            // Compatibility function
-        }
-
-        function t_onReady(callback) {
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', callback);
-            } else {
-                callback();
-            }
-        }
-
-        function t_onFuncLoad(funcName, callback) {
-            callback();
-        }
-
-        // Initialize
-        t_onReady(function() {
-            t_onFuncLoad("t_menuburger_init", function() {
-                t_menuburger_init("748107215");
-                t_menuburger_init("748905478");
+            // Mouse leave to close (with delay)
+            section.addEventListener('mouseleave', function() {
+                setTimeout(() => {
+                    if (subMenu && toggle && !section.matches(':hover')) {
+                        subMenu.classList.remove('active');
+                        toggle.classList.remove('active');
+                    }
+                }, 300);
             });
         });
-    </script>
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Tashkent Invest Company Navigation Loaded');
+    });
+</script>
