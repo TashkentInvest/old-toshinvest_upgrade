@@ -52,7 +52,6 @@
                     <div class="nav-dropdown">
                         <div class="dropdown-container">
                             <ul class="dropdown-menu">
-                                <li><a href="#">Устав</a></li>
                                 <li><a href="#">Руководство</a></li>
                                 <li><a href="#">Наблюдательный совет</a></li>
                                 <li><a href="#">Отчетность предприятия</a></li>

@@ -39,6 +39,7 @@
                         <li><a href="{{ route('frontend.vacancies') }}" class="footer-link">Карьера</a></li>
                         <li><a href="{{ route('frontend.zakupki') }}" class="footer-link">Закупки</a></li>
                         <li><a href="{{ route('frontend.reports') }}" class="footer-link">Отчетность</a></li>
+                        <li><a href="{{ route('frontend.ustav') }}" class="footer-link">Устав</a></li>
                     </ul>
                 </div>
 

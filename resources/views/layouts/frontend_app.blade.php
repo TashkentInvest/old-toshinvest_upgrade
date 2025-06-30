@@ -96,6 +96,7 @@
 <style>
 body{
 overflow-x: hidden;
+font-family:'Inter', sans-serif !important;
 }
 
 .nav-hamburger{

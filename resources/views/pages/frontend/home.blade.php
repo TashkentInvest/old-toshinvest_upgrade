@@ -141,7 +141,7 @@
 </section> --}}
 
 {{-- Contact & Map Section --}}
-<section class="contact-section">
+{{-- <section class="contact-section">
     <div class="contact-container">
         <div class="contact-info">
             <div class="contact-header">
@@ -230,7 +230,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 {{-- Yandex Map Script --}}
 <script type="text/javascript" src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&coordorder=latlong&onload=t_handleYandexApiReady_748107222&apikey=a3c154a0-e8ad-438e-ada8-ac2260414d09"></script>
