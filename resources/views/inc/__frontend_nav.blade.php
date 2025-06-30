@@ -152,17 +152,16 @@
                     <div class="nav-dropdown">
                         <div class="dropdown-container">
                             <ul class="dropdown-menu">
-                                <li><a href="#">Новости</a></li>
-                                <li><a href="#">Медиа</a></li>
-                                <li><a href="#">Тендеры и конкурсы</a></li>
+                                <li><a href="{{route('frontend.media')}}">Новости</a></li>
+                                {{-- <li><a href="#">Медиа</a></li> --}}
+                                <li><a href="{{route('frontend.jac-projects')}}">Тендеры и конкурсы</a></li>
+                                <a href="{{route('frontend.contact')}}">Контакты</a>
+
                             </ul>
                         </div>
                     </div>
                 </li>
 
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Контакты</a>
-                </li>
             </ul>
 
             <!-- Interactive Map Button -->
@@ -671,7 +670,7 @@
         transform: translateY(-1px);
         box-shadow: 0 4px 16px rgba(71, 85, 105, 0.4);
         background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
-color:#fff !important;
+        color: #fff !important;
     }
 
     .map-icon {

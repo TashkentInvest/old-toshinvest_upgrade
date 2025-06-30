@@ -7,6 +7,17 @@
         <div class="hero-overlay"></div>
         <img src="{{asset('assets/users_img/bg.webp')}}"
              alt="Hero Background" class="hero-image">
+
+{{-- <iframe
+    src="https://www.youtube.com/embed/A1ENkFXPL4o?autoplay=1&mute=1&playlist=A1ENkFXPL4o&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1"
+    title="YouTube video player"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen
+    style="width: 100%; height: 100vh; z-index: -1;object-fit: cover; position: absolute; top: 0; left: 0;">
+</iframe> --}}
+
+
     </div>
     <div class="hero-content">
         <div class="container">

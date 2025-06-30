@@ -131,7 +131,7 @@
 </section>
 
 {{-- Additional Contact Information --}}
-<section class="additional-info-section">
+{{-- <section class="additional-info-section">
     <div class="container">
         <div class="info-grid">
             <div class="info-card">
@@ -165,7 +165,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 {{-- Yandex Map Script --}}
 <script type="text/javascript" src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&coordorder=latlong&onload=initContactMap&apikey=a3c154a0-e8ad-438e-ada8-ac2260414d09"></script>
