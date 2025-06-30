@@ -24,6 +24,12 @@ Route::get('/investment-project', function () {
     return view('pages.frontend.investment-projects');
 })->name('frontend.investment-projects');
 
+
+Route::get('/jac-projects', function () {
+    return view('pages.frontend.jac-projects');
+})->name('frontend.jac-projects');
+
+
 Auth::routes(['register' => false]);
 
 // Welcome page
