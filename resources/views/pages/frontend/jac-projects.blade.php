@@ -356,7 +356,7 @@
                 </div>
                 <div class="download-actions">
                     <a href="{{asset('investment-projects/JAC_СМР конкурс эълони.pdf')}}"
-                       class="download-btn primary"
+                       class="download-btn primary"style="color: #fff;"
                        download>
                         <span class="btn-icon">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
