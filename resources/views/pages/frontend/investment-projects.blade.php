@@ -128,13 +128,100 @@
             </article>
 
             {{-- Project Card 2 - Active --}}
+            <article class="project-card archive" data-category="archive" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-status-indicator">
+                    <div class="status-badge archive">
+                        <span class="status-icon">✅</span>
+                        <span class="status-text">Архив</span>
+                    </div>
+                    <div class="project-id">TI-2025-002</div>
+                </div>
+
+                <div class="card-header">
+                    <div class="location-info">
+                        <div class="location-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div class="location-details">
+                            <h3 class="location-title">Юнусабадский район</h3>
+                            <p class="location-mahalla">Махалля Янгитарнов</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-content">
+                    <div class="project-details">
+                        <div class="detail-group">
+                            <div class="detail-item">
+                                <div class="detail-label">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M3 3h18v18H3V3zm16 16V5H5v14h14z" fill="currentColor"/>
+                                    </svg>
+                                    <span>Площадь участка</span>
+                                </div>
+                                <div class="detail-value">0,8528 га</div>
+                            </div>
+                            <div class="detail-item deadline-item expired">
+                                <div class="detail-label">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                        <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    <span>Срок подачи заявок</span>
+                                </div>
+                                <div class="detail-value">
+                                    <span class="deadline-date">16.06.2025г., 18:00</span>
+                                    <span class="deadline-status expired">Истёк</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notification-banner">
+                        <div class="notification-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="notification-content">
+                            <strong class="notification-title">Уведомление о продлении:</strong>
+                            <p class="notification-text">В связи с отсутствием поступивших предложений по данному ЛОТу, срок и время подачи предложений продлён до 18:00 часов 16 июня 2025 года.</p>
+                        </div>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="{{asset('investment-projects/Эълон_Yunusobod KSZ  02.06.2025.pdf')}}"
+                           class="action-btn primary" style="color: #fff" download>
+                            <span class="btn-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" fill="currentColor"/>
+                                </svg>
+                            </span>
+                            <span class="btn-text">Объявление</span>
+                        </a>
+                        <a href="приложение.zip" class="action-btn secondary" download>
+                            <span class="btn-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7,10L12,15L17,10H7Z" fill="currentColor"/>
+                                </svg>
+                            </span>
+                            <span class="btn-text">Приложения</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            {{-- Project Card 3 - Active --}}
             <article class="project-card active" data-category="active" data-aos="fade-up" data-aos-delay="200">
                 <div class="card-status-indicator">
                     <div class="status-badge active">
                         <span class="status-icon">✅</span>
                         <span class="status-text">Актуальный</span>
                     </div>
-                    <div class="project-id">TI-2025-002</div>
+                    <div class="project-id">TI-2025-003</div>
                 </div>
 
                 <div class="card-header">
@@ -172,7 +259,7 @@
                                     <span>Срок подачи заявок</span>
                                 </div>
                                 <div class="detail-value">
-                                    <span class="deadline-date">16.06.2025г., 18:00</span>
+                                    <span class="deadline-date">10.07.2025г., 18:00</span>
                                     <span class="deadline-status active">Активный</span>
                                 </div>
                             </div>
@@ -188,12 +275,12 @@
                         </div>
                         <div class="notification-content">
                             <strong class="notification-title">Уведомление о продлении:</strong>
-                            <p class="notification-text">В связи с отсутствием поступивших предложений по данному ЛОТу, срок и время подачи предложений продлён до 18:00 часов 16 июня 2025 года.</p>
+                            <p class="notification-text">В связи с отсутствием поступивших предложений по данному ЛОТу, срок и время подачи предложений продлён до 18:00 часов 10 июля 2025 года.</p>
                         </div>
                     </div>
 
                     <div class="card-actions">
-                        <a href="{{asset('investment-projects/Эълон_Yunusobod KSZ  02.06.2025.pdf')}}"
+                        <a href="{{asset('investment-projects/Эълон_Yunusobod KSZ  24.06.2025.pdf')}}"
                            class="action-btn primary" style="color: #fff" download>
                             <span class="btn-icon">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
