@@ -14,10 +14,7 @@
                 <span class="breadcrumb-separator">→</span>
                 <span class="breadcrumb-current">Вакансии</span>
             </div>
-            <div class="hero-badge">
-                <span class="badge-icon">💼</span>
-                <span class="badge-text">Карьерные возможности</span>
-            </div>
+
             <h1 class="page-title">Вакансии</h1>
             <p class="page-subtitle">Присоединяйтесь к команде профессионалов АО «Компания Ташкент Инвест» и развивайте свою карьеру в сфере инвестиций и строительства</p>
 
@@ -61,7 +58,7 @@
                 <div class="access-card-action">
                     <a href="https://tashkent.hh.uz/search/vacancy?from=employerPage&employer_id=10755963&hhtmFrom=employer"
                        target="_blank"
-                       class="access-btn">
+                       class="access-btn" style="color: white">
                         <span class="btn-icon">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2"/>
@@ -78,80 +75,6 @@
                 </div>
             </div>
         </div>
-
-        {{-- Why Join Us Section --}}
-        <div class="why-join-section">
-            <div class="section-header">
-                <h2 class="section-title">Почему стоит работать с нами</h2>
-                <p class="section-subtitle">Мы предлагаем отличные условия для профессионального и личностного роста</p>
-            </div>
-
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3 class="benefit-title">Конкурентная зарплата</h3>
-                    <p class="benefit-description">Достойная оплата труда с регулярным пересмотром и премиальными выплатами</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3 class="benefit-title">Карьерный рост</h3>
-                    <p class="benefit-description">Четкая система продвижения по службе и развития профессиональных навыков</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25A8.966 8.966 0 0 1 18 3.75c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3 class="benefit-title">Обучение и развитие</h3>
-                    <p class="benefit-description">Корпоративное обучение, семинары и повышение квалификации за счет компании</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3 class="benefit-title">Социальный пакет</h3>
-                    <p class="benefit-description">Медицинское страхование, отпуск, корпоративные мероприятия и льготы</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" stroke-width="2"/>
-                            <polyline points="9,22 9,12 15,12 15,22" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3 class="benefit-title">Современный офис</h3>
-                    <p class="benefit-description">Комфортное рабочее место с современным оборудованием в центре Ташкента</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
-                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
-                            <path d="M22 11l-3-3a2 2 0 0 0-3 0l-3 3v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3z" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3 class="benefit-title">Команда профессионалов</h3>
-                    <p class="benefit-description">Работа с опытными специалистами в дружной и поддерживающей команде</p>
-                </div>
-            </div>
-        </div>
-
 
     </div>
 </section>
@@ -245,10 +168,7 @@
     border-radius: 6px;
 }
 
-.breadcrumb-link:hover {
-    color: var(--blue-light);
-    background: rgba(255, 255, 255, 0.1);
-}
+
 
 .breadcrumb-separator {
     color: rgba(255, 255, 255, 0.5);
@@ -317,11 +237,6 @@
     transition: var(--transition);
 }
 
-.stat-card:hover {
-    background: rgba(255, 255, 255, 0.12);
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-}
 
 .stat-icon {
     width: 56px;
@@ -370,10 +285,6 @@
     transition: var(--transition);
 }
 
-.quick-access-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-}
 
 .access-card-content {
     display: flex;
@@ -430,18 +341,7 @@
     gap: 8px;
 }
 
-.feature-icon {
-    width: 20px;
-    height: 20px;
-    background: var(--success);
-    color: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 700;
-}
+
 
 .feature-text {
     font-size: 0.95rem;
@@ -468,20 +368,12 @@
     box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
 }
 
-.access-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(59, 130, 246, 0.4);
-    color: var(--white);
-}
 
 .btn-arrow {
     font-size: 1.2rem;
     transition: var(--transition);
 }
 
-.access-btn:hover .btn-arrow {
-    transform: translateX(4px);
-}
 
 .access-note {
     margin-top: 12px;
@@ -528,10 +420,6 @@
     text-align: center;
 }
 
-.benefit-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-}
 
 .benefit-icon {
     width: 80px;
@@ -590,10 +478,7 @@
     background: linear-gradient(135deg, var(--blue) 0%, var(--purple) 100%);
 }
 
-.category-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-}
+
 
 .category-icon {
     font-size: 3rem;
@@ -645,17 +530,7 @@
     padding: 40px;
 }
 
-.contact-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
-    border-radius: var(--radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    flex-shrink: 0;
-}
+
 
 .contact-text {
     flex: 1;
