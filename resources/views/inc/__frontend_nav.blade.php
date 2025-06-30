@@ -124,11 +124,11 @@
                     <div class="nav-dropdown">
                         <div class="dropdown-container">
                             <ul class="dropdown-menu">
-                                <li><a href="#">Инвестиционный потенциал города</a></li>
+                                <li><a href="{{route('frontend.investment-projects')}}">Инвестиционный потенциал города</a></li>
                                 <li><a href="https://yangiavlodzone.uz">ОПЗ "Янги Авлод"</a></li>
                                 <li><a href="https://promobilitycity.uz/">ООО "PROMOBILITY"</a></li>
                                 <li><a href="{{route('frontend.jac-projects')}}">ООО "JAC MOTORS TASHKENT"</a></li>
-                                <li><a href="#">Реновация и строительство</a></li>
+                                <li><a href="{{route('investoram')}}">Реновация и строительство</a></li>
                                 <li><a href="#">Проекты ГЧП</a></li>
                             </ul>
                         </div>
