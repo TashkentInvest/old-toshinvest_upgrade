@@ -838,21 +838,7 @@
     padding: 30px;
 }
 
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px;
-    background: var(--light-bg);
-    border-radius: 10px;
-    transition: var(--transition);
-    cursor: pointer;
-}
 
-.contact-item:hover {
-    background: rgba(59, 130, 246, 0.1);
-    transform: translateY(-2px);
-}
 
 .contact-icon {
     width: 40px;
