@@ -86,6 +86,12 @@ class FrontendController extends Controller
     {
         return view('pages.frontend.board');
     }
+
+    public function supervisory_board_committees()
+    {
+        return view('pages.frontend.supervisory-board-committees');
+    }
+
     public function decision()
     {
         return view('pages.frontend.decision-on-the-initial-issue');

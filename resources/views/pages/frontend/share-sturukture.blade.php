@@ -1,60 +1,345 @@
 @extends('layouts.frontend_app')
 @section('frontent_content')
-    <div id="rec748389591" class="r t-rec t-rec_pt_105 t-rec_pb_105"
-        style="padding-top:105px;padding-bottom:105px;background-color:#efefef; " data-record-type="1052"
-        data-bg-color="#efefef"><!-- t1052 -->
-        <div class="t1052">
-            <div class="t-section__container t-container t-container_flex">
-                <div class="t-col t-col_12 ">
-                    <div class="t-section__title t-title t-title_xs t-align_center t-margin_auto" field="btitle">
-                        <div style="font-size: 30px;" data-customstyle="yes"><strong>СТРУКТУРА АКЦИОНЕРНОГО
-                                КАПИТАЛА</strong></div>
+    <section class="shareholder-structure">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <h2 class="section-title">Структура акционерного капитала</h2>
+            </div>
+
+            <!-- Statistics Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">100 млрд</div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-description">
+                        <span class="stat-label">Объем выпуска акций</span>
+                        <span class="stat-unit">(млн сум)</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-value">100 млрд</div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-description">
+                        <span class="stat-label">Количество акций</span>
+                        <span class="stat-unit">(шт.)</span>
+                    </div>
+                </div>
+
+                <div class="stat-card featured">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-description">
+                        <span class="stat-label">Доля хакимията города</span>
+                        <span class="stat-unit">в уставном капитале</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-value">1</div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-description">
+                        <span class="stat-label">Акционер</span>
+                        <span class="stat-unit">единственный</span>
                     </div>
                 </div>
             </div>
-            <style>
-                .t-section__descr {
-                    max-width: 560px;
-                }
 
-                #rec748389591 .t-section__title {
-                    margin-bottom: 105px;
-                }
-
-                #rec748389591 .t-section__descr {}
-
-                @media screen and (max-width: 960px) {
-                    #rec748389591 .t-section__title {
-                        margin-bottom: 45px;
-                    }
-                }
-            </style>
-            <ul role="list" class="t1052__container t-list__container_inrow4 t-container">
-                <li class="t1052__col t-list__item t-col t-col_3 t-item">
-                    <div class="t1052__title t-title t-title_md" field="li_title__5554858981300"><strong>100 млрд</strong>
-                    </div>
-                    <div class="t-divider t1052__line" style=" "></div>
-                    <div class="t1052__text t-descr t-descr_sm" field="li_descr__5554858981300">объем выпуска акций<strong>
-                        </strong><br><strong><em></em></strong><em>(млн сум)</em></div>
-                </li>
-                <li class="t1052__col t-list__item t-col t-col_3 t-item">
-                    <div class="t1052__title t-title t-title_md" field="li_title__5554858981302">100 млрд</div>
-                    <div class="t-divider t1052__line" style=" "></div>
-                    <div class="t1052__text t-descr t-descr_sm" field="li_descr__5554858981302">количество акций<strong>
-                        </strong><em>(шт.)</em></div>
-                </li>
-                <li class="t1052__col t-list__item t-col t-col_3 t-item">
-                    <div class="t1052__title t-title t-title_md" field="li_title__1715716065144"><strong>100 %</strong>
-                    </div>
-                    <div class="t-divider t1052__line" style=" "></div>
-                    <div class="t1052__text t-descr t-descr_sm" field="li_descr__1715716065144">доля государства</div>
-                </li>
-                <li class="t1052__col t-list__item t-col t-col_3 t-item">
-                    <div class="t1052__title t-title t-title_md" field="li_title__1715716427093"><strong>1</strong></div>
-                    <div class="t-divider t1052__line" style=" "></div>
-                    <div class="t1052__text t-descr t-descr_sm" field="li_descr__1715716427093">акционер</div>
-                </li>
-            </ul>
         </div>
-    </div>
+        </div>
+    </section>
+
+    <style>
+        /* Shareholder Structure Section Styles */
+        .shareholder-structure {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+        }
+
+        .shareholder-structure::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #1d4ed8, #7c3aed);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 16px;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #64748b;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Statistics Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #cbd5e1;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .stat-card:hover::before {
+            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+        }
+
+        .stat-card.featured {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .stat-card.featured::before {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .stat-value {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -1px;
+        }
+
+        .stat-card.featured .stat-value {
+            color: white;
+        }
+
+        .stat-divider {
+            width: 60px;
+            height: 3px;
+            background: #e2e8f0;
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        }
+
+        .stat-card.featured .stat-divider {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .stat-description {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #374151;
+            line-height: 1.4;
+        }
+
+        .stat-card.featured .stat-label {
+            color: white;
+        }
+
+        .stat-unit {
+            font-size: 14px;
+            color: #64748b;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .stat-card.featured .stat-unit {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Additional Information */
+        .additional-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .info-card p {
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .shareholder-structure {
+                padding: 60px 0;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .section-header {
+                margin-bottom: 40px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .section-subtitle {
+                font-size: 16px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-bottom: 40px;
+            }
+
+            .stat-card {
+                padding: 30px 20px;
+            }
+
+            .stat-card.featured {
+                transform: none;
+            }
+
+            .stat-card.featured:hover {
+                transform: translateY(-4px);
+            }
+
+            .stat-value {
+                font-size: 36px;
+            }
+
+            .additional-info {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 24px;
+            }
+
+            .stat-value {
+                font-size: 32px;
+            }
+
+            .stat-card {
+                padding: 25px 15px;
+            }
+        }
+
+        /* Animation */
+        .stat-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0.1s; }
+        .stat-card:nth-child(2) { animation-delay: 0.2s; }
+        .stat-card:nth-child(3) { animation-delay: 0.3s; }
+        .stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .stat-card {
+                border: 2px solid #000;
+            }
+
+            .stat-card.featured {
+                border: 2px solid #fff;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .stat-card {
+                animation: none;
+                transition: none;
+            }
+
+            .stat-card:hover {
+                transform: none;
+            }
+        }
+    </style>
 @endsection

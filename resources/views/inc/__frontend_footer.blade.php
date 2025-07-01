@@ -10,8 +10,8 @@
                         <img src="{{ asset('assets/frontend/tild3636-3735-4861-a236-666663383164/TIC_white.png') }}"
                              alt="Tashkent Invest Company" class="footer-logo-img">
                     </div>
-                    <h3 class="footer-title">TASHKENT INVEST COMPANY</h3>
-                    <p class="footer-subtitle">Инвестиционная компания города Ташкента</p>
+                    <h3 class="footer-title">Компания Ташкент Инвест</h3>
+                    <p class="footer-subtitle">Акционерное общество</p>
                     <p class="footer-description">
                         Профессиональное управление инвестиционными проектами и развитие экономического потенциала столицы.
                     </p>
@@ -79,7 +79,7 @@
         <div class="container">
             <div class="footer-bottom-content">
                 <div class="footer-copyright">
-                    <p>&copy; {{ date('Y') }} Tashkent Invest Company. Все права защищены.</p>
+                    <p>&copy; {{ date('Y') }} АО «Компания Ташкент Инвест». Все права защищены.</p>
                 </div>
 
                 <div class="footer-social">

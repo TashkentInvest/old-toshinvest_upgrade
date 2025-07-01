@@ -17,8 +17,8 @@
                         class="emblem-img">
                 </a>
                 <div class="title-section">
-                    <h1 class="main-title">TASHKENT INVEST COMPANY</h1>
-                    <h2 class="main-subtitle">ИНВЕСТИЦИОННАЯ КОМПАНИЯ</h2>
+                    <h1 class="main-title">Компания Ташкент Инвест</h1>
+                    <h2 class="main-subtitle">Акционерное общество</h2>
                 </div>
                 <div class="header-controls">
                     <div class="language-controls">
@@ -74,9 +74,9 @@
                                         </button>
                                     </div>
                                     <ul class="sub-dropdown-menu">
-                                        <li><a href="#">Единственный акционер</a></li>
-                                        <li><a href="#">О наблюдательном совете</a></li>
-                                        <li><a href="#">Комитеты при наблюдательном совете</a></li>
+                                        <li><a href="{{route('frontend.share_struktura')}}">Единственный акционер</a></li>
+                                        <li><a href="{{route('frontend.supervisory_board')}}">О наблюдательном совете</a></li>
+                                        <li><a href="{{route('frontend.supervisory_board_committees')}}">Комитеты при наблюдательном совете</a></li>
                                         <li><a href="#">Служба внутреннего аудита</a></li>
                                         <li><a href="#">Исполнительный орган</a></li>
                                         <li><a href="#">Вознаграждение членов наблюдательного совета</a></li>

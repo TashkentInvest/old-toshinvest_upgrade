@@ -191,6 +191,7 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/ustav', [FrontendController::class, 'ustav'])->name('ustav');
     Route::get('/struktura', [FrontendController::class, 'struktura'])->name('struktura');
     Route::get('/supervisory-board', [FrontendController::class, 'supervisory_board'])->name('supervisory_board');
+    Route::get('/supervisory_board_committees', [FrontendController::class, 'supervisory_board_committees'])->name('supervisory_board_committees');
     Route::get('/board', [FrontendController::class, 'board'])->name('board');
     Route::get('/decision-on-the-initial-issue', [FrontendController::class, 'decision'])->name('decision');
     Route::get('/reports', [FrontendController::class, 'reports'])->name('reports');
@@ -200,4 +201,7 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/share-struktura', [FrontendController::class, 'share_struktura'])->name('share_struktura');
     Route::get('/kodeks', [FrontendController::class, 'kodeks'])->name('kodeks');
     Route::get('/vacancies', [FrontendController::class, 'vacancies'])->name('vacancies');
+
+
+
 });
