@@ -14,7 +14,9 @@
                 <span class="breadcrumb-separator">→</span>
                 <span class="breadcrumb-current">Наблюдательный совет</span>
             </div>
-
+            <div class="hero-badge">
+                <span class="badge-text">Руководящий орган</span>
+            </div>
             <h1 class="page-title">Наблюдательный совет</h1>
             <p class="page-subtitle">Руководящий орган АО «Компания Ташкент Инвест», обеспечивающий стратегическое управление и контроль деятельности компании</p>
         </div>
@@ -24,171 +26,94 @@
 {{-- Board Members Section --}}
 <section class="board-members-section">
     <div class="container">
-        <div class="members-grid">
-            {{-- Chairman --}}
-            <article class="member-card chairman">
-                <div class="member-badge">
-                    <span class="badge-text">Председатель</span>
-                    <span class="badge-icon"></span>
-                </div>
-                <div class="member-photo">
-                    <div class="photo-wrapper">
-                        <img src="{{asset('assets/users_img/1.Умурзаков Шавкат Буранович.jpg')}}"
-                             alt="Умурзаков Шавкат Буранович"
-                             class="member-image"
-                             loading="lazy">
-                        <div class="photo-overlay"></div>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3 class="member-name">Умурзаков Шавкат Буранович</h3>
-                    <div class="member-position">
-                        <div class="position-title">Председатель наблюдательного совета</div>
-                        <div class="position-subtitle">Хоким города Ташкента</div>
-                    </div>
-                    <div class="member-status">
-                        <span class="status-indicator active"></span>
-                        <span class="status-text">Действующий</span>
-                    </div>
-                </div>
-            </article>
-
-            {{-- Members --}}
-            <article class="member-card">
-                <div class="member-badge">
-                    <span class="badge-text">Член совета</span>
-                </div>
-                <div class="member-photo">
-                    <div class="photo-wrapper">
-                        <img src="{{ asset('images/Б.Х. Хайдаров фото1.jpg') }}"
-                             alt="Хайдаров Бахтиёр Халимович"
-                             class="member-image"
-                             loading="lazy">
-                        <div class="photo-overlay"></div>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3 class="member-name">Хайдаров Бахтиёр Халимович</h3>
-                    <div class="member-position">
-                        <div class="position-title">Член наблюдательного совета</div>
-                        <div class="position-subtitle">Первый заместитель Хокима города Ташкента</div>
-                    </div>
-                    <div class="member-status">
-                        <span class="status-indicator active"></span>
-                        <span class="status-text">Действующий</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="member-card">
-                <div class="member-badge">
-                    <span class="badge-text">Член совета</span>
-                </div>
-                <div class="member-photo">
-                    <div class="photo-wrapper">
-                        <img src="{{asset('assets/users_img/3.Рахманов Шароф Диерович.jpg')}}"
-                             alt="Рахманов Шароф Диерович"
-                             class="member-image"
-                             loading="lazy">
-                        <div class="photo-overlay"></div>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3 class="member-name">Рахманов Шароф Диерович</h3>
-                    <div class="member-position">
-                        <div class="position-title">Член наблюдательного совета</div>
-                        <div class="position-subtitle">Заместитель Хокима города Ташкента</div>
-                    </div>
-                    <div class="member-status">
-                        <span class="status-indicator active"></span>
-                        <span class="status-text">Действующий</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="member-card">
-                <div class="member-badge">
-                    <span class="badge-text">Член совета</span>
-                </div>
-                <div class="member-photo">
-                    <div class="photo-wrapper">
-                        <img src="{{asset('assets/users_img/4.Тогаев Наби Исмоилович.jpg')}}"
-                             alt="Тогаев Наби Исмоилович"
-                             class="member-image"
-                             loading="lazy">
-                        <div class="photo-overlay"></div>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3 class="member-name">Тогаев Наби Исмоилович</h3>
-                    <div class="member-position">
-                        <div class="position-title">Член наблюдательного совета</div>
-                        <div class="position-subtitle">Начальник отдела ООО «Узбекско-Оманская Инвестиционная Компания»</div>
-                    </div>
-                    <div class="member-status">
-                        <span class="status-indicator active"></span>
-                        <span class="status-text">Действующий</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="member-card">
-                <div class="member-badge">
-                    <span class="badge-text">Член совета</span>
-                </div>
-                <div class="member-photo">
-                    <div class="photo-wrapper">
-                        <img src="https://static.tildacdn.one/tild6430-6239-4361-b062-313631343137/_-2.jpg"
-                             alt="Прияткин Алексей Николаевич"
-                             class="member-image"
-                             loading="lazy">
-                        <div class="photo-overlay"></div>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3 class="member-name">Прияткин Алексей Николаевич</h3>
-                    <div class="member-position">
-                        <div class="position-title">Член наблюдательного совета</div>
-                        <div class="position-subtitle">Партнер Компании «Orbita Capital Partners» (Российская Федерация)</div>
-                    </div>
-                    <div class="member-status">
-                        <span class="status-indicator active"></span>
-                        <span class="status-text">Действующий</span>
-                    </div>
-                </div>
-            </article>
+        <div class="members-table-wrapper">
+            <table class="members-table">
+                <thead>
+                    <tr>
+                        <th>ФИО</th>
+                        <th>Должность</th>
+                        <th>Подразделение</th>
+                        <th>Статус</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="chairman-row">
+                        <td>
+                            <div class="member-name">
+                                <span class="name-text">Умурзаков Шавкат Буранович</span>
+                                <span class="role-badge chairman">Председатель</span>
+                            </div>
+                        </td>
+                        <td>Председатель наблюдательного совета</td>
+                        <td>Хоким города Ташкента</td>
+                        <td>
+                            <span class="status-badge active">Действующий</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="member-name">
+                                <span class="name-text">Хайдаров Бахтиёр Халимович</span>
+                                <span class="role-badge member">Член совета</span>
+                            </div>
+                        </td>
+                        <td>Член наблюдательного совета</td>
+                        <td>Первый заместитель Хокима города Ташкента</td>
+                        <td>
+                            <span class="status-badge active">Действующий</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="member-name">
+                                <span class="name-text">Рахманов Шароф Диерович</span>
+                                <span class="role-badge member">Член совета</span>
+                            </div>
+                        </td>
+                        <td>Член наблюдательного совета</td>
+                        <td>Заместитель Хокима города Ташкента</td>
+                        <td>
+                            <span class="status-badge active">Действующий</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="member-name">
+                                <span class="name-text">Тогаев Наби Исмоилович</span>
+                                <span class="role-badge member">Член совета</span>
+                            </div>
+                        </td>
+                        <td>Член наблюдательного совета</td>
+                        <td>Начальник отдела ООО «Узбекско-Оманская Инвестиционная Компания»</td>
+                        <td>
+                            <span class="status-badge active">Действующий</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="member-name">
+                                <span class="name-text">Прияткин Алексей Николаевич</span>
+                                <span class="role-badge member">Член совета</span>
+                            </div>
+                        </td>
+                        <td>Член наблюдательного совета</td>
+                        <td>Партнер Компании «Orbita Capital Partners» (Российская Федерация)</td>
+                        <td>
+                            <span class="status-badge active">Действующий</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-
     </div>
 </section>
 
-{{-- Optimized Inline Styles --}}
 <style>
-:root {
-    --primary: #0f172a;
-    --primary-light: #1e293b;
-    --primary-dark: #020617;
-    --blue: #3b82f6;
-    --blue-light: #60a5fa;
-    --success: #10b981;
-    --warning: #f59e0b;
-    --light-bg: #f8fafc;
-    --border: #e2e8f0;
-    --text: #1e293b;
-    --text-light: #64748b;
-    --white: #ffffff;
-    --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-    --shadow-lg: 0 10px 25px -3px rgba(0,0,0,0.1);
-    --radius: 12px;
-    --transition: 0.3s ease;
-}
-
-/* Hero Section */
+/* Board Hero Section */
 .board-hero {
     position: relative;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, #334155 100%);
-    color: var(--white);
-    padding: 120px 0 80px;
+    padding: 80px 0 60px;
+    background-color: #f8f9fa;
     overflow: hidden;
 }
 
@@ -206,8 +131,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="board-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23board-grid)"/></svg>');
-    opacity: 0.6;
+    opacity: 0.05;
+    background-image: repeating-linear-pattern;
 }
 
 .hero-overlay {
@@ -216,571 +141,363 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 20px;
+    max-width: 800px;
 }
 
 .breadcrumb {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
-    font-size: 0.95rem;
+    margin-bottom: 20px;
+    font-size: 14px;
 }
 
 .breadcrumb-link {
-    color: rgba(255, 255, 255, 0.7);
+    color: #666;
     text-decoration: none;
-    transition: var(--transition);
-    padding: 4px 8px;
-    border-radius: 6px;
+    transition: color 0.3s ease;
 }
 
 .breadcrumb-link:hover {
-    color: var(--blue-light);
-    background: rgba(255, 255, 255, 0.1);
+    color: #333;
 }
 
 .breadcrumb-separator {
-    color: rgba(255, 255, 255, 0.5);
+    margin: 0 10px;
+    color: #999;
 }
 
 .breadcrumb-current {
-    color: var(--blue-light);
-    font-weight: 600;
+    color: #333;
+    font-weight: 500;
 }
 
 .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 25px;
-    padding: 12px 24px;
-    margin-bottom: 32px;
-    font-weight: 600;
-    font-size: 0.95rem;
+    display: inline-block;
+    margin-bottom: 20px;
 }
 
-.badge-icon {
-    font-size: 1.2rem;
+.badge-text {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #e9ecef;
+    color: #495057;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 20px;
 }
 
 .page-title {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 800;
+    font-size: 48px;
+    font-weight: 700;
+    color: #212529;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, var(--white) 0%, #e2e8f0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
     line-height: 1.2;
 }
 
 .page-subtitle {
-    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-    color: rgba(255, 255, 255, 0.8);
-    max-width: 800px;
-    margin: 0 auto;
+    font-size: 18px;
+    color: #6c757d;
     line-height: 1.6;
+    margin: 0;
 }
 
 /* Board Members Section */
 .board-members-section {
     padding: 80px 0;
-    background: var(--light-bg);
+    background-color: #ffffff;
 }
 
-.members-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px;
-    margin-bottom: 80px;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* Member Card */
-.member-card {
-    background: var(--white);
-    border-radius: var(--radius);
+.members-table-wrapper {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    position: relative;
-    border: 1px solid var(--border);
 }
 
-.member-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+.members-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: inherit;
 }
 
-.member-card.chairman {
-    border-left: 6px solid #fbbf24;
-    background: linear-gradient(135deg, rgba(251, 191, 36, 0.02) 0%, rgba(251, 191, 36, 0.05) 100%);
-}
-
-.member-badge {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 6px 12px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.8rem;
+.members-table thead th {
+    background-color: #f8f9fa;
+    color: #495057;
     font-weight: 600;
-    color: var(--text);
-    z-index: 2;
+    font-size: 16px;
+    padding: 20px;
+    text-align: left;
+    border-bottom: 2px solid #dee2e6;
 }
 
-.member-card.chairman .member-badge {
-    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-    color: var(--white);
-    border-color: #fbbf24;
+.members-table tbody td {
+    padding: 20px;
+    color: #212529;
+    font-size: 15px;
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: top;
 }
 
-.member-photo {
-    position: relative;
-    height: 280px;
-    overflow: hidden;
+.members-table tbody tr:last-child td {
+    border-bottom: none;
 }
 
-.photo-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
+.members-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
 }
 
-.member-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: var(--transition);
+.members-table tbody tr:hover {
+    background-color: #e9ecef;
 }
 
-.member-card:hover .member-image {
-    transform: scale(1.05);
+/* Chairman row styling */
+.chairman-row {
+    background-color: #f1f3f4 !important;
 }
 
-.photo-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
-    opacity: 0;
-    transition: var(--transition);
+.chairman-row:hover {
+    background-color: #e8eaed !important;
 }
 
-.member-card:hover .photo-overlay {
-    opacity: 1;
-}
-
-.member-info {
-    padding: 24px;
-}
-
+/* Member name styling */
 .member-name {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 12px;
-    line-height: 1.3;
-}
-
-.member-position {
-    margin-bottom: 16px;
-}
-
-.position-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--blue);
-    margin-bottom: 4px;
-}
-
-.position-subtitle {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    line-height: 1.4;
-}
-
-.member-status {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 8px;
-    padding: 8px 12px;
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    border-radius: 20px;
-    width: fit-content;
 }
 
-.status-indicator {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--success);
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-}
-
-.status-text {
-    font-size: 0.85rem;
+.name-text {
     font-weight: 600;
-    color: var(--success);
+    color: #212529;
 }
 
-/* Board Info */
-.board-info {
-    margin-top: 60px;
-}
-
-.info-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-}
-
-.info-card {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background: var(--white);
-    padding: 24px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-}
-
-.info-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-}
-
-.info-icon {
-    width: 56px;
-    height: 56px;
-    background: linear-gradient(135deg, var(--blue) 0%, #1d4ed8 100%);
-    border-radius: var(--radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    flex-shrink: 0;
-}
-
-.info-content {
-    flex: 1;
-}
-
-.info-number {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--text);
-    line-height: 1;
-    margin-bottom: 4px;
-}
-
-.info-label {
-    font-size: 0.9rem;
-    color: var(--text-light);
+.role-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 11px;
     font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 12px;
+    align-self: flex-start;
+}
+
+.role-badge.chairman {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.role-badge.member {
+    background-color: #e2e3e5;
+    color: #495057;
+}
+
+/* Status badge styling */
+.status-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 16px;
+}
+
+.status-badge.active {
+    background-color: #d1ecf1;
+    color: #0c5460;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .board-hero {
-        padding: 100px 0 60px;
-    }
-
+@media (max-width: 992px) {
     .page-title {
-        font-size: 2.2rem;
+        font-size: 40px;
     }
 
     .page-subtitle {
-        font-size: 1.1rem;
+        font-size: 16px;
     }
 
-    .members-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        margin-bottom: 60px;
+    .board-hero {
+        padding: 60px 0 40px;
     }
 
-    .member-photo {
-        height: 240px;
-    }
-
-    .member-info {
-        padding: 20px;
-    }
-
-    .member-name {
-        font-size: 1.2rem;
-    }
-
-    .info-cards {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .info-card {
-        padding: 20px;
-    }
-
-    .info-icon {
-        width: 48px;
-        height: 48px;
-    }
-
-    .info-number {
-        font-size: 1.8rem;
+    .board-members-section {
+        padding: 60px 0;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .container {
         padding: 0 15px;
     }
 
-    .board-hero {
-        padding: 80px 0 50px;
-    }
-
     .page-title {
-        font-size: 1.8rem;
+        font-size: 32px;
     }
 
-    .hero-badge {
-        font-size: 0.85rem;
-        padding: 8px 16px;
-    }
-
-    .member-photo {
-        height: 200px;
-    }
-
-    .member-info {
-        padding: 16px;
-    }
-
-    .member-name {
-        font-size: 1.1rem;
-    }
-
-    .position-title {
-        font-size: 0.9rem;
-    }
-
-    .position-subtitle {
-        font-size: 0.8rem;
-    }
-
-    .info-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 16px;
-    }
-
-    .info-content {
-        margin-top: 8px;
-    }
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.member-card {
-    animation: fadeInUp 0.6s ease-out;
-}
-
-.member-card:nth-child(1) { animation-delay: 0.1s; }
-.member-card:nth-child(2) { animation-delay: 0.2s; }
-.member-card:nth-child(3) { animation-delay: 0.3s; }
-.member-card:nth-child(4) { animation-delay: 0.4s; }
-.member-card:nth-child(5) { animation-delay: 0.5s; }
-
-.info-card {
-    animation: fadeInUp 0.6s ease-out 0.6s both;
-}
-
-.info-card:nth-child(1) { animation-delay: 0.7s; }
-.info-card:nth-child(2) { animation-delay: 0.8s; }
-.info-card:nth-child(3) { animation-delay: 0.9s; }
-
-/* Print Styles */
-@media print {
     .board-hero {
-        background: var(--white) !important;
-        color: var(--text) !important;
-        padding: 40px 0 20px;
+        padding: 40px 0 30px;
     }
 
-    .member-card {
-        break-inside: avoid;
-        margin-bottom: 20px;
-        box-shadow: none;
-        border: 1px solid var(--border);
+    .board-members-section {
+        padding: 40px 0;
     }
 
-    .member-photo {
-        height: 200px;
+    .members-table-wrapper {
+        border-radius: 6px;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .info-cards {
+    .members-table thead th {
+        padding: 15px 12px;
+        font-size: 14px;
+    }
+
+    .members-table tbody td {
+        padding: 15px 12px;
+        font-size: 14px;
+    }
+
+    /* Hide status column on tablets */
+    .members-table thead th:nth-child(4),
+    .members-table tbody td:nth-child(4) {
         display: none;
     }
 }
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .page-subtitle {
+        font-size: 15px;
+    }
+
+    .hero-badge {
+        margin-bottom: 15px;
+    }
+
+    .badge-text {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .members-table-wrapper {
+        margin: 0 -10px;
+        border-radius: 0;
+        box-shadow: none;
+        border: 1px solid #dee2e6;
+    }
+
+    .members-table thead th {
+        padding: 12px 8px;
+        font-size: 13px;
+    }
+
+    .members-table tbody td {
+        padding: 12px 8px;
+        font-size: 13px;
+    }
+
+    .breadcrumb {
+        font-size: 13px;
+    }
+
+    /* Hide department column on mobile */
+    .members-table thead th:nth-child(3),
+    .members-table tbody td:nth-child(3) {
+        display: none;
+    }
+}
+
+/* Mobile card layout for very small screens */
+@media (max-width: 480px) {
+    .members-table thead {
+        display: none;
+    }
+
+    .members-table tbody tr {
+        display: block;
+        margin-bottom: 20px;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        background-color: #fff !important;
+        padding: 15px;
+    }
+
+    .members-table tbody tr.chairman-row {
+        border-left: 4px solid #28a745;
+    }
+
+    .members-table tbody td {
+        display: block;
+        width: 100%;
+        padding: 8px 0;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+
+    .members-table tbody td:last-child {
+        border-bottom: none;
+    }
+
+    .members-table tbody td:before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #495057;
+        display: block;
+        margin-bottom: 4px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .members-table tbody td:first-child:before {
+        content: "ФИО";
+    }
+
+    .members-table tbody td:nth-child(2):before {
+        content: "Должность";
+    }
+
+    .members-table tbody td:nth-child(3):before {
+        content: "Подразделение";
+    }
+
+    .members-table tbody td:nth-child(4):before {
+        content: "Статус";
+    }
+
+    .member-name {
+        gap: 6px;
+    }
+
+    .role-badge {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+
+    .status-badge {
+        font-size: 11px;
+        padding: 4px 8px;
+    }
+}
 </style>
-
-{{-- Optimized JavaScript --}}
-<script>
-(function() {
-    'use strict';
-
-    // Image loading optimization
-    const images = document.querySelectorAll('.member-image');
-
-    // Lazy loading fallback for older browsers
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.addEventListener('load', function() {
-                        this.style.opacity = '1';
-                        this.style.transform = 'scale(1)';
-                    });
-
-                    img.addEventListener('error', function() {
-                        this.style.display = 'none';
-                        const placeholder = document.createElement('div');
-                        placeholder.className = 'image-placeholder';
-                        placeholder.style.cssText = `
-                            width: 100%;
-                            height: 100%;
-                            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            color: #64748b;
-                            font-size: 2rem;
-                        `;
-                        placeholder.innerHTML = '👤';
-                        this.parentNode.appendChild(placeholder);
-                    });
-
-                    imageObserver.unobserve(img);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '50px'
-        });
-
-        images.forEach(img => {
-            img.style.opacity = '0';
-            img.style.transform = 'scale(1.1)';
-            img.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            imageObserver.observe(img);
-        });
-    } else {
-        // Fallback for older browsers
-        images.forEach((img, index) => {
-            img.addEventListener('load', function() {
-                this.style.opacity = '1';
-            });
-
-            img.addEventListener('error', function() {
-                this.style.display = 'none';
-            });
-        });
-    }
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // Performance monitoring
-    if (window.performance) {
-        window.addEventListener('load', () => {
-            const loadTime = performance.now();
-            console.log(`Board page loaded in ${loadTime.toFixed(2)}ms`);
-        });
-    }
-
-    // Accessibility enhancements
-    const memberCards = document.querySelectorAll('.member-card');
-    memberCards.forEach(card => {
-        card.setAttribute('tabindex', '0');
-        card.setAttribute('role', 'article');
-
-        card.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                card.classList.toggle('focused');
-            }
-        });
-
-        card.addEventListener('focus', function() {
-            this.style.outline = '2px solid #3b82f6';
-            this.style.outlineOffset = '2px';
-        });
-
-        card.addEventListener('blur', function() {
-            this.style.outline = '';
-            this.style.outlineOffset = '';
-        });
-    });
-
-    console.log('🏛️ Supervisory Board page initialized successfully');
-
-})();
-</script>
 
 @endsection
