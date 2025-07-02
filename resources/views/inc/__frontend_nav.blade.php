@@ -137,7 +137,7 @@
                     <div class="nav-dropdown">
                         <div class="dropdown-container">
                             <ul class="dropdown-menu">
-                                <li><a href="#">Вакансии</a></li>
+                                <li><a href="{{route('frontend.vacancies')}}">Вакансии</a></li>
                             </ul>
                         </div>
                     </div>
