@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
 
-    
+
     <!-- Styles -->
     <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
     <style>
@@ -160,8 +160,9 @@
                 @endif
             </div>
             <span class="panel_footer">
-                <strong>&copy; {{ date('Y') }} 
-                    <a href="#">Tashkent Invest Company</a>.</strong>
+                <strong>&copy; {{ date('Y') }}
+                    <a href="#">Tashkent Invest Companye
+                    </a>.</strong>
             </span>
         </div>
     </div>

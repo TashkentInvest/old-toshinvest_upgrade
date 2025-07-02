@@ -109,7 +109,7 @@
                                 <li><a href="#">Внутренние документы общества</a></li>
                                 <li><a href="{{route('frontend.spisok')}}">Список аффилированных лиц</a></li>
                                 <li><a href="#">Дивиденды</a></li>
-                                <li><a href="#">Бизнес-план</a></li>
+                                <li><a href="{{route('frontend.business_plan')}}">Бизнес-план</a></li>
                                 <li><a href="#">Проспект эмиссии ценных бумаг</a></li>
                             </ul>
                         </div>
