@@ -49,20 +49,8 @@
                         <div class="position-title">Председатель правления</div>
                         <div class="position-subtitle">Генеральный директор</div>
                     </div>
-                    <div class="member-status">
-                        <span class="status-indicator active"></span>
-                        <span class="status-text">Действующий</span>
-                    </div>
-                    <div class="member-responsibilities">
-                        <div class="responsibility-item">
-                            <span class="responsibility-icon">📊</span>
-                            <span class="responsibility-text">Общее руководство</span>
-                        </div>
-                        <div class="responsibility-item">
-                            <span class="responsibility-icon">💼</span>
-                            <span class="responsibility-text">Стратегическое планирование</span>
-                        </div>
-                    </div>
+
+
                 </div>
             </article>
 
@@ -87,20 +75,8 @@
                         <div class="position-title">Заместитель председателя правления</div>
                         <div class="position-subtitle">По стратегическому развитию</div>
                     </div>
-                    <div class="member-status">
-                        <span class="status-indicator active"></span>
-                        <span class="status-text">Действующий</span>
-                    </div>
-                    <div class="member-responsibilities">
-                        <div class="responsibility-item">
-                            <span class="responsibility-icon">🎯</span>
-                            <span class="responsibility-text">Стратегическое развитие</span>
-                        </div>
-                        <div class="responsibility-item">
-                            <span class="responsibility-icon">📈</span>
-                            <span class="responsibility-text">Планирование роста</span>
-                        </div>
-                    </div>
+
+
                 </div>
             </article>
 
@@ -125,99 +101,11 @@
                         <div class="position-title">Заместитель председателя правления</div>
                         <div class="position-subtitle">По управлению проектами</div>
                     </div>
-                    <div class="member-status">
-                        <span class="status-indicator active"></span>
-                        <span class="status-text">Действующий</span>
-                    </div>
-                    <div class="member-responsibilities">
-                        <div class="responsibility-item">
-                            <span class="responsibility-icon">🏗️</span>
-                            <span class="responsibility-text">Управление проектами</span>
-                        </div>
-                        <div class="responsibility-item">
-                            <span class="responsibility-icon">📋</span>
-                            <span class="responsibility-text">Координация работ</span>
-                        </div>
-                    </div>
+
+
                 </div>
             </article>
 
-            {{-- Commented members can be uncommented when needed --}}
-            {{--
-            <article class="member-card deputy">
-                <div class="member-badge">
-                    <span class="badge-text">Заместитель</span>
-                    <span class="badge-icon">🏗️</span>
-                </div>
-                <div class="member-photo">
-                    <div class="photo-wrapper">
-                        <img src="{{ asset('images/peregudov.png') }}"
-                             alt="Перегудов Андрей Николаевич"
-                             class="member-image"
-                             loading="lazy">
-                        <div class="photo-overlay"></div>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3 class="member-name">Перегудов Андрей Николаевич</h3>
-                    <div class="member-position">
-                        <div class="position-title">Заместитель председателя правления</div>
-                        <div class="position-subtitle">По строительству и реновации</div>
-                    </div>
-                    <div class="member-status">
-                        <span class="status-indicator active"></span>
-                        <span class="status-text">Действующий</span>
-                    </div>
-                    <div class="member-responsibilities">
-                        <div class="responsibility-item">
-                            <span class="responsibility-icon">🏗️</span>
-                            <span class="responsibility-text">Строительство</span>
-                        </div>
-                        <div class="responsibility-item">
-                            <span class="responsibility-icon">🔄</span>
-                            <span class="responsibility-text">Реновация</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <article class="member-card deputy">
-                <div class="member-badge">
-                    <span class="badge-text">Заместитель</span>
-                    <span class="badge-icon">💰</span>
-                </div>
-                <div class="member-photo">
-                    <div class="photo-wrapper">
-                        <img src="https://static.tildacdn.one/tild3033-3662-4436-b737-346534373735/___2.jpg"
-                             alt="Рябов Никита Владимирович"
-                             class="member-image"
-                             loading="lazy">
-                        <div class="photo-overlay"></div>
-                    </div>
-                </div>
-                <div class="member-info">
-                    <h3 class="member-name">Рябов Никита Владимирович</h3>
-                    <div class="member-position">
-                        <div class="position-title">Заместитель председателя правления</div>
-                        <div class="position-subtitle">По инвестициям</div>
-                    </div>
-                    <div class="member-status">
-                        <span class="status-indicator active"></span>
-                        <span class="status-text">Действующий</span>
-                    </div>
-                    <div class="member-responsibilities">
-                        <div class="responsibility-item">
-                            <span class="responsibility-icon">💰</span>
-                            <span class="responsibility-text">Инвестиции</span>
-                        </div>
-                        <div class="responsibility-item">
-                            <span class="responsibility-icon">📊</span>
-                            <span class="responsibility-text">Финансовый анализ</span>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            --}}
         </div>
 
 

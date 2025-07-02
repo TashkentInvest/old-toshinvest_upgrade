@@ -52,8 +52,7 @@
                     <div class="nav-dropdown">
                         <div class="dropdown-container">
                             <ul class="dropdown-menu">
-                                <li><a href="#">Руководство</a></li>
-                                <li><a href="#">Наблюдательный совет</a></li>
+                                <li><a href="{{route('frontend.board')}}">Руководство</a></li>
                                 <li><a href="#">Отчетность предприятия</a></li>
                             </ul>
                         </div>
