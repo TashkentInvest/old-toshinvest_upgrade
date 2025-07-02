@@ -201,6 +201,7 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/share-struktura', [FrontendController::class, 'share_struktura'])->name('share_struktura');
     Route::get('/kodeks', [FrontendController::class, 'kodeks'])->name('kodeks');
     Route::get('/vacancies', [FrontendController::class, 'vacancies'])->name('vacancies');
+    Route::get('/development_strategies', [FrontendController::class, 'development_strategies'])->name('development_strategies');
 
 
 

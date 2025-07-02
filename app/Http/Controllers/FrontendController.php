@@ -128,4 +128,10 @@ class FrontendController extends Controller
     {
         return view('pages.frontend.vacancies');
     }
+
+    public function development_strategies()
+    {
+        return view('pages.frontend.development_strategies');
+    }
+
 }
