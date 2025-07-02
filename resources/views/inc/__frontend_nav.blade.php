@@ -77,7 +77,7 @@
                                         <li><a href="{{route('frontend.supervisory_board')}}">О наблюдательном совете</a></li>
                                         <li><a href="{{route('frontend.supervisory_board_committees')}}">Комитеты при наблюдательном совете</a></li>
                                         <li><a href="#">Служба внутреннего аудита</a></li>
-                                        <li><a href="#">Исполнительный орган</a></li>
+                                        <li><a href="{{route('frontend.board')}}">Исполнительный орган</a></li>
                                     </ul>
                                 </li>
 
