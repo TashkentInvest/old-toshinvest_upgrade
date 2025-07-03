@@ -138,4 +138,9 @@ class FrontendController extends Controller
         return view('pages.frontend.business_plan');
     }
 
+
+    public function offers()
+    {
+        return view('pages.frontend.offers');
+    }
 }

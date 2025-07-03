@@ -151,6 +151,9 @@
                                 <li><a href="{{route('frontend.media')}}">Новости</a></li>
                                 {{-- <li><a href="#">Медиа</a></li> --}}
                                 <li><a href="{{route('frontend.jac-projects')}}">Тендеры и конкурсы</a></li>
+                                <li><a href="{{route('frontend.offers')}}">Объявление</a></li>
+
+
                                 <a href="{{route('frontend.contact')}}">Контакты</a>
 
                             </ul>

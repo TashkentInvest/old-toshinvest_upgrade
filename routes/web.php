@@ -203,6 +203,7 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/vacancies', [FrontendController::class, 'vacancies'])->name('vacancies');
     Route::get('/development_strategies', [FrontendController::class, 'development_strategies'])->name('development_strategies');
     Route::get('/business_plan', [FrontendController::class, 'business_plan'])->name('business_plan');
+    Route::get('/offers', [FrontendController::class, 'offers'])->name('offers');
 
 
 
