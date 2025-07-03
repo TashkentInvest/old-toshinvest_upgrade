@@ -143,4 +143,10 @@ class FrontendController extends Controller
     {
         return view('pages.frontend.offers');
     }
+
+       public function internal_documents_of_the_company()
+    {
+        return view('pages.frontend.internal_documents_of_the_company');
+    }
+
 }

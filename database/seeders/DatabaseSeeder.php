@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             SystemInitSeeder::class,
-            StreetsTableSeeder::class,
+            // StreetsTableSeeder::class,
             NewsSeeder::class,
             // ProductsTableSeeder::class,
             // ProductSeeder::class,

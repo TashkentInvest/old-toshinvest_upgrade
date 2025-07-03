@@ -106,7 +106,7 @@
                                 <li><a href="#">Риски</a></li>
                                 <li><a href="{{route('frontend.development_strategies')}}">Стратегии развития</a></li>
                                 <li><a href="#">Критерии оценки эффективности</a></li>
-                                <li><a href="#">Внутренние документы общества</a></li>
+                                <li><a href="{{ route('frontend.internal_documents_of_the_company') }}">Внутренние документы общества</a></li>
                                 <li><a href="{{route('frontend.spisok')}}">Список аффилированных лиц</a></li>
                                 <li><a href="#">Дивиденды</a></li>
                                 <li><a href="{{route('frontend.business_plan')}}">Бизнес-план</a></li>
