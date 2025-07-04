@@ -205,8 +205,9 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/business_plan', [FrontendController::class, 'business_plan'])->name('business_plan');
     Route::get('/offers', [FrontendController::class, 'offers'])->name('offers');
     Route::get('/internal_documents_of_the_company', [FrontendController::class, 'internal_documents_of_the_company'])->name('internal_documents_of_the_company');
+    Route::get('/key_performance_indicators', [FrontendController::class, 'key_performance_indicators'])->name('key_performance_indicators');
 
-    
+
 
 
 

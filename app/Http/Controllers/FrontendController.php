@@ -148,5 +148,8 @@ class FrontendController extends Controller
     {
         return view('pages.frontend.internal_documents_of_the_company');
     }
-
+   public function key_performance_indicators()
+    {
+        return view('pages.frontend.key_performance_indicators');
+    }
 }
