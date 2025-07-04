@@ -103,7 +103,7 @@
 
                                 <!-- Additional Items -->
                                 <li><a href="#">Информация о проведении общего собрания акционеров</a></li>
-                                <li><a href="#">Риски</a></li>
+                                <li><a href="{{route('frontend.risk_takers')}}">Риски</a></li>
                                 <li><a href="{{route('frontend.development_strategies')}}">Стратегии развития</a></li>
                                 <li><a href="{{route('frontend.key_performance_indicators')}}">Критерии оценки эффективности</a></li>
                                 <li><a href="{{ route('frontend.internal_documents_of_the_company') }}">Внутренние документы общества</a></li>

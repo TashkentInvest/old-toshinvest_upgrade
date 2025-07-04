@@ -152,4 +152,9 @@ class FrontendController extends Controller
     {
         return view('pages.frontend.key_performance_indicators');
     }
+
+  public function risk_takers()
+    {
+        return view('pages.frontend.risk_takers');
+    }
 }
