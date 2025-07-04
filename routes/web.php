@@ -208,6 +208,7 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/key_performance_indicators', [FrontendController::class, 'key_performance_indicators'])->name('key_performance_indicators');
     Route::get('/risk_takers', [FrontendController::class, 'risk_takers'])->name('risk_takers');
     Route::get('/information_on_the_purchase_of_shares_by_the_company', [FrontendController::class, 'information_on_the_purchase_of_shares_by_the_company'])->name('information_on_the_purchase_of_shares_by_the_company');
+    Route::get('/dividends', [FrontendController::class, 'dividends'])->name('dividends');
 
 
 

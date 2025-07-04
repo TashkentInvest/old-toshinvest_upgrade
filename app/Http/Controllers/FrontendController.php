@@ -133,7 +133,7 @@ class FrontendController extends Controller
     {
         return view('pages.frontend.development_strategies');
     }
-   public function business_plan()
+    public function business_plan()
     {
         return view('pages.frontend.business_plan');
     }
@@ -144,21 +144,26 @@ class FrontendController extends Controller
         return view('pages.frontend.offers');
     }
 
-       public function internal_documents_of_the_company()
+    public function internal_documents_of_the_company()
     {
         return view('pages.frontend.internal_documents_of_the_company');
     }
-   public function key_performance_indicators()
+    public function key_performance_indicators()
     {
         return view('pages.frontend.key_performance_indicators');
     }
 
-  public function risk_takers()
+    public function risk_takers()
     {
         return view('pages.frontend.risk_takers');
-    }  public function information_on_the_purchase_of_shares_by_the_company()
+    }
+    public function information_on_the_purchase_of_shares_by_the_company()
     {
         return view('pages.frontend.information_on_the_purchase_of_shares_by_the_company');
     }
 
+    public function dividends()
+    {
+        return view('pages.frontend.dividends');
+    }
 }
