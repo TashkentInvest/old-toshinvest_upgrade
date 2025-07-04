@@ -205,10 +205,12 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/business_plan', [FrontendController::class, 'business_plan'])->name('business_plan');
     Route::get('/offers', [FrontendController::class, 'offers'])->name('offers');
     Route::get('/internal_documents_of_the_company', [FrontendController::class, 'internal_documents_of_the_company'])->name('internal_documents_of_the_company');
+
     Route::get('/key_performance_indicators', [FrontendController::class, 'key_performance_indicators'])->name('key_performance_indicators');
     Route::get('/risk_takers', [FrontendController::class, 'risk_takers'])->name('risk_takers');
     Route::get('/information_on_the_purchase_of_shares_by_the_company', [FrontendController::class, 'information_on_the_purchase_of_shares_by_the_company'])->name('information_on_the_purchase_of_shares_by_the_company');
     Route::get('/dividends', [FrontendController::class, 'dividends'])->name('dividends');
+    Route::get('/charter_capital', [FrontendController::class, 'charter_capital'])->name('charter_capital');
 
 
 

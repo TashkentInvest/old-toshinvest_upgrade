@@ -166,4 +166,9 @@ class FrontendController extends Controller
     {
         return view('pages.frontend.dividends');
     }
+
+    public function charter_capital()
+    {
+        return view('pages.frontend.charter_capital');
+    }
 }

@@ -90,7 +90,7 @@
                                         </button>
                                     </div>
                                     <ul class="sub-dropdown-menu">
-                                        <li><a href="#">Уставный фонд общества</a></li>
+                                        <li><a href="{{route('frontend.charter_capital')}}">Уставный фонд общества</a></li>
                                 <li><a href="{{route('frontend.information_on_the_purchase_of_shares_by_the_company')}}">Информация о покупке акций обществом</a></li>
 
                                         <li><a href="#">Финансовые отчеты</a></li>
