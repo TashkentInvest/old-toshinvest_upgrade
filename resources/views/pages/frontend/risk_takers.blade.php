@@ -12,7 +12,7 @@
                         style="text-align: center; margin: 40px 0; padding: 30px 20px; background: #ffffff; border: 1px solid #ddd;">
                         <h1
                             style="color: #2c3e50; font-size: 24px; font-weight: 600; margin-bottom: 8px; font-family: 'Times New Roman', serif;">
-                            Критерии оценки эффективности
+                            Риски
                         </h1>
                     </div>
 

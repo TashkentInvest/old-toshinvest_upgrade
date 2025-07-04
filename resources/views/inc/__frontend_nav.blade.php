@@ -91,7 +91,8 @@
                                     </div>
                                     <ul class="sub-dropdown-menu">
                                         <li><a href="#">Уставный фонд общества</a></li>
-                                        <li><a href="#">Сведения о выкупе акций обществом</a></li>
+                                <li><a href="{{route('frontend.information_on_the_purchase_of_shares_by_the_company')}}">Информация о покупке акций обществом</a></li>
+
                                         <li><a href="#">Финансовые отчеты</a></li>
                                         <li><a href="#">Результаты оценки системы корпоративного
                                                 управления</a></li>
@@ -102,7 +103,7 @@
                                 </li>
 
                                 <!-- Additional Items -->
-                                <li><a href="#">Информация о проведении общего собрания акционеров</a></li>
+                                <li><a href="">Информация о проведении общего собрания акционеров</a></li>
                                 <li><a href="{{route('frontend.risk_takers')}}">Риски</a></li>
                                 <li><a href="{{route('frontend.development_strategies')}}">Стратегии развития</a></li>
                                 <li><a href="{{route('frontend.key_performance_indicators')}}">Критерии оценки эффективности</a></li>

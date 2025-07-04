@@ -156,5 +156,9 @@ class FrontendController extends Controller
   public function risk_takers()
     {
         return view('pages.frontend.risk_takers');
+    }  public function information_on_the_purchase_of_shares_by_the_company()
+    {
+        return view('pages.frontend.information_on_the_purchase_of_shares_by_the_company');
     }
+
 }
