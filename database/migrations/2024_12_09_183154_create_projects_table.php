@@ -15,7 +15,6 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id')->nullable();
             $table->string('unique_number')->nullable();
             $table->string('district')->nullable();
             $table->string('street')->nullable();
@@ -37,9 +36,15 @@ class CreateProjectsTable extends Migration
             $table->date('second_stage_start_date')->nullable();
             $table->date('second_stage_end_date')->nullable();
 
+
+            $table->decimal('latitude', 10, 6)->nullable();
+            $table->decimal('longitude', 10, 6)->nullable();
+            $table->text('geolocation')->nullable();
+            $table->string('geo_image')->nullable();
+            $table->text('comment')->nullable();
+
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
         });
     }
 

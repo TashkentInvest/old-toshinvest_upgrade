@@ -25,8 +25,7 @@ class SystemInitSeeder extends Seeder
             [
                 RoleSeeder::class,
                 UserSeeder::class,
-                // RegionsSeeder::class,
-                // DistrictsSeeder::class,
+
             ]
         );
     }
