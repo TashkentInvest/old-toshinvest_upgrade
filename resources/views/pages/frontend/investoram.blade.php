@@ -73,10 +73,10 @@
         <div class="projects-container card-view" id="projectsContainer">
             @php
                 $statusTitles = [
-                    '1_step' => 'Проекты на 1-м этапе',
-                    '2_step' => 'Проекты на 2-м этапе',
-                    'completed' => 'Завершенные проекты',
-                    'archive' => 'Архивированные проекты',
+                    '1_step' => 'Конкурсы на 1-м этапе',
+                    '2_step' => 'Конкурсы на 2-м этапе',
+                    'completed' => 'Завершенные конкурсы',
+                    'archive' => 'Архивированные конкурсы',
                 ];
                 $statusColors = [
                     '1_step' => 'primary',
