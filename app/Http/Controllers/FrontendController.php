@@ -29,39 +29,124 @@ class FrontendController extends Controller
     {
         return view('pages.frontend.search');
     }
-    public function investoram(Request $request, $subcategory = null)
-    {
-        $category = Category::where('slug', $subcategory)->first();
+public function investoram(Request $request)
+{
+    // Get search parameters
+    $objectNumber = $request->get('object_number');
+    $name = $request->get('name');
+    $status = $request->get('status'); // No default - let user choose
+    $district = $request->get('district');
+    $perPage = $request->get('per_page', 10);
 
-        $validStatuses = ['1_step', '2_step', 'completed', 'archive'];
-        $status = in_array($request->status, $validStatuses) ? $request->status : null;
-
-        $projects = Project::when($status, function ($query, $status) {
-            return $query->where('status', $status);
-        })
-            ->when($request->q, function ($query, $search) {
-                return $query->where(function ($q) use ($search) {
-                    $q->where('district', 'LIKE', '%' . $search . '%')
-                        ->orWhere('land', 'LIKE', '%' . $search . '%')
-                        ->orWhere('mahalla', 'LIKE', '%' . $search . '%');
-                });
-            })
-            ->orderBy('created_at', 'desc')
-            ->get();
-
-        // If AJAX request, return only the HTML of filtered projects
-        if ($request->ajax()) {
-            return response()->json([
-                'html' => view('partials._projects', compact('projects'))->render()
-            ]);
-        }
-
-        return view('pages.frontend.investoram', compact('category', 'projects'));
+    // Validate per_page value
+    $allowedPerPage = [10, 25, 50, 100];
+    if (!in_array($perPage, $allowedPerPage)) {
+        $perPage = 10;
     }
 
+    // Get ALL projects for statistics (unfiltered)
+    $allProjectsQuery = Project::query();
+    $allProjects = $allProjectsQuery->get();
 
+    // Calculate overall statistics from ALL projects
+    $allStatusCounts = [
+        '1_step' => $allProjects->where('status', '1_step')->count(),
+        '2_step' => $allProjects->where('status', '2_step')->count(),
+        'completed' => $allProjects->where('status', 'completed')->count(),
+        'archive' => $allProjects->where('status', 'archive')->count()
+    ];
+    $allTotal = $allProjects->count();
 
+    // Build filtered query for actual display
+    $query = Project::query();
 
+    // Apply filters
+    if (!empty($objectNumber)) {
+        $query->where('id', $objectNumber);
+    }
+
+    if (!empty($name)) {
+        $query->where(function($q) use ($name) {
+            $q->where('district', 'like', '%' . $name . '%')
+              ->orWhere('mahalla', 'like', '%' . $name . '%');
+        });
+    }
+
+    // Only apply status filter if explicitly provided
+    if (!empty($status)) {
+        $query->where('status', $status);
+    }
+
+    if (!empty($district)) {
+        $query->where('district', 'like', '%' . $district . '%');
+    }
+
+    // Order by latest first
+    $query->orderBy('created_at', 'desc');
+
+    // Get filtered projects for statistics
+    $filteredProjects = $query->get();
+    $filteredStatusCounts = [
+        '1_step' => $filteredProjects->where('status', '1_step')->count(),
+        '2_step' => $filteredProjects->where('status', '2_step')->count(),
+        'completed' => $filteredProjects->where('status', 'completed')->count(),
+        'archive' => $filteredProjects->where('status', 'archive')->count()
+    ];
+    $filteredTotal = $filteredProjects->count();
+
+    // Paginate the filtered query
+    $projects = $query->paginate($perPage);
+
+    // Preserve ALL current query parameters in pagination links
+    $projects->appends($request->query());
+
+    // Prepare all variables for the blade template
+    $paginatedProjects = $projects->items();
+    $totalPages = $projects->lastPage();
+    $currentPage = $projects->currentPage();
+    $totalItems = $projects->total();
+    $startItem = $totalItems > 0 ? ($currentPage - 1) * $perPage + 1 : 0;
+    $endItem = min($currentPage * $perPage, $totalItems);
+    $currentStatus = $status ?? 'all'; // Show 'all' when no status selected
+
+    // Determine which counts to show (filtered or all)
+    $showingFiltered = !empty($objectNumber) || !empty($name) || !empty($district);
+    $displayStatusCounts = $showingFiltered ? $filteredStatusCounts : $allStatusCounts;
+    $displayTotal = $showingFiltered ? $filteredTotal : $allTotal;
+
+    $statusLabelsUz = [
+        '1_step' => '1-босқич',
+        '2_step' => '2-босқич',
+        'completed' => 'Тугалланган',
+        'archive' => 'Архив',
+        'all' => 'Барча ҳолатлар',
+        '' => 'Барча ҳолатлар'
+    ];
+
+    // Helper function for pagination URLs that preserves all current parameters
+    $getPaginationUrl = function($page) use ($request) {
+        $params = $request->query();
+        $params['page'] = $page;
+        return $request->url() . '?' . http_build_query($params);
+    };
+
+    return view('pages.frontend.investoram', compact(
+        'projects',
+        'paginatedProjects',
+        'totalPages',
+        'currentPage',
+        'totalItems',
+        'startItem',
+        'endItem',
+        'currentStatus',
+        'statusLabelsUz',
+        'getPaginationUrl',
+        'displayStatusCounts',
+        'displayTotal',
+        'allStatusCounts',
+        'allTotal'
+    ));
+}
     public function media()
     {
         return view('pages.frontend.media');
