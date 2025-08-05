@@ -38,13 +38,72 @@
                                     <i class="far fa-eye"></i>
                                     Время чтения: {{ ceil(str_word_count(strip_tags($news->content ?? '')) / 200) }} мин
                                 </span>
+                                @if($news->hasMultipleImages())
+                                    <span class="meta-item">
+                                        <i class="far fa-images"></i>
+                                        {{ count($news->getImageArray()) }} изображений
+                                    </span>
+                                @endif
                             </div>
                         </header>
 
-                        <!-- Featured Image -->
+                        <!-- Images Gallery -->
                         @if($news->image)
-                            <div class="article-image">
-                                <div class="image-container" style="background-image: url('{{ $news->getImagePath() }}');"></div>
+                            @php
+                                $images = $news->getImageArray();
+                                $imageCount = count($images);
+                            @endphp
+
+                            <div class="article-images">
+                                @if($imageCount === 1)
+                                    <!-- Single Image -->
+                                    <div class="single-image">
+                                        <div class="image-container"
+                                             style="background-image: url('{{ $images[0] }}');"
+                                             onclick="openImageModal(0)"
+                                             title="Нажмите для увеличения">
+                                            <div class="image-overlay">
+                                                <i class="fas fa-search-plus"></i>
+                                                <span>Увеличить</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @else
+                                    <!-- Multiple Images Gallery -->
+                                    <div class="images-gallery">
+                                        <div class="gallery-header">
+                                            <h3>Галерея изображений ({{ $imageCount }})</h3>
+                                        </div>
+
+                                        <!-- Main Featured Image -->
+                                        <div class="featured-image">
+                                            <div class="image-container main-image"
+                                                 style="background-image: url('{{ $images[0] }}');"
+                                                 onclick="openImageModal(0)">
+                                                <div class="image-overlay">
+                                                    <i class="fas fa-search-plus"></i>
+                                                    <span>1 из {{ $imageCount }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Thumbnail Gallery -->
+                                        @if($imageCount > 1)
+                                            <div class="thumbnail-gallery">
+                                                @foreach($images as $index => $imageUrl)
+                                                    <div class="thumbnail {{ $index === 0 ? 'active' : '' }}"
+                                                         onclick="setMainImage({{ $index }}), openImageModal({{ $index }})"
+                                                         data-index="{{ $index }}">
+                                                        <div class="thumbnail-image"
+                                                             style="background-image: url('{{ $imageUrl }}');">
+                                                            <div class="thumbnail-number">{{ $index + 1 }}</div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        @endif
+                                    </div>
+                                @endif
                             </div>
                         @endif
 
@@ -59,7 +118,16 @@
                             @endif
                         </div>
 
-
+                        <!-- External Link -->
+                        @if($news->link)
+                            <div class="external-link">
+                                <h5>Источник</h5>
+                                <a href="{{ $news->link }}" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Перейти к первоисточнику
+                                </a>
+                            </div>
+                        @endif
 
                         <!-- Share Section -->
                         <div class="share-section">
@@ -106,7 +174,7 @@
                                 @foreach($relatedNews as $related)
                                     <div class="related-item">
                                         @if($related->image)
-                                            <div class="related-image" style="background-image: url('{{ $related->getImagePath() }}');"></div>
+                                            <div class="related-image" style="background-image: url('{{ $related->getPrimaryImage() }}');"></div>
                                         @endif
                                         <div class="related-content">
                                             <h6 class="related-title">
@@ -118,6 +186,12 @@
                                                 <i class="far fa-calendar-alt"></i>
                                                 {{ $related->published_at ? $related->published_at->format('d.m.Y') : 'Не указана' }}
                                             </small>
+                                            @if($related->hasMultipleImages())
+                                                <small class="related-images">
+                                                    <i class="far fa-images"></i>
+                                                    {{ count($related->getImageArray()) }} фото
+                                                </small>
+                                            @endif
                                         </div>
                                     </div>
                                 @endforeach
@@ -142,6 +216,12 @@
                                     <i class="fas fa-share-alt"></i>
                                     Поделиться
                                 </button>
+                                @if($news->hasMultipleImages())
+                                    <button onclick="downloadAllImages()" class="btn btn-sm">
+                                        <i class="fas fa-download"></i>
+                                        Скачать все фото
+                                    </button>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -149,6 +229,40 @@
             </div>
         </div>
     </div>
+
+    <!-- Image Modal -->
+    @if($news->image)
+        <div id="imageModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeImageModal()">&times;</span>
+
+                @if(count($news->getImageArray()) > 1)
+                    <div class="modal-nav prev" onclick="changeModalImage(-1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="modal-nav next" onclick="changeModalImage(1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                @endif
+
+                <img id="modalImage" class="modal-image" src="" alt="">
+
+                <div class="modal-info">
+                    <div class="modal-counter">
+                        <span id="imageCounter">1</span> из {{ count($news->getImageArray()) }}
+                    </div>
+                    <div class="modal-actions">
+                        <button onclick="downloadCurrentImage()" class="modal-btn">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button onclick="shareCurrentImage()" class="modal-btn">
+                            <i class="fas fa-share"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 
     <style>
         .detail-container {
@@ -230,16 +344,129 @@
             margin-right: 5px;
         }
 
-        .article-image {
+        /* Enhanced Image Gallery Styles */
+        .article-images {
             margin-bottom: 40px;
         }
 
-        .image-container {
+        .single-image .image-container {
             height: 400px;
             background-size: cover;
             background-position: center;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .images-gallery {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+
+        .gallery-header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gallery-header h3 {
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .featured-image {
+            margin-bottom: 20px;
+        }
+
+        .main-image {
+            height: 450px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            gap: 10px;
+        }
+
+        .image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .image-overlay i {
+            font-size: 2rem;
+        }
+
+        .image-overlay span {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .thumbnail-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .thumbnail {
+            cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .thumbnail.active {
+            border-color: #1e45be;
+            transform: scale(1.05);
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.08);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .thumbnail-image {
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .thumbnail-number {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
         }
 
         .article-content {
@@ -271,6 +498,16 @@
         .external-link h5 {
             margin: 0 0 15px 0;
             color: #000;
+        }
+
+        .external-link a {
+            color: #1e45be;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .external-link a:hover {
+            text-decoration: underline;
         }
 
         .share-section {
@@ -412,12 +649,16 @@
             color: #333;
         }
 
-        .related-date {
+        .related-date,
+        .related-images {
             color: #6c757d;
             font-size: 0.8rem;
+            display: block;
+            margin-bottom: 3px;
         }
 
-        .related-date i {
+        .related-date i,
+        .related-images i {
             margin-right: 3px;
         }
 
@@ -425,6 +666,116 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 0;
+            width: 90%;
+            max-width: 1200px;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-image {
+            max-width: 90%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 5px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10001;
+        }
+
+        .close:hover {
+            color: #bbb;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 20px 15px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+            z-index: 10001;
+        }
+
+        .modal-nav:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        .modal-nav.prev {
+            left: 20px;
+        }
+
+        .modal-nav.next {
+            right: 20px;
+        }
+
+        .modal-info {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(0,0,0,0.7);
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: white;
+        }
+
+        .modal-counter {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .modal-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .modal-btn:hover {
+            background: rgba(255,255,255,0.1);
         }
 
         @media (max-width: 768px) {
@@ -462,6 +813,36 @@
             .share-buttons {
                 justify-content: center;
             }
+
+            .main-image {
+                height: 300px;
+            }
+
+            .thumbnail-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            }
+
+            .thumbnail-image {
+                height: 80px;
+            }
+
+            .modal-nav {
+                padding: 15px 10px;
+                font-size: 16px;
+            }
+
+            .modal-nav.prev {
+                left: 10px;
+            }
+
+            .modal-nav.next {
+                right: 10px;
+            }
+
+            .modal-info {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
 
         @media print {
@@ -479,14 +860,130 @@
             .article-title {
                 font-size: 1.5rem;
             }
+
+            .thumbnail-gallery {
+                display: none;
+            }
         }
     </style>
 
     <script>
-        function copyToClipboard() {
-            const url = window.location.href;
-            navigator.clipboard.writeText(url).then(function() {
-                showNotification('Ссылка скопирована в буфер обмена!');
+        // Image gallery functionality
+        @if($news->image)
+            const images = {!! json_encode($news->getImageArray()) !!};
+            let currentImageIndex = 0;
+
+            function setMainImage(index) {
+                const mainImage = document.querySelector('.main-image');
+                const thumbnails = document.querySelectorAll('.thumbnail');
+
+                if (mainImage) {
+                    mainImage.style.backgroundImage = `url('${images[index]}')`;
+                    mainImage.querySelector('.image-overlay span').textContent = `${index + 1} из ${images.length}`;
+                }
+
+                thumbnails.forEach((thumb, i) => {
+                    thumb.classList.toggle('active', i === index);
+                });
+
+                currentImageIndex = index;
+            }
+
+            function openImageModal(index) {
+                const modal = document.getElementById('imageModal');
+                const modalImage = document.getElementById('modalImage');
+                const counter = document.getElementById('imageCounter');
+
+                currentImageIndex = index;
+                modal.style.display = 'block';
+                modalImage.src = images[currentImageIndex];
+                counter.textContent = currentImageIndex + 1;
+
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeImageModal() {
+                document.getElementById('imageModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+
+            function changeModalImage(direction) {
+                currentImageIndex += direction;
+
+                if (currentImageIndex >= images.length) {
+                    currentImageIndex = 0;
+                } else if (currentImageIndex < 0) {
+                    currentImageIndex = images.length - 1;
+                }
+
+                const modalImage = document.getElementById('modalImage');
+                const counter = document.getElementById('imageCounter');
+
+                modalImage.src = images[currentImageIndex];
+                counter.textContent = currentImageIndex + 1;
+
+                // Update main gallery if visible
+                setMainImage(currentImageIndex);
+            }
+
+            function downloadCurrentImage() {
+                const link = document.createElement('a');
+                link.href = images[currentImageIndex];
+                link.download = `image-${currentImageIndex + 1}.jpg`;
+                link.click();
+            }
+
+            function shareCurrentImage() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: '{{ $news->title }}',
+                        text: `Изображение ${currentImageIndex + 1} из новости`,
+                        url: images[currentImageIndex]
+                    });
+                } else {
+                    copyToClipboard(images[currentImageIndex]);
+                }
+            }
+
+            function downloadAllImages() {
+                images.forEach((imageUrl, index) => {
+                    const link = document.createElement('a');
+                    link.href = imageUrl;
+                    link.download = `image-${index + 1}.jpg`;
+                    setTimeout(() => link.click(), index * 500);
+                });
+            }
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                const modal = document.getElementById('imageModal');
+                if (modal.style.display === 'block') {
+                    switch(e.key) {
+                        case 'Escape':
+                            closeImageModal();
+                            break;
+                        case 'ArrowLeft':
+                            changeModalImage(-1);
+                            break;
+                        case 'ArrowRight':
+                            changeModalImage(1);
+                            break;
+                    }
+                }
+            });
+
+            // Close modal when clicking outside
+            document.getElementById('imageModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeImageModal();
+                }
+            });
+        @endif
+
+        function copyToClipboard(text = null) {
+            const textToCopy = text || window.location.href;
+            navigator.clipboard.writeText(textToCopy).then(function() {
+                showNotification(text ? 'Ссылка на изображение скопирована!' : 'Ссылка скопирована в буфер обмена!');
             }).catch(function(err) {
                 console.error('Could not copy text: ', err);
                 showNotification('Не удалось скопировать ссылку');
@@ -503,19 +1000,36 @@
                 color: white;
                 padding: 15px 20px;
                 border-radius: 5px;
-                z-index: 9999;
+                z-index: 99999;
                 box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                animation: slideIn 0.3s ease;
             `;
             notification.textContent = message;
             document.body.appendChild(notification);
 
             setTimeout(() => {
-                notification.remove();
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
             }, 3000);
         }
 
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
         document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('.image-container, .related-image');
+            // Handle broken images
+            const images = document.querySelectorAll('.image-container, .related-image, .thumbnail-image');
             images.forEach(img => {
                 const bgImage = img.style.backgroundImage;
                 if (bgImage) {
@@ -528,7 +1042,67 @@
                     testImg.src = url;
                 }
             });
+
+            // Initialize lazy loading for images
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            const src = img.dataset.src;
+                            if (src) {
+                                img.style.backgroundImage = `url('${src}')`;
+                                img.removeAttribute('data-src');
+                                observer.unobserve(img);
+                            }
+                        }
+                    });
+                });
+
+                document.querySelectorAll('[data-src]').forEach(function(img) {
+                    imageObserver.observe(img);
+                });
+            }
         });
+
+        // Swipe gestures for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const modal = document.getElementById('imageModal');
+            if (modal && modal.style.display === 'block') {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        // Swipe left - next image
+                        changeModalImage(1);
+                    } else {
+                        // Swipe right - previous image
+                        changeModalImage(-1);
+                    }
+                }
+            }
+        }
+
+        // Preload images for better performance
+        @if($news->image)
+            images.forEach(function(imageUrl) {
+                const img = new Image();
+                img.src = imageUrl;
+            });
+        @endif
     </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
