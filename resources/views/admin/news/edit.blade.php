@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Редактировать новость</title>
+    <title>{{ isset($news) ? 'Редактировать' : 'Создать' }} новость</title>
     <style>
         * {
             margin: 0;
@@ -115,6 +115,8 @@
         .btn-danger {
             background: #e74c3c;
             color: white;
+            padding: 6px 12px;
+            font-size: 12px;
         }
 
         .btn-danger:hover {
@@ -129,15 +131,102 @@
             border-top: 1px solid #eee;
         }
 
-        .image-preview {
-            margin-top: 10px;
-            max-width: 200px;
-            height: 120px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 4px;
+        .image-options {
             border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+        .image-option {
+            margin-bottom: 20px;
+        }
+
+        .image-option:last-child {
+            margin-bottom: 0;
+        }
+
+        .image-option h4 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .file-upload-area {
+            border: 2px dashed #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            text-align: center;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload-area:hover {
+            border-color: #3498db;
+            background: #f8f9ff;
+        }
+
+        .file-upload-area.dragover {
+            border-color: #3498db;
+            background: #e7f3ff;
+        }
+
+        .file-input {
             display: none;
+        }
+
+        .upload-button {
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .upload-button:hover {
+            background: #2980b9;
+        }
+
+        .image-preview-container {
+            margin-top: 15px;
+        }
+
+        .image-preview {
+            display: inline-block;
+            position: relative;
+            margin: 5px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .image-preview img {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-preview .remove-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(231, 76, 60, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-preview .remove-btn:hover {
+            background: rgba(192, 57, 43, 0.9);
         }
 
         .error {
@@ -146,31 +235,42 @@
             margin-top: 5px;
         }
 
-        .alert {
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
+        .divider {
+            margin: 20px 0;
+            text-align: center;
+            position: relative;
         }
 
-        .info-box {
-            background: #e7f3ff;
-            border: 1px solid #b8d4f0;
-            padding: 15px;
-            border-radius: 4px;
-            margin-bottom: 20px;
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #ddd;
         }
 
-        .info-box h3 {
-            margin-bottom: 10px;
-            color: #2c3e50;
+        .divider span {
+            background: #f9f9f9;
+            padding: 0 15px;
+            color: #666;
+            font-size: 14px;
         }
 
-        .info-box p {
-            margin-bottom: 5px;
-            color: #555;
+        .checkbox-group {
+            margin: 15px 0;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
         }
 
         @media (max-width: 768px) {
@@ -187,45 +287,31 @@
             .btn {
                 text-align: center;
             }
+
+            .image-preview img {
+                width: 120px;
+                height: 80px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>Редактировать новость</h1>
+            <h1>{{ isset($news) ? 'Редактировать новость' : 'Создать новость' }}</h1>
             <a href="{{ route('admin.news.index') }}" class="btn btn-secondary">Назад к списку</a>
         </div>
 
         <div class="form-container">
-            @if(session('success'))
-                <div class="alert">
-                    {{ session('success') }}
-                </div>
-            @endif
-
-            <!-- Current News Info -->
-            <div class="info-box">
-                <h3>Текущая информация о новости</h3>
-                <p><strong>ID:</strong> {{ $news->id }}</p>
-                <p><strong>Создана:</strong> {{ $news->created_at->format('d.m.Y H:i') }}</p>
-                <p><strong>Последнее обновление:</strong> {{ $news->updated_at->format('d.m.Y H:i') }}</p>
-                <p><strong>Статус:</strong>
-                    @if($news->published_at && $news->published_at <= now())
-                        <span style="color: #27ae60; font-weight: 500;">Опубликована</span>
-                    @else
-                        <span style="color: #f39c12; font-weight: 500;">Черновик</span>
-                    @endif
-                </p>
-            </div>
-
-            <form method="POST" action="{{ route('admin.news.update', $news) }}">
+            <form method="POST" action="{{ isset($news) ? route('admin.news.update', $news) : route('admin.news.store') }}" enctype="multipart/form-data">
                 @csrf
-                @method('PUT')
+                @if(isset($news))
+                    @method('PUT')
+                @endif
 
                 <div class="form-group">
                     <label for="title">Заголовок новости *</label>
-                    <input type="text" id="title" name="title" value="{{ old('title', $news->title) }}" required>
+                    <input type="text" id="title" name="title" value="{{ old('title', $news->title ?? '') }}" required>
                     @error('title')
                         <div class="error">{{ $message }}</div>
                     @enderror
@@ -233,7 +319,7 @@
 
                 <div class="form-group">
                     <label for="content">Содержание новости</label>
-                    <textarea id="content" name="content" placeholder="Введите текст новости...">{{ old('content', $news->content) }}</textarea>
+                    <textarea id="content" name="content" placeholder="Введите текст новости...">{{ old('content', $news->content ?? '') }}</textarea>
                     <small>Вы можете оставить это поле пустым, если хотите опубликовать только заголовок и ссылку</small>
                     @error('content')
                         <div class="error">{{ $message }}</div>
@@ -241,19 +327,72 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="image">URL изображения</label>
-                    <input type="url" id="image" name="image" value="{{ old('image', $news->image) }}"
-                           placeholder="https://example.com/image.jpg">
-                    <small>Введите полный URL изображения (начинающийся с http:// или https://)</small>
-                    <div id="imagePreview" class="image-preview"></div>
+                    <label>Изображения новости</label>
+
+                    <div class="image-options">
+                        <!-- File Upload Option -->
+                        <div class="image-option">
+                            <h4>Загрузить изображения</h4>
+                            <div class="file-upload-area" id="fileUploadArea">
+                                <p>Перетащите изображения сюда или</p>
+                                <button type="button" class="upload-button" onclick="document.getElementById('imageFiles').click()">
+                                    Выберите файлы
+                                </button>
+                                <input type="file" id="imageFiles" name="image_files[]" class="file-input" multiple accept="image/*">
+                                <small style="display: block; margin-top: 10px; color: #666;">
+                                    Поддерживаемые форматы: JPEG, PNG, JPG, GIF, WebP. Максимум 5MB на файл.
+                                </small>
+                            </div>
+
+                            <!-- Preview container for uploaded files -->
+                            <div id="uploadPreviewContainer" class="image-preview-container"></div>
+
+                            @if(isset($news) && $news->image)
+                                <div class="checkbox-group">
+                                    <label>
+                                        <input type="checkbox" name="keep_existing_images" value="1" checked>
+                                        Сохранить существующие изображения
+                                    </label>
+                                </div>
+
+                                <!-- Show existing images -->
+                                <div class="image-preview-container">
+                                    <h5 style="margin-bottom: 10px;">Текущие изображения:</h5>
+                                    @foreach($news->getImageArray() as $index => $imageUrl)
+                                        <div class="image-preview" data-image="{{ $imageUrl }}">
+                                            <img src="{{ $imageUrl }}" alt="Image {{ $index + 1 }}">
+                                            <button type="button" class="remove-btn" onclick="removeExistingImage('{{ $imageUrl }}', this)">×</button>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            @endif
+                        </div>
+
+                        <div class="divider">
+                            <span>ИЛИ</span>
+                        </div>
+
+                        <!-- URL Option -->
+                        <div class="image-option">
+                            <h4>URL изображения</h4>
+                            <input type="url" id="image" name="image" value="{{ old('image', isset($news) && !$news->isUploadedImage() ? $news->image : '') }}"
+                                   placeholder="https://example.com/image.jpg">
+                            <small>Введите полный URL изображения (начинающийся с http:// или https://)</small>
+                            <div id="urlImagePreview" class="image-preview-container"></div>
+                        </div>
+                    </div>
+
                     @error('image')
+                        <div class="error">{{ $message }}</div>
+                    @enderror
+                    @error('image_files')
                         <div class="error">{{ $message }}</div>
                     @enderror
                 </div>
 
                 <div class="form-group">
                     <label for="link">Внешняя ссылка на источник</label>
-                    <input type="url" id="link" name="link" value="{{ old('link', $news->link) }}"
+                    <input type="url" id="link" name="link" value="{{ old('link', $news->link ?? '') }}"
                            placeholder="https://example.com/article">
                     <small>Ссылка на первоисточник новости (если есть)</small>
                     @error('link')
@@ -264,8 +403,8 @@
                 <div class="form-group">
                     <label for="published_at">Дата и время публикации</label>
                     <input type="datetime-local" id="published_at" name="published_at"
-                           value="{{ old('published_at', $news->published_at ? $news->published_at->format('Y-m-d\TH:i') : '') }}">
-                    <small>Установите дату и время когда новость должна быть опубликована</small>
+                           value="{{ old('published_at', isset($news) && $news->published_at ? $news->published_at->format('Y-m-d\TH:i') : now()->format('Y-m-d\TH:i')) }}">
+                    <small>Оставьте пустым для автоматической установки текущего времени</small>
                     @error('published_at')
                         <div class="error">{{ $message }}</div>
                     @enderror
@@ -273,377 +412,157 @@
 
                 <div class="form-actions">
                     <button type="submit" class="btn btn-primary">
-                        Обновить новость
+                        {{ isset($news) ? 'Обновить новость' : 'Создать новость' }}
                     </button>
-                    <a href="{{ route('admin.news.show', $news) }}" class="btn btn-secondary">Просмотр</a>
                     <a href="{{ route('admin.news.index') }}" class="btn btn-secondary">Отмена</a>
-
-                    <!-- Delete Button -->
-                    <form method="POST" action="{{ route('admin.news.destroy', $news) }}" style="display: inline;"
-                          onsubmit="return confirm('Вы уверены, что хотите удалить эту новость? Это действие нельзя отменить!')">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Удалить новость</button>
-                    </form>
                 </div>
             </form>
         </div>
     </div>
 
     <script>
-        // Image preview functionality
-        document.getElementById('image').addEventListener('input', function() {
+        // File handling
+        const fileInput = document.getElementById('imageFiles');
+        const uploadArea = document.getElementById('fileUploadArea');
+        const previewContainer = document.getElementById('uploadPreviewContainer');
+        const urlInput = document.getElementById('image');
+        const urlPreview = document.getElementById('urlImagePreview');
+
+        let selectedFiles = [];
+
+        // Drag and drop functionality
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = Array.from(e.dataTransfer.files).filter(file => file.type.startsWith('image/'));
+            handleFiles(files);
+        });
+
+        // File input change
+        fileInput.addEventListener('change', (e) => {
+            const files = Array.from(e.target.files);
+            handleFiles(files);
+        });
+
+        function handleFiles(files) {
+            selectedFiles = [...selectedFiles, ...files];
+            updatePreview();
+            updateFileInput();
+        }
+
+        function updateFileInput() {
+            const dt = new DataTransfer();
+            selectedFiles.forEach(file => dt.items.add(file));
+            fileInput.files = dt.files;
+        }
+
+        function updatePreview() {
+            previewContainer.innerHTML = '';
+
+            selectedFiles.forEach((file, index) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const previewDiv = document.createElement('div');
+                    previewDiv.className = 'image-preview';
+                    previewDiv.innerHTML = `
+                        <img src="${e.target.result}" alt="Preview ${index + 1}">
+                        <button type="button" class="remove-btn" onclick="removeFile(${index})">×</button>
+                    `;
+                    previewContainer.appendChild(previewDiv);
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function removeFile(index) {
+            selectedFiles.splice(index, 1);
+            updatePreview();
+            updateFileInput();
+        }
+
+        // URL image preview
+        urlInput.addEventListener('input', function() {
             const imageUrl = this.value;
-            const preview = document.getElementById('imagePreview');
 
             if (imageUrl) {
                 const img = new Image();
                 img.onload = function() {
-                    preview.style.backgroundImage = `url('${imageUrl}')`;
-                    preview.style.display = 'block';
+                    urlPreview.innerHTML = `
+                        <div class="image-preview">
+                            <img src="${imageUrl}" alt="URL Preview">
+                        </div>
+                    `;
                 };
                 img.onerror = function() {
-                    preview.style.display = 'none';
+                    urlPreview.innerHTML = '';
                 };
                 img.src = imageUrl;
             } else {
-                preview.style.display = 'none';
+                urlPreview.innerHTML = '';
             }
         });
 
-        // Load existing image preview on page load
+        // Remove existing image
+        function removeExistingImage(imageUrl, button) {
+            if (confirm('Удалить это изображение?')) {
+                const imagePreview = button.closest('.image-preview');
+                imagePreview.remove();
+
+                // If this is an edit form, make AJAX call to remove image
+                @if(isset($news))
+                fetch('{{ route("admin.news.removeImage", $news) }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify({
+                        image_url: imageUrl
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.success) {
+                        alert('Ошибка при удалении изображения');
+                        location.reload();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Ошибка при удалении изображения');
+                    location.reload();
+                });
+                @endif
+            }
+        }
+
+        // Load existing URL image preview
         window.addEventListener('load', function() {
-            const imageInput = document.getElementById('image');
-            if (imageInput.value) {
-                imageInput.dispatchEvent(new Event('input'));
+            if (urlInput.value) {
+                urlInput.dispatchEvent(new Event('input'));
             }
         });
 
-        // Auto-save functionality (optional)
-        let autoSaveTimeout;
-        const inputs = document.querySelectorAll('input, textarea');
+        // Form validation
+        document.querySelector('form').addEventListener('submit', function(e) {
+            const title = document.getElementById('title').value.trim();
 
-        inputs.forEach(input => {
-            input.addEventListener('input', function() {
-                // Clear existing timeout
-                clearTimeout(autoSaveTimeout);
-
-                // Set new timeout for auto-save indication
-                autoSaveTimeout = setTimeout(() => {
-                    // You can add auto-save functionality here if needed
-                    console.log('Changes detected - consider saving');
-                }, 2000);
-            });
-        });
-
-        // Warn user about unsaved changes
-        let formChanged = false;
-        const form = document.querySelector('form');
-
-        inputs.forEach(input => {
-            input.addEventListener('change', function() {
-                formChanged = true;
-            });
-        });
-
-        window.addEventListener('beforeunload', function(e) {
-            if (formChanged) {
+            if (!title) {
                 e.preventDefault();
-                e.returnValue = 'У вас есть несохраненные изменения. Вы уверены, что хотите покинуть страницу?';
+                alert('Пожалуйста, введите заголовок новости');
+                document.getElementById('title').focus();
+                return false;
             }
-        });
-
-        // Reset form changed flag on submit
-        form.addEventListener('submit', function() {
-            formChanged = false;
         });
     </script>
-</body>
-</html>
-
-<?php
-// Show Blade Template: resources/views/admin/news/show.blade.php
-?>
-
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Просмотр новости</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-
-        .header {
-            background: #2c3e50;
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header h1 {
-            font-size: 1.5rem;
-        }
-
-        .content {
-            padding: 30px;
-        }
-
-        .news-meta {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 30px;
-        }
-
-        .news-meta h3 {
-            margin-bottom: 15px;
-            color: #2c3e50;
-        }
-
-        .meta-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #dee2e6;
-        }
-
-        .meta-item:last-child {
-            border-bottom: none;
-        }
-
-        .meta-label {
-            font-weight: 500;
-            color: #666;
-        }
-
-        .meta-value {
-            color: #333;
-        }
-
-        .news-title {
-            font-size: 2rem;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            line-height: 1.3;
-        }
-
-        .news-image {
-            width: 100%;
-            max-width: 600px;
-            height: 300px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 8px;
-            margin: 20px 0;
-            border: 1px solid #ddd;
-        }
-
-        .news-content {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: #333;
-            margin: 20px 0;
-        }
-
-        .news-content p {
-            margin-bottom: 15px;
-        }
-
-        .external-link {
-            background: #e7f3ff;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
-        }
-
-        .external-link a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .external-link a:hover {
-            text-decoration: underline;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-            cursor: pointer;
-            display: inline-block;
-            margin-right: 10px;
-        }
-
-        .btn-primary {
-            background: #3498db;
-            color: white;
-        }
-
-        .btn-warning {
-            background: #f39c12;
-            color: white;
-        }
-
-        .btn-danger {
-            background: #e74c3c;
-            color: white;
-        }
-
-        .btn-secondary {
-            background: #95a5a6;
-            color: white;
-        }
-
-        .actions {
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            margin-top: 30px;
-        }
-
-        .status-badge {
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .status-published {
-            background: #d4edda;
-            color: #155724;
-        }
-
-        .status-draft {
-            background: #fff3cd;
-            color: #856404;
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-
-            .news-title {
-                font-size: 1.5rem;
-            }
-
-            .actions {
-                text-align: center;
-            }
-
-            .btn {
-                display: block;
-                margin: 5px 0;
-                text-align: center;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>Просмотр новости</h1>
-            <a href="{{ route('admin.news.index') }}" class="btn btn-secondary">Назад к списку</a>
-        </div>
-
-        <div class="content">
-            <!-- News Meta Information -->
-            <div class="news-meta">
-                <h3>Информация о новости</h3>
-                <div class="meta-item">
-                    <span class="meta-label">ID:</span>
-                    <span class="meta-value">{{ $news->id }}</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Статус:</span>
-                    <span class="meta-value">
-                        @if($news->published_at && $news->published_at <= now())
-                            <span class="status-badge status-published">Опубликована</span>
-                        @else
-                            <span class="status-badge status-draft">Черновик</span>
-                        @endif
-                    </span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Дата публикации:</span>
-                    <span class="meta-value">
-                        {{ $news->published_at ? $news->published_at->format('d.m.Y H:i') : 'Не указана' }}
-                    </span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Создана:</span>
-                    <span class="meta-value">{{ $news->created_at->format('d.m.Y H:i') }}</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Обновлена:</span>
-                    <span class="meta-value">{{ $news->updated_at->format('d.m.Y H:i') }}</span>
-                </div>
-            </div>
-
-            <!-- News Title -->
-            <h1 class="news-title">{{ $news->title }}</h1>
-
-            <!-- News Image -->
-            @if($news->image)
-                <div class="news-image" style="background-image: url('{{ $news->getImagePath() }}');"></div>
-            @endif
-
-            <!-- News Content -->
-            @if($news->content)
-                <div class="news-content">
-                    {!! nl2br(e($news->content)) !!}
-                </div>
-            @else
-                <p style="color: #999; font-style: italic;">Содержание новости не указано.</p>
-            @endif
-
-            <!-- External Link -->
-            @if($news->link)
-                <div class="external-link">
-                    <strong>Внешняя ссылка:</strong><br>
-                    <a href="{{ $news->link }}" target="_blank">{{ $news->link }}</a>
-                </div>
-            @endif
-
-            <!-- Actions -->
-            <div class="actions">
-                <a href="{{ route('admin.news.edit', $news) }}" class="btn btn-warning">Редактировать</a>
-                <a href="{{ route('frontend.media.detail', $news->id) }}" target="_blank" class="btn btn-primary">Посмотреть на сайте</a>
-
-                <form method="POST" action="{{ route('admin.news.destroy', $news) }}" style="display: inline;"
-                      onsubmit="return confirm('Вы уверены, что хотите удалить эту новость? Это действие нельзя отменить!')">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Удалить</button>
-                </form>
-            </div>
-        </div>
-    </div>
 </body>
 </html>

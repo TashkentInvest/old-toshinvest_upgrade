@@ -1,62 +1,88 @@
 <?php
 
+// Model: app/Models/News.php
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 
 class News extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'image', 'content', 'link', 'published_at'];
+    protected $fillable = [
+        'title',
+        'content',
+        'image',
+        'link',
+        'published_at',
+    ];
 
     protected $casts = [
         'published_at' => 'datetime',
     ];
 
     /**
-     * Get the image path with fallback
+     * Get the image path/URL
      */
     public function getImagePath()
     {
-        // Check if the image is a URL
-        if (filter_var($this->image, FILTER_VALIDATE_URL)) {
-            return $this->image; // Return the URL
+        if (!$this->image) {
+            return null;
         }
 
-        // Check if local image exists
-        if ($this->image && file_exists(storage_path('app/public/' . $this->image))) {
-            return asset('storage/' . $this->image);
+        // If it's a JSON array, return the first image
+        if (Str::startsWith($this->image, '[')) {
+            $images = json_decode($this->image, true);
+            return $images[0] ?? null;
         }
 
-        // Return default placeholder image
-        return asset('images/news-placeholder.jpg'); // Make sure to add a placeholder image
+        return $this->image;
     }
 
     /**
-     * Get formatted published date
+     * Get all images as an array
      */
-    public function getFormattedDateAttribute()
+    public function getImageArray()
     {
-        return $this->published_at ? $this->published_at->format('d.m.Y') : '';
+        if (!$this->image) {
+            return [];
+        }
+
+        // If it's a JSON array
+        if (Str::startsWith($this->image, '[')) {
+            return json_decode($this->image, true) ?: [];
+        }
+
+        // Single image
+        return [$this->image];
     }
 
     /**
-     * Get human readable date
+     * Check if news has multiple images
      */
-    public function getHumanDateAttribute()
+    public function hasMultipleImages()
     {
-        return $this->published_at ? $this->published_at->diffForHumans() : '';
+        return count($this->getImageArray()) > 1;
     }
 
     /**
-     * Get excerpt from content
+     * Get the primary (first) image
      */
-    public function getExcerptAttribute($length = 150)
+    public function getPrimaryImage()
     {
-        return $this->content ? \Str::limit(strip_tags($this->content), $length) : '';
+        $images = $this->getImageArray();
+        return $images[0] ?? null;
+    }
+
+    /**
+     * Check if the image is an uploaded file
+     */
+    public function isUploadedImage($imageUrl = null)
+    {
+        $image = $imageUrl ?: $this->getImagePath();
+        return $image && Str::startsWith($image, '/storage/');
     }
 
     /**
@@ -64,34 +90,14 @@ class News extends Model
      */
     public function scopePublished($query)
     {
-        return $query->where('published_at', '<=', now());
+        return $query->where('published_at', '<=', now())->whereNotNull('published_at');
     }
 
     /**
-     * Scope for recent news
+     * Scope for draft news
      */
-    public function scopeRecent($query, $days = 30)
+    public function scopeDraft($query)
     {
-        return $query->where('published_at', '>=', now()->subDays($days));
-    }
-
-    /**
-     * Scope for search
-     */
-    public function scopeSearch($query, $search)
-    {
-        return $query->where(function($q) use ($search) {
-            $q->where('title', 'like', '%' . $search . '%')
-              ->orWhere('content', 'like', '%' . $search . '%');
-        });
-    }
-
-    /**
-     * Get reading time in minutes
-     */
-    public function getReadingTimeAttribute()
-    {
-        $wordCount = str_word_count(strip_tags($this->content));
-        return ceil($wordCount / 200); // Average reading speed: 200 words per minute
+        return $query->where('published_at', '>', now())->orWhereNull('published_at');
     }
 }

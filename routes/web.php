@@ -130,6 +130,9 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::group(['prefix' => 'media'], function () {
         Route::get('/', [FrontendController::class, 'media'])->name('media');
         Route::get('/news/{id}', [FrontendController::class, 'mediaDetail'])->name('media.detail');
+        Route::post('news/{news}/remove-image', [NewsController::class, 'removeImage'])
+            ->name('news.removeImage');
+
     });
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
     Route::get('/ustav', [FrontendController::class, 'ustav'])->name('ustav');
