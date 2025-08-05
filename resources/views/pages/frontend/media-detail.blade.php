@@ -110,9 +110,14 @@
                         <!-- Article Content -->
                         <div class="article-content">
                             @if($news->content)
-                                <div class="article-text">
+                                {{-- <div class="article-text">
                                     {!! nl2br(e($news->content)) !!}
-                                </div>
+                                </div> --}}
+                       <div class="article-text" style="text-indent: 2em;">
+                            {!! nl2br(e($news->content)) !!}
+                        </div>
+
+
                             @else
                                 <p class="no-content">Содержание статьи недоступно.</p>
                             @endif

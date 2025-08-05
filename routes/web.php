@@ -44,6 +44,8 @@ Route::prefix('admin/news')->name('admin.news.')->group(function () {
     Route::put('/{news}', [NewsController::class, 'update'])->name('update');   // PUT /admin/news/{id}
     Route::delete('/{news}', [NewsController::class, 'destroy'])->name('destroy'); // DELETE /admin/news/{id}
 });
+Route::post('news/{news}/remove-image', [NewsController::class, 'removeImage'])
+      ->name('news.removeImage');
 
 
     Route::get('/optimize-cache', [HomeController::class, 'optimize'])->name('optimize.command');
@@ -130,10 +132,9 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::group(['prefix' => 'media'], function () {
         Route::get('/', [FrontendController::class, 'media'])->name('media');
         Route::get('/news/{id}', [FrontendController::class, 'mediaDetail'])->name('media.detail');
-        Route::post('news/{news}/remove-image', [NewsController::class, 'removeImage'])
-            ->name('news.removeImage');
 
     });
+
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
     Route::get('/ustav', [FrontendController::class, 'ustav'])->name('ustav');
     Route::get('/struktura', [FrontendController::class, 'struktura'])->name('struktura');

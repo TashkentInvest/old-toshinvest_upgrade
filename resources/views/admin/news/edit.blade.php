@@ -419,7 +419,6 @@
             </form>
         </div>
     </div>
-
     <script>
         // File handling
         const fileInput = document.getElementById('imageFiles');
@@ -519,7 +518,7 @@
 
                 // If this is an edit form, make AJAX call to remove image
                 @if(isset($news))
-                fetch('{{ route("admin.news.removeImage", $news) }}', {
+                fetch('{{ route("news.removeImage", $news) }}', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
