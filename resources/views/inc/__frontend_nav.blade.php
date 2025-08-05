@@ -13,7 +13,7 @@
         <div class="container">
             <div class="header-content">
                 <a href="/" class="emblem-section">
-                    <img src="assets/frontend/tild6238-3031-4265-a564-343037346231/tic_logo_blue.png" alt="Emblem"
+                    <img src="{{asset('assets/frontend/tild6238-3031-4265-a564-343037346231/tic_logo_blue.png')}}" alt="Emblem"
                         class="emblem-img">
                 </a>
                 <div class="title-section">
