@@ -87,7 +87,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('/delete/{id}', [UserController::class, 'destroy'])->name('userDestroy');
         Route::get('/theme-set/{id}', [UserController::class, 'setTheme'])->name('userSetTheme');
     });
-
 });
 
 Route::get('/language/{lang}', function ($lang) {
@@ -116,7 +115,10 @@ Route::prefix('')->name('frontend.')->group(function () {
 
 
     Route::get('/zakupki', [FrontendController::class, 'zakupki'])->name('zakupki');
-    Route::get('/media', [FrontendController::class, 'media'])->name('media');
+    Route::group(['prefix' => 'media'], function () {
+        Route::get('/', [FrontendController::class, 'media'])->name('media');
+        Route::get('/news/{id}', [FrontendController::class, 'mediaDetail'])->name('media.detail');
+    });
     Route::get('/contact', [FrontendController::class, 'contact'])->name('contact');
     Route::get('/ustav', [FrontendController::class, 'ustav'])->name('ustav');
     Route::get('/struktura', [FrontendController::class, 'struktura'])->name('struktura');
@@ -141,9 +143,4 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/information_on_the_purchase_of_shares_by_the_company', [FrontendController::class, 'information_on_the_purchase_of_shares_by_the_company'])->name('information_on_the_purchase_of_shares_by_the_company');
     Route::get('/dividends', [FrontendController::class, 'dividends'])->name('dividends');
     Route::get('/charter_capital', [FrontendController::class, 'charter_capital'])->name('charter_capital');
-
-
-
-
-
 });

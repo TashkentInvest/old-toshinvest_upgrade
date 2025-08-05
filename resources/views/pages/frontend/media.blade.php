@@ -2,147 +2,252 @@
 @section('frontent_content')
     <div id="rec748789817" class="r t-rec t-rec_pt_30 t-rec_pb_60" style="padding-top: 30px; padding-bottom: 60px"
         data-animationappear="off" data-record-type="897">
-        <!-- t897 --><!-- @classes t-descr t-descr_xxs t-descr_sm t-title t-title_xxs t-text t-text_md t-heading t-heading_lg t-name t-uptitle t-uptitle_sm t-uptitle_xs t-name_md t-btn t-btn_xs t-btn_sm t-btn_md -->
-        <div class="t897"><!-- grid container start -->
+
+       <!-- Search and Filter Section -->
+<div class="search-container">
+    <div class="search-wrapper">
+        <form method="GET" action="{{ route('frontend.media') }}" class="search-form">
+            <div class="search-fields">
+                <!-- Search Bar -->
+                <div class="field">
+                    <label for="search">Поиск</label>
+                    <input type="text" id="search" name="search" value="{{ request('search') }}" placeholder="Поиск по заголовку...">
+                </div>
+
+                <!-- Date From -->
+                <div class="field">
+                    <label for="date_from">Дата от</label>
+                    <input type="date" id="date_from" name="date_from" value="{{ request('date_from') }}">
+                </div>
+
+                <!-- Date To -->
+                <div class="field">
+                    <label for="date_to">Дата до</label>
+                    <input type="date" id="date_to" name="date_to" value="{{ request('date_to') }}">
+                </div>
+
+                <!-- Search Button -->
+                <div class="field buttons">
+                    <button type="submit" class="btn-search">Поиск</button>
+                    <a href="{{ route('frontend.media') }}" class="btn-reset">Сбросить</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+.search-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+.search-wrapper {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+.search-form {
+    margin: 0;
+}
+
+.search-fields {
+    display: flex;
+    gap: 20px;
+    align-items: end;
+    flex-wrap: wrap;
+}
+
+.field {
+    flex: 1;
+    min-width: 200px;
+}
+
+.field.buttons {
+    flex: 0 0 auto;
+    min-width: 150px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.field input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background: white;
+}
+
+.field input:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-search, .btn-reset {
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    display: block;
+}
+
+.btn-search {
+    background: #007bff;
+    color: white;
+}
+
+.btn-search:hover {
+    background: #0056b3;
+}
+
+.btn-reset {
+    background: white;
+    color: #6c757d;
+    border: 1px solid #ddd;
+}
+
+.btn-reset:hover {
+    background: #f8f9fa;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .search-fields {
+        flex-direction: column;
+    }
+
+    .field {
+        min-width: 100%;
+    }
+
+    .buttons {
+        flex-direction: row;
+    }
+}
+</style>
+        <!-- Results Info -->
+        @if($news->total() > 0)
+            <div class="container mb-3">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="mb-0 text-muted">
+                                Показано {{ $news->firstItem() ?? 0 }} - {{ $news->lastItem() ?? 0 }} из {{ $news->total() }} результатов
+                            </p>
+                            @if(request()->hasAny(['search', 'date_from', 'date_to']))
+                                <span class="badge bg-info">Применены фильтры</span>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+
+        <!-- t897 -->
+        <div class="t897">
             <div class="js-feed t-feed t-feed_col" data-feed-grid-type="col" data-feed-recid="748789817"
                 data-feed-uid="158972239651">
                 <div class="t-feed__container t897__container">
                     <div class="js-feed-parts-select-container t-col t-col_12"></div>
-                </div><!-- preloader els --><!-- preloader els end -->
-                <ul role="list"
-                    class="js-feed-container t-feed__container t897__container t-feed__container_mobile-grid t-feed__container_inrow3"
-                    data-feed-show-slice="1" data-slider-totalslides="5">
-                    <li class="js-feed-post t-feed__post t-item t-width t-feed__grid-col t-col t-col_4 t-align_left"
-                        data-post-uid="hy1cya0s11" style="cursor: pointer;">
-                        <div class="t-feed__col-grid__post-wrapper">
-                            <div class="t-feed__post-imgwrapper t-feed__post-imgwrapper_beforetitle "
-                                style="aspect-ratio: 1.3;">
-                                <div class="t-feed__post-label-wrapper"></div>
-                                <div class="t-feed__post-bgimg t-bgimg loaded" bgimgfield="fe_img__hy1cya0s11"
-                                    data-original="https://static.tildacdn.com/tild3065-6139-4836-b865-376162366533/__2024-05-15__23425A.png"
-                                    style="background-image: url(&quot;https://optim.tildacdn.com/tild3065-6139-4836-b865-376162366533/-/resize/800x600/-/format/webp/__2024-05-15__23425A.png&quot;);">
+                </div>
+
+                @if($news->count() > 0)
+                    <ul role="list"
+                        class="js-feed-container t-feed__container t897__container t-feed__container_mobile-grid t-feed__container_inrow3"
+                        data-feed-show-slice="1" data-slider-totalslides="{{ $news->count() }}">
+
+                        @foreach($news as $newsItem)
+                            <li class="js-feed-post t-feed__post t-item t-width t-feed__grid-col t-col t-col_4 t-align_left"
+                                data-post-uid="news_{{ $newsItem->id }}" style="cursor: pointer;">
+                                <div class="t-feed__col-grid__post-wrapper">
+                                    <div class="t-feed__post-imgwrapper t-feed__post-imgwrapper_beforetitle"
+                                        style="aspect-ratio: 1.3;">
+                                        <div class="t-feed__post-label-wrapper"></div>
+                                        <div class="t-feed__post-bgimg t-bgimg loaded"
+                                             bgimgfield="fe_img__news_{{ $newsItem->id }}"
+                                             data-original="{{ $newsItem->getImagePath() }}"
+                                             style="background-image: url('{{ $newsItem->getImagePath() }}'); background-size: cover; background-position: center;">
+                                        </div>
+                                    </div>
+                                    <div class="t-feed__col-grid__wrapper" style="height: 93px;">
+                                        <div class="t-feed__textwrapper">
+                                            <div class="js-feed-post-title t-feed__post-title t-name t-name_md"
+                                                field="fe_title__news_{{ $newsItem->id }}" data-redactor-toolbar="no">
+                                                <a href="{{ route('frontend.media.detail', $newsItem->id) }}"
+                                                   class="t-feed__link js-feed-post-link" role="button"
+                                                   aria-haspopup="dialog">{{ Str::limit($newsItem->title, 80) }}</a>
+                                            </div>
+                                        </div>
+                                        <div class="t-feed__post-parts-date-row t-feed__post-parts-date-row_afterdescr">
+                                            <span class="js-feed-post-date t-feed__post-date t-uptitle t-uptitle_xs">
+                                                {{ $newsItem->published_at ? $newsItem->published_at->format('d.m.Y') : 'Не указана' }}
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="t-feed__col-grid__wrapper " style="height: 93px;">
-                                <div class="t-feed__textwrapper">
-                                    <div class="js-feed-post-title t-feed__post-title  t-name t-name_md"
-                                        field="fe_title__hy1cya0s11" data-redactor-toolbar="no"><a
-                                            href="https://toshkentinvest.uz/tpost/hy1cya0s11-tashkent-invest-vo-glave-strategii-gorod"
-                                            class="t-feed__link js-feed-post-link" role="button"
-                                            aria-haspopup="dialog">«TASHKENT INVEST» во главе стратегии городского
-                                            развития</a></div>
-                                </div>
-                                <div class="t-feed__post-parts-date-row t-feed__post-parts-date-row_afterdescr"><span
-                                        class="js-feed-post-date t-feed__post-date t-uptitle t-uptitle_xs">15.05.2024</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="js-feed-post t-feed__post t-item t-width t-feed__grid-col t-col t-col_4 t-align_left"
-                        data-post-uid="552dltdp01" style="cursor: pointer;">
-                        <div class="t-feed__col-grid__post-wrapper">
-                            <div class="t-feed__post-imgwrapper t-feed__post-imgwrapper_beforetitle "
-                                style="aspect-ratio: 1.3;">
-                                <div class="t-feed__post-label-wrapper"></div>
-                                <div class="t-feed__post-bgimg t-bgimg loaded" bgimgfield="fe_img__552dltdp01"
-                                    data-original="https://static.tildacdn.com/tild3034-3663-4534-b032-356432373931/Tashkent-City_name_s.jpg"
-                                    style="background-image: url(&quot;https://optim.tildacdn.com/tild3034-3663-4534-b032-356432373931/-/resize/800x600/-/format/webp/Tashkent-City_name_s.jpg&quot;);">
-                                </div>
-                            </div>
-                            <div class="t-feed__col-grid__wrapper " style="height: 93px;">
-                                <div class="t-feed__textwrapper">
-                                    <div class="js-feed-post-title t-feed__post-title  t-name t-name_md"
-                                        field="fe_title__552dltdp01" data-redactor-toolbar="no"><a
-                                            href="https://toshkentinvest.uz/tpost/552dltdp01-tashkent-v-top-50-gorodov-mira"
-                                            class="t-feed__link js-feed-post-link" role="button"
-                                            aria-haspopup="dialog">Ташкент в топ-50 городов мира</a></div>
-                                </div>
-                                <div class="t-feed__post-parts-date-row t-feed__post-parts-date-row_afterdescr"><span
-                                        class="js-feed-post-date t-feed__post-date t-uptitle t-uptitle_xs">15.05.2024</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="js-feed-post t-feed__post t-item t-width t-feed__grid-col t-col t-col_4 t-align_left"
-                        data-post-uid="isj0glos31" style="cursor: pointer;">
-                        <div class="t-feed__col-grid__post-wrapper">
-                            <div class="t-feed__post-imgwrapper t-feed__post-imgwrapper_beforetitle "
-                                style="aspect-ratio: 1.3;">
-                                <div class="t-feed__post-label-wrapper"></div>
-                                <div class="t-feed__post-bgimg t-bgimg loaded" bgimgfield="fe_img__isj0glos31"
-                                    data-original="https://static.tildacdn.com/tild3030-3035-4561-b935-346537663037/162914_62206f66143f5.jpg"
-                                    style="background-image: url(&quot;https://optim.tildacdn.com/tild3030-3035-4561-b935-346537663037/-/resize/800x600/-/format/webp/162914_62206f66143f5.jpg&quot;);">
-                                </div>
-                            </div>
-                            <div class="t-feed__col-grid__wrapper " style="height: 93px;">
-                                <div class="t-feed__textwrapper">
-                                    <div class="js-feed-post-title t-feed__post-title  t-name t-name_md"
-                                        field="fe_title__isj0glos31" data-redactor-toolbar="no"><a
-                                            href="https://toshkentinvest.uz/tpost/isj0glos31-deputati-kengasha-tashkenta-odobrili-vid"
-                                            class="t-feed__link js-feed-post-link" role="button"
-                                            aria-haspopup="dialog">Депутаты кенгаша Ташкента одобрили выделение 1 трлн сумов
-                                            на формирование уставного капитала</a></div>
-                                </div>
-                                <div class="t-feed__post-parts-date-row t-feed__post-parts-date-row_afterdescr"><span
-                                        class="js-feed-post-date t-feed__post-date t-uptitle t-uptitle_xs">07.05.2024</span>
+                            </li>
+                        @endforeach
+                    </ul>
+                @else
+                    <!-- No Results -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="text-center py-5">
+                                    <h4 class="text-muted">Новости не найдены</h4>
+                                    <p class="text-muted mb-4">
+                                        @if(request()->hasAny(['search', 'date_from', 'date_to']))
+                                            Попробуйте изменить параметры поиска или сбросить фильтры.
+                                        @else
+                                            В данный момент новости отсутствуют.
+                                        @endif
+                                    </p>
+                                    @if(request()->hasAny(['search', 'date_from', 'date_to']))
+                                        <a href="{{ route('frontend.media') }}" class="btn btn-primary">
+                                            Сбросить фильтры
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
-                    </li>
-                    <li class="js-feed-post t-feed__post t-item t-width t-feed__grid-col t-col t-col_4 t-align_left"
-                        data-post-uid="s22u9ic521" style="cursor: pointer;">
-                        <div class="t-feed__col-grid__post-wrapper">
-                            <div class="t-feed__post-imgwrapper t-feed__post-imgwrapper_beforetitle "
-                                style="aspect-ratio: 1.3;">
-                                <div class="t-feed__post-label-wrapper"></div>
-                                <div class="t-feed__post-bgimg t-bgimg loaded" bgimgfield="fe_img__s22u9ic521"
-                                    data-original="https://static.tildacdn.com/tild3638-6139-4133-a662-306137326333/congress_hall.jpg"
-                                    style="background-image: url(&quot;https://optim.tildacdn.com/tild3638-6139-4133-a662-306137326333/-/resize/800x600/-/format/webp/congress_hall.jpg&quot;);">
-                                </div>
-                            </div>
-                            <div class="t-feed__col-grid__wrapper " style="height: 93px;">
-                                <div class="t-feed__textwrapper">
-                                    <div class="js-feed-post-title t-feed__post-title  t-name t-name_md"
-                                        field="fe_title__s22u9ic521" data-redactor-toolbar="no"><a
-                                            href="https://toshkentinvest.uz/tpost/s22u9ic521-sozdan-fond-razvitiya-tashkenta"
-                                            class="t-feed__link js-feed-post-link" role="button"
-                                            aria-haspopup="dialog">Создан Фонд развития Ташкента</a></div>
-                                </div>
-                                <div class="t-feed__post-parts-date-row t-feed__post-parts-date-row_afterdescr"><span
-                                        class="js-feed-post-date t-feed__post-date t-uptitle t-uptitle_xs">07.05.2024</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="js-feed-post t-feed__post t-item t-width t-feed__grid-col t-col t-col_4 t-align_left"
-                        data-post-uid="uzpea9heo1" style="cursor: pointer;">
-                        <div class="t-feed__col-grid__post-wrapper">
-                            <div class="t-feed__post-imgwrapper t-feed__post-imgwrapper_beforetitle "
-                                style="aspect-ratio: 1.3;">
-                                <div class="t-feed__post-label-wrapper"></div>
-                                <div class="t-feed__post-bgimg t-bgimg loaded" bgimgfield="fe_img__uzpea9heo1"
-                                    data-original="https://static.tildacdn.com/tild6464-3337-4864-b164-643761313036/upscaled_image.png"
-                                    style="background-image: url(&quot;https://optim.tildacdn.com/tild6464-3337-4864-b164-643761313036/-/resize/800x600/-/format/webp/upscaled_image.png&quot;);">
-                                </div>
-                            </div>
-                            <div class="t-feed__col-grid__wrapper " style="height: 93px;">
-                                <div class="t-feed__textwrapper">
-                                    <div class="js-feed-post-title t-feed__post-title  t-name t-name_md"
-                                        field="fe_title__uzpea9heo1" data-redactor-toolbar="no"><a
-                                            href="https://toshkentinvest.uz/tpost/uzpea9heo1-spetsialnaya-goskompaniya-stanet-mostom"
-                                            class="t-feed__link js-feed-post-link" role="button"
-                                            aria-haspopup="dialog">Специальная госкомпания станет «мостом» между хокимиятом
-                                            Ташкента и бизнесом</a></div>
-                                </div>
-                                <div class="t-feed__post-parts-date-row t-feed__post-parts-date-row_afterdescr"><span
-                                        class="js-feed-post-date t-feed__post-date t-uptitle t-uptitle_xs">07.05.2024</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div><!-- grid container end -->
+                    </div>
+                @endif
+            </div>
         </div>
+
+        <!-- Pagination -->
+        @if($news->hasPages())
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex justify-content-center">
+                            {{ $news->appends(request()->query())->links('pagination::bootstrap-4') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+
+        <!-- Original Tilda Styles -->
         <style type="text/css">
             /* Feed part switch buttons styles */
             #rec748789817 .t-feed__parts-switch-btn {
@@ -166,12 +271,14 @@
                 color: #ffffff !important;
             }
         </style>
+
         <style type="text/css">
             #rec748789817 .t-feed__post-popup__cover-wrapper .t-slds__bullet_active .t-slds__bullet_body,
             #rec748789817 .t-feed__post-popup__cover-wrapper .t-slds__bullet:hover .t-slds__bullet_body {
                 background-color: #222 !important;
             }
         </style>
+
         <style>
             #rec748789817 .t-feed__post-title {
                 font-size: 16px;
@@ -181,164 +288,127 @@
                 color: #000000;
                 font-weight: 400;
             }
-        </style><!-- news setup start -->
+
+            /* Additional styles for search and pagination */
+            .search-filter-wrapper {
+                margin-bottom: 2rem;
+            }
+
+            .t-feed__link:hover {
+                color: #0056b3;
+                text-decoration: none;
+            }
+
+            .t-feed__post:hover {
+                transform: translateY(-2px);
+                transition: transform 0.2s ease;
+            }
+
+            .t-feed__post-bgimg {
+                transition: transform 0.3s ease;
+            }
+
+            .t-feed__post:hover .t-feed__post-bgimg {
+                transform: scale(1.05);
+            }
+
+            /* Pagination styles */
+            .pagination .page-link {
+                border-radius: 5px;
+                margin: 0 2px;
+                border: 1px solid #000000;
+                color: #000000;
+            }
+
+            .pagination .page-item.active .page-link {
+                background-color: #000000;
+                border-color: #000000;
+                color: #ffffff;
+            }
+
+            .pagination .page-link:hover {
+                background-color: #f8f9fa;
+                border-color: #000000;
+                color: #000000;
+            }
+
+            /* Search form styles */
+            .form-control:focus {
+                border-color: #000000;
+                box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+            }
+
+            .btn-primary {
+                background-color: #000000;
+                border-color: #000000;
+            }
+
+            .btn-primary:hover {
+                background-color: #333333;
+                border-color: #333333;
+            }
+
+            .btn-outline-secondary {
+                border-color: #000000;
+                color: #000000;
+            }
+
+            .btn-outline-secondary:hover {
+                background-color: #000000;
+                color: #ffffff;
+            }
+        </style>
+
+        <!-- Original Tilda JavaScript (simplified for Laravel) -->
         <script type="text/javascript">
-            t_onReady(function() {
-                var separator_optsObj = {
-                    height: "",
-                    color: "",
-                    opacity: "",
-                    hideSeparator: false,
-                };
-                var popup_optsObj = {
-                    popupBgColor: "#ffffff",
-                    overlayBgColorRgba: "rgba(255,255,255,1)",
-                    closeText: "",
-                    iconColor: "#000000",
-                    popupStat: "",
-                    titleColor: "",
-                    textColor: "",
-                    subtitleColor: "",
-                    datePos: "aftertext",
-                    partsPos: "aftertext",
-                    imagePos: "aftertitle",
-                    inTwoColumns: false,
-                    zoom: false,
-                    styleRelevants: "",
-                    methodRelevants: "random",
-                    titleRelevants: "",
-                    showRelevants: "",
-                    shareStyle: "",
-                    shareBg: "",
-                    isShare: false,
-                    shareServices: "",
-                    shareFBToken: "",
-                    showDate: true,
-                    bgSize: "cover",
-                };
-                var arrowtop_optsObj = {
-                    isShow: false,
-                    style: "",
-                    color: "",
-                    bottom: "",
-                    left: "",
-                    right: "",
-                };
-                var parts_optsObj = {
-                    partsBgColor: "",
-                    partsBorderSize: "1px",
-                    partsBorderColor: "#000000",
-                    align: "center",
-                };
-                var gallery_optsObj = {
-                    control: "",
-                    arrowSize: "",
-                    arrowBorderSize: "",
-                    arrowColor: "",
-                    arrowColorHover: "",
-                    arrowBg: "",
-                    arrowBgHover: "",
-                    arrowBgOpacity: "",
-                    arrowBgOpacityHover: "",
-                    showBorder: "",
-                    dotsWidth: "",
-                    dotsBg: "",
-                    dotsActiveBg: "",
-                    dotsBorderSize: "",
-                };
-                var btnAllPosts_optsObj = {
-                    text: "",
-                    link: "",
-                    target: "",
-                };
-                var colWithBg_optsObj = {
-                    paddingSize: "",
-                    background: "",
-                    borderRadius: "",
-                    shadow: "",
-                    shadowSize: "",
-                    shadowOpacity: "",
-                    shadowHover: "",
-                    shadowSizeHover: "",
-                    shadowOpacityHover: "",
-                    shadowShiftyHover: "",
-                };
-                var options = {
-                    feeduid: "158972239651",
-                    previewmode: "yes",
-                    align: "left",
-                    amountOfPosts: "",
-                    reverse: "desc",
-                    blocksInRow: "3",
-                    blocksClass: "t-feed__grid-col t-col t-col_4",
-                    blocksWidth: "360",
-                    colClass: "",
-                    prefixClass: "",
-                    vindent: "",
-                    dateFormat: "4",
-                    timeFormat: "",
-                    imageRatio: "75",
-                    hasOriginalAspectRatio: false,
-                    imageHeight: "",
-                    imageWidth: "",
-                    dateFilter: "all",
-                    showPartAll: true,
-                    showImage: true,
-                    showShortDescr: true,
-                    showParts: true,
-                    showDate: true,
-                    hideFeedParts: false,
-                    parts_opts: parts_optsObj,
-                    btnsAlign: false,
-                    colWithBg: colWithBg_optsObj,
-                    separator: separator_optsObj,
-                    btnAllPosts: btnAllPosts_optsObj,
-                    popup_opts: popup_optsObj,
-                    arrowtop_opts: arrowtop_optsObj,
-                    gallery: gallery_optsObj,
-                    amountOfSymbols: "",
-                    bbtnStyle: "color:#ffffff;background-color:#000000;border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px;",
-                    btnStyle: "color:#000000;border:1px solid #000000;background-color:#ffffff;border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;",
-                    btnTextColor: "#000000",
-                    btnType: "",
-                    btnSize: "sm",
-                    btnText: "3",
-                    btnReadMore: "",
-                    isHorizOnMob: false,
-                    itemsAnim: "",
-                    datePosPs: "beforetitle",
-                    partsPosPs: "beforetitle",
-                    imagePosPs: "beforetitle",
-                    datePos: "afterdescr",
-                    partsPos: "onimage",
-                    imagePos: "beforetitle",
-                };
-                t_onFuncLoad("t_feed_init", function() {
-                    t_feed_init("748789817", options);
-                });
-                var rec = document.getElementById("rec748789817");
-                if (!rec) return;
-                var allRecords = document.getElementById("allrecords");
-                if (
-                    !allRecords.getAttribute("data-tilda-mode") &&
-                    (window.lazy === "y" ||
-                        allRecords.getAttribute("data-tilda-lazy") === "yes")
-                ) {
-                    t_onFuncLoad("t_lazyload_update", function() {
-                        var container = rec.querySelector(
-                            ".js-feed-container.t897__container_mobile-flex"
-                        );
-                        if (!container) return;
-                        container.addEventListener(
-                            "scroll",
-                            t_throttle(function() {
-                                t_lazyload_update();
-                            })
-                        );
+            document.addEventListener('DOMContentLoaded', function() {
+                // Add click handlers for news items
+                const newsItems = document.querySelectorAll('.js-feed-post');
+                newsItems.forEach(function(item) {
+                    item.addEventListener('click', function(e) {
+                        // If the click is not on the link itself, trigger the link
+                        if (!e.target.closest('.js-feed-post-link')) {
+                            const link = item.querySelector('.js-feed-post-link');
+                            if (link) {
+                                window.location.href = link.href;
+                            }
+                        }
                     });
-                }
+                });
+
+                // Add loading effect for images
+                const images = document.querySelectorAll('.t-feed__post-bgimg');
+                images.forEach(function(img) {
+                    const imageUrl = img.getAttribute('data-original');
+                    if (imageUrl) {
+                        const tempImg = new Image();
+                        tempImg.onload = function() {
+                            img.style.backgroundImage = `url('${imageUrl}')`;
+                            img.classList.add('loaded');
+                        };
+                        tempImg.onerror = function() {
+                            // Set a placeholder background for failed images
+                            img.style.backgroundImage = 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)';
+                            img.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #999;"><i class="fas fa-image" style="font-size: 2rem;"></i></div>';
+                            img.classList.add('loaded');
+                        };
+                        tempImg.src = imageUrl;
+                    }
+                });
+
+                // Smooth scroll for pagination
+                const paginationLinks = document.querySelectorAll('.pagination a');
+                paginationLinks.forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        setTimeout(function() {
+                            document.getElementById('rec748789817').scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }, 100);
+                    });
+                });
             });
         </script>
-        <!-- news setup end -->
     </div>
 @endsection
