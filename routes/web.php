@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\NewsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,17 @@ Route::get('/admin', function () {
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 // Web pages
 Route::group(['middleware' => ['auth', 'checkUserRole']], function () {
+
+Route::prefix('admin/news')->name('admin.news.')->group(function () {
+    Route::get('/', [NewsController::class, 'index'])->name('index');           // GET /admin/news
+    Route::get('/create', [NewsController::class, 'create'])->name('create');   // GET /admin/news/create
+    Route::post('/', [NewsController::class, 'store'])->name('store');          // POST /admin/news
+    Route::get('/{news}', [NewsController::class, 'show'])->name('show');       // GET /admin/news/{id}
+    Route::get('/{news}/edit', [NewsController::class, 'edit'])->name('edit');  // GET /admin/news/{id}/edit
+    Route::put('/{news}', [NewsController::class, 'update'])->name('update');   // PUT /admin/news/{id}
+    Route::delete('/{news}', [NewsController::class, 'destroy'])->name('destroy'); // DELETE /admin/news/{id}
+});
+
 
     Route::get('/optimize-cache', [HomeController::class, 'optimize'])->name('optimize.command');
 
@@ -144,3 +156,5 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/dividends', [FrontendController::class, 'dividends'])->name('dividends');
     Route::get('/charter_capital', [FrontendController::class, 'charter_capital'])->name('charter_capital');
 });
+
+

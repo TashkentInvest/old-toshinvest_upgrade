@@ -98,7 +98,7 @@
                                 <i class="ph-duotone ph-magnifying-glass"></i>
                             </a>
                             <div class="dropdown-menu pc-h-dropdown drp-search">
-                                <form action="{{ route('search') }}" method="GET" class="px-3">
+                                <form action="" method="GET" class="px-3">
                                     <div class="mb-0 d-flex align-items-center">
                                         <input type="search" name="query" class="form-control border-0 shadow-none"
                                             placeholder="Search...">
@@ -115,8 +115,8 @@
                                 <input type="search" name="query" class="form-control" placeholder="Search...">
                                 <button type="submit" class="btn btn-search" style="padding: 0"><kbd>ctrl+k</kbd></button>
                             </form>
-                            
-                            
+
+
                             <h6 class="text-danger text-bold px-2">MG, MFY, Manzili va Maydoni orqali qidirishingiz mumkin !</h4>
                         </li> --}}
 
@@ -146,7 +146,7 @@
                                 </a>
                             </div>
                         </li>
-                       
+
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -211,7 +211,7 @@
                                 </a>
                             </div>
                         </div>
-                      
+
                     </ul>
                 </div> --}}
             </div>
