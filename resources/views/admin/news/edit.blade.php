@@ -634,7 +634,7 @@
             <!-- Actions -->
             <div class="actions">
                 <a href="{{ route('admin.news.edit', $news) }}" class="btn btn-warning">Редактировать</a>
-                <a href="{{ route('media.detail', $news->id) }}" target="_blank" class="btn btn-primary">Посмотреть на сайте</a>
+                <a href="{{ route('frontend.media.detail', $news->id) }}" target="_blank" class="btn btn-primary">Посмотреть на сайте</a>
 
                 <form method="POST" action="{{ route('admin.news.destroy', $news) }}" style="display: inline;"
                       onsubmit="return confirm('Вы уверены, что хотите удалить эту новость? Это действие нельзя отменить!')">

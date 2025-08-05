@@ -19,7 +19,8 @@ class ProjectController extends Controller
     // Show the form for creating a new project
     public function create()
     {
-        return view('pages.projects.create');
+$categories= []; // Assuming you have a way to fetch categories if needed
+        return view('pages.projects.create', compact('categories'));
     }
 
     // Store a newly created project in storage

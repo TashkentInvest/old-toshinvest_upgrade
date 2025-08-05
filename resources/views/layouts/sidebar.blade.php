@@ -13,7 +13,7 @@
                     <label>Navigation</label>
                     <i class="ph-duotone ph-gauge"></i>
                 </li>
-                {{-- 
+                {{--
                 <li class="pc-item pc-hasmenu">
                     <a href="#!" class="pc-link">
                         <span class="pc-micon">
@@ -51,7 +51,12 @@
                             </a>
                         </li>
 
-                   
+     <li class="pc-item">
+                            <a class="pc-link" href="{{ route('admin.news.index') }}">
+                                Yangiliklar
+                            </a>
+                        </li>
+
                     </ul>
                 </li>
 
@@ -85,7 +90,7 @@
                     </li> --}}
 
 
-{{-- 
+{{--
                     <li class="pc-item pc-caption">
                         <label>Application</label>
                         <i class="ph-duotone ph-buildings"></i>
