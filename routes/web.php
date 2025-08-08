@@ -105,7 +105,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::get('/language/{lang}', function ($lang) {
     $lang = strtolower($lang);
-    if ($lang == 'ru' || $lang == 'uz') {
+    if ($lang == 'ru' || $lang == 'uz' || $lang == 'en') {
         session([
             'locale' => $lang
         ]);

@@ -22,7 +22,156 @@
                 </div>
                 <div class="header-controls">
                     <div class="language-controls">
-                        <a href="#" class="lang-btn">O'zbek</a>
+<div class="language-controls">
+    <button type="button" class="lang-selector-btn" id="langSelectorBtn">
+        @if (session('locale') == 'uz')
+            <img id="header-lang-img" src="{{ asset('assets/images/flags/uzbekistan.jpg') }}" alt="Header Language" height="16">
+        @elseif (session('locale') == 'en')
+            <img id="header-lang-img" src="{{ asset('/assets/new/assets/images/widget/UK.jpg') }}" alt="Header Language" height="16">
+        @else
+            <img id="header-lang-img" src="{{ asset('assets/images/flags/russia.jpg') }}" alt="Header Language" height="16">
+        @endif
+        <svg class="dropdown-arrow" id="dropdownArrow" viewBox="0 0 24 24">
+            <path d="M7 10l5 5 5-5z"/>
+        </svg>
+    </button>
+    <div class="lang-dropdown" id="langDropdown">
+        <a href="{{ route('changelang', 'uz') }}" class="lang-option" data-lang="uz">
+            <img src="{{ asset('assets/images/flags/uzbekistan.jpg') }}" alt="user-image" height="12">
+            <span>O'zbekcha</span>
+        </a>
+        <a href="{{ route('changelang', 'ru') }}" class="lang-option" data-lang="ru">
+            <img src="{{ asset('assets/images/flags/russia.jpg') }}" alt="user-image" height="12">
+            <span>Русский</span>
+        </a>
+        <a href="{{ route('changelang', 'en') }}" class="lang-option" data-lang="en">
+            <img src="{{ asset('assets/new/assets/images/widget/UK.jpg') }}" alt="user-image" height="12">
+            <span>English</span>
+        </a>
+    </div>
+</div>
+
+<style>
+.language-controls {
+    position: relative;
+    display: inline-block;
+}
+
+.lang-selector-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.lang-selector-btn:hover {
+    border-color: #007bff;
+}
+
+.dropdown-arrow {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.2s ease;
+    fill: #666;
+}
+
+.dropdown-arrow.rotated {
+    transform: rotate(180deg);
+}
+
+.lang-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 140px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+    margin-top: 4px;
+}
+
+.lang-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+    color: #333;
+}
+
+.lang-option:hover {
+    background-color: #f8f9fa;
+    text-decoration: none;
+    color: #333;
+}
+
+.lang-option.active {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const langSelectorBtn = document.getElementById('langSelectorBtn');
+    const langDropdown = document.getElementById('langDropdown');
+    const dropdownArrow = document.getElementById('dropdownArrow');
+
+    // Toggle dropdown
+    langSelectorBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const isActive = langDropdown.classList.contains('active');
+
+        if (isActive) {
+            closeDropdown();
+        } else {
+            openDropdown();
+        }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function() {
+        closeDropdown();
+    });
+
+    // Prevent dropdown from closing when clicking inside
+    langDropdown.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+
+    function openDropdown() {
+        langDropdown.classList.add('active');
+        dropdownArrow.classList.add('rotated');
+    }
+
+    function closeDropdown() {
+        langDropdown.classList.remove('active');
+        dropdownArrow.classList.remove('rotated');
+    }
+});
+</script>
                         <button class="login-btn">Kirish</button>
                     </div>
                 </div>
@@ -293,6 +442,7 @@
         display: flex;
         align-items: center;
         gap: 18px;
+z-index: 9999;
     }
 
     .lang-btn {
