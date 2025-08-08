@@ -114,9 +114,9 @@
                        {{-- <div class="article-text" style="text-indent: 2em;text-align:justify">
                             {!! nl2br(e($news->content)) !!}
                         </div> --}}
-<div class="article-text" style="white-space: pre-wrap; text-align: justify;">
-    {!! e($news->content) !!}
-</div>
+                        <div class="article-text" style="white-space: pre-wrap; text-align: justify;">
+                            {!! e($news->content) !!}
+                        </div>
 
 
 

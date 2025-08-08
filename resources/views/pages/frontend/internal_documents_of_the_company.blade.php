@@ -28,15 +28,15 @@
                                     </th>
                                     <th
                                         style="padding: 15px 20px; text-align: left; font-weight: 600; font-size: 14px; color: #ffffff; border-right: 1px solid #2c3e50; text-transform: uppercase; letter-spacing: 0.5px;">
-                                        Hujjat nomi
+                                        Название документа
                                     </th>
                                     <th
                                         style="padding: 15px 20px; text-align: center; font-weight: 600; font-size: 14px; color: #ffffff; border-right: 1px solid #2c3e50; text-transform: uppercase; letter-spacing: 0.5px; width: 100px;">
-                                        Hajmi
+                                        Размер
                                     </th>
                                     <th
                                         style="padding: 15px 20px; text-align: center; font-weight: 600; font-size: 14px; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px; width: 120px;">
-                                        Amallar
+                                        Действия
                                     </th>
                                 </tr>
                             </thead>
@@ -59,37 +59,37 @@
                                     // Fayllarni alifbo tartibida saralash
                                     sort($files);
 
-// Fayl nomlarini o'zbekcha nomlarga o'tkazish
-                                    $fileNames = [
-                                        // Existing mappings (corrected)
-                                        'анкета_карточка_юр.лица_АО_КТИ_и_Хокимията_г.Ташкента.pdf' =>
-                                            'Anketa-kartochka yuridik shaxsning',
-                                        'внтр_аудит.pdf' => 'Ichki auditor to\'g\'risidagi nizom',
-                                        'дивидендной_политике.pdf' => 'Dividend siyosati to\'g\'risidagi nizom',
-                                        'комитет_по_стратегии_и_инвестициям.pdf' =>
-                                            'Strategiya va investitsiyalar bo\'yicha qo\'mita',
-                                        'о_внутреннем_контроле.pdf' => 'Ichki nazorat to\'g\'risidagi nizom',
-                                        'о_командировках_сотрудников.pdf' => 'Xodimlar komandirovkalari to\'g\'risida',
-                                        'о_комитете_по_аудиту_НС.pdf' => 'Audit bo\'yicha qo\'mita',
-                                        'о_корпаративном_консультанте.pdf' => 'Korporativ maslahatchi to\'g\'risida',
+                                  $fileNames = [
+                                    // Existing mappings (translated to Russian)
+                                    'анкета_карточка_юр.лица_АО_КТИ_и_Хокимията_г.Ташкента.pdf' =>
+                                        'Анкета-карточка юридического лица',
+                                    'внтр_аудит.pdf' => 'Положение о внутреннем аудите',
+                                    'дивидендной_политике.pdf' => 'Положение о дивидендной политике',
+                                    'комитет_по_стратегии_и_инвестициям.pdf' =>
+                                        'Комитет по стратегии и инвестициям',
+                                    'о_внутреннем_контроле.pdf' => 'Положение о внутреннем контроле',
+                                    'о_командировках_сотрудников.pdf' => 'О командировках сотрудников',
+                                    'о_комитете_по_аудиту_НС.pdf' => 'Комитет по аудиту Наблюдательного совета',
+                                    'о_корпаративном_консультанте.pdf' => 'О корпоративном консультанте',
 
-                                        // New mappings for missing files
-                                        'Об_оказании_благотворительной_и_спонсорской_помощи.pdf' =>
-                                            'Xayriya va homiylik yordam ko\'rsatish to\'g\'risida',
-                                        'о_НС_2023.pdf' => 'Nazorat kengashi to\'g\'risida 2023',
-                                        'о_НС_2024.pdf' => 'Nazorat kengashi to\'g\'risida 2024',
-                                        'о_порядке_выплаты_вознаграждений_и_компенсаций_членам_НС.pdf' =>
-                                            'NK a\'zolariga mukofot va kompensatsiya to\'lash tartibi',
-                                        'о_порядке_действий_при_конфликте_интересов.pdf' =>
-                                            'Manfaatlar to\'qnashuvi holatlari bo\'yicha harakat tartibi',
-                                        'об_информационной_политике.pdf' => 'Axborot siyosati to\'g\'risida',
-                                        'об_исполнительном_органе.pdf' => 'Ijroiya organi to\'g\'risida',
-                                        'по_корпоративной_этике.pdf' => 'Korporativ etika bo\'yicha nizom',
-                                        'по_противодействию_коррупции.pdf' =>
-                                            'Korruptsiyaga qarshi kurash bo\'yicha nizom',
-                                        'положение_об_ИО.pdf' => 'Ijroiya organi to\'g\'risidagi nizom',
-                                        'положение_об_ОСА.pdf' => 'Umumiy yig\'ilish to\'g\'risidagi nizom',
-                                    ];
+                                    // New mappings (also in Russian)
+                                    'Об_оказании_благотворительной_и_спонсорской_помощи.pdf' =>
+                                        'Оказание благотворительной и спонсорской помощи',
+                                    'о_НС_2023.pdf' => 'О Наблюдательном совете за 2023 год',
+                                    'о_НС_2024.pdf' => 'О Наблюдательном совете за 2024 год',
+                                    'о_порядке_выплаты_вознаграждений_и_компенсаций_членам_НС.pdf' =>
+                                        'Порядок выплаты вознаграждений и компенсаций членам НС',
+                                    'о_порядке_действий_при_конфликте_интересов.pdf' =>
+                                        'Порядок действий при конфликте интересов',
+                                    'об_информационной_политике.pdf' => 'Положение об информационной политике',
+                                    'об_исполнительном_органе.pdf' => 'О исполнительном органе',
+                                    'по_корпоративной_этике.pdf' => 'Положение по корпоративной этике',
+                                    'по_противодействию_коррупции.pdf' =>
+                                        'Положение по противодействию коррупции',
+                                    'положение_об_ИО.pdf' => 'Положение об исполнительном органе',
+                                    'положение_об_ОСА.pdf' => 'Положение об общем собрании акционеров',
+                                ];
+
 
                                     // Fayl hajmini formatlash funksiyasi
                                     function formatFileSize($size)
@@ -138,7 +138,7 @@
                                                         style="display: inline-block; padding: 6px 12px; background-color: #34495e; color: #ffffff; text-decoration: none; border: 1px solid #2c3e50; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.3px; transition: background-color 0.2s;"
                                                         onmouseover="this.style.backgroundColor='#2c3e50'"
                                                         onmouseout="this.style.backgroundColor='#34495e'">
-                                                        YUKLAB OLISH
+                                                        СКАЧАТЬ
                                                     </a>
 
 
@@ -150,9 +150,8 @@
                                     <tr>
                                         <td colspan="4"
                                             style="padding: 40px 20px; text-align: center; color: #7f8c8d; font-size: 14px; background-color: #f8f9fa;">
-                                            <div style="font-weight: 600; margin-bottom: 5px;">HUJJATLAR TOPILMADI</div>
-                                            <div style="font-size: 12px;">Ushbu bo'limda hech qanday hujjat mavjud emas
-                                            </div>
+                                           <div style="font-weight: 600; margin-bottom: 5px;">ДОКУМЕНТЫ НЕ НАЙДЕНЫ</div>
+                                            <div style="font-size: 12px;">В этом разделе пока нет ни одного документа.</div>
                                         </td>
                                     </tr>
                                 @endif
@@ -170,7 +169,7 @@
                                     {{ count($files) }}</div>
                                 <div
                                     style="font-size: 12px; color: #7f8c8d; text-transform: uppercase; letter-spacing: 0.5px;">
-                                    JAMI HUJJATLAR</div>
+                                    ВСЕГО ДОКУМЕНТОВ</div>
                             </div>
 
                             @php
@@ -190,7 +189,7 @@
                                     {{ formatFileSize($totalSize) }}</div>
                                 <div
                                     style="font-size: 12px; color: #7f8c8d; text-transform: uppercase; letter-spacing: 0.5px;">
-                                    JAMI HAJMI</div>
+                                    ОБЩИЙ РАЗМЕР</div>
                             </div>
                         </div>
                     </div>
@@ -199,29 +198,12 @@
                     <div class="info-section"
                         style="margin-top: 30px; padding: 20px; background: #ffffff; border: 1px solid #ddd; text-align: center;">
                         <p style="color: #7f8c8d; font-size: 12px; margin: 0; line-height: 1.5;">
-                            Ushbu bo'limda jamiyatning ichki tartib-qoidalari, nizomlar va boshqa rasmiy hujjatlar
-                            joylashtirilgan.<br>
-                            Hujjatlar PDF formatida taqdim etilgan va yuklab olish imkoniyati mavjud.
+                               В этом разделе размещены внутренние регламенты, положения и другие официальные документы общества.<br>
+                                Документы представлены в формате PDF и доступны для скачивания.
                         </p>
                     </div>
 
-                    <!-- Imzo qismi -->
-                    <div class="signature-section"
-                        style="margin-top: 40px; padding: 20px; background: #ffffff; border: 1px solid #ddd;">
-                        <div
-                            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-                            <div style="text-align: left;">
-                                <div style="font-size: 12px; color: #7f8c8d; margin-bottom: 5px;">Sayt yangilangan:</div>
-                                <div style="font-size: 13px; color: #2c3e50; font-weight: 600;">{{ date('d.m.Y H:i') }}
-                                </div>
-                            </div>
-                            <div style="text-align: right;">
-                                <div style="font-size: 12px; color: #7f8c8d; margin-bottom: 5px;">Jami hujjatlar:</div>
-                                <div style="font-size: 13px; color: #2c3e50; font-weight: 600;">{{ count($files) }} ta fayl
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
 
                 </div>
             </div>
