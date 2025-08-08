@@ -19,7 +19,7 @@
                     <label for="category_id">Категория</label>
                     <select name="category_id" class="form-control">
                         <option value="">— Категорияни танланг —</option>
-                        @foreach ($categories as $category)
+                        @foreach ($categories ?? [] as $category)
                             <option value="{{ $category->id }}"
                                 {{ $project->category_id == $category->id ? 'selected' : '' }}>
                                 {{ $category->name }}
