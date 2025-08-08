@@ -83,7 +83,7 @@
 
 
                 <button class="secondary-btn" onclick="downloadVCard()">
-                    <span class="btn-icon">📋</span>
+
                     <span class="btn-text">Скачать контакты</span>
                 </button>
             </div>

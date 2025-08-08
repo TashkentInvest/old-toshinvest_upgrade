@@ -222,7 +222,7 @@
                                             @if ($project->pratakol_fayl)
                                                 <a href="{{ asset('storage/' . $project->pratakol_fayl) }}" target="_blank"
                                                    class="action-btn secondary">
-                                                    <span class="btn-icon">📋</span>
+
                                                     <span class="btn-text">Протокол 1 этапа</span>
                                                 </a>
                                             @endif
