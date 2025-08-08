@@ -92,16 +92,17 @@
 
 
                                     // Fayl hajmini formatlash funksiyasi
-                                    function formatFileSize($size)
-                                    {
-                                        if ($size >= 1048576) {
-                                            return number_format($size / 1048576, 1) . ' MB';
-                                        } elseif ($size >= 1024) {
-                                            return number_format($size / 1024, 1) . ' KB';
-                                        } else {
-                                            return $size . ' B';
-                                        }
+                                function formatFileSize($size)
+                                {
+                                    if ($size >= 1048576) {
+                                        return number_format($size / 1048576, 1, ',', ' ') . ' МБ';
+                                    } elseif ($size >= 1024) {
+                                        return number_format($size / 1024, 1, ',', ' ') . ' КБ';
+                                    } else {
+                                        return $size . ' Б';
                                     }
+                                }
+
                                 @endphp
 
                                 @if (count($files) > 0)
