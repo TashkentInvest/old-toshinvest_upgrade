@@ -61,14 +61,7 @@
                         </div>
                     </div>
 
-                    {{-- Special Interactive Map Button --}}
-                    <div class="footer-special-btn">
-                        <a href="https://projects.toshkentinvest.uz?from_toshknetinvest_official_website/"
-                           target="_blank" class="footer-map-btn">
-                            <span class="map-btn-icon">📍</span>
-                            Интерактивная карта
-                        </a>
-                    </div>
+
                 </div>
             </div>
         </div>
