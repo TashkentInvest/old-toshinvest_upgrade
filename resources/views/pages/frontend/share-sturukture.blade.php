@@ -1,5 +1,25 @@
 @extends('layouts.frontend_app')
 @section('frontent_content')
+<section class="board-hero">
+    <div class="hero-background">
+        <div class="hero-pattern"></div>
+        <div class="hero-overlay"></div>
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="breadcrumb">
+                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">Главная</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">Единственный акционер</span>
+            </div>
+            <div class="hero-badge">
+                <span class="badge-text">Руководящий орган</span>
+            </div>
+            <h1 class="page-title">Единственный акционер</h1>
+            <p class="page-subtitle">Руководящий орган АО «Компания Ташкент Инвест», обеспечивающий стратегическое управление и контроль деятельности компании</p>
+        </div>
+    </div>
+</section>
     <section class="shareholder-structure">
         <div class="container">
             <!-- Section Header -->
@@ -51,6 +71,116 @@
     </section>
 
     <style>
+
+/* Board Hero Section */
+.board-hero {
+    position: relative;
+    padding: 80px 0 60px;
+    background-color: #f8f9fa;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.05;
+    background-image: repeating-linear-pattern;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.breadcrumb {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.breadcrumb-link {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-link:hover {
+    color: #333;
+}
+
+.breadcrumb-separator {
+    margin: 0 10px;
+    color: #999;
+}
+
+.breadcrumb-current {
+    color: #333;
+    font-weight: 500;
+}
+
+.hero-badge {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.badge-text {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #e9ecef;
+    color: #495057;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 20px;
+}
+
+.page-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.page-subtitle {
+    font-size: 18px;
+    color: #6c757d;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Board Members Section */
+.board-members-section {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
         /* Shareholder Structure Section Styles */
         .shareholder-structure {
             padding: 80px 0;

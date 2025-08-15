@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <li><a href="#">Финансовые отчеты</a></li>
                                         <li><a href="#">Результаты оценки системы корпоративного
                                                 управления</a></li>
-                                        <li><a href="#">Существенные факты</a></li>
+                                        <li><a href="{{route('frontend.essential_facts')}}">Существенные факты</a></li>
                                         <li><a href="#">Заключение аудитора</a></li>
                                         <li><a href="#">Отчеты эмитента</a></li>
                                     </ul>

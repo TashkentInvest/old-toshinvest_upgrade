@@ -14,11 +14,15 @@
                 <span class="breadcrumb-separator">→</span>
                 <span class="breadcrumb-current">Наблюдательный совет</span>
             </div>
-            <div class="hero-badge">
+            {{-- <div class="hero-badge">
                 <span class="badge-text">Руководящий орган</span>
             </div>
             <h1 class="page-title">Наблюдательный совет</h1>
-            <p class="page-subtitle">Руководящий орган АО «Компания Ташкент Инвест», обеспечивающий стратегическое управление и контроль деятельности компании</p>
+            <p class="page-subtitle">
+                Наблюдательный совет АО «Компания Ташкент Инвест» осуществляет стратегическое руководство и контроль за деятельностью компании.
+
+
+            </p> --}}
         </div>
     </div>
 </section>
@@ -209,7 +213,7 @@
 
 /* Board Members Section */
 .board-members-section {
-    padding: 80px 0;
+    padding-bottom: 80px;
     background-color: #ffffff;
 }
 
