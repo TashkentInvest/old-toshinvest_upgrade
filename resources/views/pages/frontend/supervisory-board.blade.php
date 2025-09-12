@@ -83,12 +83,12 @@
                     <tr>
                         <td>
                             <div class="member-name">
-                                <span class="name-text">Тогаев Наби Исмоилович</span>
+                                <span class="name-text">Adamas Ilkevicius.</span>
                                 <span class="role-badge member">Член совета</span>
                             </div>
                         </td>
                         <td>Член наблюдательного совета</td>
-                        <td>Начальник отдела ООО «Узбекско-Оманская Инвестиционная Компания»</td>
+                        <td>Заместитель генерального директора по вопросам корпоративной трансформации и повышения эффективности активов в АО «UzAssets»</td>
                         <td>
                             <span class="status-badge active">Действующий</span>
                         </td>
@@ -96,12 +96,12 @@
                     <tr>
                         <td>
                             <div class="member-name">
-                                <span class="name-text">Прияткин Алексей Николаевич</span>
+                                <span class="name-text">Shariq Wali Khan</span>
                                 <span class="role-badge member">Член совета</span>
                             </div>
                         </td>
                         <td>Член наблюдательного совета</td>
-                        <td>Партнер Компании «Orbita Capital Partners» (Российская Федерация)</td>
+                        <td>Директор по управлению казначейством и инвестициям «Rainforest Alliance Director, Treasury & Investment Management»</td>
                         <td>
                             <span class="status-badge active">Действующий</span>
                         </td>
