@@ -60,7 +60,7 @@
                                 </td>
                                 <td>Член комитета</td>
                             </tr> --}}
-                            <tr>
+                            {{-- <tr>
                                 <td>
                                     <div class="member-info">
                                         <span class="member-name">Ш. Рахмонов</span>
@@ -68,7 +68,7 @@
                                     </div>
                                 </td>
                                 <td>Член комитета</td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
                 </div>
@@ -106,7 +106,7 @@
                                 </td>
                                 <td>Член комитета</td>
                             </tr> --}}
-                            <tr>
+                            {{-- <tr>
                                 <td>
                                     <div class="member-info">
                                         <span class="member-name">Ш. Рахмонов</span>
@@ -114,7 +114,7 @@
                                     </div>
                                 </td>
                                 <td>Член комитета</td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
                 </div>
