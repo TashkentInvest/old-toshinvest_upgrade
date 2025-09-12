@@ -88,7 +88,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="chairman-row">
+                            {{-- <tr class="chairman-row">
                                 <td>
                                     <div class="member-info">
                                         <span class="member-name">А. Прияткин</span>
@@ -96,8 +96,8 @@
                                     </div>
                                 </td>
                                 <td>Председатель комитета</td>
-                            </tr>
-                            <tr>
+                            </tr> --}}
+                            {{-- <tr>
                                 <td>
                                     <div class="member-info">
                                         <span class="member-name">Н. Тогаев</span>
@@ -105,7 +105,7 @@
                                     </div>
                                 </td>
                                 <td>Член комитета</td>
-                            </tr>
+                            </tr> --}}
                             <tr>
                                 <td>
                                     <div class="member-info">
