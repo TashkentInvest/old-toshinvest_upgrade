@@ -6,8 +6,10 @@
             <div class="t-container_100 ">
                 <div class="t-width t-width_100 ">
 
-                    <iframe src="https://drive.google.com/file/d/1Its9ckdTkiEf5M7TT5ZpU_MZSbbmcqDg/preview" width="100%"
-                        height="1920" allow="autoplay"></iframe>
+
+
+                    <iframe src="{{ asset('assets/folders/орг структура 120825.PDF') }}" width="100%" height="1920"
+                        allow="autoplay"></iframe>
 
                 </div>
             </div>
