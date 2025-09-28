@@ -122,6 +122,27 @@
                         </div>
                     </div>
                 </div>
+
+
+  <div class="t-card__col t-col t-col_4 t-align_left" style="cursor: pointer;">
+                    <div class="t650__inner-col" style="background-color: rgb(255, 255, 255); height: 250px;">
+                        <div class="t650__text">
+                            <div class="t-card__title t-name t-name_lg" field="li_title__1715716895372"><a
+                                    href="{{asset('assets/frontend/muhim_faktlar/Кодекс корпоративной этики.PDF')}}" target="_blank"
+                                    class="t-card__link" id="cardtitle5_748394760"
+                                    aria-labelledby="cardtitle5_748394760 cardbtn5_748394760">Кодекс корпоративной этики</a></div>
+
+                        </div>
+                        <div class="t650__btn-container">
+                            <div class="t-card__btntext-wrapper">
+                                <a href="{{asset('assets/frontend/muhim_faktlar/Кодекс корпоративной этики.PDF')}}" target="_blank" class="t-card__btn-text t-btntext t-btntext_sm " id="cardbtn5_748394760"
+                                    data-field="li_buttontitle__1715716895372" style="color:#193d88;font-weight:600;"
+                                    aria-hidden="true" data-buttonfieldset="li_button" data-lid="1715716895372">
+                                    Просмотреть</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <script type="text/javascript">
