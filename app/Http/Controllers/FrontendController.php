@@ -292,6 +292,11 @@ public function essential_facts()
     {
         return view('pages.frontend.essential_facts');
     }
+
+public function nizomlar()
+    {
+        return view('pages.frontend.nizomlar');
+    }
     public function key_performance_indicators()
     {
         return view('pages.frontend.key_performance_indicators');
