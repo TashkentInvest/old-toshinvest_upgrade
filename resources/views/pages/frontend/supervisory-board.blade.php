@@ -28,9 +28,7 @@
                 <div class="profile-details">
                     <p><strong>Телефон:</strong> 71 210-01-10</p>
                     <p><strong>Эл. почта:</strong> sh.umurzakov@tashkent.uz</p>
-                    <p><strong>Дни приема:</strong> Четверг с 15:00 до 17:00</p>
                 </div>
-                <button class="bio-button" onclick="openModal('modal-chairman')">Биография и обязанности</button>
             </div>
         </div>
 
@@ -51,8 +49,6 @@
                     <p class="member-position">Первый заместитель Хокима города Ташкента</p>
                     <p class="member-contact">Телефон: 71 207-20-77</p>
                     <p class="member-contact">Эл. почта: b.xaydarov@tashkent.uz</p>
-                    <p class="member-contact">Дни приема: Пятница с 15:00 до 17:00</p>
-                    <button class="bio-button" onclick="openModal('modal-1')">Биография и обязанности</button>
                 </div>
             </div>
 
@@ -66,8 +62,6 @@
                     <p class="member-position">Заместитель Хокима города Ташкента — начальник управления инвестиций, промышленности и внешней торговли</p>
                     <p class="member-contact">Телефон: 71 210-02-50</p>
                     <p class="member-contact">Эл. почта: sh.raxmanov@tashkent.uz</p>
-                    <p class="member-contact">Дни приема: Среда 09:00 - 11:00</p>
-                    <button class="bio-button" onclick="openModal('modal-2')">Биография и обязанности</button>
                 </div>
             </div>
 
@@ -80,7 +74,6 @@
                     <h3 class="member-name">Adamas Ilkevicius</h3>
                     <p class="member-position">Заместитель генерального директора по вопросам корпоративной трансформации и повышения эффективности активов в АО «UzAssets»</p>
                     <p class="member-contact">Независимый член наблюдательного совета</p>
-                    <button class="bio-button" onclick="openModal('modal-3')">Биография и обязанности</button>
                 </div>
             </div>
 
@@ -93,68 +86,12 @@
                     <h3 class="member-name">Shariq Wali Khan</h3>
                     <p class="member-position">Директор по управлению казначейством и инвестициям «Rainforest Alliance Director, Treasury & Investment Management»</p>
                     <p class="member-contact">Независимый член наблюдательного совета</p>
-                    <button class="bio-button" onclick="openModal('modal-4')">Биография и обязанности</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-{{-- Modals --}}
-<div id="modal-chairman" class="modal">
-    <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('modal-chairman')">&times;</span>
-        <h2>Умурзаков Шавкат Буранович</h2>
-        <h3>Биография</h3>
-        <p>Информация о биографии и карьере...</p>
-        <h3>Обязанности</h3>
-        <p>Председатель наблюдательного совета АО «Компания Ташкент Инвест». Осуществляет общее руководство деятельностью наблюдательного совета...</p>
-    </div>
-</div>
-
-<div id="modal-1" class="modal">
-    <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('modal-1')">&times;</span>
-        <h2>Хайдаров Бахтиёр Халимович</h2>
-        <h3>Биография</h3>
-        <p>Информация о биографии и карьере...</p>
-        <h3>Обязанности</h3>
-        <p>Член наблюдательного совета. Участвует в принятии стратегических решений компании...</p>
-    </div>
-</div>
-
-<div id="modal-2" class="modal">
-    <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('modal-2')">&times;</span>
-        <h2>Рахманов Шароф Диерович</h2>
-        <h3>Биография</h3>
-        <p>Информация о биографии и карьере...</p>
-        <h3>Обязанности</h3>
-        <p>Член наблюдательного совета. Контролирует инвестиционную деятельность компании...</p>
-    </div>
-</div>
-
-<div id="modal-3" class="modal">
-    <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('modal-3')">&times;</span>
-        <h2>Adamas Ilkevicius</h2>
-        <h3>Биография</h3>
-        <p>Информация о биографии и карьере...</p>
-        <h3>Обязанности</h3>
-        <p>Независимый член наблюдательного совета. Обеспечивает независимую оценку корпоративного управления...</p>
-    </div>
-</div>
-
-<div id="modal-4" class="modal">
-    <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('modal-4')">&times;</span>
-        <h2>Shariq Wali Khan</h2>
-        <h3>Биография</h3>
-        <p>Информация о биографии и карьере...</p>
-        <h3>Обязанности</h3>
-        <p>Независимый член наблюдательного совета. Консультирует по вопросам финансового управления и инвестиций...</p>
-    </div>
-</div>
 
 <style>
 /* Container */

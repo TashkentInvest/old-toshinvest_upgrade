@@ -272,8 +272,8 @@ class FrontendController extends Controller
     // }
 public function business_plan()
 {
-    abort(404);
-        // return view('pages.frontend.business_plan');
+    // abort(404);
+        return view('pages.frontend.business_plan');
 
 }
 

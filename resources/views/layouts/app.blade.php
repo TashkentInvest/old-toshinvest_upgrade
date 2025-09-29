@@ -31,10 +31,47 @@
     {{-- constructor end --}}
 
 
-   
+    <!-- Analytics (optional) -->
+    <script async src="https://mc.yandex.ru/metrika/tag.js"></script>
+    <script>
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0],
+                k.async = 1;
+            k.src = r;
+            a.parentNode.insertBefore(k, a)
+        })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        ym(98050002, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/98050002" style="position:absolute; left:-9999px;" alt="" />
+        </div>
+    </noscript>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5R6FWF22VT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-5R6FWF22VT');
+    </script>
+
+
+
 </head>
 <body>
-    
+
     @yield('styles')
 
     <style>
@@ -58,7 +95,7 @@
                 {{ session('error') }}
             </div>
         @endif
-    
+
             <div class="row px-2 justify-content-center">
                 @yield('content')
             </div>
@@ -111,7 +148,7 @@
   <script src="{{ asset('assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
 
   <!-- dropzone plugin -->
-  <script src="{{ asset('assets/libs/dropzone/min/dropzone.min.js') }}"></script>    
+  <script src="{{ asset('assets/libs/dropzone/min/dropzone.min.js') }}"></script>
 
 
   {{-- <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>  --}}
