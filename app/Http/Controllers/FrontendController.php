@@ -292,6 +292,10 @@ public function essential_facts()
     {
         return view('pages.frontend.essential_facts');
     }
+public function npa()
+    {
+        return view('pages.frontend.npa');
+    }
 
 public function nizomlar()
     {

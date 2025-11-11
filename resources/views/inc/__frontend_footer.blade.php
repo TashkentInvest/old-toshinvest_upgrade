@@ -21,7 +21,7 @@
                 <div class="footer-section footer-links">
                     <h4 class="footer-section-title">О компании</h4>
                     <ul class="footer-menu">
-                        <li><a href="{{ route('frontend.struktura') }}" class="footer-link">Орг.структура</a></li>
+                        <li><a href="{{ route('frontend.struktura') }}" class="footer-link">Структурные подразделения</a></li>
                         <li><a href="{{ route('frontend.kodeks') }}" class="footer-link">Кодекс и правила поведения</a></li>
                         <li><a href="{{route('frontend.essential_facts')}}" class="footer-link">Существенные факты</a></li>
                         <li><a href="{{ route('frontend.spisok') }}" class="footer-link">Аффилированность</a></li>
