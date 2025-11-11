@@ -8,7 +8,7 @@
 
 
 
-                    <iframe src="{{ asset('assets/about_us/TIC (Investment Potential).pdf') }}" width="100%" height="1920"
+                    <iframe src="{{ asset('assets/investoram_slayd/TIC (Investment Potential).pdf') }}" width="100%" height="1920"
                         allow="autoplay"></iframe>
 
                 </div>
