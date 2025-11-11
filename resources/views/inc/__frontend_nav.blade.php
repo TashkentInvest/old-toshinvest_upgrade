@@ -203,6 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <ul class="dropdown-menu">
                                 <li><a href="{{route('frontend.board')}}">Руководство</a></li>
                                 {{-- <li><a href="#">Отчетность предприятия</a></li> --}}
+                                <li><a href="{{ route('frontend.about_us') }}">О компании</a></li>
                                 <li><a href="{{ route('frontend.investoram_slayd') }}">Слайд</a></li>
                             </ul>
                         </div>
