@@ -210,6 +210,10 @@ class FrontendController extends Controller
     {
         return view('pages.frontend.struktura');
     }
+ public function about_us()
+    {
+        return view('pages.frontend.about_us');
+    }
     public function supervisory_board()
     {
         return view('pages.frontend.supervisory-board');
