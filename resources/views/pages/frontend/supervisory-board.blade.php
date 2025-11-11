@@ -72,7 +72,6 @@
                 </div>
                 <div class="member-info">
                     <h3 class="member-name">Adamas Ilkevicius</h3>
-                    <p class="member-position">Заместитель генерального директора по вопросам корпоративной трансформации и повышения эффективности активов в АО «UzAssets»</p>
                     <p class="member-contact">Независимый член наблюдательного совета</p>
                 </div>
             </div>
@@ -84,7 +83,6 @@
                 </div>
                 <div class="member-info">
                     <h3 class="member-name">Shariq Wali Khan</h3>
-                    <p class="member-position">Директор по управлению казначейством и инвестициям «Rainforest Alliance Director, Treasury & Investment Management»</p>
                     <p class="member-contact">Независимый член наблюдательного совета</p>
                 </div>
             </div>
