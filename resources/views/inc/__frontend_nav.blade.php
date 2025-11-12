@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
-                        <button class="login-btn">Kirish</button>
+                        <button class="login-btn">Логин</button>
                     </div>
                 </div>
             </div>
