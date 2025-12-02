@@ -284,6 +284,12 @@ public function business_plan()
         return view('pages.frontend.business_plan');
 
 }
+public function xaridlar()
+{
+    // abort(404);
+        return view('pages.frontend.xaridlar');
+
+}
 
 
     public function offers()

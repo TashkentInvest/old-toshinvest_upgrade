@@ -151,6 +151,7 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/vacancies', [FrontendController::class, 'vacancies'])->name('vacancies');
     Route::get('/development_strategies', [FrontendController::class, 'development_strategies'])->name('development_strategies');
     Route::get('/business_plan', [FrontendController::class, 'business_plan'])->name('business_plan');
+    Route::get('/xaridlar', [FrontendController::class, 'xaridlar'])->name('xaridlar');
     Route::get('/offers', [FrontendController::class, 'offers'])->name('offers');
     Route::get('/internal_documents_of_the_company', [FrontendController::class, 'internal_documents_of_the_company'])->name('internal_documents_of_the_company');
     Route::get('/essential_facts', [FrontendController::class, 'essential_facts'])->name('essential_facts');

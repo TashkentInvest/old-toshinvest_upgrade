@@ -34,7 +34,7 @@
                     <p><strong>Эл. почта:</strong> b.shakirov@tashkentinvest.com</p>
                     <p><strong>Дни приема:</strong> По предварительной записи</p>
                 </div>
-                <button class="bio-button" onclick="openModal('modal-chairman')">Биография и обязанности</button>
+                {{-- <button class="bio-button" onclick="openModal('modal-chairman')">Биография и обязанности</button> --}}
             </div>
         </div>
 
@@ -55,21 +55,21 @@
                     <p class="member-position">Заместитель председателя правления по стратегическому развитию</p>
                     <p class="member-contact">Телефон: +998 (71) 210 02 61</p>
                     <p class="member-contact">Эл. почта: rustam.kodirov@tashkentinvest.com</p>
-                    <button class="bio-button" onclick="openModal('modal-1')">Биография и обязанности</button>
+                    {{-- <button class="bio-button" onclick="openModal('modal-1')">Биография и обязанности</button> --}}
                 </div>
             </div>
 
             {{-- Member 2 --}}
             <div class="member-card">
                 <div class="member-photo">
-                    <img style="object-fit:contain" src="https://media.istockphoto.com/id/1396814518/vector/image-coming-soon-no-photo-no-thumbnail-image-available-vector-illustration.jpg?s=612x612&w=0&k=20&c=hnh2OZgQGhf0b46-J2z7aHbIWwq8HNlSDaNp2wn_iko=" alt="Отахонова Наргизахон Ганиевна">
+                    <img style="object-fit:contain" src="{{asset('assets/users_img/Nargiza_25-12-02_10-59-13.jpg')}}" alt="Отахонова Наргизахон Ганиевна">
                 </div>
                 <div class="member-info">
                     <h3 class="member-name">Отахонова Наргизахон Ганиевна</h3>
                     <p class="member-position">Заместитель председателя правления по управлению проектами (промышленности)</p>
                     <p class="member-contact">Телефон: +998 (71) 210 02 61</p>
                     <p class="member-contact">Эл. почта: n.otahonova@tashkentinvest.com</p>
-                    <button class="bio-button" onclick="openModal('modal-2')">Биография и обязанности</button>
+                    {{-- <button class="bio-button" onclick="openModal('modal-2')">Биография и обязанности</button> --}}
                 </div>
             </div>
         </div>
