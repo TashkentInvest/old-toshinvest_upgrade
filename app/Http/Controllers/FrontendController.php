@@ -377,4 +377,9 @@ public function nizomlar()
     {
         return view('pages.frontend.charter_capital');
     }
+
+    public function open_tender_notice()
+    {
+        return view('pages.frontend.open_tender_notice');
+    }
 }

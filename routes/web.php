@@ -167,6 +167,7 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/information_on_the_purchase_of_shares_by_the_company', [FrontendController::class, 'information_on_the_purchase_of_shares_by_the_company'])->name('information_on_the_purchase_of_shares_by_the_company');
     Route::get('/dividends', [FrontendController::class, 'dividends'])->name('dividends');
     Route::get('/charter_capital', [FrontendController::class, 'charter_capital'])->name('charter_capital');
+    Route::get('/open_tender_notice', [FrontendController::class, 'open_tender_notice'])->name('open_tender_notice');
 });
 
 

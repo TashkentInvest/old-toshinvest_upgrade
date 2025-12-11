@@ -89,7 +89,7 @@
     position: absolute;
     top: 100%;
     right: 0;
-    background: white;
+    /* background: white; */
     border: 1px solid #ddd;
     border-radius: 6px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -299,13 +299,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Пресс-центр</a>
+
+                    <a href="#" class="nav-link">Пресс-центр <span class="new-badge" style="margin-left:10px">NEW</span></a>
                     <div class="nav-dropdown">
                         <div class="dropdown-container">
                             <ul class="dropdown-menu">
                                 <li><a href="{{route('frontend.media')}}">Новости</a></li>
                                 {{-- <li><a href="#">Медиа</a></li> --}}
-                                <li><a href="{{route('frontend.jac-projects')}}">Тендеры и конкурсы</a></li>
+                                <li class="new-item-wrapper">
+                                    <a href="{{route('frontend.open_tender_notice')}}">
+                                        Тендеры и конкурсы
+                                        <span class="new-badge">NEW</span>
+                                    </a>
+                                </li>
                                 <li><a href="{{route('frontend.offers')}}">Объявление</a></li>
 
 
@@ -472,7 +478,7 @@ z-index: 9999;
 
     .login-btn {
         background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-        color: white;
+        /* color: white; */
         border: none;
         padding: 12px 20px;
         border-radius: 8px;
@@ -1047,10 +1053,10 @@ z-index: 9999;
     .mega-dropdown::-webkit-scrollbar {
         width: 6px;
     }
-
+/*
     .mega-dropdown::-webkit-scrollbar-track {
         background: #f1f5f9;
-    }
+    } */
 
     .mega-dropdown::-webkit-scrollbar-thumb {
         background: #cbd5e1;
@@ -1059,6 +1065,108 @@ z-index: 9999;
 
     .mega-dropdown::-webkit-scrollbar-thumb:hover {
         background: #94a3b8;
+    }
+
+    /* NEW Badge Styles - Government Official Style */
+    .new-item-wrapper {
+        position: relative;
+    }
+
+    .new-item-wrapper a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .new-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+        color: white;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);
+        animation: pulseGlow 2s ease-in-out infinite;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .new-badge::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+            45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.3) 50%,
+            transparent 70%
+        );
+        animation: shimmer 3s infinite;
+    }
+
+    @keyframes pulseGlow {
+        0%, 100% {
+            box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4),
+                        0 0 0 0 rgba(220, 38, 38, 0.4);
+            transform: scale(1);
+        }
+        50% {
+            box-shadow: 0 2px 12px rgba(220, 38, 38, 0.6),
+                        0 0 0 4px rgba(220, 38, 38, 0.1);
+            transform: scale(1.05);
+        }
+    }
+
+    @keyframes shimmer {
+        0% {
+            transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        }
+        100% {
+            transform: translateX(100%) translateY(100%) rotate(45deg);
+        }
+    }
+
+    /* Enhanced hover effect for NEW item */
+    .new-item-wrapper:hover .new-badge {
+        background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);
+        box-shadow: 0 4px 16px rgba(220, 38, 38, 0.6);
+        animation: pulseGlow 1s ease-in-out infinite;
+    }
+
+    /* Government official attention indicator */
+    .new-item-wrapper::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 4px;
+        height: 0;
+        background: linear-gradient(180deg, #dc2626 0%, #b91c1c 100%);
+        border-radius: 0 2px 2px 0;
+        transition: height 0.3s ease;
+    }
+
+    .new-item-wrapper:hover::before {
+        height: 80%;
+    }
+
+    /* Mobile responsive for NEW badge */
+    @media (max-width: 768px) {
+        .new-badge {
+            font-size: 9px;
+            padding: 2px 6px;
+        }
     }
 </style>
 
