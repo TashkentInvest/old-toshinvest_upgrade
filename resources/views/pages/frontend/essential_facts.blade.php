@@ -59,13 +59,21 @@
                                     // Fayllarni alifbo tartibida saralash
                                     sort($files);
 
-                                    $fileNames = [
-                                        // Numbered documents
-                                        '333_0001.pdf' => 'Документ 333',
-                                        '999_0001.pdf' => 'Документ 999',
-                                        '20202_0001.pdf' => 'Документ 20202',
+                                    // Fayllarni raqamlar bo'yicha guruhlash
+                                    $groupedFiles = [];
+                                    foreach ($files as $file) {
+                                        // Extract number from filename (06, 08, 11, 12, 20, 21, 36)
+                                        if (preg_match('/(\d{2})/', $file, $matches)) {
+                                            $number = $matches[1];
+                                            if (!isset($groupedFiles[$number])) {
+                                                $groupedFiles[$number] = [];
+                                            }
+                                            $groupedFiles[$number][] = $file;
+                                        }
+                                    }
 
-                                    ];
+                                    // Raqamlarni tartibga solish
+                                    ksort($groupedFiles);
 
                                     // Fayl hajmini formatlash funksiyasi
                                     function formatFileSize($size)
@@ -80,42 +88,49 @@
                                     }
                                 @endphp
 
-                                @if (count($files) > 0)
-                                    @foreach ($files as $index => $file)
+                                @if (count($groupedFiles) > 0)
+                                    @foreach ($groupedFiles as $number => $fileGroup)
                                         @php
-                                            $filePath = $folderPath . '/' . $file;
+                                            $firstFile = $fileGroup[0];
+                                            $filePath = $folderPath . '/' . $firstFile;
                                             $fileSize = file_exists($filePath) ? filesize($filePath) : 0;
-                                            $displayName = isset($fileNames[$file])
-                                                ? $fileNames[$file]
-                                                : pathinfo($file, PATHINFO_FILENAME);
+                                            $fileCount = count($fileGroup);
+                                            $displayName = 'Существенные факты ' . $number;
                                         @endphp
 
                                         <tr
-                                            style="border-bottom: 1px solid #bdc3c7; @if ($index % 2 == 0) background-color: #f8f9fa; @else background-color: #ffffff; @endif">
+                                            style="border-bottom: 1px solid #bdc3c7; @if ($loop->index % 2 == 0) background-color: #f8f9fa; @else background-color: #ffffff; @endif">
                                             <td
                                                 style="padding: 12px 20px; font-size: 13px; color: #2c3e50; border-right: 1px solid #bdc3c7; text-align: center; font-weight: 600;">
-                                                {{ $index + 1 }}
+                                                {{ $loop->iteration }}
                                             </td>
                                             <td
                                                 style="padding: 12px 20px; font-size: 13px; color: #2c3e50; border-right: 1px solid #bdc3c7; line-height: 1.4;">
                                                 <div style="font-weight: 600; margin-bottom: 3px;">{{ $displayName }}</div>
                                                 <div style="font-size: 11px; color: #7f8c8d; font-style: italic;">
-                                                    {{ $file }}</div>
+                                                    {{ $fileCount }} {{ $fileCount > 1 ? 'документов' : 'документ' }}</div>
                                             </td>
                                             <td
                                                 style="padding: 12px 20px; text-align: center; font-size: 12px; color: #7f8c8d; border-right: 1px solid #bdc3c7;">
-                                                {{ formatFileSize($fileSize) }}
+                                                @php
+                                                    $totalSize = 0;
+                                                    foreach ($fileGroup as $f) {
+                                                        $fp = $folderPath . '/' . $f;
+                                                        if (file_exists($fp)) {
+                                                            $totalSize += filesize($fp);
+                                                        }
+                                                    }
+                                                @endphp
+                                                {{ formatFileSize($totalSize) }}
                                             </td>
                                             <td style="padding: 12px 20px; text-align: center;">
                                                 <div
                                                     style="display: flex; flex-direction: column; gap: 4px; align-items: center;">
-                                                    {{-- FIXED: Changed the path to match the actual file location --}}
-                                                    <a href="{{ asset('assets/frontend/muhim_faktlar/' . $file) }}"
-                                                        target="_blank"
+                                                    <a href="{{ route('frontend.essential_facts.show', $number) }}"
                                                         style="display: inline-block; padding: 6px 12px; background-color: #34495e; color: #ffffff; text-decoration: none; border: 1px solid #2c3e50; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.3px; transition: background-color 0.2s;"
                                                         onmouseover="this.style.backgroundColor='#2c3e50'"
                                                         onmouseout="this.style.backgroundColor='#34495e'">
-                                                        СКАЧАТЬ
+                                                        ОТКРЫТЬ
                                                     </a>
                                                 </div>
                                             </td>
@@ -141,18 +156,22 @@
                             style="display: flex; justify-content: space-around; align-items: center; max-width: 600px; margin: 0 auto; flex-wrap: wrap; gap: 20px;">
                             <div style="text-align: center; padding: 15px;">
                                 <div style="font-size: 24px; font-weight: 700; color: #2c3e50; margin-bottom: 5px;">
-                                    {{ count($files) }}</div>
+                                    {{ count($groupedFiles) }}</div>
                                 <div
                                     style="font-size: 12px; color: #7f8c8d; text-transform: uppercase; letter-spacing: 0.5px;">
-                                    ВСЕГО ДОКУМЕНТОВ</div>
+                                    КАТЕГОРИЙ ДОКУМЕНТОВ</div>
                             </div>
 
                             @php
                                 $totalSize = 0;
-                                foreach ($files as $file) {
-                                    $filePath = $folderPath . '/' . $file;
-                                    if (file_exists($filePath)) {
-                                        $totalSize += filesize($filePath);
+                                $totalFiles = 0;
+                                foreach ($groupedFiles as $fileGroup) {
+                                    foreach ($fileGroup as $file) {
+                                        $filePath = $folderPath . '/' . $file;
+                                        if (file_exists($filePath)) {
+                                            $totalSize += filesize($filePath);
+                                            $totalFiles++;
+                                        }
                                     }
                                 }
                             @endphp

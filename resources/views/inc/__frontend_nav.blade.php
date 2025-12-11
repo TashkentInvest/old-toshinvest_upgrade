@@ -205,6 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 {{-- <li><a href="#">Отчетность предприятия</a></li> --}}
                                 <li><a href="{{ route('frontend.about_us') }}">О компании</a></li>
                                 <li><a href="{{ route('frontend.investoram_slayd') }}">Презентации компании</a></li>
+                                <li><a href="{{ route('frontend.ustav') }}">Устав</a></li>
                             </ul>
                         </div>
                     </div>
@@ -245,7 +246,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <li><a href="{{route('frontend.information_on_the_purchase_of_shares_by_the_company')}}">Информация о покупке акций обществом</a></li>
 
                                         <li><a href="#">Финансовые отчеты</a></li>
-                                        <li><a href="#">Результаты оценки системы корпоративного
+                                        <li><a href="{{route('frontend.assessment_system')}}">Результаты оценки системы корпоративного
                                                 управления</a></li>
                                         <li><a href="{{route('frontend.essential_facts')}}">Существенные факты</a></li>
                                         <li><a href="{{route('frontend.npa')}}">Нормативные правовые акты</a></li>

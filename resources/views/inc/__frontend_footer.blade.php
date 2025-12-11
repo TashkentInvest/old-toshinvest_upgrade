@@ -24,6 +24,7 @@
                         <li><a href="{{ route('frontend.struktura') }}" class="footer-link">Структурные подразделения</a></li>
                         <li><a href="{{ route('frontend.kodeks') }}" class="footer-link">Кодекс и правила поведения</a></li>
                         <li><a href="{{route('frontend.essential_facts')}}" class="footer-link">Существенные факты</a></li>
+                        <li><a href="{{route('frontend.assessment_system')}}" class="footer-link">Оценка системы корпоративного управления</a></li>
                         <li><a href="{{ route('frontend.spisok') }}" class="footer-link">Аффилированность</a></li>
                         <li><a href="{{ route('frontend.supervisory_board') }}" class="footer-link">Наблюдательный совет</a></li>
                         <li><a href="{{ route('frontend.board') }}" class="footer-link">Правление</a></li>

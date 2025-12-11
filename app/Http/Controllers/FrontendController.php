@@ -306,6 +306,45 @@ public function essential_facts()
     {
         return view('pages.frontend.essential_facts');
     }
+    public function assessment_system()
+    {
+        return view('pages.frontend.assessment_system');
+    }
+
+    public function essential_facts_show($number)
+    {
+        // Validate number parameter
+        if (!preg_match('/^\d{2}$/', $number)) {
+            abort(404);
+        }
+
+        // Get files from the folder
+        $folderPath = public_path('assets/frontend/muhim_faktlar');
+        $files = [];
+
+        if (is_dir($folderPath)) {
+            $allFiles = scandir($folderPath);
+            foreach ($allFiles as $file) {
+                if ($file !== '.' && $file !== '..' && is_file($folderPath . '/' . $file)) {
+                    // Only include files that match the requested number
+                    if (preg_match('/' . $number . '/', $file)) {
+                        $files[] = $file;
+                    }
+                }
+            }
+        }
+
+        // Sort files alphabetically
+        sort($files);
+
+        // If no files found, return 404
+        if (empty($files)) {
+            abort(404);
+        }
+
+        return view('pages.frontend.essential_facts_show', compact('files', 'number'));
+    }
+
 public function npa()
     {
         return view('pages.frontend.npa');

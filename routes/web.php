@@ -155,6 +155,8 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/offers', [FrontendController::class, 'offers'])->name('offers');
     Route::get('/internal_documents_of_the_company', [FrontendController::class, 'internal_documents_of_the_company'])->name('internal_documents_of_the_company');
     Route::get('/essential_facts', [FrontendController::class, 'essential_facts'])->name('essential_facts');
+    Route::get('/assessment_system', [FrontendController::class, 'assessment_system'])->name('assessment_system');
+    Route::get('/essential_facts/{number}', [FrontendController::class, 'essential_facts_show'])->name('essential_facts.show');
     Route::get('/npa', [FrontendController::class, 'npa'])->name('npa');
     Route::get('/investoram_slayd', [FrontendController::class, 'investoram_slayd'])->name('investoram_slayd');
     Route::get('/about_us', [FrontendController::class, 'about_us'])->name('about_us');

@@ -17,8 +17,8 @@
                     @php
                         // Files list with display names
                         $documents = [
-                            'план закупок на 2025 год.pdf' => 'план закупок на 2025 год',
-                            'план закупок на 2026 год.pdf' => 'план закупок на 2026 год',
+                            'план закупок на 2025 год.pdf' => 'План закупок на 2025 год',
+                            'план закупок на 2026 год.pdf' => 'План закупок на 2026 год',
                         ];
 
                         // File folder
@@ -52,9 +52,9 @@
                                     Размер файла: {{ $fileSize }}
                                 </p>
                                 @if (file_exists($filePath))
-                                    <a href="{{ asset('assets/xarid_uchun/' . $fileName) }}?v=1.0" download
+                                    <a href="{{ asset('assets/xarid_uchun/' . $fileName) }}?v=1.0" target="_blank"
                                        style="display: inline-block; padding: 8px 16px; background: #34495e; color: #fff; text-decoration: none; font-size: 12px; text-transform: uppercase; border-radius: 4px;">
-                                        Скачать
+                                        Открыть
                                     </a>
                                 @else
                                     <span style="color: red; font-size: 13px;">Файл недоступен</span>

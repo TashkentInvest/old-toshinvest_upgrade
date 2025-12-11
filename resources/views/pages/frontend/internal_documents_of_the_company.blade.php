@@ -139,7 +139,7 @@
                                                         style="display: inline-block; padding: 6px 12px; background-color: #34495e; color: #ffffff; text-decoration: none; border: 1px solid #2c3e50; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.3px; transition: background-color 0.2s;"
                                                         onmouseover="this.style.backgroundColor='#2c3e50'"
                                                         onmouseout="this.style.backgroundColor='#34495e'">
-                                                        СКАЧАТЬ
+                                                        ОТКРЫТЬ
                                                     </a>
 
 
