@@ -19,6 +19,9 @@ class ViewComposerServiceProvider extends ServiceProvider
                 $locale = App::getLocale('locale');
                 $view->with(compact('locale'));
         });
+
+        // Register PageViewComposer for footer statistics
+        view()->composer('*', \App\Http\ViewComposers\PageViewComposer::class);
     }
 
     /**

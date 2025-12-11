@@ -68,6 +68,50 @@
         </div>
     </div>
 
+    {{-- Visitor Statistics Section --}}
+    <div class="footer-stats">
+        <div class="container">
+            <div class="stats-content">
+                <div class="stats-title">
+                    <span class="stats-icon">🌐</span>
+                    <h4>Статистика посещений</h4>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-value">{{ number_format($pageViewStats['total_views'] ?? 0) }}</div>
+                        <div class="stat-label">Всего просмотров</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">{{ number_format($pageViewStats['unique_visitors'] ?? 0) }}</div>
+                        <div class="stat-label">Уникальных посетителей</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">{{ number_format($pageViewStats['today_views'] ?? 0) }}</div>
+                        <div class="stat-label">Просмотров сегодня</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">{{ number_format($pageViewStats['month_views'] ?? 0) }}</div>
+                        <div class="stat-label">Просмотров в этом месяце</div>
+                    </div>
+                </div>
+                @if(isset($pageViewStats['top_countries']) && $pageViewStats['top_countries']->count() > 0)
+                <div class="countries-section">
+                    <h5 class="countries-title">Топ-5 стран по посещениям:</h5>
+                    <div class="countries-list">
+                        @foreach($pageViewStats['top_countries'] as $country)
+                        <div class="country-item">
+                            <span class="country-flag">{{ $country->country_code }}</span>
+                            <span class="country-name">{{ $country->country }}</span>
+                            <span class="country-count">{{ number_format($country->count) }}</span>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+            </div>
+        </div>
+    </div>
+
     {{-- Footer Bottom --}}
     <div class="footer-bottom">
         <div class="container">
@@ -363,6 +407,167 @@
     border-color: #bc1888;
 }
 
+/* Visitor Statistics Section */
+.footer-stats {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    padding: 50px 0;
+    border-top: 3px solid #3b82f6;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stats-content {
+    text-align: center;
+}
+
+.stats-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.stats-icon {
+    font-size: 32px;
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.stats-title h4 {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 12px;
+    padding: 30px 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: #3b82f6;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+.stat-item:hover::before {
+    transform: scaleX(1);
+}
+
+.stat-value {
+    font-size: 42px;
+    font-weight: 800;
+    color: #3b82f6;
+    margin-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+    text-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+}
+
+.stat-label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* Countries Section */
+.countries-section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(59, 130, 246, 0.2);
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.countries-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.countries-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.country-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.country-item:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: #3b82f6;
+    transform: scale(1.05);
+}
+
+.country-flag {
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.country-name {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    text-align: center;
+}
+
+.country-count {
+    font-size: 18px;
+    color: #3b82f6;
+    font-weight: 700;
+}
+
 /* Mobile Responsive */
 @media (max-width: 1024px) {
     .footer-content {
@@ -452,6 +657,24 @@
     .footer-map-btn {
         width: 100%;
         justify-content: center;
+    }
+
+    /* Stats responsive */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .stat-value {
+        font-size: 32px;
+    }
+
+    .countries-list {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-title h4 {
+        font-size: 20px;
     }
 }
 

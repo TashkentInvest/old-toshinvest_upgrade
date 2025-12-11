@@ -802,7 +802,7 @@
             <div class="tender-section">
                 <div class="section-header">
                     <div class="section-number">5</div>
-                    <h2 class="section-title">Тендерда Иштирок Етиш Тартиби</h2>
+                    <h2 class="section-title">Тендерда Иштирок Этиш Тартиби</h2>
                 </div>
                 <div class="section-content">
                     <div class="info-box">
