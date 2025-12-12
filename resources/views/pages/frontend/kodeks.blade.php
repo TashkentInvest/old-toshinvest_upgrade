@@ -6,8 +6,7 @@
         <div class="t650">
             <div class="t-section__container t-container t-container_flex">
                 <div class="t-col t-col_12 ">
-                    <div class="t-section__title t-title t-title_xs t-align_center t-margin_auto" field="btitle">Кодекс и
-                        правила корпоративного управления</div>
+                    <div class="t-section__title t-title t-title_xs t-align_center t-margin_auto" field="btitle">{{ __('frontend.docs.title') }}</div>
                 </div>
             </div>
             <style>
@@ -33,14 +32,13 @@
                         <div class="t650__text">
                             <div class="t-card__title t-name t-name_lg" field="li_title__4974161772310"><a
                                     href="https://drive.google.com/file/d/1UuT6P6HBe_nVKuFdBH2ZlHiI5lhFS26P/preview" class="t-card__link" id="cardtitle1_748394760"
-                                    aria-labelledby="cardtitle1_748394760 cardbtn1_748394760">Кодекс корпоративного
-                                    управления</a></div>
+                                    aria-labelledby="cardtitle1_748394760 cardbtn1_748394760">{{ __('frontend.docs.corporate_governance_code') }}</a></div>
                         </div>
                         <div class="t650__btn-container">
                             <div class="t-card__btntext-wrapper">
                                 <a href="https://drive.google.com/file/d/1UuT6P6HBe_nVKuFdBH2ZlHiI5lhFS26P/preview" class="t-card__btn-text t-btntext t-btntext_sm " id="cardbtn1_748394760"
                                     data-field="li_buttontitle__4974161772310" style="color:#193d88;font-weight:600;"
-                                    aria-hidden="true" data-buttonfieldset="li_button" data-lid="4974161772310">Просмотреть
+                                    aria-hidden="true" data-buttonfieldset="li_button" data-lid="4974161772310">{{ __('frontend.docs.view') }}
                                 </a>
                             </div>
                         </div>
@@ -51,8 +49,7 @@
                         <div class="t650__text">
                             <div class="t-card__title t-name t-name_lg" field="li_title__1715716888277"><a
                                     href="https://drive.google.com/file/d/1L5wG3AEPZMyvsd723vnCRcDfG-UM3cTa/preview" class="t-card__link" id="cardtitle2_748394760"
-                                    aria-labelledby="cardtitle2_748394760 cardbtn2_748394760">Правила корпоративного
-                                    управления</a></div>
+                                    aria-labelledby="cardtitle2_748394760 cardbtn2_748394760">{{ __('frontend.docs.corporate_governance_rules') }}</a></div>
                         </div>
                         <div class="t650__btn-container">
                             <div class="t-card__btntext-wrapper">
@@ -130,7 +127,7 @@
                             <div class="t-card__title t-name t-name_lg" field="li_title__1715716895372"><a
                                     href="{{asset('assets/frontend/kodeks/Кодекс корпоративной этики.PDF')}}" target="_blank"
                                     class="t-card__link" id="cardtitle5_748394760"
-                                    aria-labelledby="cardtitle5_748394760 cardbtn5_748394760">Кодекс корпоративной этики</a></div>
+                                    aria-labelledby="cardtitle5_748394760 cardbtn5_748394760">{{ __('frontend.docs.code_of_ethics') }}</a></div>
 
                         </div>
                         <div class="t650__btn-container">

@@ -1,2 +1,31 @@
+# robots.txt for tashkentinvest.uz
+
 User-agent: *
-Disallow:
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /login
+Disallow: /register
+Disallow: /password/
+
+# Allow CSS and JS for better crawling
+Allow: /assets/
+Allow: /css/
+Allow: /js/
+
+# Sitemap location
+Sitemap: https://toshkentinvest.uz/sitemap.xml
+
+# Crawl-delay (optional, prevents overload)
+Crawl-delay: 1
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: bingbot
+Allow: /

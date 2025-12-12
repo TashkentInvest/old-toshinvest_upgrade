@@ -5,9 +5,9 @@
 <section class="breadcrumb-section">
     <div class="container">
         <div class="breadcrumb">
-            <a href="{{ route('frontend.index') }}" class="breadcrumb-link">Главная</a>
+            <a href="{{ route('frontend.index') }}" class="breadcrumb-link">{{ __('frontend.breadcrumb.home') }}</a>
             <span class="breadcrumb-separator">→</span>
-            <span class="breadcrumb-current">Правление</span>
+            <span class="breadcrumb-current">{{ __('frontend.board.title') }}</span>
         </div>
     </div>
 </section>
@@ -16,10 +16,10 @@
 <section class="board-section">
     <div class="container">
         <div class="hero-badge">
-            <span class="badge-text">Исполнительный орган</span>
+            <span class="badge-text">{{ __('frontend.board.executive_body') }}</span>
         </div>
-        <h1 class="page-title">Правление</h1>
-        <p class="page-subtitle">Исполнительный орган АО «Компания Ташкент Инвест», осуществляющий оперативное управление деятельностью компании</p>
+        <h1 class="page-title">{{ __('frontend.board.title') }}</h1>
+        <p class="page-subtitle">{{ __('frontend.board.subtitle') }}</p>
 
         {{-- Chairman Profile --}}
         <div class="chairman-profile">
@@ -28,11 +28,11 @@
             </div>
             <div class="profile-info">
                 <h2 class="profile-name">Шакиров Бахром Аскаралиевич</h2>
-                <p class="profile-position">Генеральный директор</p>
+                <p class="profile-position">{{ __('frontend.board.general_director') }}</p>
                 <div class="profile-details">
-                    <p><strong>Телефон:</strong> +998 (71) 210 02 61</p>
-                    <p><strong>Эл. почта:</strong> b.shakirov@tashkentinvest.com</p>
-                    <p><strong>Дни приема:</strong> По предварительной записи</p>
+                    <p><strong>{{ __('frontend.board.phone') }}:</strong> +998 (71) 210 02 61</p>
+                    <p><strong>{{ __('frontend.board.email') }}:</strong> b.shakirov@tashkentinvest.com</p>
+                    <p><strong>{{ __('frontend.board.reception_days') }}:</strong> {{ __('frontend.board.by_appointment') }}</p>
                 </div>
                 {{-- <button class="bio-button" onclick="openModal('modal-chairman')">Биография и обязанности</button> --}}
             </div>
@@ -40,7 +40,7 @@
 
         {{-- Tabs --}}
         <div class="tabs">
-            <button class="tab-button active">Руководство</button>
+            <button class="tab-button active">{{ __('frontend.board.management') }}</button>
         </div>
 
         {{-- Members Grid --}}
@@ -53,8 +53,8 @@
                 <div class="member-info">
                     <h3 class="member-name">Қодиров Рустам Шухратович</h3>
                     <p class="member-position">Заместитель председателя правления по стратегическому развитию</p>
-                    <p class="member-contact">Телефон: +998 (71) 210 02 61</p>
-                    <p class="member-contact">Эл. почта: rustam.kodirov@tashkentinvest.com</p>
+                    <p class="member-contact">{{ __('frontend.board.phone') }}: +998 (71) 210 02 61</p>
+                    <p class="member-contact">{{ __('frontend.board.email') }}: rustam.kodirov@tashkentinvest.com</p>
                     {{-- <button class="bio-button" onclick="openModal('modal-1')">Биография и обязанности</button> --}}
                 </div>
             </div>

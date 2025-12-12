@@ -10,13 +10,13 @@
     <div class="container">
         <div class="hero-content">
             <div class="breadcrumb">
-                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">Главная</a>
+                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">{{ __('frontend.breadcrumb.home') }}</a>
                 <span class="breadcrumb-separator">→</span>
-                <span class="breadcrumb-current">Проекты реновации</span>
+                <span class="breadcrumb-current">{{ __('frontend.renovation.title') }}</span>
             </div>
 
-            <h1 class="page-title">Проекты реновации</h1>
-            <p class="page-subtitle">АО «Компания Ташкент Инвест» объявляет конкурс для отбора наилучшего предложения по реализации проектов реновации</p>
+            <h1 class="page-title">{{ __('frontend.renovation.title') }}</h1>
+            <p class="page-subtitle">{{ __('frontend.renovation.subtitle') }}</p>
         </div>
     </div>
 </section>
@@ -28,15 +28,15 @@
         <div class="section-header">
             <div class="header-content">
                 <div class="header-info">
-                    <h2 class="section-title">Доступные проекты</h2>
-                    <p class="section-subtitle">Выберите проект для участия в конкурсе</p>
+                    <h2 class="section-title">{{ __('frontend.renovation.available_projects') }}</h2>
+                    <p class="section-subtitle">{{ __('frontend.renovation.choose_project') }}</p>
                 </div>
                 <div class="header-controls">
                     <div class="filter-controls">
                         {{-- Search Input --}}
                         <div class="search-container">
                             <input type="text" name="q" id="searchInput" value="{{ request('q') }}"
-                                   placeholder="Поиск проектов..." class="search-input">
+                                   placeholder="{{ __('frontend.renovation.search_projects') }}" class="search-input">
                             <div class="search-icon">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                     <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
@@ -48,15 +48,15 @@
 
                         {{-- Status Filter --}}
                         <select name="status" id="statusSelect" class="status-filter">
-                            <option value="">Все этапы</option>
-                            <option value="1_step" {{ request('status') == '1_step' ? 'selected' : '' }}>1-й этап</option>
-                            <option value="2_step" {{ request('status') == '2_step' ? 'selected' : '' }}>2-й этап</option>
-                            <option value="completed" {{ request('status') == 'completed' ? 'selected' : '' }}>Завершенные</option>
-                            <option value="archive" {{ request('status') == 'archive' ? 'selected' : '' }}>Архив</option>
+                            <option value="">{{ __('frontend.renovation.all_stages') }}</option>
+                            <option value="1_step" {{ request('status') == '1_step' ? 'selected' : '' }}>{{ __('frontend.renovation.stage_1') }}</option>
+                            <option value="2_step" {{ request('status') == '2_step' ? 'selected' : '' }}>{{ __('frontend.renovation.stage_2') }}</option>
+                            <option value="completed" {{ request('status') == 'completed' ? 'selected' : '' }}>{{ __('frontend.renovation.completed') }}</option>
+                            <option value="archive" {{ request('status') == 'archive' ? 'selected' : '' }}>{{ __('frontend.renovation.archive') }}</option>
                         </select>
 
                         {{-- View Toggle --}}
-                        <button type="button" id="toggleViewBtn" class="view-toggle-btn" title="Переключить вид">
+                        <button type="button" id="toggleViewBtn" class="view-toggle-btn" title="{{ __('frontend.common.filter') }}">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                 <rect x="3" y="3" width="7" height="7" stroke="currentColor" stroke-width="2"/>
                                 <rect x="14" y="3" width="7" height="7" stroke="currentColor" stroke-width="2"/>
@@ -73,10 +73,10 @@
         <div class="projects-container card-view" id="projectsContainer">
             @php
                 $statusTitles = [
-                    '1_step' => 'Конкурсы на 1-м этапе',
-                    '2_step' => 'Конкурсы на 2-м этапе',
-                    'completed' => 'Завершенные конкурсы',
-                    'archive' => 'Архивированные конкурсы',
+                    '1_step' => __('frontend.renovation.stage_1') . ' - ' . __('frontend.status.in_progress'),
+                    '2_step' => __('frontend.renovation.stage_2') . ' - ' . __('frontend.status.in_progress'),
+                    'completed' => __('frontend.renovation.completed'),
+                    'archive' => __('frontend.renovation.archive'),
                 ];
                 $statusColors = [
                     '1_step' => 'primary',
@@ -125,9 +125,9 @@
                                                 </svg>
                                             </div>
                                             <div class="location-details">
-                                                <h3 class="location-title">{{ $project->district }}ский район</h3>
+                                                <h3 class="location-title">{{ $project->district }}{{ __('frontend.renovation.district') }}</h3>
                                                 @if ($project->mahalla)
-                                                    <p class="location-mahalla">Махалля {{ $project->mahalla }}</p>
+                                                    <p class="location-mahalla">{{ __('frontend.renovation.mahalla') }} {{ $project->mahalla }}</p>
                                                 @endif
                                             </div>
                                         </div>
@@ -142,9 +142,9 @@
                                                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                                                 <path d="M3 3h18v18H3V3zm16 16V5H5v14h14z" fill="currentColor"/>
                                                             </svg>
-                                                            <span>Площадь участка</span>
+                                                            <span>{{ __('frontend.renovation.land_area') }}</span>
                                                         </div>
-                                                        <div class="detail-value">{{ $project->land }} га</div>
+                                                        <div class="detail-value">{{ $project->land }} {{ __('frontend.renovation.hectares') }}</div>
                                                     </div>
                                                 @endif
 
@@ -155,9 +155,9 @@
                                                                 <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
                                                                 <polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2"/>
                                                             </svg>
-                                                            <span>Срок реализации</span>
+                                                            <span>{{ __('frontend.renovation.implementation_period') }}</span>
                                                         </div>
-                                                        <div class="detail-value">{{ $project->srok_realizatsi }} мес.</div>
+                                                        <div class="detail-value">{{ $project->srok_realizatsi }} {{ __('frontend.renovation.months') }}</div>
                                                     </div>
                                                 @endif
 
@@ -166,13 +166,13 @@
                                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                                             <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z" stroke="currentColor" stroke-width="2"/>
                                                         </svg>
-                                                        <span>Первый этап</span>
+                                                        <span>{{ __('frontend.renovation.first_stage') }}</span>
                                                     </div>
                                                     <div class="detail-value">
                                                         <span class="timeline-dates">
-                                                            {{ $project->start_date ? $project->start_date->format('d.m.Y') : 'Не указано' }}
+                                                            {{ $project->start_date ? $project->start_date->format('d.m.Y') : __('frontend.renovation.not_specified') }}
                                                             —
-                                                            {{ $project->end_date ? $project->end_date->format('d.m.Y') : 'Не указано' }}
+                                                            {{ $project->end_date ? $project->end_date->format('d.m.Y') : __('frontend.renovation.not_specified') }}
                                                         </span>
                                                     </div>
                                                 </div>
@@ -182,13 +182,13 @@
                                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                                             <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z" stroke="currentColor" stroke-width="2"/>
                                                         </svg>
-                                                        <span>Второй этап</span>
+                                                        <span>{{ __('frontend.renovation.second_stage') }}</span>
                                                     </div>
                                                     <div class="detail-value">
                                                         <span class="timeline-dates">
-                                                            {{ $project->second_stage_start_date ? $project->second_stage_start_date->format('d.m.Y') : 'Не указано' }}
+                                                            {{ $project->second_stage_start_date ? $project->second_stage_start_date->format('d.m.Y') : __('frontend.renovation.not_specified') }}
                                                             —
-                                                            {{ $project->second_stage_end_date ? $project->second_stage_end_date->format('d.m.Y') : 'Не указано' }}
+                                                            {{ $project->second_stage_end_date ? $project->second_stage_end_date->format('d.m.Y') : __('frontend.renovation.not_specified') }}
                                                         </span>
                                                     </div>
                                                 </div>
@@ -204,7 +204,7 @@
                                                     </svg>
                                                 </div>
                                                 <div class="notification-content">
-                                                    <strong class="notification-title">Комментарий к проекту:</strong>
+                                                    <strong class="notification-title">{{ __('frontend.renovation.project_comment') }}</strong>
                                                     <p class="notification-text">{{ Str::limit($project->comment, 120) }}</p>
                                                 </div>
                                             </div>
@@ -215,15 +215,14 @@
                                                 <a href="{{ asset('storage/' . $project->elon_fayl) }}" target="_blank"
                                                    class="action-btn primary">
                                                     <span class="btn-icon"><i class="fa-solid fa-file-alt"></i></span>
-                                                    <span class="btn-text">Объявление 1 этапа</span>
+                                                    <span class="btn-text">{{ __('frontend.renovation.announcement_stage1') }}</span>
                                                 </a>
                                             @endif
 
                                             @if ($project->pratakol_fayl)
                                                 <a href="{{ asset('storage/' . $project->pratakol_fayl) }}" target="_blank"
                                                    class="action-btn secondary">
-
-                                                    <span class="btn-text">Протокол 1 этапа</span>
+                                                    <span class="btn-text">{{ __('frontend.renovation.protocol_stage1') }}</span>
                                                 </a>
                                             @endif
 
@@ -231,21 +230,21 @@
                                                 <a href="{{ asset('storage/' . $project->qoshimcha_fayl) }}" target="_blank"
                                                    class="action-btn success">
                                                     <span class="btn-icon"><i class="fa-solid fa-download"></i></span>
-                                                    <span class="btn-text">Результат отбора</span>
+                                                    <span class="btn-text">{{ __('frontend.renovation.selection_result') }}</span>
                                                 </a>
                                             @endif
 
                                             @if (!empty($project->comment))
                                                 <button type="button" class="action-btn info" data-modal="projectModal{{ $project->id }}">
                                                     <span class="btn-icon"><i class="fa-solid fa-info-circle"></i></span>
-                                                    <span class="btn-text">Подробности</span>
+                                                    <span class="btn-text">{{ __('frontend.renovation.details') }}</span>
                                                 </button>
                                             @endif
 
                                             @if (Route::has('bidding.show'))
                                                 <a href="{{ route('bidding.show', $project->id) }}" class="action-btn details">
                                                     <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
-                                                    <span class="btn-text">Далее</span>
+                                                    <span class="btn-text">{{ __('frontend.common.next') }}</span>
                                                 </a>
                                             @endif
                                         </div>
@@ -259,7 +258,7 @@
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title">
-                                                        Комментарий к проекту - {{ $project->district }}ский район
+                                                        {{ __('frontend.renovation.project_comment') }} - {{ $project->district }}{{ __('frontend.renovation.district') }}
                                                     </h5>
                                                     <button type="button" class="btn-close" data-close>&times;</button>
                                                 </div>
@@ -267,7 +266,7 @@
                                                     <p class="project-comment">{{ $project->comment }}</p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-close>Закрыть</button>
+                                                    <button type="button" class="btn btn-secondary" data-close>{{ __('frontend.common.close') }}</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -280,8 +279,8 @@
             @empty
                 <div class="no-projects">
                     <div class="no-projects-icon"><i class="fa-solid fa-folder-open"></i></div>
-                    <h3>Нет доступных проектов</h3>
-                    <p>В настоящее время проекты реновации отсутствуют</p>
+                    <h3>{{ __('frontend.renovation.no_projects') }}</h3>
+                    <p>{{ __('frontend.renovation.no_projects_desc') }}</p>
                 </div>
             @endforelse
         </div>

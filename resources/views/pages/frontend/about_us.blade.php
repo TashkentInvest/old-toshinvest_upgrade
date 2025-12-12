@@ -8,12 +8,12 @@
     <div class="container">
         <div class="hero-content">
             <div class="breadcrumb">
-                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">Главная</a>
+                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">{{ __('frontend.breadcrumb.home') }}</a>
                 <span class="breadcrumb-separator">→</span>
-                <span class="breadcrumb-current">О КОМПАНИИ</span>
+                <span class="breadcrumb-current">{{ __('frontend.about.title') }}</span>
             </div>
 
-            <h1 class="page-title">О КОМПАНИИ</h1>
+            <h1 class="page-title">{{ __('frontend.about.title') }}</h1>
           <p class="page-subtitle">
 Акционерное общество «Компания Ташкент Инвест» создано при учредительстве Хокимията г. Ташкент в соответствии с Указом Президента Республики Узбекистан от 26.07.2023 за № УП-112 «О мерах по социально-экономическому развитию города Ташкента до 2030 года».<br><br>
 

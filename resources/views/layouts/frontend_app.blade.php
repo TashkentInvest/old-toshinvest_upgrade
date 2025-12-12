@@ -6,6 +6,82 @@
 </head>
 
 <body class="t-body" style="margin: 0">
+    <!-- Organization Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "{{ __('frontend.seo.site_name') }}",
+        "alternateName": "Tashkent Invest",
+        "url": "{{ url('/') }}",
+        "logo": "{{ asset('assets/frontend/tild3566-3163-4833-b562-366533376630/_-1.jpg') }}",
+        "description": "{{ __('frontend.seo.default_description') }}",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "улица Ислама Каримова, 51",
+            "addressLocality": "Tashkent",
+            "addressRegion": "Tashkent",
+            "postalCode": "100000",
+            "addressCountry": "UZ"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 41.2995,
+            "longitude": 69.2401
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+998-71-203-03-03",
+            "contactType": "customer service",
+            "availableLanguage": ["Uzbek", "Russian", "English"]
+        },
+        "sameAs": [
+            "https://t.me/toshkentinvest",
+            "https://www.facebook.com/toshkentinvest",
+            "https://www.instagram.com/toshkentinvest"
+        ]
+    }
+    </script>
+
+    <!-- WebSite Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "{{ __('frontend.seo.site_name') }}",
+        "url": "{{ url('/') }}",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "{{ url('/') }}?search={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        },
+        "inLanguage": ["uz", "ru", "en"]
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema (if breadcrumbs exist) -->
+    @if(isset($breadcrumbs) && count($breadcrumbs) > 0)
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            @foreach($breadcrumbs as $index => $breadcrumb)
+            {
+                "@type": "ListItem",
+                "position": {{ $index + 1 }},
+                "name": "{{ $breadcrumb['name'] }}",
+                "item": "{{ $breadcrumb['url'] }}"
+            }{{ $loop->last ? '' : ',' }}
+            @endforeach
+        ]
+    }
+    </script>
+    @endif
+
     <!--allrecords-->
     <div id="allrecords" class="t-records" data-hook="blocks-collection-content-node" data-tilda-project-id="9433043"
         data-tilda-page-id="48914927" data-tilda-page-alias="ru" data-tilda-formskey="44fd03c9779dc2a2069765d219433043"

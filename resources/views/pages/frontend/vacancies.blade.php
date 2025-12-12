@@ -10,13 +10,13 @@
     <div class="container">
         <div class="hero-content">
             <div class="breadcrumb">
-                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">Главная</a>
+                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">{{ __('frontend.breadcrumb.home') }}</a>
                 <span class="breadcrumb-separator">→</span>
-                <span class="breadcrumb-current">Вакансии</span>
+                <span class="breadcrumb-current">{{ __('frontend.nav.vacancies') }}</span>
             </div>
 
-            <h1 class="page-title">Вакансии</h1>
-            <p class="page-subtitle">Присоединяйтесь к команде профессионалов АО «Компания Ташкент Инвест» и развивайте свою карьеру в сфере инвестиций и строительства</p>
+            <h1 class="page-title">{{ __('frontend.nav.vacancies') }}</h1>
+            <p class="page-subtitle">Присоединяйтесь к команде профессионалов {{ __('frontend.company.name') }} и развивайте свою карьеру в сфере инвестиций и строительства</p>
 
 
         </div>

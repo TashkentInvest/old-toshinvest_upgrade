@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Frontend\InvestorIdeaController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -12,6 +13,9 @@ use App\Http\Controllers\Blade\ApiUserController;
 use App\Http\Controllers\Blade\PermissionController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\Blade\ProjectController;
+
+// Sitemap Route
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
 // Load test routes (comment out in production)
 if (file_exists(__DIR__ . '/test.php')) {

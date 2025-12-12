@@ -1,6 +1,15 @@
 <?php
 
 return [
+    // SEO Meta Tags
+    'seo' => [
+        'default_title' => 'JSC "Tashkent Invest Company" — Infrastructure Development & Investment in Tashkent',
+        'default_description' => 'Joint Stock Company "Tashkent Invest Company" is the leading investment company in Tashkent. Renovation projects, investment proposals, corporate governance, tenders and news.',
+        'default_keywords' => 'Tashkent Invest, Tashkent investment, renovation projects, investment proposals, Uzbekistan tenders, Tashkent real estate, corporate governance',
+        'site_name' => 'JSC "Tashkent Invest Company"',
+        'author' => 'JSC "Tashkent Invest Company"',
+    ],
+
     // Company
     'company' => [
         'name' => 'Tashkent Invest Company',
@@ -86,6 +95,9 @@ return [
         'results' => 'results',
         'per_page' => 'per page',
         'login' => 'Login',
+        'active' => 'Active',
+        'archive' => 'Archive',
+        'all_projects' => 'All projects',
     ],
 
     // Home Page

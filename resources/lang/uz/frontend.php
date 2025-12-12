@@ -1,6 +1,15 @@
 <?php
 
 return [
+    // SEO Meta Tags
+    'seo' => [
+        'default_title' => 'AJ «Toshkent Invest Kompaniyasi» — Toshkentda infratuzilma rivojlantirish va investitsiyalar',
+        'default_description' => 'Aksiyadorlik jamiyati «Toshkent Invest Kompaniyasi» — Toshkentning yetakchi investitsiya kompaniyasi. Renovatsiya loyihalari, investitsiya takliflari, korporativ boshqaruv, tenderlar va yangiliklar.',
+        'default_keywords' => 'Toshkent Invest, Toshkent investitsiya, renovatsiya loyihalari, investitsiya takliflari, O\'zbekiston tenderlari, Toshkent ko\'chmas mulk, korporativ boshqaruv',
+        'site_name' => 'AJ «Toshkent Invest Kompaniyasi»',
+        'author' => 'AJ «Toshkent Invest Kompaniyasi»',
+    ],
+
     // Company
     'company' => [
         'name' => 'Toshkent Invest kompaniyasi',
@@ -86,6 +95,9 @@ return [
         'results' => 'natija',
         'per_page' => 'sahifada',
         'login' => 'Kirish',
+        'active' => 'Faol',
+        'archive' => 'Arxiv',
+        'all_projects' => 'Barcha loyihalar',
     ],
 
     // Home Page

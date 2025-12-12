@@ -1,31 +1,72 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!--metatextblock-->
-<title>АО "Компания Ташкент Инвест"</title>
-<meta property="og:url" content="https://toshkentinvestuz" />
-<meta property="og:title" content='АО "Компания Ташкент Инвест"' />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="https://static.tildacdn.one/tild6237-3339-4231-a333-363862393634/_-1.jpg" />
-<link rel="canonical" href="index.htm" />
-<!--/metatextblock-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<!-- SEO Meta Tags -->
+<title>{{ $seoTitle ?? __('frontend.seo.default_title') }}</title>
+<meta name="description" content="{{ $seoDescription ?? __('frontend.seo.default_description') }}" />
+<meta name="keywords" content="{{ $seoKeywords ?? __('frontend.seo.default_keywords') }}" />
+<meta name="author" content="{{ __('frontend.seo.author') }}" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="language" content="{{ app()->getLocale() }}" />
+<meta name="revisit-after" content="7 days" />
+
+<!-- Canonical & Alternate Language URLs -->
+<link rel="canonical" href="{{ $canonicalUrl ?? url()->current() }}" />
+<link rel="alternate" hreflang="uz" href="{{ url()->current() }}?lang=uz" />
+<link rel="alternate" hreflang="ru" href="{{ url()->current() }}?lang=ru" />
+<link rel="alternate" hreflang="en" href="{{ url()->current() }}?lang=en" />
+<link rel="alternate" hreflang="x-default" href="{{ url()->current() }}" />
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:locale" content="{{ app()->getLocale() == 'uz' ? 'uz_UZ' : (app()->getLocale() == 'ru' ? 'ru_RU' : 'en_US') }}" />
+<meta property="og:type" content="{{ $ogType ?? 'website' }}" />
+<meta property="og:title" content="{{ $seoTitle ?? __('frontend.seo.default_title') }}" />
+<meta property="og:description" content="{{ $seoDescription ?? __('frontend.seo.default_description') }}" />
+<meta property="og:url" content="{{ url()->current() }}" />
+<meta property="og:site_name" content="{{ __('frontend.seo.site_name') }}" />
+<meta property="og:image" content="{{ $ogImage ?? asset('assets/frontend/images/og-default.jpg') }}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="{{ $seoTitle ?? __('frontend.seo.default_title') }}" />
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ $seoTitle ?? __('frontend.seo.default_title') }}" />
+<meta name="twitter:description" content="{{ $seoDescription ?? __('frontend.seo.default_description') }}" />
+<meta name="twitter:image" content="{{ $ogImage ?? asset('assets/frontend/images/og-default.jpg') }}" />
+<meta name="twitter:site" content="@toshkentinvest" />
+
+<!-- Geo Tags -->
+<meta name="geo.region" content="UZ-TK" />
+<meta name="geo.placename" content="Tashkent" />
+<meta name="geo.position" content="41.2995;69.2401" />
+<meta name="ICBM" content="41.2995, 69.2401" />
 <meta name="format-detection" content="telephone=no" />
 <meta http-equiv="x-dns-prefetch-control" content="on" />
 <link rel="dns-prefetch" href="https://ws.tildacdn.com" />
 <link rel="dns-prefetch" href="https://static.tildacdn.one" />
+<!-- Favicon -->
 <link rel="shortcut icon" href="{{ asset('assets/frontend/tild3566-3163-4833-b562-366533376630/_-1.jpg') }}"
     type="image/x-icon" />
+<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/frontend/tild3566-3163-4833-b562-366533376630/_-1.jpg') }}" />
+<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/frontend/tild3566-3163-4833-b562-366533376630/_-1.jpg') }}" />
 
-    <link rel="stylesheet" href="{{asset('assets/frontend/ws/project9433043/tilda-blocks-page48943729.min.css')}}" type="text/css" media="all" onerror="this.loaderr='y';">
-    <link rel="stylesheet" href="{{asset('assets/frontend/css/tilda-cards-1.0.min.css')}}" type="text/css" media="all" onerror="this.loaderr='y';">
-    <link rel="stylesheet" href="{{asset('assets/frontend/ws/project9433043/tilda-blocks-page48952595.min.css')}}" type="text/css" media="all" onerror="this.loaderr='y';">
+<!-- Preconnect to Required Origins -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+<link rel="dns-prefetch" href="https://ws.tildacdn.com" />
+<link rel="dns-prefetch" href="https://static.tildacdn.one" />
 
-<link rel="shortcut icon" href="{{ asset('assets/frontend/tild3566-3163-4833-b562-366533376630/_-1.jpg') }}"
-    type="image/x-icon" />
+<!-- Critical CSS - Preload -->
+<link rel="preload" href="{{asset('assets/frontend/css/tilda-grid-3.0.min.css')}}" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+<link rel="preload" href="{{ asset('assets/frontend/css/government-unified.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'" />
 
-<!-- Government Unified Design System -->
-<link rel="stylesheet" href="{{ asset('assets/frontend/css/government-unified.css') }}" type="text/css" media="all" />
+<!-- Stylesheets -->
+<link rel="stylesheet" href="{{asset('assets/frontend/ws/project9433043/tilda-blocks-page48943729.min.css')}}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{asset('assets/frontend/css/tilda-cards-1.0.min.css')}}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{asset('assets/frontend/ws/project9433043/tilda-blocks-page48952595.min.css')}}" type="text/css" media="all" />
 
 <!-- FontAwesome 6 CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />

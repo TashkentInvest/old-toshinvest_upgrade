@@ -1,5 +1,35 @@
 @extends('layouts.frontend_app')
 @section('frontent_content')
+
+    <!-- NewsArticle Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "{{ $articleSchema['headline'] ?? $news->title }}",
+        "image": "{{ $articleSchema['image'] }}",
+        "datePublished": "{{ $articleSchema['datePublished'] }}",
+        "dateModified": "{{ $articleSchema['dateModified'] }}",
+        "author": {
+            "@type": "Organization",
+            "name": "{{ $articleSchema['author'] }}"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "{{ __('frontend.seo.site_name') }}",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{ asset('assets/frontend/tild3566-3163-4833-b562-366533376630/_-1.jpg') }}"
+            }
+        },
+        "description": "{{ $seoDescription }}",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ $canonicalUrl }}"
+        }
+    }
+    </script>
+
     <div id="rec748789818" class="r t-rec t-rec_pt_30 t-rec_pb_60" style="padding-top: 30px; padding-bottom: 60px"
         data-animationappear="off" data-record-type="396">
 

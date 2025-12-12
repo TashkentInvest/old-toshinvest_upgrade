@@ -7,6 +7,7 @@ use App\Models\News;
 use App\Models\Project;
 use App\Services\InvestorIdeaService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class FrontendController extends Controller
 {
@@ -25,7 +26,29 @@ class FrontendController extends Controller
         // Get recent investor ideas (approved only)
         $recentIdeas = $this->investorIdeaService->getRecentForHomepage(3);
 
-        return view('pages.frontend.home', compact('news', 'subcategory', 'recentIdeas'));
+        // SEO Meta Tags
+        $seoTitle = __('frontend.seo.default_title');
+        $seoDescription = __('frontend.seo.default_description');
+        $seoKeywords = __('frontend.seo.default_keywords');
+        $canonicalUrl = url('/');
+        $ogImage = asset('assets/users_img/bg.webp');
+
+        // Breadcrumbs for homepage
+        $breadcrumbs = [
+            ['name' => __('frontend.nav.home'), 'url' => url('/')]
+        ];
+
+        return view('pages.frontend.home', compact(
+            'news',
+            'subcategory',
+            'recentIdeas',
+            'seoTitle',
+            'seoDescription',
+            'seoKeywords',
+            'canonicalUrl',
+            'ogImage',
+            'breadcrumbs'
+        ));
     }
 
 
@@ -207,7 +230,42 @@ class FrontendController extends Controller
                           ->limit(3)
                           ->get();
 
-        return view('pages.frontend.media-detail', compact('news', 'relatedNews'));
+        // SEO Meta Tags for News Article
+        $seoTitle = $news->title . ' - ' . __('frontend.seo.site_name');
+        $seoDescription = Str::limit(strip_tags($news->content ?? ''), 155);
+        $seoKeywords = $news->title . ', ' . __('frontend.seo.default_keywords');
+        $canonicalUrl = route('frontend.media.detail', $id);
+        $ogImage = $news->getPrimaryImage() ?? asset('assets/frontend/images/og-default.jpg');
+        $ogType = 'article';
+
+        // Breadcrumbs
+        $breadcrumbs = [
+            ['name' => __('frontend.nav.home'), 'url' => url('/')],
+            ['name' => __('frontend.nav.media'), 'url' => route('frontend.media')],
+            ['name' => Str::limit($news->title, 50), 'url' => route('frontend.media.detail', $id)]
+        ];
+
+        // Article Schema Data
+        $articleSchema = [
+            'headline' => $news->title,
+            'datePublished' => $news->published_at ? $news->published_at->toIso8601String() : now()->toIso8601String(),
+            'dateModified' => $news->updated_at->toIso8601String(),
+            'image' => $ogImage,
+            'author' => __('frontend.seo.author'),
+        ];
+
+        return view('pages.frontend.media-detail', compact(
+            'news',
+            'relatedNews',
+            'seoTitle',
+            'seoDescription',
+            'seoKeywords',
+            'canonicalUrl',
+            'ogImage',
+            'ogType',
+            'breadcrumbs',
+            'articleSchema'
+        ));
     }
 
     public function contact()

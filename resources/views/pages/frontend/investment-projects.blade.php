@@ -10,13 +10,13 @@
     <div class="container">
         <div class="hero-content">
             <div class="breadcrumb">
-                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">Главная</a>
+                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">{{ __('frontend.breadcrumb.home') }}</a>
                 <span class="breadcrumb-separator">→</span>
-                <span class="breadcrumb-current">Инвестиционные проекты</span>
+                <span class="breadcrumb-current">{{ __('frontend.footer.investment_projects') }}</span>
             </div>
 
-            <h1 class="page-title">Инвестиционные проекты в строительстве</h1>
-            <p class="page-subtitle">АО «Компания Ташкент Инвест» объявляет конкурс на отбор лучших предложений для реализации инвестиционных проектов в сфере строительства</p>
+            <h1 class="page-title">{{ __('frontend.footer.investment_projects') }} в строительстве</h1>
+            <p class="page-subtitle">{{ __('frontend.company.name') }} объявляет конкурс на отбор лучших предложений для реализации инвестиционных проектов в сфере строительства</p>
 
         </div>
     </div>
@@ -29,22 +29,22 @@
         <div class="section-header">
             <div class="header-content">
                 <div class="header-info">
-                    <h2 class="section-title">Доступные проекты</h2>
+                    <h2 class="section-title">{{ __('frontend.renovation.available_projects') }}</h2>
                     <p class="section-subtitle">Выберите подходящий инвестиционный проект для участия</p>
                 </div>
                 <div class="header-controls">
                     <div class="filter-controls">
                         <button class="filter-btn active" data-filter="all">
                             <span class="filter-icon">📋</span>
-                            <span class="filter-text">Все проекты</span>
+                            <span class="filter-text">{{ __('frontend.common.all_projects') }}</span>
                         </button>
                         <button class="filter-btn" data-filter="active">
                             <span class="filter-icon">✅</span>
-                            <span class="filter-text">Актуальные</span>
+                            <span class="filter-text">{{ __('frontend.common.active') }}</span>
                         </button>
                         <button class="filter-btn" data-filter="archive">
                             <span class="filter-icon">📦</span>
-                            <span class="filter-text">Архив</span>
+                            <span class="filter-text">{{ __('frontend.common.archive') }}</span>
                         </button>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                 <div class="card-status-indicator">
                     <div class="status-badge archive">
                         <span class="status-icon">📦</span>
-                        <span class="status-text">Архив</span>
+                        <span class="status-text">{{ __('frontend.common.archive') }}</span>
                     </div>
                     <div class="project-id">TI-2025-001</div>
                 </div>
@@ -85,9 +85,9 @@
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M3 3h18v18H3V3zm16 16V5H5v14h14z" fill="currentColor"/>
                                     </svg>
-                                    <span>Площадь участка</span>
+                                    <span>{{ __('frontend.renovation.land_area') }}</span>
                                 </div>
-                                <div class="detail-value">0,8528 га</div>
+                                <div class="detail-value">0,8528 {{ __('frontend.renovation.hectares') }}</div>
                             </div>
                             <div class="detail-item deadline-item expired">
                                 <div class="detail-label">
@@ -113,7 +113,7 @@
                                     <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" fill="currentColor"/>
                                 </svg>
                             </span>
-                            <span class="btn-text">Объявление</span>
+                            <span class="btn-text">{{ __('frontend.tenders.announcement') }}</span>
                         </a>
                         <a href="приложение.zip" class="action-btn secondary" download>
                             <span class="btn-icon">
@@ -159,9 +159,9 @@
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M3 3h18v18H3V3zm16 16V5H5v14h14z" fill="currentColor"/>
                                     </svg>
-                                    <span>Площадь участка</span>
+                                    <span>{{ __('frontend.renovation.land_area') }}</span>
                                 </div>
-                                <div class="detail-value">0,8528 га</div>
+                                <div class="detail-value">0,8528 {{ __('frontend.renovation.hectares') }}</div>
                             </div>
                             <div class="detail-item deadline-item expired">
                                 <div class="detail-label">
@@ -200,7 +200,7 @@
                                     <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" fill="currentColor"/>
                                 </svg>
                             </span>
-                            <span class="btn-text">Объявление</span>
+                            <span class="btn-text">{{ __('frontend.tenders.announcement') }}</span>
                         </a>
                         <a href="приложение.zip" class="action-btn secondary" download>
                             <span class="btn-icon">
@@ -246,9 +246,9 @@
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M3 3h18v18H3V3zm16 16V5H5v14h14z" fill="currentColor"/>
                                     </svg>
-                                    <span>Площадь участка</span>
+                                    <span>{{ __('frontend.renovation.land_area') }}</span>
                                 </div>
-                                <div class="detail-value">0,8528 га</div>
+                                <div class="detail-value">0,8528 {{ __('frontend.renovation.hectares') }}</div>
                             </div>
                             <div class="detail-item deadline-item active">
                                 <div class="detail-label">
@@ -287,7 +287,7 @@
                                     <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" fill="currentColor"/>
                                 </svg>
                             </span>
-                            <span class="btn-text">Объявление</span>
+                            <span class="btn-text">{{ __('frontend.tenders.announcement') }}</span>
                         </a>
                         <a href="{{asset('assets/folders/Приложения.zip')}}" class="action-btn secondary" download>
                             <span class="btn-icon">
