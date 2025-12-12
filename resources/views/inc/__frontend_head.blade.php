@@ -23,6 +23,13 @@
 
 <link rel="shortcut icon" href="{{ asset('assets/frontend/tild3566-3163-4833-b562-366533376630/_-1.jpg') }}"
     type="image/x-icon" />
+
+<!-- Government Unified Design System -->
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/government-unified.css') }}" type="text/css" media="all" />
+
+<!-- FontAwesome 6 CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <!-- Assets -->
 <script src="{{ asset('assets/frontend/js/tilda-fallback-1.0.min.js') }}" async="" charset="utf-8"></script>
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/tilda-grid-3.0.min.css') }}" type="text/css" media="all"

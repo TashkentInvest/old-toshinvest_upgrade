@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Frontend\InvestorIdeaController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -11,6 +12,11 @@ use App\Http\Controllers\Blade\ApiUserController;
 use App\Http\Controllers\Blade\PermissionController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\Blade\ProjectController;
+
+// Load test routes (comment out in production)
+if (file_exists(__DIR__ . '/test.php')) {
+    require __DIR__ . '/test.php';
+}
 
 Route::get('/investment-project', function () {
     return view('pages.frontend.investment-projects');
@@ -168,6 +174,15 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/dividends', [FrontendController::class, 'dividends'])->name('dividends');
     Route::get('/charter_capital', [FrontendController::class, 'charter_capital'])->name('charter_capital');
     Route::get('/open_tender_notice', [FrontendController::class, 'open_tender_notice'])->name('open_tender_notice');
+
+    // Investor Ideas Routes
+    Route::prefix('investor-ideas')->name('investor_ideas.')->group(function () {
+        Route::get('/', [InvestorIdeaController::class, 'index'])->name('index');
+        Route::get('/create', [InvestorIdeaController::class, 'create'])->name('create');
+        Route::post('/', [InvestorIdeaController::class, 'store'])->name('store');
+        Route::get('/success', [InvestorIdeaController::class, 'success'])->name('success');
+        Route::get('/{id}', [InvestorIdeaController::class, 'show'])->name('show');
+    });
 });
 
 

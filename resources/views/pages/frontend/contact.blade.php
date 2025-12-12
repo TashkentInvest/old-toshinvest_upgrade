@@ -105,7 +105,7 @@
             <div class="map-container">
                 <div class="map-overlay-badge">
                     <div class="badge-content">
-                        <span class="badge-icon">📍</span>
+                        <span class="badge-icon"><i class="fa-solid fa-location-dot"></i></span>
                         <span class="badge-text">Tashkent Invest Company</span>
                     </div>
                 </div>
@@ -185,11 +185,11 @@ function initContactMap() {
 
         // Custom placemark
         contactPlacemark = new ymaps.Placemark([41.310425, 69.248169], {
-            balloonContentHeader: '<div style="font-weight: bold; font-size: 18px; color: #1e293b; margin-bottom: 12px; padding: 8px 0; border-bottom: 2px solid #3b82f6;">🏢 Tashkent Invest Company</div>',
+            balloonContentHeader: '<div style="font-weight: bold; font-size: 18px; color: #1e293b; margin-bottom: 12px; padding: 8px 0; border-bottom: 2px solid #3b82f6;"><i class="fa-solid fa-building" style="margin-right: 8px;"></i>Tashkent Invest Company</div>',
             balloonContentBody: `
                 <div style="font-size: 15px; line-height: 1.6; color: #475569; padding: 12px 0;">
                     <div style="margin-bottom: 12px;">
-                        <strong style="color: #1e293b;">📍 Адрес:</strong><br>
+                        <strong style="color: #1e293b;"><i class="fa-solid fa-location-dot" style="margin-right: 6px;"></i>Адрес:</strong><br>
                         <span style="color: #64748b;">улица Ислама Каримова, 51<br>Ташкент, Узбекистан</span>
                     </div>
                     <div style="margin-bottom: 12px;">
@@ -204,7 +204,7 @@ function initContactMap() {
                 </div>
             `,
             balloonContentFooter: '<div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid #e2e8f0; text-align: center;"><a href="https://yandex.ru/maps/?rtext=~41.310425,69.248169&rtt=auto" target="_blank" style="color: #3b82f6; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">🧭 Построить маршрут</a></div>',
-            hintContent: '📍 Tashkent Invest Company - Нажмите для подробной информации'
+            hintContent: '<i class="fa-solid fa-location-dot"></i> Tashkent Invest Company - Нажмите для подробной информации'
         }, {
             preset: 'islands#blueCircleDotIcon',
             iconColor: '#3b82f6',

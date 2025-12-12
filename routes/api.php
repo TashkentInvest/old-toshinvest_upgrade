@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApiAuthController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Blade\ApiUserController;
+use App\Services\BannerService;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,4 +41,23 @@ Route::delete('/product/delete/{id}', [ProductController::class, 'deleteProduct'
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+// Banner Analytics - Track Views & Clicks
+Route::post('/banners/{id}/view', function ($id) {
+    try {
+        app(BannerService::class)->trackView($id);
+        return response()->json(['success' => true]);
+    } catch (\Exception $e) {
+        return response()->json(['success' => false], 500);
+    }
+});
+
+Route::post('/banners/{id}/click', function ($id) {
+    try {
+        app(BannerService::class)->trackClick($id);
+        return response()->json(['success' => true]);
+    } catch (\Exception $e) {
+        return response()->json(['success' => false], 500);
+    }
 });

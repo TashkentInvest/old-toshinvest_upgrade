@@ -22,10 +22,9 @@
     <div class="hero-content">
         <div class="container">
             <div class="hero-text">
-                <h1 class="hero-title">ИНВЕСТИРУЙТЕ В БУДУЩЕЕ</h1>
+                <h1 class="hero-title">{{ __('frontend.home.hero_title') }}</h1>
                 <p class="hero-description">
-                    Акционерное общество «Компания Ташкент Инвест» было создано при учредительстве
-                    хокимията столицы в августе 2023 года по указу Президента Республики Узбекистан №УП-112.
+                    {{ __('frontend.home.hero_description') }}
                 </p>
             </div>
         </div>
@@ -51,10 +50,9 @@
                     <div class="feature-overlay"></div>
                 </div>
                 <div class="feature-content">
-                    <h3 class="feature-title">Преобразование в город с чистым воздухом и местами отдыха</h3>
+                    <h3 class="feature-title">{{ __('frontend.home.feature_1_title') }}</h3>
                     <p class="feature-description">
-                        Создание условий для отдыха жителей и гостей города путем изменения облика парков
-                        культуры и отдыха, скверов, бульваров и резкого увеличения количества зеленых зон.
+                        {{ __('frontend.home.feature_1_desc') }}
                     </p>
                 </div>
             </div>
@@ -67,10 +65,9 @@
                     <div class="feature-overlay"></div>
                 </div>
                 <div class="feature-content">
-                    <h3 class="feature-title">Эффективное градостроительство</h3>
+                    <h3 class="feature-title">{{ __('frontend.home.feature_2_title') }}</h3>
                     <p class="feature-description">
-                        Внедрение принципов «умного» градостроительства путем координации строительства на основе
-                        единого подхода и расширения социальной инфраструктуры соразмерно объему строительства.
+                        {{ __('frontend.home.feature_2_desc') }}
                     </p>
                 </div>
             </div>
@@ -83,10 +80,9 @@
                     <div class="feature-overlay"></div>
                 </div>
                 <div class="feature-content">
-                    <h3 class="feature-title">Стабильный экономический рост</h3>
+                    <h3 class="feature-title">{{ __('frontend.home.feature_3_title') }}</h3>
                     <p class="feature-description">
-                        Обеспечение стабильного экономического роста посредством реализации взаимовыгодных проектов
-                        с субъектами предпринимательства и эффективного задействования имеющихся ресурсов.
+                        {{ __('frontend.home.feature_3_desc') }}
                     </p>
                 </div>
             </div>
@@ -99,10 +95,9 @@
                     <div class="feature-overlay"></div>
                 </div>
                 <div class="feature-content">
-                    <h3 class="feature-title">Эффективное управление ключевыми показателями и проектными офисами в системе Хокимията</h3>
+                    <h3 class="feature-title">{{ __('frontend.home.feature_4_title') }}</h3>
                     <p class="feature-description">
-                        Внедрение современного менеджмента, основанного на ключевых показателях эффективности,
-                        а также развитие человеческих ресурсов за счет создания проектных офисов по каждому направлению в системе хокимията.
+                        {{ __('frontend.home.feature_4_desc') }}
                     </p>
                 </div>
             </div>
@@ -115,10 +110,9 @@
                     <div class="feature-overlay"></div>
                 </div>
                 <div class="feature-content">
-                    <h3 class="feature-title">Устранение проблем в городском обслуживании</h3>
+                    <h3 class="feature-title">{{ __('frontend.home.feature_5_title') }}</h3>
                     <p class="feature-description">
-                        Преобразование столицы в территорию, не имеющую проблем в коммунальном обслуживании,
-                        а также создание более комфортной для передвижения людей дорожной инфраструктуры.
+                        {{ __('frontend.home.feature_5_desc') }}
                     </p>
                 </div>
             </div>

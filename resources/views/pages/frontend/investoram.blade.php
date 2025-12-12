@@ -85,10 +85,10 @@
                     'archive' => 'archive',
                 ];
                 $statusIcons = [
-                    '1_step' => '🚀',
-                    '2_step' => '⚡',
-                    'completed' => '✅',
-                    'archive' => '📦',
+                    '1_step' => '<i class="fa-solid fa-rocket"></i>',
+                    '2_step' => '<i class="fa-solid fa-bolt"></i>',
+                    'completed' => '<i class="fa-solid fa-circle-check"></i>',
+                    'archive' => '<i class="fa-solid fa-box-archive"></i>',
                 ];
                 $groupedProjects = $projects->groupBy('status');
             @endphp
@@ -96,9 +96,9 @@
             @forelse($statusTitles as $statusKey => $statusTitle)
                 @if (isset($groupedProjects[$statusKey]) && $groupedProjects[$statusKey]->count() > 0)
                     <div class="status-group-container" data-status="{{ $statusKey }}">
-                        <div class="status-group-header">
+                       <div class="status-group-header">
                             <div class="status-badge-large {{ $statusColors[$statusKey] ?? 'primary' }}">
-                                <span class="status-icon">{{ $statusIcons[$statusKey] ?? '📋' }}</span>
+                                <span class="status-icon">{!! $statusIcons[$statusKey] ?? '<i class="fa-solid fa-clipboard"></i>' !!}</span>
                                 <span class="status-text">{{ $statusTitle }}</span>
                                 <span class="status-count">{{ $groupedProjects[$statusKey]->count() }}</span>
                             </div>
@@ -111,7 +111,7 @@
 
                                     <div class="card-status-indicator">
                                         <div class="status-badge {{ $statusColors[$statusKey] ?? 'primary' }}">
-                                            <span class="status-icon">{{ $statusIcons[$statusKey] ?? '📋' }}</span>
+                                            <span class="status-icon">{!! $statusIcons[$statusKey] ?? '<i class="fa-solid fa-clipboard"></i>' !!}</span>
                                             <span class="status-text">{{ $statusTitles[$statusKey] ?? $statusKey }}</span>
                                         </div>
                                         <div class="project-id">REN-{{ $project->id }}</div>
@@ -214,7 +214,7 @@
                                             @if ($project->elon_fayl)
                                                 <a href="{{ asset('storage/' . $project->elon_fayl) }}" target="_blank"
                                                    class="action-btn primary">
-                                                    <span class="btn-icon">📄</span>
+                                                    <span class="btn-icon"><i class="fa-solid fa-file-alt"></i></span>
                                                     <span class="btn-text">Объявление 1 этапа</span>
                                                 </a>
                                             @endif
@@ -230,21 +230,21 @@
                                             @if ($project->status == 'archive' && $project->qoshimcha_fayl)
                                                 <a href="{{ asset('storage/' . $project->qoshimcha_fayl) }}" target="_blank"
                                                    class="action-btn success">
-                                                    <span class="btn-icon">✅</span>
+                                                    <span class="btn-icon"><i class="fa-solid fa-download"></i></span>
                                                     <span class="btn-text">Результат отбора</span>
                                                 </a>
                                             @endif
 
                                             @if (!empty($project->comment))
                                                 <button type="button" class="action-btn info" data-modal="projectModal{{ $project->id }}">
-                                                    <span class="btn-icon">ℹ️</span>
+                                                    <span class="btn-icon"><i class="fa-solid fa-info-circle"></i></span>
                                                     <span class="btn-text">Подробности</span>
                                                 </button>
                                             @endif
 
                                             @if (Route::has('bidding.show'))
                                                 <a href="{{ route('bidding.show', $project->id) }}" class="action-btn details">
-                                                    <span class="btn-icon">→</span>
+                                                    <span class="btn-icon"><i class="fa-solid fa-arrow-right"></i></span>
                                                     <span class="btn-text">Далее</span>
                                                 </a>
                                             @endif
@@ -279,7 +279,7 @@
                 @endif
             @empty
                 <div class="no-projects">
-                    <div class="no-projects-icon">📋</div>
+                    <div class="no-projects-icon"><i class="fa-solid fa-folder-open"></i></div>
                     <h3>Нет доступных проектов</h3>
                     <p>В настоящее время проекты реновации отсутствуют</p>
                 </div>
@@ -1676,7 +1676,7 @@
             perf.log('Total Init');
 
             if (DEBUG) {
-                console.log('🚀 Renovation Projects initialized successfully');
+                console.log('Renovation Projects initialized successfully');
 
                 // Expose debug functions
                 window.debugRenovation = {

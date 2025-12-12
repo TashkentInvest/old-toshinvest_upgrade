@@ -17,8 +17,8 @@
                         class="emblem-img">
                 </a>
                 <div class="title-section">
-                    <h1 class="main-title">Компания Ташкент Инвест</h1>
-                    <h2 class="main-subtitle">Акционерное общество</h2>
+                    <h1 class="main-title">{{ __('frontend.company.name') }}</h1>
+                    <h2 class="main-subtitle">{{ __('frontend.company.legal_form') }}</h2>
                 </div>
                 <div class="header-controls">
                     <div class="language-controls">
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
-                        <button class="login-btn">Логин</button>
+                        <button class="login-btn">{{ __('frontend.common.login') }}</button>
                     </div>
                 </div>
             </div>
@@ -197,102 +197,107 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container">
             <ul class="main-nav-menu">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">О компании</a>
+                    <a href="#" class="nav-link">{{ __('frontend.nav.about') }}</a>
                     <div class="nav-dropdown">
                         <div class="dropdown-container">
                             <ul class="dropdown-menu">
-                                <li><a href="{{route('frontend.board')}}">Руководство</a></li>
+                                <li><a href="{{route('frontend.board')}}">{{ __('frontend.nav.management') }}</a></li>
                                 {{-- <li><a href="#">Отчетность предприятия</a></li> --}}
-                                <li><a href="{{ route('frontend.about_us') }}">О компании</a></li>
-                                <li><a href="{{ route('frontend.investoram_slayd') }}">Презентации компании</a></li>
-                                <li><a href="{{ route('frontend.ustav') }}">Устав</a></li>
+                                <li><a href="{{ route('frontend.about_us') }}">{{ __('frontend.nav.about') }}</a></li>
+                                <li><a href="{{ route('frontend.investoram_slayd') }}">{{ __('frontend.nav.presentations') }}</a></li>
+                                <li><a href="{{ route('frontend.ustav') }}">{{ __('frontend.nav.charter') }}</a></li>
                             </ul>
                         </div>
                     </div>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Корпоративное управление</a>
+                    <a href="#" class="nav-link">{{ __('frontend.nav.corporate_governance') }}</a>
                     <div class="nav-dropdown mega-dropdown">
                         <div class="dropdown-container">
                             <ul class="dropdown-menu">
                                 <!-- Management and Control Bodies -->
                                 <li class="dropdown-section">
                                     <div class="section-header">
-                                        <a href="#" class="section-title">Органы управления и контроля</a>
+                                        <a href="#" class="section-title">{{ __('frontend.nav.management_bodies') }}</a>
                                         <button class="section-toggle" onclick="toggleSubDropdown(this)">
                                             <span class="arrow">▶</span>
                                         </button>
                                     </div>
                                     <ul class="sub-dropdown-menu">
-                                        <li><a href="{{route('frontend.share_struktura')}}">Единственный акционер</a></li>
-                                        <li><a href="{{route('frontend.supervisory_board')}}">О наблюдательном совете</a></li>
-                                        <li><a href="{{route('frontend.supervisory_board_committees')}}">Комитеты при наблюдательном совете</a></li>
-                                        <li><a href="#">Служба внутреннего аудита</a></li>
-                                        <li><a href="{{route('frontend.board')}}">Исполнительный орган</a></li>
+                                        <li><a href="{{route('frontend.share_struktura')}}">{{ __('frontend.nav.sole_shareholder') }}</a></li>
+                                        <li><a href="{{route('frontend.supervisory_board')}}">{{ __('frontend.nav.supervisory_board') }}</a></li>
+                                        <li><a href="{{route('frontend.supervisory_board_committees')}}">{{ __('frontend.nav.board_committees') }}</a></li>
+                                        <li><a href="#">{{ __('frontend.nav.internal_audit') }}</a></li>
+                                        <li><a href="{{route('frontend.board')}}">{{ __('frontend.nav.executive_body') }}</a></li>
                                     </ul>
                                 </li>
 
                                 <!-- Information Disclosure -->
                                 <li class="dropdown-section">
                                     <div class="section-header">
-                                        <a href="#" class="section-title">Раскрытие информации</a>
+                                        <a href="#" class="section-title">{{ __('frontend.nav.disclosure') }}</a>
                                         <button class="section-toggle" onclick="toggleSubDropdown(this)">
                                             <span class="arrow">▶</span>
                                         </button>
                                     </div>
                                     <ul class="sub-dropdown-menu">
-                                        <li><a href="{{route('frontend.charter_capital')}}">Уставный фонд общества</a></li>
-                                <li><a href="{{route('frontend.information_on_the_purchase_of_shares_by_the_company')}}">Информация о покупке акций обществом</a></li>
+                                        <li><a href="{{route('frontend.charter_capital')}}">{{ __('frontend.nav.charter_capital') }}</a></li>
+                                <li><a href="{{route('frontend.information_on_the_purchase_of_shares_by_the_company')}}">{{ __('frontend.nav.share_purchase_info') }}</a></li>
 
-                                        <li><a href="#">Финансовые отчеты</a></li>
-                                        <li><a href="{{route('frontend.assessment_system')}}">Результаты оценки системы корпоративного
-                                                управления</a></li>
-                                        <li><a href="{{route('frontend.essential_facts')}}">Существенные факты</a></li>
-                                        <li><a href="{{route('frontend.npa')}}">Нормативные правовые акты</a></li>
-                                        <li><a href="{{route('frontend.nizomlar')}}">Положении</a></li>
-                                        <li><a href="#">Заключение аудитора</a></li>
-                                        <li><a href="#">Отчеты эмитента</a></li>
+                                        <li><a href="#">{{ __('frontend.nav.financial_reports') }}</a></li>
+                                        <li><a href="{{route('frontend.assessment_system')}}">{{ __('frontend.nav.governance_assessment') }}</a></li>
+                                        <li><a href="{{route('frontend.essential_facts')}}">{{ __('frontend.nav.essential_facts') }}</a></li>
+                                        <li><a href="{{route('frontend.npa')}}">{{ __('frontend.nav.legal_acts') }}</a></li>
+                                        <li><a href="{{route('frontend.nizomlar')}}">{{ __('frontend.nav.regulations') }}</a></li>
+                                        <li><a href="#">{{ __('frontend.nav.auditor_report') }}</a></li>
+                                        <li><a href="#">{{ __('frontend.nav.issuer_reports') }}</a></li>
                                     </ul>
                                 </li>
 
                                 <!-- Additional Items -->
-                                <li><a href="">Информация о проведении общего собрания акционеров</a></li>
-                                <li><a href="{{route('frontend.risk_takers')}}">Риски</a></li>
-                                <li><a href="{{route('frontend.development_strategies')}}">Стратегии развития</a></li>
-                                <li><a href="{{route('frontend.key_performance_indicators')}}">Критерии оценки эффективности</a></li>
-                                <li><a href="{{ route('frontend.internal_documents_of_the_company') }}">Внутренние документы общества</a></li>
-                                <li><a href="{{route('frontend.spisok')}}">Список аффилированных лиц</a></li>
-                                <li><a href="{{route('frontend.dividends')}}">Дивиденды</a></li>
-                                <li><a href="{{route('frontend.business_plan')}}">Бизнес-план</a></li>
-                                <li><a href="#">Проспект эмиссии ценных бумаг</a></li>
+                                <li><a href="">{{ __('frontend.nav.shareholder_meeting') }}</a></li>
+                                <li><a href="{{route('frontend.risk_takers')}}">{{ __('frontend.nav.risks') }}</a></li>
+                                <li><a href="{{route('frontend.development_strategies')}}">{{ __('frontend.nav.development_strategies') }}</a></li>
+                                <li><a href="{{route('frontend.key_performance_indicators')}}">{{ __('frontend.nav.performance_criteria') }}</a></li>
+                                <li><a href="{{ route('frontend.internal_documents_of_the_company') }}">{{ __('frontend.nav.internal_documents') }}</a></li>
+                                <li><a href="{{route('frontend.spisok')}}">{{ __('frontend.nav.affiliated_list') }}</a></li>
+                                <li><a href="{{route('frontend.dividends')}}">{{ __('frontend.nav.dividends') }}</a></li>
+                                <li><a href="{{route('frontend.business_plan')}}">{{ __('frontend.nav.business_plan') }}</a></li>
+                                <li><a href="#">{{ __('frontend.nav.securities_prospectus') }}</a></li>
                             </ul>
                         </div>
                     </div>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Инвесторам</a>
+                    <a href="#" class="nav-link">{{ __('frontend.nav.investors') }}</a>
                     <div class="nav-dropdown">
                         <div class="dropdown-container">
                             <ul class="dropdown-menu">
-                                <li><a href="{{route('frontend.investment-projects')}}">Инвестиционный потенциал города</a></li>
-                                <li><a href="https://yangiavlodzone.uz">ОПЗ "Янги Авлод"</a></li>
-                                <li><a href="https://promobilitycity.uz/">ООО "PROMOBILITY"</a></li>
-                                <li><a href="{{route('frontend.jac-projects')}}">ООО "JAC MOTORS TASHKENT"</a></li>
-                                <li><a href="{{route('frontend.investoram')}}">Реновация и строительство</a></li>
-                                <li><a href="#">Проекты ГЧП</a></li>
+                                <li class="new-item-wrapper">
+                                    <a href="{{route('frontend.investor_ideas.create')}}">
+                                        {{ __('frontend.nav.investor_proposals') }}
+                                        <span class="new-badge">{{ __('frontend.common.new') }}</span>
+                                    </a>
+                                </li>
+                                <li><a href="{{route('frontend.investment-projects')}}">{{ __('frontend.nav.investment_potential') }}</a></li>
+                                <li><a href="https://yangiavlodzone.uz">{{ __('frontend.nav.yangi_avlod') }}</a></li>
+                                <li><a href="https://promobilitycity.uz/">{{ __('frontend.nav.promobility') }}</a></li>
+                                <li><a href="{{route('frontend.jac-projects')}}">{{ __('frontend.nav.jac_motors') }}</a></li>
+                                <li><a href="{{route('frontend.investoram')}}">{{ __('frontend.nav.renovation') }}</a></li>
+                                <li><a href="#">{{ __('frontend.nav.ppp_projects') }}</a></li>
                             </ul>
                         </div>
                     </div>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Карьера</a>
+                    <a href="#" class="nav-link">{{ __('frontend.nav.career') }}</a>
                     <div class="nav-dropdown">
                         <div class="dropdown-container">
                             <ul class="dropdown-menu">
-                                <li><a href="{{route('frontend.vacancies')}}">Вакансии</a></li>
+                                <li><a href="{{route('frontend.vacancies')}}">{{ __('frontend.nav.vacancies') }}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -300,22 +305,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 <li class="nav-item">
 
-                    <a href="#" class="nav-link">Пресс-центр <span class="new-badge" style="margin-left:10px">NEW</span></a>
+                    <a href="#" class="nav-link">{{ __('frontend.nav.press_center') }} <span class="new-badge" style="margin-left:10px">{{ __('frontend.common.new') }}</span></a>
                     <div class="nav-dropdown">
                         <div class="dropdown-container">
                             <ul class="dropdown-menu">
-                                <li><a href="{{route('frontend.media')}}">Новости</a></li>
+                                <li><a href="{{route('frontend.media')}}">{{ __('frontend.nav.news') }}</a></li>
                                 {{-- <li><a href="#">Медиа</a></li> --}}
                                 <li class="new-item-wrapper">
                                     <a href="{{route('frontend.open_tender_notice')}}">
-                                        Тендеры и конкурсы
-                                        <span class="new-badge">NEW</span>
+                                        {{ __('frontend.nav.tenders') }}
+                                        <span class="new-badge">{{ __('frontend.common.new') }}</span>
                                     </a>
                                 </li>
-                                <li><a href="{{route('frontend.offers')}}">Объявление</a></li>
+                                <li><a href="{{route('frontend.offers')}}">{{ __('frontend.nav.announcements') }}</a></li>
 
 
-                                <a href="{{route('frontend.contact')}}">Контакты</a>
+                                <a href="{{route('frontend.contact')}}">{{ __('frontend.nav.contact') }}</a>
 
                             </ul>
                         </div>
@@ -329,7 +334,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <a href="https://projects.toshkentinvest.uz?from_toshknetinvest_official_website/" target="_blank"
                     class="map-link">
                     <span class="map-icon">📍</span>
-                    Интерактивная карта
+                    {{ __('frontend.nav.interactive_map') }}
                 </a>
             </div>
 

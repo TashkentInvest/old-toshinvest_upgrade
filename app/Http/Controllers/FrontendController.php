@@ -5,15 +5,27 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\News;
 use App\Models\Project;
+use App\Services\InvestorIdeaService;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
+    protected InvestorIdeaService $investorIdeaService;
+
+    public function __construct(InvestorIdeaService $investorIdeaService)
+    {
+        $this->investorIdeaService = $investorIdeaService;
+    }
+
     public function index()
     {
         $news = News::orderBy('published_at', 'desc')->get();
         $subcategory = Category::where('slug', 'stroitelnye-investicionnye-proekty')->first();
-        return view('pages.frontend.home', compact('news', 'subcategory'));
+
+        // Get recent investor ideas (approved only)
+        $recentIdeas = $this->investorIdeaService->getRecentForHomepage(3);
+
+        return view('pages.frontend.home', compact('news', 'subcategory', 'recentIdeas'));
     }
 
 
