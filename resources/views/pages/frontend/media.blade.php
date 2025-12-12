@@ -10,26 +10,26 @@
             <div class="search-fields">
                 <!-- Search Bar -->
                 <div class="field">
-                    <label for="search">Поиск</label>
-                    <input type="text" id="search" name="search" value="{{ request('search') }}" placeholder="Поиск по заголовку...">
+                    <label for="search">{{ __('frontend.common.search') }}</label>
+                    <input type="text" id="search" name="search" value="{{ request('search') }}" placeholder="{{ __('frontend.media.search_news') }}">
                 </div>
 
                 <!-- Date From -->
                 <div class="field">
-                    <label for="date_from">Дата от</label>
+                    <label for="date_from">{{ __('frontend.media.date_from') }}</label>
                     <input type="date" id="date_from" name="date_from" value="{{ request('date_from') }}">
                 </div>
 
                 <!-- Date To -->
                 <div class="field">
-                    <label for="date_to">Дата до</label>
+                    <label for="date_to">{{ __('frontend.media.date_to') }}</label>
                     <input type="date" id="date_to" name="date_to" value="{{ request('date_to') }}">
                 </div>
 
                 <!-- Search Button -->
                 <div class="field buttons">
-                    <button type="submit" class="btn-search">Поиск</button>
-                    <a href="{{ route('frontend.media') }}" class="btn-reset">Сбросить</a>
+                    <button type="submit" class="btn-search">{{ __('frontend.common.search') }}</button>
+                    <a href="{{ route('frontend.media') }}" class="btn-reset">{{ __('frontend.common.cancel') }}</a>
                 </div>
             </div>
         </form>
@@ -151,10 +151,10 @@
                     <div class="col-12">
                         <div class="d-flex justify-content-between align-items-center">
                             <p class="mb-0 text-muted">
-                                Показано {{ $news->firstItem() ?? 0 }} - {{ $news->lastItem() ?? 0 }} из {{ $news->total() }} результатов
+                                {{ __('frontend.common.showing') }} {{ $news->firstItem() ?? 0 }} - {{ $news->lastItem() ?? 0 }} {{ __('frontend.common.of') }} {{ $news->total() }} {{ __('frontend.common.results') }}
                             </p>
                             @if(request()->hasAny(['search', 'date_from', 'date_to']))
-                                <span class="badge bg-info">Применены фильтры</span>
+                                <span class="badge bg-info">{{ __('frontend.common.filter') }}</span>
                             @endif
                         </div>
                     </div>

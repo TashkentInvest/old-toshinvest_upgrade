@@ -10,43 +10,43 @@
                         <img src="{{ asset('assets/frontend/tild3636-3735-4861-a236-666663383164/TIC_white.png') }}"
                              alt="Tashkent Invest Company" class="footer-logo-img">
                     </div>
-                    <h3 class="footer-title">Компания Ташкент Инвест</h3>
-                    <p class="footer-subtitle">Акционерное общество</p>
+                    <h3 class="footer-title">{{ __('frontend.company.name') }}</h3>
+                    <p class="footer-subtitle">{{ __('frontend.company.legal_form') }}</p>
                     <p class="footer-description">
-                        Профессиональное управление инвестиционными проектами и развитие экономического потенциала столицы.
+                        {{ __('frontend.footer.description') }}
                     </p>
                 </div>
 
                 {{-- Quick Links Section --}}
                 <div class="footer-section footer-links">
-                    <h4 class="footer-section-title">О компании</h4>
+                    <h4 class="footer-section-title">{{ __('frontend.footer.about_company') }}</h4>
                     <ul class="footer-menu">
-                        <li><a href="{{ route('frontend.struktura') }}" class="footer-link">Структурные подразделения</a></li>
-                        <li><a href="{{ route('frontend.kodeks') }}" class="footer-link">Кодекс и правила поведения</a></li>
-                        <li><a href="{{route('frontend.essential_facts')}}" class="footer-link">Существенные факты</a></li>
-                        <li><a href="{{route('frontend.assessment_system')}}" class="footer-link">Оценка системы корпоративного управления</a></li>
-                        <li><a href="{{ route('frontend.spisok') }}" class="footer-link">Аффилированность</a></li>
-                        <li><a href="{{ route('frontend.supervisory_board') }}" class="footer-link">Наблюдательный совет</a></li>
-                        <li><a href="{{ route('frontend.board') }}" class="footer-link">Правление</a></li>
+                        <li><a href="{{ route('frontend.struktura') }}" class="footer-link">{{ __('frontend.footer.structural_divisions') }}</a></li>
+                        <li><a href="{{ route('frontend.kodeks') }}" class="footer-link">{{ __('frontend.footer.code_of_conduct') }}</a></li>
+                        <li><a href="{{route('frontend.essential_facts')}}" class="footer-link">{{ __('frontend.nav.essential_facts') }}</a></li>
+                        <li><a href="{{route('frontend.assessment_system')}}" class="footer-link">{{ __('frontend.footer.governance_assessment') }}</a></li>
+                        <li><a href="{{ route('frontend.spisok') }}" class="footer-link">{{ __('frontend.footer.affiliated_persons') }}</a></li>
+                        <li><a href="{{ route('frontend.supervisory_board') }}" class="footer-link">{{ __('frontend.nav.supervisory_board') }}</a></li>
+                        <li><a href="{{ route('frontend.board') }}" class="footer-link">{{ __('frontend.footer.management_board') }}</a></li>
                     </ul>
                 </div>
 
                 {{-- Services Section --}}
                 <div class="footer-section footer-services">
-                    <h4 class="footer-section-title">Услуги</h4>
+                    <h4 class="footer-section-title">{{ __('frontend.footer.services') }}</h4>
                     <ul class="footer-menu">
-                        <li><a href="{{ route('frontend.investment-projects') }}" class="footer-link">Инвестиционные проекты</a></li>
-                        <li><a href="{{ route('frontend.investoram') }}" class="footer-link">Проекты реновации</a></li>
-                        <li><a href="{{ route('frontend.vacancies') }}" class="footer-link">Карьера</a></li>
-                        <li><a href="{{ route('frontend.xaridlar') }}" class="footer-link">Закупки</a></li>
-                        <li><a href="{{ route('frontend.reports') }}" class="footer-link">Отчетность</a></li>
-                        <li><a href="{{ route('frontend.ustav') }}" class="footer-link">Устав</a></li>
+                        <li><a href="{{ route('frontend.investment-projects') }}" class="footer-link">{{ __('frontend.footer.investment_projects') }}</a></li>
+                        <li><a href="{{ route('frontend.investoram') }}" class="footer-link">{{ __('frontend.nav.renovation_projects') }}</a></li>
+                        <li><a href="{{ route('frontend.vacancies') }}" class="footer-link">{{ __('frontend.nav.career') }}</a></li>
+                        <li><a href="{{ route('frontend.xaridlar') }}" class="footer-link">{{ __('frontend.footer.procurement') }}</a></li>
+                        <li><a href="{{ route('frontend.reports') }}" class="footer-link">{{ __('frontend.footer.reports') }}</a></li>
+                        <li><a href="{{ route('frontend.ustav') }}" class="footer-link">{{ __('frontend.nav.charter') }}</a></li>
                     </ul>
                 </div>
 
                 {{-- Contact Section --}}
                 <div class="footer-section footer-contact">
-                    <h4 class="footer-section-title">Контакты</h4>
+                    <h4 class="footer-section-title">{{ __('frontend.nav.contact') }}</h4>
                     <div class="footer-contact-info">
                         <div class="contact-item">
                             <span class="contact-icon">📍</span>
@@ -74,29 +74,29 @@
             <div class="stats-content">
                 <div class="stats-title">
                     <span class="stats-icon">🌐</span>
-                    <h4>Статистика посещений</h4>
+                    <h4>{{ __('frontend.footer.visitor_statistics') }}</h4>
                 </div>
                 <div class="stats-grid">
                     <div class="stat-item">
                         <div class="stat-value">{{ number_format($pageViewStats['total_views'] ?? 0) }}</div>
-                        <div class="stat-label">Всего просмотров</div>
+                        <div class="stat-label">{{ __('frontend.footer.total_views') }}</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-value">{{ number_format($pageViewStats['unique_visitors'] ?? 0) }}</div>
-                        <div class="stat-label">Уникальных посетителей</div>
+                        <div class="stat-label">{{ __('frontend.footer.unique_visitors') }}</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-value">{{ number_format($pageViewStats['today_views'] ?? 0) }}</div>
-                        <div class="stat-label">Просмотров сегодня</div>
+                        <div class="stat-label">{{ __('frontend.footer.views_today') }}</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-value">{{ number_format($pageViewStats['month_views'] ?? 0) }}</div>
-                        <div class="stat-label">Просмотров в этом месяце</div>
+                        <div class="stat-label">{{ __('frontend.footer.views_this_month') }}</div>
                     </div>
                 </div>
                 @if(isset($pageViewStats['top_countries']) && $pageViewStats['top_countries']->count() > 0)
                 <div class="countries-section">
-                    <h5 class="countries-title">Топ-5 стран по посещениям:</h5>
+                    <h5 class="countries-title">{{ __('frontend.footer.top_countries') }}</h5>
                     <div class="countries-list">
                         @foreach($pageViewStats['top_countries'] as $country)
                         <div class="country-item">
@@ -117,11 +117,11 @@
         <div class="container">
             <div class="footer-bottom-content">
                 <div class="footer-copyright">
-                    <p>&copy; {{ date('Y') }} АО «Компания Ташкент Инвест». Все права защищены.</p>
+                    <p>&copy; {{ date('Y') }} {{ __('frontend.footer.copyright') }}</p>
                 </div>
 
                 <div class="footer-social">
-                    <span class="social-label">Мы в социальных сетях:</span>
+                    <span class="social-label">{{ __('frontend.footer.social_media') }}</span>
                     <div class="social-links">
                         <a href="https://uz.linkedin.com/company/%D0%B0%D0%BE-%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F-%D1%82%D0%B0%D1%88%D0%BA%D0%B5%D0%BD%D1%82-%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82"
                            target="_blank"

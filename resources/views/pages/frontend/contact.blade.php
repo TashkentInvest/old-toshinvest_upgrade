@@ -10,12 +10,12 @@
     <div class="container">
         <div class="hero-content">
             <div class="breadcrumb">
-                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">Главная</a>
+                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">{{ __('frontend.breadcrumb.home') }}</a>
                 <span class="breadcrumb-separator">→</span>
-                <span class="breadcrumb-current">Контакты</span>
+                <span class="breadcrumb-current">{{ __('frontend.breadcrumb.contact') }}</span>
             </div>
-            <h1 class="page-title">Контакты</h1>
-            <p class="page-subtitle">Свяжитесь с нами для сотрудничества и получения информации</p>
+            <h1 class="page-title">{{ __('frontend.contact.title') }}</h1>
+            <p class="page-subtitle">{{ __('frontend.contact.subtitle') }}</p>
         </div>
     </div>
 </section>
@@ -31,8 +31,8 @@
                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
                     </svg>
                 </div>
-                <h2 class="panel-title">Наш офис</h2>
-                <p class="panel-subtitle">Мы всегда готовы к диалогу</p>
+                <h2 class="panel-title">{{ __('frontend.contact.our_office') }}</h2>
+                <p class="panel-subtitle">{{ __('frontend.contact.office_tagline') }}</p>
             </div>
 
             <div class="contact-cards">
@@ -44,10 +44,10 @@
                         </svg>
                     </div>
                     <div class="card-content">
-                        <h3 class="card-title">Адрес офиса</h3>
-                        <p class="card-text">Узбекистан, город Ташкент,<br>улица Ислама Каримова, 51</p>
+                        <h3 class="card-title">{{ __('frontend.contact.address_title') }}</h3>
+                        <p class="card-text">{{ __('frontend.contact.address_text') }}</p>
                         <button class="card-action" onclick="openDirections()">
-                            <span>Построить маршрут</span>
+                            <span>{{ __('frontend.contact.build_route') }}</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
@@ -64,8 +64,8 @@
                         </svg>
                     </div>
                     <div class="card-content">
-                        <h3 class="card-title">Телефон</h3>
-                        <p class="card-text">Звоните в рабочее время</p>
+                        <h3 class="card-title">{{ __('frontend.contact.phone_title') }}</h3>
+                        <p class="card-text">{{ __('frontend.contact.phone_desc') }}</p>
                         <a href="tel:+998712100261" class="card-action phone-link">
                             <span>+998 (71) 210 02 61</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,8 +83,7 @@
 
 
                 <button class="secondary-btn" onclick="downloadVCard()">
-
-                    <span class="btn-text">Скачать контакты</span>
+                    <span class="btn-text">{{ __('frontend.contact.download_contacts') }}</span>
                 </button>
             </div>
         </div>
@@ -93,13 +92,13 @@
         <div class="map-section">
             <div class="map-header">
                 <div class="map-controls-top">
-                    <h3 class="map-title">Расположение офиса</h3>
+                    <h3 class="map-title">{{ __('frontend.contact.map_title') }}</h3>
                     <div class="map-type-switcher">
-                        <button class="map-type-btn active" onclick="setMapType('map')" data-type="map">Карта</button>
-                        <button class="map-type-btn" onclick="setMapType('satellite')" data-type="satellite">Спутник</button>
+                        <button class="map-type-btn active" onclick="setMapType('map')" data-type="map">{{ __('frontend.contact.map_type_map') }}</button>
+                        <button class="map-type-btn" onclick="setMapType('satellite')" data-type="satellite">{{ __('frontend.contact.map_type_satellite') }}</button>
                     </div>
                 </div>
-                <p class="map-subtitle">г. Ташкент, улица Ислама Каримова, 51</p>
+                <p class="map-subtitle">{{ __('frontend.contact.map_subtitle') }}</p>
             </div>
 
             <div class="map-container">
@@ -113,13 +112,13 @@
                 <div id="yandex-contact-map" class="yandex-map"></div>
 
                 <div class="map-controls">
-                    <button class="map-control-btn" onclick="centerContactMap()" title="Центрировать карту">
+                    <button class="map-control-btn" onclick="centerContactMap()" title="{{ __('frontend.contact.center_map') }}">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm8.94 3A8.994 8.994 0 0013 3.06V1h-2v2.06A8.994 8.994 0 003.06 11H1v2h2.06A8.994 8.994 0 0011 20.94V23h2v-2.06A8.994 8.994 0 0020.94 13H23v-2h-2.06zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" fill="currentColor"/>
                         </svg>
                     </button>
 
-                    <button class="map-control-btn" onclick="toggleFullscreen()" title="Полноэкранный режим">
+                    <button class="map-control-btn" onclick="toggleFullscreen()" title="{{ __('frontend.contact.fullscreen') }}">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z" fill="currentColor"/>
                         </svg>
