@@ -16,16 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             SystemInitSeeder::class,
-            // StreetsTableSeeder::class,
-            NewsSeeder::class,
-            // ProductsTableSeeder::class,
-            // ProductSeeder::class,
-
-            CategoriesTableSeeder::class,
-            ProjectsTableSeeder::class,
-            ProjectStagesTableSeeder::class,
-            ProjectDocumentsTableSeeder::class,
-
+            // ImportOldDataSeeder::class,  // Disabled for now - run manually if needed
         ]);
     }
 }

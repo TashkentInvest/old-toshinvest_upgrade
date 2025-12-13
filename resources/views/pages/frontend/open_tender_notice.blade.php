@@ -732,10 +732,10 @@
         <!-- Main Content -->
         <div class="tender-card">
             <!-- Platform Info -->
-            <div class="info-box">
+            {{-- <div class="info-box">
                 <strong>📍 Электрон савдо майдончаси:</strong>
                 <p>Тендер Ўзбекистон Республикаси товар-хом ашё биржасининг <strong>Etender.uzex.uz</strong> электрон савдо майдончаси орқали ўтказилади.</p>
-            </div>
+            </div> --}}
 
             <!-- Section 1: Purchase Subject -->
             <div class="tender-section">
@@ -799,7 +799,7 @@
             </div>
 
             <!-- Section 5: Participation Procedure -->
-            <div class="tender-section">
+            {{-- <div class="tender-section">
                 <div class="section-header">
                     <div class="section-number">5</div>
                     <h2 class="section-title">Тендерда Иштирок Этиш Тартиби</h2>
@@ -811,7 +811,7 @@
                         <p><a href="https://etender.uzex.uz/lot/464150" target="_blank" style="color: #1d4ed8; font-weight: 600;">https://etender.uzex.uz/lot/464150</a> портали орқали тақдим этилади.</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             {{-- <!-- Section 6: Important Dates -->
             <div class="tender-section">
@@ -887,7 +887,7 @@
         <div class="download-section">
             <h3 class="download-title">Тендер ҳужжатларини юклаб олиш</h3>
             <div class="download-grid">
-                <div class="download-card">
+                {{-- <div class="download-card">
                     <span class="download-icon">📋</span>
                     <div class="download-name">ОЧИҚ ТЕНДЕР ЭЪЛОНИ</div>
                     <div class="download-size">PDF формат</div>
@@ -895,7 +895,7 @@
                         <span>⬇️</span>
                         <span>Юклаб олиш</span>
                     </a>
-                </div>
+                </div> --}}
 
                 <div class="download-card">
                     <span class="download-icon">📄</span>

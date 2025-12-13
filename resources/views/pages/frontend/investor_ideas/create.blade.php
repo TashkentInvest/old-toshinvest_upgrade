@@ -1,4 +1,4 @@
-@extends('layouts.__frontend')
+@extends('layouts.frontend_app')
 
 @section('content')
 <div class="investor-ideas-form-page">
