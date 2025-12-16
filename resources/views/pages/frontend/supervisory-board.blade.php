@@ -5,9 +5,9 @@
 <section class="breadcrumb-section">
     <div class="container">
         <div class="breadcrumb">
-            <a href="{{ route('frontend.index') }}" class="breadcrumb-link">Главная</a>
+            <a href="{{ route('frontend.index') }}" class="breadcrumb-link">{{ __('frontend.breadcrumb.home') }}</a>
             <span class="breadcrumb-separator">→</span>
-            <span class="breadcrumb-current">Наблюдательный совет</span>
+            <span class="breadcrumb-current">{{ __('frontend.nav.supervisory_board') }}</span>
         </div>
     </div>
 </section>
@@ -15,7 +15,7 @@
 {{-- Board Section --}}
 <section class="board-section">
     <div class="container">
-            <h2 class="section-title">Наблюдательный совет АО "Компания Ташкент Инвест"</h2>
+            <h2 class="section-title">{{ __('frontend.supervisory.title') }}</h2>
 
         {{-- Chairman Profile --}}
         <div class="chairman-profile">
@@ -34,7 +34,7 @@
 
         {{-- Tabs --}}
         <div class="tabs">
-            <button class="tab-button active">Руководство</button>
+            <button class="tab-button active">{{ __('frontend.supervisory.management') }}</button>
         </div>
 
         {{-- Members Grid --}}
@@ -47,8 +47,8 @@
                 <div class="member-info">
                     <h3 class="member-name">Хайдаров Бахтиёр Халимович</h3>
                     <p class="member-position">Первый заместитель Хокима города Ташкента</p>
-                    <p class="member-contact">Телефон: 71 207-20-77</p>
-                    <p class="member-contact">Эл. почта: b.xaydarov@tashkent.uz</p>
+                    <p class="member-contact">{{ __('frontend.supervisory.phone') }}: 71 207-20-77</p>
+                    <p class="member-contact">{{ __('frontend.supervisory.email') }}: b.xaydarov@tashkent.uz</p>
                 </div>
             </div>
 
@@ -60,8 +60,8 @@
                 <div class="member-info">
                     <h3 class="member-name">Рахманов Шароф Диерович</h3>
                     <p class="member-position">Заместитель Хокима города Ташкента — начальник управления инвестиций, промышленности и внешней торговли</p>
-                    <p class="member-contact">Телефон: 71 210-02-50</p>
-                    <p class="member-contact">Эл. почта: sh.raxmanov@tashkent.uz</p>
+                    <p class="member-contact">{{ __('frontend.supervisory.phone') }}: 71 210-02-50</p>
+                    <p class="member-contact">{{ __('frontend.supervisory.email') }}: sh.raxmanov@tashkent.uz</p>
                 </div>
             </div>
 
@@ -72,7 +72,7 @@
                 </div>
                 <div class="member-info">
                     <h3 class="member-name">Adamas Ilkevicius</h3>
-                    <p class="member-contact">Независимый член наблюдательного совета</p>
+                    <p class="member-contact">{{ __('frontend.supervisory.independent_member') }}</p>
                 </div>
             </div>
 
@@ -83,7 +83,7 @@
                 </div>
                 <div class="member-info">
                     <h3 class="member-name">Shariq Wali Khan</h3>
-                    <p class="member-contact">Независимый член наблюдательного совета</p>
+                    <p class="member-contact">{{ __('frontend.supervisory.independent_member') }}</p>
                 </div>
             </div>
         </div>

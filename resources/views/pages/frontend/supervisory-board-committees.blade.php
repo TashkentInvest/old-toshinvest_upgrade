@@ -10,15 +10,15 @@
     <div class="container">
         <div class="hero-content">
             <div class="breadcrumb">
-                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">Главная</a>
+                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">{{ __('frontend.breadcrumb.home') }}</a>
                 <span class="breadcrumb-separator">→</span>
-                <span class="breadcrumb-current">Комитеты</span>
+                <span class="breadcrumb-current">{{ __('frontend.committees.committees') }}</span>
             </div>
             <div class="hero-badge">
-                <span class="badge-text">Структурные подразделения</span>
+                <span class="badge-text">{{ __('frontend.committees.structural_divisions') }}</span>
             </div>
-            <h1 class="page-title">Комитеты при Наблюдательном совете</h1>
-            <p class="page-subtitle">Предлагаемый состав комитетов при Наблюдательном совете АО «Компания Ташкент Инвест»</p>
+            <h1 class="page-title">{{ __('frontend.committees.title') }}</h1>
+            <p class="page-subtitle">{{ __('frontend.committees.subtitle') }}</p>
         </div>
     </div>
 </section>
@@ -31,14 +31,14 @@
             {{-- Audit Committee --}}
             <div class="committee-wrapper">
                 <div class="committee-header">
-                    <h2 class="committee-title">Комитет по аудиту</h2>
+                    <h2 class="committee-title">{{ __('frontend.committees.audit_committee') }}</h2>
                 </div>
                 <div class="committee-table-wrapper">
                     <table class="committee-table">
                         <thead>
                             <tr>
-                                <th>ФИО</th>
-                                <th>Роль в комитете</th>
+                                <th>{{ __('frontend.committees.full_name') }}</th>
+                                <th>{{ __('frontend.committees.role_in_committee') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,14 +77,14 @@
             {{-- Strategy and Investment Committee --}}
             <div class="committee-wrapper">
                 <div class="committee-header">
-                    <h2 class="committee-title">Комитет по стратегии и инвестициям</h2>
+                    <h2 class="committee-title">{{ __('frontend.committees.strategy_committee') }}</h2>
                 </div>
                 <div class="committee-table-wrapper">
                     <table class="committee-table">
                         <thead>
                             <tr>
-                                <th>ФИО</th>
-                                <th>Роль в комитете</th>
+                                <th>{{ __('frontend.committees.full_name') }}</th>
+                                <th>{{ __('frontend.committees.role_in_committee') }}</th>
                             </tr>
                         </thead>
                         <tbody>

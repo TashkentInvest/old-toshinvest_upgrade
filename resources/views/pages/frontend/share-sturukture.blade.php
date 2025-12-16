@@ -8,15 +8,15 @@
     <div class="container">
         <div class="hero-content">
             <div class="breadcrumb">
-                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">Главная</a>
+                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">{{ __('frontend.breadcrumb.home') }}</a>
                 <span class="breadcrumb-separator">→</span>
-                <span class="breadcrumb-current">Единственный акционер</span>
+                <span class="breadcrumb-current">{{ __('frontend.share.title') }}</span>
             </div>
             <div class="hero-badge">
-                <span class="badge-text">Руководящий орган</span>
+                <span class="badge-text">{{ __('frontend.share.governing_body') }}</span>
             </div>
-            <h1 class="page-title">Единственный акционер</h1>
-            <p class="page-subtitle">Руководящий орган АО «Компания Ташкент Инвест», обеспечивающий стратегическое управление и контроль деятельности компании</p>
+            <h1 class="page-title">{{ __('frontend.share.title') }}</h1>
+            <p class="page-subtitle">{{ __('frontend.share.subtitle') }}</p>
         </div>
     </div>
 </section>
@@ -24,7 +24,7 @@
         <div class="container">
             <!-- Section Header -->
             <div class="section-header">
-                <h2 class="section-title">Структура акционерного капитала</h2>
+                <h2 class="section-title">{{ __('frontend.share.structure_title') }}</h2>
             </div>
 
             <!-- Statistics Grid -->

@@ -52,7 +52,7 @@
                 </div>
                 <div class="member-info">
                     <h3 class="member-name">Қодиров Рустам Шухратович</h3>
-                    <p class="member-position">Заместитель председателя правления по стратегическому развитию</p>
+                    <p class="member-position">{{ __('frontend.board.deputy_strategy') }}</p>
                     <p class="member-contact">{{ __('frontend.board.phone') }}: +998 (71) 210 02 61</p>
                     <p class="member-contact">{{ __('frontend.board.email') }}: rustam.kodirov@tashkentinvest.com</p>
                     {{-- <button class="bio-button" onclick="openModal('modal-1')">Биография и обязанности</button> --}}
@@ -66,9 +66,9 @@
                 </div>
                 <div class="member-info">
                     <h3 class="member-name">Отахонова Наргизахон Ганиевна</h3>
-                    <p class="member-position">Заместитель председателя правления по управлению проектами (промышленности)</p>
-                    <p class="member-contact">Телефон: +998 (71) 210 02 61</p>
-                    <p class="member-contact">Эл. почта: n.otahonova@tashkentinvest.com</p>
+                    <p class="member-position">{{ __('frontend.board.deputy_projects') }}</p>
+                    <p class="member-contact">{{ __('frontend.board.phone') }}: +998 (71) 210 02 61</p>
+                    <p class="member-contact">{{ __('frontend.board.email') }}: n.otahonova@tashkentinvest.com</p>
                     {{-- <button class="bio-button" onclick="openModal('modal-2')">Биография и обязанности</button> --}}
                 </div>
             </div>

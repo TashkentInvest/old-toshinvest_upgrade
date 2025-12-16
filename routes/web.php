@@ -22,22 +22,15 @@ if (file_exists(__DIR__ . '/test.php')) {
     require __DIR__ . '/test.php';
 }
 
-Route::get('/investment-project', function () {
-    return view('pages.frontend.investment-projects');
-})->name('frontend.investment-projects');
+Route::get('/investment-project', [FrontendController::class, 'investmentProjects'])->name('frontend.investment-projects');
 
-
-Route::get('/jac-projects', function () {
-    return view('pages.frontend.jac-projects');
-})->name('frontend.jac-projects');
+Route::get('/jac-projects', [FrontendController::class, 'jacProjects'])->name('frontend.jac-projects');
 
 
 Auth::routes(['register' => false]);
 
-// Welcome page
-Route::get('/admin', function () {
-    return view('welcome');
-});
+// Welcome page (Admin dashboard)
+Route::get('/admin', [HomeController::class, 'index']);
 
 
 
@@ -113,23 +106,12 @@ Route::group(['middleware' => ['auth']], function () {
     });
 });
 
-Route::get('/language/{lang}', function ($lang) {
-    $lang = strtolower($lang);
-    if ($lang == 'ru' || $lang == 'uz' || $lang == 'en') {
-        session([
-            'locale' => $lang
-        ]);
-    }
-    return redirect()->back();
-})->name('changelang');
+Route::get('/language/{lang}', [FrontendController::class, 'changeLanguage'])->name('changelang');
 
 // new -----------------------
 
-
-
-Route::get('/ru/bidding.html', function () {
-    return redirect()->route('frontend.investoram');
-});
+// Redirect old bidding URL
+Route::get('/ru/bidding.html', [FrontendController::class, 'redirectBidding']);
 
 Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/', [FrontendController::class, 'index'])->name('index');

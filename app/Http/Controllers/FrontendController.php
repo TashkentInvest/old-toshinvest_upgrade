@@ -452,4 +452,40 @@ public function nizomlar()
     {
         return view('pages.frontend.open_tender_notice');
     }
+
+    /**
+     * Handle language switching
+     */
+    public function changeLanguage($lang)
+    {
+        $lang = strtolower($lang);
+        if (in_array($lang, ['ru', 'uz', 'en'])) {
+            session(['locale' => $lang]);
+        }
+        return redirect()->back();
+    }
+
+    /**
+     * Show investment projects page
+     */
+    public function investmentProjects()
+    {
+        return view('pages.frontend.investment-projects');
+    }
+
+    /**
+     * Show JAC projects page
+     */
+    public function jacProjects()
+    {
+        return view('pages.frontend.jac-projects');
+    }
+
+    /**
+     * Redirect old bidding URL
+     */
+    public function redirectBidding()
+    {
+        return redirect()->route('frontend.investoram');
+    }
 }
