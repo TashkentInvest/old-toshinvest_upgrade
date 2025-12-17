@@ -24,14 +24,6 @@
     <div class="gov-content">
         <div class="gov-container" style="max-width: 1000px;">
 
-            <!-- Platform Info -->
-            <div class="gov-info-box tender-platform-info gov-animate-fade" data-delay="0.1">
-                <i class="fa-solid fa-globe"></i>
-                <div>
-                    <strong>{{ __('frontend.tender.electronic_trading_platform') }}:</strong>
-                    <p style="margin: 5px 0 0;">{{ __('frontend.tender.tender_description') }} <strong>Etender.uzex.uz</strong> {{ __('frontend.tender.trading_platform') }}</p>
-                </div>
-            </div>
 
             <!-- Section 1: Purchase Subject -->
             <div class="gov-card gov-animate-fade" data-delay="0.15">
@@ -94,99 +86,7 @@
                 </div>
             </div>
 
-            <!-- Section 5: Participation Procedure -->
-            <div class="gov-card gov-animate-fade" data-delay="0.35">
-                <div class="gov-card-header">
-                    <div class="gov-card-number">5</div>
-                    <h2 class="gov-card-title">{{ __('frontend.tender.participation_procedure') }}</h2>
-                </div>
-                <div class="gov-card-body">
-                    <div class="gov-info-box">
-                        <i class="fa-solid fa-link"></i>
-                        <div>
-                            <p style="margin: 0;">{{ __('frontend.tender.all_applicants_submit_proposals') }}</p>
-                            <p style="margin: 8px 0 0;"><strong>No 25120012464150</strong></p>
-                            <p style="margin: 5px 0 0;">
-                                <a href="https://etender.uzex.uz/lot/464150" target="_blank" class="tender-link">
-                                    <i class="fa-solid fa-external-link-alt"></i>
-                                    https://etender.uzex.uz/lot/464150
-                                </a>
-                                {{ __('frontend.tender.portal_submission') }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Section 6: Important Dates -->
-            <div class="gov-card tender-dates-card gov-animate-fade" data-delay="0.4">
-                <div class="gov-card-header">
-                    <div class="gov-card-number">6</div>
-                    <h2 class="gov-card-title">{{ __('frontend.tender.important_dates') }}</h2>
-                </div>
-                <div class="gov-card-body">
-                    <div class="tender-dates-grid">
-                        <div class="tender-date-item">
-                            <div class="tender-date-icon">
-                                <i class="fa-regular fa-calendar"></i>
-                            </div>
-                            <div class="tender-date-content">
-                                <span class="tender-date-label">{{ __('frontend.tender.tender_date') }}</span>
-                                <span class="tender-date-value">{{ __('frontend.tender.announcement_date') }}</span>
-                            </div>
-                        </div>
-                        <div class="tender-date-item tender-date-deadline">
-                            <div class="tender-date-icon">
-                                <i class="fa-solid fa-clock"></i>
-                            </div>
-                            <div class="tender-date-content">
-                                <span class="tender-date-label">{{ __('frontend.tender.submission_deadline') }}</span>
-                                <span class="tender-date-value">{{ __('frontend.tender.submission_deadline_date') }}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Section 7: Customer Information -->
-            <div class="gov-card gov-animate-fade" data-delay="0.45">
-                <div class="gov-card-header">
-                    <div class="gov-card-number">7</div>
-                    <h2 class="gov-card-title">{{ __('frontend.tender.customer_information') }}</h2>
-                </div>
-                <div class="gov-card-body">
-                    <div class="tender-contact-grid">
-                        <div class="tender-contact-item">
-                            <i class="fa-solid fa-building"></i>
-                            <div>
-                                <strong>{{ __('frontend.tender.customer_name') }}</strong>
-                                <p>{{ __('frontend.tender.company_name') }}</p>
-                            </div>
-                        </div>
-                        <div class="tender-contact-item">
-                            <i class="fa-solid fa-hashtag"></i>
-                            <div>
-                                <strong>{{ __('frontend.tender.tin') }}</strong>
-                                <p>310731897</p>
-                            </div>
-                        </div>
-                        <div class="tender-contact-item">
-                            <i class="fa-solid fa-map-marker-alt"></i>
-                            <div>
-                                <strong>{{ __('frontend.tender.customer_address') }}</strong>
-                                <p>{{ __('frontend.tender.customer_full_address') }}</p>
-                            </div>
-                        </div>
-                        <div class="tender-contact-item">
-                            <i class="fa-solid fa-phone"></i>
-                            <div>
-                                <strong>{{ __('frontend.tender.phone') }}</strong>
-                                <p>+998 71 203 03 03</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- Download Documents Section -->
             <div class="tender-download-section gov-animate-fade" data-delay="0.5">
@@ -195,7 +95,7 @@
                     {{ __('frontend.tender.download_documents') }}
                 </h3>
                 <div class="tender-download-grid">
-                    <a href="{{ asset('assets/tender/ОЧИҚ ТЕНДЕР ЭЪЛОНИ.pdf') }}" target="_blank" class="tender-download-card">
+                    {{-- <a href="{{ asset('assets/tender/ОЧИҚ ТЕНДЕР ЭЪЛОНИ.pdf') }}" target="_blank" class="tender-download-card">
                         <div class="tender-download-icon">
                             <i class="fa-solid fa-file-pdf"></i>
                         </div>
@@ -206,7 +106,7 @@
                         <div class="tender-download-btn">
                             <i class="fa-solid fa-download"></i>
                         </div>
-                    </a>
+                    </a> --}}
 
                     <a href="{{ asset('assets/tender/тт_уз.pdf') }}" target="_blank" class="tender-download-card">
                         <div class="tender-download-icon">

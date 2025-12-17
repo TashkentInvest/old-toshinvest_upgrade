@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\TenderController as AdminTenderController;
 use App\Http\Controllers\Frontend\InvestorIdeaController;
+use App\Http\Controllers\Frontend\TenderController;
 use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +51,18 @@ Route::prefix('admin/news')->name('admin.news.')->group(function () {
 });
 Route::post('news/{news}/remove-image', [NewsController::class, 'removeImage'])
       ->name('news.removeImage');
+
+// Tenders CRUD
+Route::prefix('admin/tenders')->name('admin.tenders.')->group(function () {
+    Route::get('/', [AdminTenderController::class, 'index'])->name('index');
+    Route::get('/create', [AdminTenderController::class, 'create'])->name('create');
+    Route::post('/', [AdminTenderController::class, 'store'])->name('store');
+    Route::get('/{tender}', [AdminTenderController::class, 'show'])->name('show');
+    Route::get('/{tender}/edit', [AdminTenderController::class, 'edit'])->name('edit');
+    Route::put('/{tender}', [AdminTenderController::class, 'update'])->name('update');
+    Route::delete('/{tender}', [AdminTenderController::class, 'destroy'])->name('destroy');
+    Route::post('/{tender}/remove-document', [AdminTenderController::class, 'removeDocument'])->name('removeDocument');
+});
 
 
     Route::get('/optimize-cache', [HomeController::class, 'optimize'])->name('optimize.command');
@@ -160,6 +174,12 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/dividends', [FrontendController::class, 'dividends'])->name('dividends');
     Route::get('/charter_capital', [FrontendController::class, 'charter_capital'])->name('charter_capital');
     Route::get('/open_tender_notice', [FrontendController::class, 'open_tender_notice'])->name('open_tender_notice');
+
+        // Dynamic Tenders
+        Route::prefix('tenders')->name('tenders.')->group(function () {
+            Route::get('/', [TenderController::class, 'index'])->name('index');
+            Route::get('/{id}', [TenderController::class, 'show'])->name('show');
+        });
 
     // Investor Ideas Routes
     Route::prefix('investor-ideas')->name('investor_ideas.')->group(function () {

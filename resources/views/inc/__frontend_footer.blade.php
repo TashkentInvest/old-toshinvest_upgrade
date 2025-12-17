@@ -52,7 +52,7 @@
                     <div class="footer-contact-info">
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt contact-icon"></i>
-                            <span class="contact-text">Узбекистан, город Ташкент, улица Ислама Каримова, 51</span>
+                            <span class="contact-text">{{ __('frontend.contact.address_text') }}</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone contact-icon"></i>
@@ -153,14 +153,52 @@
 
 <style>
 /* Parliament.gov.uz Style Footer */
+/* Easy to customize color palette using CSS variables */
 
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
 
+/* ============================================
+   COLOR PALETTE - Professional Corporate Style
+   Elegant, subtle design for investment company
+   ============================================ */
+:root {
+    /* Primary Colors - Deep Corporate Blue */
+    --footer-primary: #1e3a5f;
+    --footer-primary-light: #2c4a6e;
+    --footer-primary-dark: #0f1f33;
+
+    /* Background Colors - Sophisticated Dark */
+    --footer-bg-start: #1a1f2e;
+    --footer-bg-end: #252b3d;
+    --footer-stats-bg-start: #151a28;
+    --footer-stats-bg-end: #1e2436;
+
+    /* Accent Colors - Subtle Gold/Amber */
+    --footer-accent: #c9a962;
+    --footer-accent-light: #d4b872;
+    --footer-accent-glow: rgba(201, 169, 98, 0.15);
+
+    /* Text Colors */
+    --footer-text: #f5f5f5;
+    --footer-text-muted: rgba(255, 255, 255, 0.75);
+    --footer-text-subtle: rgba(255, 255, 255, 0.5);
+
+    /* Border Colors */
+    --footer-border: rgba(255, 255, 255, 0.08);
+    --footer-border-accent: rgba(201, 169, 98, 0.25);
+
+    /* Stats Colors */
+    --stats-value-color: #e8d5a3;
+    --stats-card-bg: rgba(255, 255, 255, 0.02);
+    --stats-card-border: rgba(201, 169, 98, 0.15);
+    --stats-card-hover-bg: rgba(201, 169, 98, 0.08);
+}
+
 .parliament-footer {
     font-family: 'Inter', 'Roboto', 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--footer-bg-start) 0%, var(--footer-bg-end) 100%);
+    color: var(--footer-text);
     margin-top: auto;
 }
 
@@ -178,7 +216,7 @@
 /* Main Footer Content */
 .footer-main {
     padding: 60px 0 40px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--footer-border);
 }
 
 .footer-content {
@@ -219,7 +257,7 @@
 
 .footer-subtitle {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--footer-text-muted);
     margin-bottom: 16px;
     font-weight: 500;
     text-transform: uppercase;
@@ -229,7 +267,7 @@
 .footer-description {
     font-size: 15px;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--footer-text-muted);
     font-weight: 400;
 }
 
@@ -238,7 +276,7 @@
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 24px;
-    color: white;
+    color: var(--footer-text);
     font-family: 'Inter', sans-serif;
     position: relative;
     padding-bottom: 12px;
@@ -249,9 +287,9 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 40px;
+    width: 30px;
     height: 2px;
-    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    background: var(--footer-accent);
     border-radius: 1px;
 }
 
@@ -280,9 +318,8 @@
 }
 
 .footer-link:hover {
-    color: white;
-    border-left-color: #3b82f6;
-    transform: translateX(4px);
+    color: var(--footer-accent);
+    border-left-color: var(--footer-accent);
 }
 
 /* Contact Section */
@@ -309,7 +346,7 @@
 
 .contact-text {
     font-size: 15px;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--footer-text-muted);
     font-weight: 400;
 }
 
@@ -354,7 +391,7 @@
 
 .footer-copyright p {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--footer-text-subtle);
     margin: 0;
     font-weight: 400;
 }
@@ -367,7 +404,7 @@
 
 .social-label {
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--footer-text-muted);
     font-weight: 500;
 }
 
@@ -379,80 +416,79 @@
 .social-link {
     width: 40px;
     height: 40px;
-    background: rgb(245, 245, 245);
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--footer-text-muted);
     text-decoration: none;
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--footer-border);
 }
 
 .social-link:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--footer-accent);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-color: var(--footer-accent);
 }
 
 .social-link.linkedin:hover {
-    background: #0077b5;
+    color: #0077b5;
     border-color: #0077b5;
 }
 
 .social-link.telegram:hover {
-    background: #0088cc;
+    color: #0088cc;
     border-color: #0088cc;
 }
 
 .social-link.instagram:hover {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    border-color: #bc1888;
+    color: #e1306c;
+    border-color: #e1306c;
 }
 
-/* Visitor Statistics Section */
+/* ============================================
+   VISITOR STATISTICS SECTION
+   Compact, elegant corporate design
+   ============================================ */
 .footer-stats {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    padding: 50px 0;
-    border-top: 3px solid #3b82f6;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--footer-stats-bg-start);
+    padding: 25px 0;
+    border-top: 1px solid var(--footer-border);
+    border-bottom: 1px solid var(--footer-border);
+    position: relative;
 }
 
 .stats-content {
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 .stats-title {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 35px;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 .stats-icon {
-    font-size: 32px;
-    animation: rotate 20s linear infinite;
+    font-size: 22px;
+    color: var(--footer-accent);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
+
 
 .stats-title h4 {
-    font-size: 28px;
-    font-weight: 700;
-    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--footer-text);
     margin: 0;
     font-family: 'Inter', sans-serif;
     text-transform: uppercase;
@@ -462,118 +498,101 @@
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    margin-bottom: 40px;
+    gap: 15px;
+    margin-bottom: 0;
 }
 
 .stat-item {
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid rgba(59, 130, 246, 0.3);
-    border-radius: 12px;
-    padding: 30px 20px;
+    background: var(--stats-card-bg);
+    border: 1px solid var(--stats-card-border);
+    border-radius: 10px;
+    padding: 15px 12px;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
-.stat-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-}
-
 .stat-item:hover {
-    background: rgba(59, 130, 246, 0.1);
-    border-color: #3b82f6;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
-}
-
-.stat-item:hover::before {
-    transform: scaleX(1);
+    background: var(--stats-card-hover-bg);
+    border-color: var(--stats-card-border);
 }
 
 .stat-value {
-    font-size: 42px;
-    font-weight: 800;
-    color: #3b82f6;
-    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--stats-value-color);
+    margin-bottom: 4px;
     font-family: 'Inter', sans-serif;
-    text-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+    line-height: 1;
 }
 
 .stat-label {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 11px;
+    color: var(--footer-text-muted);
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 600;
+    letter-spacing: 0.5px;
+    font-weight: 500;
 }
 
 /* Countries Section */
 .countries-section {
-    background: rgba(255, 255, 255, 0.03);
-    border: 2px solid rgba(59, 130, 246, 0.2);
-    border-radius: 12px;
-    padding: 30px;
-    margin-top: 20px;
+    background: var(--stats-card-bg);
+    border: 1px solid var(--stats-card-border);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
 }
 
 .countries-title {
-    font-size: 18px;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--footer-text-muted);
+    margin-bottom: 12px;
     text-align: center;
     font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .countries-list {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
+    gap: 12px;
 }
 
 .country-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    border-radius: 8px;
+    gap: 3px;
+    padding: 8px 6px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--footer-border);
+    border-radius: 6px;
     transition: all 0.3s ease;
 }
 
 .country-item:hover {
-    background: rgba(59, 130, 246, 0.1);
-    border-color: #3b82f6;
-    transform: scale(1.05);
+    background: var(--stats-card-hover-bg);
+    border-color: var(--stats-card-border);
 }
 
 .country-flag {
-    font-size: 32px;
-    margin-bottom: 5px;
+    font-size: 20px;
+    margin-bottom: 0;
 }
 
 .country-name {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 600;
+    font-size: 11px;
+    color: var(--footer-text-muted);
+    font-weight: 500;
     text-align: center;
 }
 
 .country-count {
-    font-size: 18px;
-    color: #3b82f6;
-    font-weight: 700;
+    font-size: 13px;
+    color: var(--footer-accent);
+    font-weight: 600;
 }
 
 /* Mobile Responsive */
@@ -616,7 +635,7 @@
 
     .footer-link:hover {
         border-left: none;
-        border-bottom-color: #3b82f6;
+        border-bottom-color: var(--footer-accent);
         transform: translateY(-2px);
     }
 
@@ -669,38 +688,36 @@
 
     /* Stats responsive */
     .stats-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .stat-item {
+        padding: 12px 10px;
     }
 
     .stat-value {
-        font-size: 32px;
+        font-size: 22px;
+    }
+
+    .stat-label {
+        font-size: 10px;
     }
 
     .countries-list {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .stats-title h4 {
-        font-size: 20px;
+        font-size: 14px;
+    }
+
+    .footer-stats {
+        padding: 20px 0;
     }
 }
 
-/* Loading Animation */
-.parliament-footer {
-    animation: fadeInUp 0.8s ease-out;
-}
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 /* Smooth Scrolling */
 html {
@@ -718,7 +735,7 @@ html {
 .footer-link:focus,
 .footer-map-btn:focus,
 .social-link:focus {
-    outline: 2px solid #fbbf24;
+    outline: 2px solid var(--footer-accent);
     outline-offset: 2px;
     border-radius: 4px;
 }
