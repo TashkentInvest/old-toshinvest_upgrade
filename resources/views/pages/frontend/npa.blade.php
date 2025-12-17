@@ -1,294 +1,73 @@
 @extends('layouts.frontend_app')
+@section('title', __('frontend.npa.title') . ' | ' . __('frontend.seo.site_name'))
+
 @section('frontent_content')
-    <div id="rec748127900" class="r t-rec t-rec_pb_210" style="padding-bottom:0px;" data-animationappear="off"
-        data-record-type="131">
-        <!-- T123 -->
-        <div class="t123">
-            <div class="t-container_100">
-                <div class="t-width t-width_100">
+<div class="gov-page">
+    {{-- Hero Section --}}
+    <x-frontend.hero
+        :title="__('frontend.npa.title')"
+        badge="Tashkent Invest"
+        badgeIcon="fa-gavel"
+        :breadcrumbs="[
+            ['url' => route('frontend.index'), 'label' => __('frontend.breadcrumb.home')],
+            ['url' => '#', 'label' => __('frontend.npa.title')]
+        ]"
+    />
 
-                    <!-- Sahifa sarlavhasi -->
-                    <div class="page-header"
-                        style="text-align: center; margin: 40px 0; padding: 30px 20px; background: #ffffff; border: 1px solid #ddd;">
-                        <h1
-                            style="color: #2c3e50; font-size: 24px; font-weight: 600; margin-bottom: 8px; font-family: 'Times New Roman', serif;">
-                            {{ __('frontend.npa.title') }}
+    {{-- Documents --}}
+    <x-frontend.section bg="white">
+        @php
+            $folderPath = public_path('assets/frontend/npa');
+            $files = [];
+            if (is_dir($folderPath)) {
+                $allFiles = scandir($folderPath);
+                foreach ($allFiles as $file) {
+                    if ($file !== '.' && $file !== '..' && is_file($folderPath . '/' . $file)) {
+                        $files[] = $file;
+                    }
+                }
+            }
+            sort($files);
+        @endphp
 
-                        </h1>
+        @if(count($files) > 0)
+            @foreach($files as $index => $file)
+                <div class="gov-doc-item gov-animate-fade" data-delay="{{ 0.1 + ($index * 0.1) }}">
+                    <div class="gov-doc-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+                    <div class="gov-doc-info">
+                        <div class="gov-doc-title">{{ pathinfo($file, PATHINFO_FILENAME) }}</div>
+                        <div class="gov-doc-meta">PDF</div>
                     </div>
-
-                    <!-- Hujjatlar jadvali -->
-                    <div class="documents-container">
-                        <table class="documents-table">
-
-                            <thead>
-                                <tr class="table-header">
-                                    <th class="table-header-cell number">
-                                        {{ __('frontend.npa.number') }}
-                                    </th>
-                                    <th class="table-header-cell document-name">
-                                        {{ __('frontend.npa.document_name') }}
-                                    </th>
-                                    <th class="table-header-cell actions">
-                                        {{ __('frontend.npa.actions') }}
-                                    </th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr class="table-row">
-                                    <td class="table-cell number">
-                                        1
-                                    </td>
-                                    <td class="table-cell document-name">
-                                        ПҚ-236
-                                    </td>
-                                    <td class="table-cell actions">
-                                        <a href="{{ asset('assets/frontend/Normativ-huquqiy hujjatlar/ПҚ-236.pdf') }}"
-                                            target="_blank"
-                                            class="btn">
-                                            {{ __('frontend.npa.download') }}
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr class="table-row">
-                                    <td class="table-cell number">
-                                        2
-                                    </td>
-                                    <td class="table-cell document-name">
-                                        ПФ-112
-                                    </td>
-                                    <td class="table-cell actions">
-                                        <a href="{{ asset('assets/frontend/Normativ-huquqiy hujjatlar/ПФ-112.pdf') }}"
-                                            target="_blank"
-                                            class="btn">
-                                            {{ __('frontend.npa.download') }}
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr class="table-row">
-                                    <td class="table-cell number">
-                                        3
-                                    </td>
-                                    <td class="table-cell document-name">
-                                        ВМҚ №149
-                                    </td>
-                                    <td class="table-cell actions">
-                                        <a href="{{ asset('assets/frontend/Normativ-huquqiy hujjatlar/ВМҚ 149.pdf') }}"
-                                            target="_blank"
-                                            class="btn">
-                                            {{ __('frontend.npa.download') }}
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                <tr class="table-row">
-                                    <td class="table-cell number">
-                                        4
-                                    </td>
-                                    <td class="table-cell document-name">
-                                        Toshkent shahri VI-104-94-14-0-K
-                                    </td>
-                                    <td class="table-cell actions">
-                                        <a href="{{ asset('assets/frontend/Normativ-huquqiy hujjatlar/Toshkent shahri_VI-104-94-14-0-K_24.pdf') }}"
-                                            target="_blank"
-                                            class="btn">
-                                            {{ __('frontend.npa.download') }}
-                                        </a>
-                                    </td>
-                                </tr>
-
-
-
-
-
-                            </tbody>
-
-                        </table>
-
-
+                    <div class="gov-doc-actions">
+                        <a href="{{ asset('assets/frontend/npa/' . $file) }}" download class="gov-table-btn gov-table-btn-primary">
+                            <i class="fa-solid fa-download"></i>
+                            {{ __('frontend.npa.download') }}
+                        </a>
                     </div>
-
-                    <!-- Ma'lumot -->
-                    <div class="info-section">
-                        <p class="info-text">
-                            {{ __('frontend.npa.info_text') }}
-                        </p>
-                    </div>
-
                 </div>
-            </div>
-        </div>
-    </div>
+            @endforeach
+        @else
+            <x-frontend.info-box type="info">
+                {{ __('frontend.npa.info_text') }}
+            </x-frontend.info-box>
+        @endif
+    </x-frontend.section>
+</div>
 
-    <!-- CSS -->
-    <style>
-        .page-header {
-            text-align: center;
-            margin: 40px 0;
-            padding: 30px 20px;
-            background: #ffffff;
-            border: 1px solid #ddd;
-        }
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        document.querySelector('.gov-page').classList.add('gsap-loaded');
 
-        .page-title {
-            color: #2c3e50;
-            font-size: 24px;
-            font-weight: 600;
-            margin: 0;
-            margin-bottom: 8px;
-            font-family: 'Times New Roman', serif;
-        }
-
-        .documents-container {
-            margin: 0 auto;
-            max-width: 1000px;
-            background: #ffffff;
-        }
-
-        .documents-table {
-            width: 100%;
-            border-collapse: collapse;
-            border: 2px solid #34495e;
-            font-family: Arial, sans-serif;
-        }
-
-        .table-header {
-            background-color: #34495e;
-        }
-
-        .table-header-cell {
-            padding: 15px 20px;
-            font-weight: 600;
-            font-size: 14px;
-            color: #ffffff;
-            border-right: 1px solid #2c3e50;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .table-header-cell.number {
-            text-align: center;
-            width: 60px;
-        }
-
-        .table-header-cell.document-name {
-            text-align: left;
-        }
-
-        .table-header-cell.actions {
-            text-align: center;
-            width: 120px;
-        }
-
-        .table-row {
-            border-bottom: 1px solid #bdc3c7;
-            background-color: #f8f9fa;
-        }
-
-        .table-cell {
-            padding: 12px 20px;
-            font-size: 13px;
-            color: #2c3e50;
-        }
-
-        .table-cell.number {
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .table-cell.document-name {
-            /* Inherits default styles */
-        }
-
-        .table-cell.actions {
-            text-align: center;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 6px 12px;
-            background-color: #34495e;
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            transition: background-color 0.2s;
-            border: none;
-        }
-
-        .btn:hover {
-            background-color: #2c3e50;
-        }
-
-        .info-section {
-            margin-top: 30px;
-            padding: 20px;
-            background: #ffffff;
-            border: 1px solid #ddd;
-            text-align: center;
-        }
-
-        .info-text {
-            color: #7f8c8d;
-            font-size: 12px;
-            margin: 0;
-            line-height: 1.5;
-        }
-
-        @media print {
-            .documents-table {
-                border: 1px solid #000;
-            }
-
-            .documents-table th,
-            .documents-table td {
-                border: 1px solid #000;
-                padding: 8px;
-            }
-
-            .documents-table a {
-                color: #000;
-                text-decoration: underline;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .documents-table {
-                font-size: 11px;
-            }
-
-            .documents-table th,
-            .documents-table td {
-                padding: 8px 12px;
-            }
-
-            .btn {
-                padding: 4px 8px !important;
-                font-size: 10px !important;
-            }
-
-            .page-title {
-                font-size: 20px;
-            }
-
-            .documents-container {
-                margin: 0 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .table-header-cell:first-child,
-            .table-cell:first-child {
-                display: none;
-            }
-
-            .table-header-cell.actions,
-            .table-cell.actions {
-                display: none;
-            }
-        }
-    </style>
+        gsap.utils.toArray('.gov-animate-fade').forEach(el => {
+            gsap.fromTo(el,
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.5, delay: parseFloat(el.dataset.delay) || 0,
+                  scrollTrigger: { trigger: el, start: 'top 90%' } }
+            );
+        });
+    }
+});
+</script>
 @endsection

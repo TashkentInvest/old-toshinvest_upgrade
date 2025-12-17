@@ -1,225 +1,163 @@
 @extends('layouts.frontend_app')
 
+@section('title', __('frontend.investor_ideas.seo_title'))
+@section('description', __('frontend.investor_ideas.seo_description'))
+
 @section('frontent_content')
-<div class="investor-ideas-form-page">
+<div class="gov-page">
     <!-- Hero Section -->
-    <div class="form-hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="section-badge">
-                    <i class="fa-solid fa-building"></i>
-                    <span>{{ __('Investment Opportunities') }}</span>
+    <div class="gov-hero">
+        <div class="gov-container">
+            <div class="gov-hero-content gov-animate-fade" id="heroContent">
+                <div class="gov-badge">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>{{ __('frontend.investor_ideas.badge_text') }}</span>
                 </div>
-                <h1 class="hero-title">{{ __('Submit Your Investment Proposal') }}</h1>
-                <p class="hero-subtitle">{{ __('Share your investment ideas with Tashkent Invest Company. Our team will review your proposal and contact you within 5 business days.') }}</p>
+                <h1 class="gov-title">{{ __('frontend.investor_ideas.page_title') }}</h1>
+                <p class="gov-subtitle">{{ __('frontend.investor_ideas.page_subtitle') }}</p>
             </div>
         </div>
     </div>
 
     <!-- Form Section -->
-    <div class="form-section">
-        <div class="container">
+    <div class="gov-content">
+        <div class="gov-container">
             @if(session('error'))
-                <div class="alert alert-error">
+                <div class="gov-alert gov-alert-error">
                     <i class="fa-solid fa-circle-exclamation"></i>
                     <span>{{ session('error') }}</span>
                 </div>
             @endif
 
-            <form action="{{ route('frontend.investor_ideas.store') }}" method="POST" enctype="multipart/form-data" class="investor-form">
+            <form action="{{ route('frontend.investor_ideas.store') }}" method="POST" enctype="multipart/form-data" class="gov-form" id="investorForm" style="max-width: 800px; margin: 0 auto;">
                 @csrf
 
-                <!-- Company Information Section -->
-                <div class="form-block">
-                    <div class="block-header">
-                        <div class="block-number">01</div>
-                        <h2 class="block-title">{{ __('Company Information') }}</h2>
+                <!-- Section 1: Contact Information -->
+                <div class="gov-card gov-animate-fade" data-delay="0.1">
+                    <div class="gov-card-header">
+                        <div class="gov-card-number">01</div>
+                        <h2 class="gov-card-title">{{ __('frontend.investor_ideas.section_contact') }}</h2>
                     </div>
-                    <div class="block-content">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="company_name" class="required">{{ __('Company Name') }}</label>
-                                <input type="text" id="company_name" name="company_name" value="{{ old('company_name') }}" required>
-                                @error('company_name')<span class="error-message">{{ $message }}</span>@enderror
+                    <div class="gov-card-body">
+                        <div class="gov-form-row">
+                            <div class="gov-form-group">
+                                <label for="company_name" class="gov-label required">{{ __('frontend.investor_ideas.company_name') }}</label>
+                                <input type="text" id="company_name" name="company_name" class="gov-input" value="{{ old('company_name') }}" placeholder="{{ __('frontend.investor_ideas.company_name_placeholder') }}" required>
+                                @error('company_name')<span class="gov-error-message">{{ $message }}</span>@enderror
                             </div>
-                            <div class="form-group">
-                                <label for="website">{{ __('Website') }}</label>
-                                <input type="url" id="website" name="website" value="{{ old('website') }}" placeholder="https://example.com">
-                                @error('website')<span class="error-message">{{ $message }}</span>@enderror
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="contact_person" class="required">{{ __('Contact Person') }}</label>
-                                <input type="text" id="contact_person" name="contact_person" value="{{ old('contact_person') }}" required>
-                                @error('contact_person')<span class="error-message">{{ $message }}</span>@enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="position">{{ __('Position') }}</label>
-                                <input type="text" id="position" name="position" value="{{ old('position') }}">
-                                @error('position')<span class="error-message">{{ $message }}</span>@enderror
+                            <div class="gov-form-group">
+                                <label for="contact_person" class="gov-label required">{{ __('frontend.investor_ideas.contact_person') }}</label>
+                                <input type="text" id="contact_person" name="contact_person" class="gov-input" value="{{ old('contact_person') }}" placeholder="{{ __('frontend.investor_ideas.contact_person_placeholder') }}" required>
+                                @error('contact_person')<span class="gov-error-message">{{ $message }}</span>@enderror
                             </div>
                         </div>
 
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email" class="required">{{ __('Email Address') }}</label>
-                                <input type="email" id="email" name="email" value="{{ old('email') }}" required>
-                                @error('email')<span class="error-message">{{ $message }}</span>@enderror
+                        <div class="gov-form-row">
+                            <div class="gov-form-group">
+                                <label for="email" class="gov-label required">{{ __('frontend.investor_ideas.contact_email') }}</label>
+                                <input type="email" id="email" name="email" class="gov-input" value="{{ old('email') }}" placeholder="{{ __('frontend.investor_ideas.contact_email_placeholder') }}" required>
+                                @error('email')<span class="gov-error-message">{{ $message }}</span>@enderror
                             </div>
-                            <div class="form-group">
-                                <label for="phone" class="required">{{ __('Phone Number') }}</label>
-                                <input type="tel" id="phone" name="phone" value="{{ old('phone') }}" required placeholder="+998 90 123 45 67">
-                                @error('phone')<span class="error-message">{{ $message }}</span>@enderror
+                            <div class="gov-form-group">
+                                <label for="phone" class="gov-label required">{{ __('frontend.investor_ideas.contact_phone') }}</label>
+                                <input type="tel" id="phone" name="phone" class="gov-input" value="{{ old('phone') }}" placeholder="{{ __('frontend.investor_ideas.contact_phone_placeholder') }}" required>
+                                @error('phone')<span class="gov-error-message">{{ $message }}</span>@enderror
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project Information - Uzbek -->
-                <div class="form-block">
-                    <div class="block-header">
-                        <div class="block-number">02</div>
-                        <h2 class="block-title">{{ __('Project Information') }} (O'zbek tilida)</h2>
+                <!-- Section 2: Project Details -->
+                <div class="gov-card gov-animate-fade" data-delay="0.2">
+                    <div class="gov-card-header">
+                        <div class="gov-card-number">02</div>
+                        <h2 class="gov-card-title">{{ __('frontend.investor_ideas.section_project') }}</h2>
                     </div>
-                    <div class="block-content">
-                        <div class="form-group">
-                            <label for="project_title_uz" class="required">{{ __('Project Title') }}</label>
-                            <input type="text" id="project_title_uz" name="project_title_uz" value="{{ old('project_title_uz') }}" required>
-                            @error('project_title_uz')<span class="error-message">{{ $message }}</span>@enderror
+                    <div class="gov-card-body">
+                        <div class="gov-form-group">
+                            <label for="project_title" class="gov-label required">{{ __('frontend.investor_ideas.project_title') }}</label>
+                            <input type="text" id="project_title" name="project_title_uz" class="gov-input" value="{{ old('project_title_uz') }}" placeholder="{{ __('frontend.investor_ideas.project_title_placeholder') }}" required>
+                            @error('project_title_uz')<span class="gov-error-message">{{ $message }}</span>@enderror
                         </div>
-                        <div class="form-group">
-                            <label for="project_description_uz" class="required">{{ __('Project Description') }} (min 100 characters)</label>
-                            <textarea id="project_description_uz" name="project_description_uz" rows="6" required>{{ old('project_description_uz') }}</textarea>
-                            @error('project_description_uz')<span class="error-message">{{ $message }}</span>@enderror
+
+                        <div class="gov-form-group">
+                            <label for="project_description" class="gov-label required">{{ __('frontend.investor_ideas.project_description') }}</label>
+                            <textarea id="project_description" name="project_description_uz" class="gov-textarea" rows="5" placeholder="{{ __('frontend.investor_ideas.project_description_placeholder') }}" required>{{ old('project_description_uz') }}</textarea>
+                            <span class="gov-hint">{{ __('frontend.investor_ideas.project_description_hint') }}</span>
+                            @error('project_description_uz')<span class="gov-error-message">{{ $message }}</span>@enderror
+                        </div>
+
+                        <div class="gov-form-row">
+                            <div class="gov-form-group">
+                                <label for="estimated_investment" class="gov-label">{{ __('frontend.investor_ideas.investment_amount') }}</label>
+                                <div style="display: flex; gap: 10px;">
+                                    <input type="number" id="estimated_investment" name="estimated_investment" class="gov-input" value="{{ old('estimated_investment') }}" placeholder="{{ __('frontend.investor_ideas.investment_amount_placeholder') }}" step="0.01" min="0" style="flex: 2;">
+                                    <select id="currency" name="currency" class="gov-select" style="flex: 1;">
+                                        <option value="USD" {{ old('currency') == 'USD' ? 'selected' : '' }}>USD</option>
+                                        <option value="EUR" {{ old('currency') == 'EUR' ? 'selected' : '' }}>EUR</option>
+                                        <option value="UZS" {{ old('currency') == 'UZS' ? 'selected' : '' }}>UZS</option>
+                                    </select>
+                                </div>
+                                @error('estimated_investment')<span class="gov-error-message">{{ $message }}</span>@enderror
+                            </div>
+                            <div class="gov-form-group">
+                                <label for="estimated_timeline_months" class="gov-label">{{ __('frontend.investor_ideas.estimated_timeline') }}</label>
+                                <input type="number" id="estimated_timeline_months" name="estimated_timeline_months" class="gov-input" value="{{ old('estimated_timeline_months') }}" placeholder="{{ __('frontend.investor_ideas.estimated_timeline_placeholder') }}" min="1" max="240">
+                                @error('estimated_timeline_months')<span class="gov-error-message">{{ $message }}</span>@enderror
+                            </div>
+                        </div>
+
+                        <div class="gov-form-row">
+                            <div class="gov-form-group">
+                                <label for="industry_sector" class="gov-label">{{ __('frontend.investor_ideas.industry_sector') }}</label>
+                                <input type="text" id="industry_sector" name="industry_sector" class="gov-input" value="{{ old('industry_sector') }}" placeholder="{{ __('frontend.investor_ideas.industry_sector_placeholder') }}">
+                                @error('industry_sector')<span class="gov-error-message">{{ $message }}</span>@enderror
+                            </div>
+                            <div class="gov-form-group">
+                                <label for="preferred_location" class="gov-label">{{ __('frontend.investor_ideas.preferred_location') }}</label>
+                                <input type="text" id="preferred_location" name="preferred_location" class="gov-input" value="{{ old('preferred_location') }}" placeholder="{{ __('frontend.investor_ideas.preferred_location_placeholder') }}">
+                                @error('preferred_location')<span class="gov-error-message">{{ $message }}</span>@enderror
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project Information - Russian -->
-                <div class="form-block">
-                    <div class="block-header">
-                        <div class="block-number">03</div>
-                        <h2 class="block-title">{{ __('Project Information') }} (На русском языке)</h2>
+                <!-- Section 3: Documents (Optional) -->
+                <div class="gov-card gov-animate-fade" data-delay="0.3">
+                    <div class="gov-card-header">
+                        <div class="gov-card-number">03</div>
+                        <h2 class="gov-card-title">{{ __('frontend.investor_ideas.section_documents') }} <span class="gov-optional-badge">{{ __('frontend.common.optional') ?? 'Optional' }}</span></h2>
                     </div>
-                    <div class="block-content">
-                        <div class="form-group">
-                            <label for="project_title_ru" class="required">{{ __('Project Title') }}</label>
-                            <input type="text" id="project_title_ru" name="project_title_ru" value="{{ old('project_title_ru') }}" required>
-                            @error('project_title_ru')<span class="error-message">{{ $message }}</span>@enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="project_description_ru" class="required">{{ __('Project Description') }} (min 100 characters)</label>
-                            <textarea id="project_description_ru" name="project_description_ru" rows="6" required>{{ old('project_description_ru') }}</textarea>
-                            @error('project_description_ru')<span class="error-message">{{ $message }}</span>@enderror
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project Information - English (Optional) -->
-                <div class="form-block">
-                    <div class="block-header">
-                        <div class="block-number">04</div>
-                        <h2 class="block-title">{{ __('Project Information') }} (In English) <span class="optional-badge">Optional</span></h2>
-                    </div>
-                    <div class="block-content">
-                        <div class="form-group">
-                            <label for="project_title_en">{{ __('Project Title') }}</label>
-                            <input type="text" id="project_title_en" name="project_title_en" value="{{ old('project_title_en') }}">
-                            @error('project_title_en')<span class="error-message">{{ $message }}</span>@enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="project_description_en">{{ __('Project Description') }}</label>
-                            <textarea id="project_description_en" name="project_description_en" rows="6">{{ old('project_description_en') }}</textarea>
-                            @error('project_description_en')<span class="error-message">{{ $message }}</span>@enderror
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Investment Details -->
-                <div class="form-block">
-                    <div class="block-header">
-                        <div class="block-number">05</div>
-                        <h2 class="block-title">{{ __('Investment Details') }}</h2>
-                    </div>
-                    <div class="block-content">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="estimated_investment">{{ __('Estimated Investment Amount') }}</label>
-                                <input type="number" id="estimated_investment" name="estimated_investment" value="{{ old('estimated_investment') }}" step="0.01" min="0">
-                                @error('estimated_investment')<span class="error-message">{{ $message }}</span>@enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="currency">{{ __('Currency') }}</label>
-                                <select id="currency" name="currency">
-                                    <option value="USD" {{ old('currency') == 'USD' ? 'selected' : '' }}>USD</option>
-                                    <option value="EUR" {{ old('currency') == 'EUR' ? 'selected' : '' }}>EUR</option>
-                                    <option value="UZS" {{ old('currency') == 'UZS' ? 'selected' : '' }}>UZS</option>
-                                    <option value="RUB" {{ old('currency') == 'RUB' ? 'selected' : '' }}>RUB</option>
-                                </select>
-                                @error('currency')<span class="error-message">{{ $message }}</span>@enderror
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="estimated_timeline_months">{{ __('Estimated Timeline (months)') }}</label>
-                                <input type="number" id="estimated_timeline_months" name="estimated_timeline_months" value="{{ old('estimated_timeline_months') }}" min="1" max="240">
-                                @error('estimated_timeline_months')<span class="error-message">{{ $message }}</span>@enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="industry_sector">{{ __('Industry Sector') }}</label>
-                                <input type="text" id="industry_sector" name="industry_sector" value="{{ old('industry_sector') }}" placeholder="{{ __('e.g., Construction, IT, Manufacturing') }}">
-                                @error('industry_sector')<span class="error-message">{{ $message }}</span>@enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="preferred_location">{{ __('Preferred Location') }}</label>
-                            <input type="text" id="preferred_location" name="preferred_location" value="{{ old('preferred_location') }}">
-                            @error('preferred_location')<span class="error-message">{{ $message }}</span>@enderror
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Documents Upload -->
-                <div class="form-block">
-                    <div class="block-header">
-                        <div class="block-number">06</div>
-                        <h2 class="block-title">{{ __('Supporting Documents') }} <span class="optional-badge">Optional</span></h2>
-                    </div>
-                    <div class="block-content">
-                        <div class="file-upload-info">
+                    <div class="gov-card-body">
+                        <div class="gov-info-box">
                             <i class="fa-solid fa-circle-info"></i>
-                            <span>{{ __('Maximum file size: 10MB. Supported formats: PDF, DOC, DOCX, PPT, PPTX, ZIP') }}</span>
+                            <span>{{ __('frontend.investor_ideas.documents_hint') }}</span>
                         </div>
 
-                        <div class="form-group">
-                            <label for="business_plan_file">{{ __('Business Plan') }}</label>
-                            <input type="file" id="business_plan_file" name="business_plan_file" accept=".pdf,.doc,.docx">
-                            @error('business_plan_file')<span class="error-message">{{ $message }}</span>@enderror
-                        </div>
-
-                        <div class="form-group">
-                            <label for="presentation_file">{{ __('Presentation') }}</label>
-                            <input type="file" id="presentation_file" name="presentation_file" accept=".pdf,.ppt,.pptx">
-                            @error('presentation_file')<span class="error-message">{{ $message }}</span>@enderror
-                        </div>
-
-                        <div class="form-group">
-                            <label for="other_documents">{{ __('Other Documents') }}</label>
-                            <input type="file" id="other_documents" name="other_documents" accept=".pdf,.doc,.docx,.zip">
-                            @error('other_documents')<span class="error-message">{{ $message }}</span>@enderror
+                        <div class="gov-form-row">
+                            <div class="gov-form-group">
+                                <label for="business_plan_file" class="gov-label">{{ __('frontend.investor_ideas.business_plan') }}</label>
+                                <input type="file" id="business_plan_file" name="business_plan_file" class="gov-file-input" accept=".pdf,.doc,.docx">
+                                @error('business_plan_file')<span class="gov-error-message">{{ $message }}</span>@enderror
+                            </div>
+                            <div class="gov-form-group">
+                                <label for="presentation_file" class="gov-label">{{ __('frontend.investor_ideas.presentation') }}</label>
+                                <input type="file" id="presentation_file" name="presentation_file" class="gov-file-input" accept=".pdf,.ppt,.pptx">
+                                @error('presentation_file')<span class="gov-error-message">{{ $message }}</span>@enderror
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Submit Button -->
-                <div class="form-actions">
-                    <button type="submit" class="btn-submit">
+                <div class="gov-form-actions gov-animate-fade" data-delay="0.4">
+                    <button type="submit" class="gov-btn gov-btn-primary" id="submitBtn">
                         <i class="fa-solid fa-paper-plane"></i>
-                        <span>{{ __('Submit Investment Proposal') }}</span>
+                        <span class="gov-btn-text">{{ __('frontend.investor_ideas.submit_idea') }}</span>
+                        <span class="gov-btn-loader">
+                            <span class="gov-spinner"></span>
+                            <span>{{ __('frontend.investor_ideas.submitting') }}</span>
+                        </span>
                     </button>
                 </div>
             </form>
@@ -227,296 +165,70 @@
     </div>
 </div>
 
-<style>
-/* Government-Style Form Design */
-.investor-ideas-form-page {
-    background: #f8fafc;
-    min-height: 100vh;
-    padding-bottom: 60px;
-}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize GSAP animations
+    if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
 
-.form-hero {
-    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
-    color: white;
-    padding: 80px 0 60px;
-    border-bottom: 6px solid #3b82f6;
-    position: relative;
-}
+        // Hero animation
+        gsap.to('#heroContent', {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out'
+        });
 
-.form-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 10px,
-        rgba(59, 130, 246, 0.03) 10px,
-        rgba(59, 130, 246, 0.03) 20px
-    );
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-}
-
-.section-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(59, 130, 246, 0.2);
-    border: 2px solid #3b82f6;
-    padding: 8px 20px;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-}
-
-.hero-title {
-    font-family: 'Roboto Slab', serif;
-    font-size: 48px;
-    font-weight: 900;
-    margin: 0 0 15px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.hero-subtitle {
-    font-size: 18px;
-    line-height: 1.6;
-    opacity: 0.95;
-    max-width: 800px;
-}
-
-.form-section {
-    margin-top: -30px;
-    position: relative;
-    z-index: 2;
-}
-
-.investor-form {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.form-block {
-    background: white;
-    border: 3px solid #e2e8f0;
-    border-left: 8px solid #1e40af;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.block-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 25px 30px;
-    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-    border-bottom: 3px solid #cbd5e1;
-}
-
-.block-number {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #1e40af 0%, #0f172a 100%);
-    color: white;
-    font-size: 24px;
-    font-weight: 900;
-    font-family: 'Roboto Slab', serif;
-    border: 3px solid #3b82f6;
-}
-
-.block-title {
-    font-size: 22px;
-    font-weight: 800;
-    color: #1e293b;
-    margin: 0;
-    font-family: 'Roboto Slab', serif;
-}
-
-.optional-badge {
-    font-size: 14px;
-    font-weight: 600;
-    color: #64748b;
-    background: white;
-    padding: 4px 12px;
-    border: 2px solid #cbd5e1;
-    margin-left: 10px;
-}
-
-.block-content {
-    padding: 30px;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group:last-child {
-    margin-bottom: 0;
-}
-
-.form-group label {
-    display: block;
-    font-weight: 700;
-    color: #1e293b;
-    margin-bottom: 8px;
-    font-size: 15px;
-}
-
-.form-group label.required::after {
-    content: '*';
-    color: #dc2626;
-    margin-left: 4px;
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="tel"],
-.form-group input[type="url"],
-.form-group input[type="number"],
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 12px 16px;
-    border: 2px solid #cbd5e1;
-    font-size: 15px;
-    transition: all 0.2s;
-    font-family: inherit;
-}
-
-.form-group input[type="text"]:focus,
-.form-group input[type="email"]:focus,
-.form-group input[type="tel"]:focus,
-.form-group input[type="url"]:focus,
-.form-group input[type="number"]:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
-
-.form-group textarea {
-    resize: vertical;
-}
-
-.form-group input[type="file"] {
-    padding: 10px;
-    border: 2px dashed #cbd5e1;
-    width: 100%;
-    cursor: pointer;
-}
-
-.form-group input[type="file"]:hover {
-    border-color: #3b82f6;
-    background: #f8fafc;
-}
-
-.file-upload-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: #eff6ff;
-    border: 2px solid #3b82f6;
-    padding: 12px 16px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    color: #1e40af;
-}
-
-.file-upload-info i {
-    font-size: 18px;
-}
-
-.error-message {
-    display: block;
-    color: #dc2626;
-    font-size: 13px;
-    margin-top: 6px;
-    font-weight: 600;
-}
-
-.alert {
-    padding: 16px 20px;
-    margin-bottom: 30px;
-    border: 3px solid;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-weight: 600;
-}
-
-.alert-error {
-    background: #fee2e2;
-    border-color: #dc2626;
-    color: #991b1b;
-}
-
-.alert i {
-    font-size: 20px;
-}
-
-.form-actions {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.btn-submit {
-    background: linear-gradient(135deg, #1e40af 0%, #0f172a 100%);
-    color: white;
-    border: 3px solid #3b82f6;
-    padding: 18px 50px;
-    font-size: 18px;
-    font-weight: 800;
-    cursor: pointer;
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    font-family: 'Roboto Slab', serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 8px 20px rgba(30, 64, 175, 0.3);
-}
-
-.btn-submit:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(30, 64, 175, 0.4);
-}
-
-.btn-submit i {
-    font-size: 20px;
-}
-
-@media (max-width: 768px) {
-    .form-row {
-        grid-template-columns: 1fr;
+        // Card animations with stagger
+        const cards = document.querySelectorAll('.gov-animate-fade');
+        cards.forEach((card, index) => {
+            const delay = parseFloat(card.dataset.delay) || index * 0.1;
+            gsap.to(card, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                delay: 0.3 + delay,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 90%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        });
+    } else {
+        // Fallback: remove animation classes
+        document.querySelectorAll('.gov-animate-fade').forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+        });
     }
 
-    .hero-title {
-        font-size: 32px;
+    // Form submission with loading state
+    const form = document.getElementById('investorForm');
+    const submitBtn = document.getElementById('submitBtn');
+
+    if (form && submitBtn) {
+        form.addEventListener('submit', function(e) {
+            submitBtn.classList.add('gov-btn-loading');
+        });
     }
 
-    .block-content {
-        padding: 20px;
+    // Character counter for description
+    const description = document.getElementById('project_description');
+    if (description) {
+        const hint = description.nextElementSibling;
+        description.addEventListener('input', function() {
+            const count = this.value.length;
+            if (count < 100) {
+                hint.style.color = '#dc2626';
+                hint.textContent = `${count}/100 {{ __('frontend.investor_ideas.project_description_hint') }}`;
+            } else {
+                hint.style.color = '#10b981';
+                hint.textContent = `${count} ✓`;
+            }
+        });
     }
-}
-</style>
+});
+</script>
 @endsection

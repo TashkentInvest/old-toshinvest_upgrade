@@ -1,107 +1,78 @@
 @extends('layouts.frontend_app')
+@section('title', __('frontend.charter_capital.title') . ' | ' . __('frontend.seo.site_name'))
+
 @section('frontent_content')
-    <div id="rec748127900" class="r t-rec t-rec_pb_210" data-animationappear="off"
-        data-record-type="131">
-        <!-- T123 -->
-        <div class="t123">
-            <div class="t-container_100">
-                <div class="t-width t-width_100">
+<div class="gov-page">
+    {{-- Hero Section --}}
+    <x-frontend.hero
+        :title="__('frontend.charter_capital.title')"
+        badge="Tashkent Invest"
+        badgeIcon="fa-landmark"
+        :breadcrumbs="[
+            ['url' => route('frontend.index'), 'label' => __('frontend.breadcrumb.home')],
+            ['url' => '#', 'label' => __('frontend.charter_capital.title')]
+        ]"
+    />
 
-                    <!-- Sahifa sarlavhasi -->
-                    <div class="page-header">
-                        <h1 class="page-title">
-                            {{ __('frontend.charter_capital.title') }}
-                        </h1>
-                    </div>
-
-                    <!-- Hujjatlar jadvali -->
-                    <div class="documents-container">
-                        <p class="content-text">
-                            {{ __('frontend.charter_capital.content') }}</p>
-                    </div>
-
-
+    {{-- Content --}}
+    <x-frontend.section bg="white">
+        <div class="gov-card gov-animate-fade" data-delay="0.1">
+            <div class="gov-card-header">
+                <div class="gov-card-icon"><i class="fa-solid fa-building-columns"></i></div>
+                <h3 class="gov-card-title">{{ __('frontend.charter_capital.title') }}</h3>
+            </div>
+            <div class="gov-card-body">
+                <div class="gov-content-text">
+                    <p>{{ __('frontend.charter_capital.content') }}</p>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- CSS -->
-    <style>
-        /* Page Header */
-        .page-header {
-            text-align: center;
-            margin: 40px 0;
-            padding: 30px 20px;
-            background: #ffffff;
-            border: 1px solid #ddd;
-        }
+        {{-- Stats --}}
+        <x-frontend.stats-grid :columns="3">
+            <x-frontend.stat-card
+                value="100"
+                :label="__('frontend.share.issue_volume')"
+                :unit="__('frontend.share.million_sum')"
+                icon="fa-chart-line"
+                delay="0.2"
+            />
+            <x-frontend.stat-card
+                value="100"
+                :label="__('frontend.share.shares_count')"
+                :unit="__('frontend.share.pieces')"
+                icon="fa-file-contract"
+                :featured="true"
+                delay="0.3"
+            />
+            <x-frontend.stat-card
+                value="100%"
+                :label="__('frontend.share.hokimiyat_share')"
+                :unit="__('frontend.share.in_charter_capital')"
+                icon="fa-percent"
+                delay="0.4"
+            />
+        </x-frontend.stats-grid>
+    </x-frontend.section>
+</div>
 
-        .page-title {
-            color: #2c3e50;
-            font-size: 24px;
-            font-weight: 600;
-            margin: 0;
-            font-family: 'Times New Roman', serif;
-        }
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        document.querySelector('.gov-page').classList.add('gsap-loaded');
 
-        /* Documents Container */
-        .documents-container {
-            margin: 0 auto;
-            max-width: 1000px;
-            background: #ffffff;
-        }
-
-        .content-text {
-            font-size: 18px;
-            line-height: 1.6;
-            color: #333;
-            margin: 40px 0;
-        }
-
-        @media print {
-            .page-header {
-                border: 1px solid #000;
-            }
-
-            .page-title {
-                color: #000;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .page-header {
-                padding: 20px 15px;
-            }
-
-            .page-title {
-                font-size: 20px;
-            }
-
-            .documents-container {
-                margin: 0 10px;
-            }
-
-            .content-text {
-                font-size: 16px;
-                margin: 30px 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .page-header {
-                padding: 15px 10px;
-                margin: 20px 0;
-            }
-
-            .page-title {
-                font-size: 18px;
-            }
-
-            .content-text {
-                font-size: 14px;
-                margin: 20px 0;
-            }
-        }
-    </style>
+        gsap.utils.toArray('.gov-animate-fade').forEach(el => {
+            gsap.fromTo(el,
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1, y: 0, duration: 0.6,
+                    delay: parseFloat(el.dataset.delay) || 0,
+                    scrollTrigger: { trigger: el, start: 'top 85%' }
+                }
+            );
+        });
+    }
+});
+</script>
 @endsection

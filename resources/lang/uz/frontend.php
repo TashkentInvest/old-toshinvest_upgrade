@@ -87,6 +87,51 @@ return [
         'call_to_action' => 'Takliflaringizni belgilangan tartibda taqdim etishingizni so\'raymiz.',
     ],
 
+    // Tender
+    'tender' => [
+        'new_announcement' => 'НОВОЕ ОБЪЯВЛЕНИЕ',
+        'open_tender_announcement' => 'ОЧИҚ ТЕНДЕР ЭЪЛОНИ',
+        'technical_consulting_purchase' => 'Техник назорат консалтинг хизматларини харид қилиш бўйича',
+        'company_name' => '«Тошкент Инвест компанияси» акциядорлик жамияти',
+        'purchase_subject' => 'Харид Предмети',
+        'technical_consulting_services' => 'Қурилиш-монтаж ишларига техник назоратни амалга ошириш бўйича консалтинг',
+        'code' => 'Код',
+        'project_address' => 'Лойиҳа Манзили',
+        'project_location' => 'Тошкент шаҳри, Олмазор тумани, Қорасарой кўчаси',
+        'connected_territory' => '«Ўзбекистондаги Ислом цивилизацияси маркази»га туташ ҳудуд',
+        'technical_requirements' => 'Техник Талаблар',
+        'personnel_info' => 'Кадрлар хақида маълумот',
+        'anti_corruption' => 'Коррупцияга йўл кўймаслик принципи талаблари',
+        'service_familiarization' => 'Хизмат кўрсатиладиган жой билан танишиш ва кўздан кечирганлик тўғрисида маълумот',
+        'participant_info' => 'Иштирокчининг умумий маълумотлари',
+        'financial_info' => 'Иштирокчининг молиявий ва иқтисодий кўрсаткичлари тўғрисида',
+        'stability_rating' => 'Иштирокчининг барқарорлик рейтинги',
+        'license_certificates' => 'Ташкилотда лицензия мавжудлиги ва ходимда сертификат мавжудлиги',
+        'qualification_requirements' => 'Иштирокчиларга Қўйиладиган Асосий Малака Талаблари',
+        'necessary_resources' => 'Шартномани бажариш учун зарур техник, молиявий, моддий, кадрлар ресурсларининг ҳамда бошқа ресурсларнинг мавжудлиги',
+        'legal_right' => 'Шартнома тузиш учун қонуний ҳуқуққа эгалик',
+        'no_tax_debt' => 'Солиқлар ва йиғимларни тўлаш бўйича муддати ўтган қарздорликнинг мавжуд эмаслиги',
+        'no_bankruptcy' => 'Ўзига нисбатан жорий этилган банкротлик тартиб-таомилларининг мавжуд эмаслиги',
+        'no_enforcement_record' => 'Инсофсиз ижрочиларнинг ягона реестрида қайд этилмаганлиги',
+        'no_unfulfilled_obligations' => 'Ўзбекистон Республикаси Бош прокуратураси ҳузуридаги Мажбурий ижро бюросининг маълумотлар базаларида иштирокчининг суд қарорлари бўйича бажарилмаган мажбуриятлари мавжуд эмаслиги',
+        'download_documents' => 'Тендер ҳужжатларини юклаб олиш',
+        'technical_requirements_uz' => 'Техник талаблар (Ўзбек тилида)',
+        'technical_assignment_ru' => 'Техническое задание (Русский)',
+        'purchase_documents' => 'Харид ҳужжатлари',
+        'pdf_format' => 'PDF формат',
+        'download' => 'Юклаб олиш',
+        'participation_procedure' => 'Тендерда Иштирок Этиш Тартиби',
+        'important_dates' => 'Эълон Берилган Сана ва Муддатлар',
+        'customer_information' => 'Буюртмачи Ҳақида Маълумот',
+        'submission_deadline' => 'Таклифларни қабул қилишнинг охирги муддати',
+        'tender_date' => 'Тендер эълони жойлаштирилган сана',
+        'customer_name' => 'Буюртмачи номи',
+        'customer_address' => 'Буюртмачи манзили',
+        'tin' => 'СТИР (ИНН)',
+        'phone' => 'Телефон',
+        'email' => 'Электрон почта',
+    ],
+
     // Common
     'common' => [
         'new' => 'YANGI',
@@ -118,6 +163,7 @@ return [
         'active' => 'Faol',
         'archive' => 'Arxiv',
         'all_projects' => 'Barcha loyihalar',
+        'date_not_set' => 'Ko\'rsatilmagan',
     ],
 
     // Home Page
@@ -191,46 +237,101 @@ return [
 
     // Investor Ideas
     'investor_ideas' => [
+        'page_title' => 'Investitsiya taklifini yuborish',
+        'page_subtitle' => 'Investitsiya g\'oyangizni Toshkent Invest bilan baham ko\'ring. Jamoamiz barcha takliflarni 5 ish kuni ichida ko\'rib chiqadi.',
+        'badge_text' => 'Investitsiya imkoniyatlari',
         'title' => 'Investitsiya takliflari',
         'subtitle' => 'O\'z investitsiya g\'oyangiz bilan bo\'lishing',
+
+        // Form Sections
+        'section_contact' => 'Aloqa ma\'lumotlari',
+        'section_project' => 'Loyiha tafsilotlari',
+        'section_documents' => 'Qo\'llab-quvvatlash hujjatlari',
+
+        // Fields
         'company_info' => 'Kompaniya ma\'lumotlari',
-        'company_name' => 'Kompaniya nomi',
+        'company_name' => 'Kompaniya / Tashkilot nomi',
+        'company_name_placeholder' => 'Kompaniya nomini kiriting',
         'contact_person' => 'Aloqa shaxsi',
-        'contact_email' => 'Aloqa uchun email',
-        'contact_phone' => 'Aloqa uchun telefon',
+        'contact_person_placeholder' => 'To\'liq ism',
+        'contact_email' => 'Elektron pochta',
+        'contact_email_placeholder' => 'example@company.com',
+        'contact_phone' => 'Telefon raqami',
+        'contact_phone_placeholder' => '+998 90 123 45 67',
+
         'project_details' => 'Loyiha tafsilotlari',
         'project_title' => 'Loyiha nomi',
+        'project_title_placeholder' => 'Qisqa loyiha nomi',
         'project_description' => 'Loyiha tavsifi',
-        'investment_amount' => 'So\'ralayotgan investitsiya summasi',
-        'estimated_timeline' => 'Taxminiy amalga oshirish muddatlari',
+        'project_description_placeholder' => 'Investitsiya loyihangizni batafsil tavsiflang (kamida 100 belgi)',
+        'project_description_hint' => 'Kamida 100 belgi talab qilinadi',
+
+        'investment_amount' => 'Taxminiy investitsiya',
+        'investment_amount_placeholder' => 'Tanlangan valyutadagi miqdor',
+        'currency' => 'Valyuta',
+        'estimated_timeline' => 'Muddat (oy)',
+        'estimated_timeline_placeholder' => 'Amalga oshirish davri',
         'industry_sector' => 'Soha',
+        'industry_sector_placeholder' => 'masalan, Qurilish, IT, Ishlab chiqarish',
+
         'location_info' => 'Joylashuv ma\'lumotlari',
         'district' => 'Tuman',
         'preferred_location' => 'Afzal ko\'rilgan joylashuv',
+        'preferred_location_placeholder' => 'Aniq hudud yoki manzil',
+
         'documents' => 'Hujjatlar',
+        'documents_hint' => 'Har bir fayl uchun maksimum 10MB. Formatlar: PDF, DOC, DOCX, PPT, PPTX',
         'business_plan' => 'Biznes-reja',
         'presentation' => 'Taqdimot',
         'other_documents' => 'Qo\'shimcha hujjatlar',
+        'choose_file' => 'Faylni tanlash',
+        'no_file_chosen' => 'Fayl tanlanmagan',
+
         'submit_idea' => 'Taklifni yuborish',
-        'success_title' => 'Taklif yuborildi!',
-        'success_message' => 'Investitsiya taklifingiz uchun tashakkur. Biz uni yaqin orada ko\'rib chiqamiz.',
+        'submitting' => 'Yuborilmoqda...',
+
+        'success_title' => 'Taklif muvaffaqiyatli yuborildi!',
+        'success_message' => 'Investitsiya taklifingiz uchun rahmat. Jamoamiz uni ko\'rib chiqadi va 5 ish kuni ichida siz bilan bog\'lanadi.',
         'reference_number' => 'Ariza raqami',
         'back_to_home' => 'Bosh sahifaga qaytish',
+        'submit_another' => 'Boshqa taklif yuborish',
+
+        // Validation
+        'required_field' => 'Bu maydon to\'ldirilishi shart',
+        'min_description' => 'Tavsif kamida 100 belgidan iborat bo\'lishi kerak',
+        'invalid_email' => 'To\'g\'ri elektron pochta manzilini kiriting',
+        'invalid_phone' => 'To\'g\'ri telefon raqamini kiriting',
+
+        // SEO
+        'seo_title' => 'Investitsiya taklifini yuborish | Toshkent Invest Kompaniyasi',
+        'seo_description' => 'Toshkent Invest Kompaniyasiga investitsiya taklifingizni yuboring. Biz qurilish, infratuzilma va shahar rivojlanishi bo\'yicha innovatsion loyihalarni qabul qilamiz.',
     ],
 
     // Media/News
     'media' => [
         'title' => 'Yangiliklar va media',
+        'subtitle' => 'Toshkent Invest Kompaniyasining so\'nggi yangiliklari va voqealari',
         'latest_news' => 'So\'nggi yangiliklar',
         'search_news' => 'Yangiliklar qidirish...',
+        'filter' => 'Yangiliklar filtri',
         'filter_by_date' => 'Sana bo\'yicha filtr',
-        'date_from' => 'Dan',
-        'date_to' => 'Gacha',
+        'date_from' => 'Sanadan',
+        'date_to' => 'Sanagacha',
         'published_on' => 'Nashr qilingan',
         'related_news' => 'O\'xshash yangiliklar',
         'share' => 'Ulashish',
         'gallery' => 'Galereya',
         'video' => 'Video',
+        'no_results' => 'Yangiliklar topilmadi',
+        'try_different_search' => 'Qidiruv parametrlarini o\'zgartiring yoki filtrlarni tiklang.',
+        'no_news_available' => 'Hozircha yangiliklar mavjud emas.',
+        'reset_filters' => 'Filtrlarni tiklash',
+    ],
+
+    // Investor Presentation
+    'investor' => [
+        'presentation_title' => 'Investitsiya imkoniyatlari',
+        'presentation_subtitle' => 'Toshkent Invest Kompaniyasining investitsiya imkoniyatlari taqdimoti',
     ],
 
     // Documents
@@ -373,7 +474,7 @@ Jamiyat xalqaro moliyaviy hisobotlash standartlariga muvofiq moliyaviy hisobot t
     // Board Pages
     'board' => [
         'title' => 'Boshqaruv',
-        'subtitle' => 'AJ "Toshkent Invest Kompaniyasi"ning kompaniya faoliyatini operativ boshqaruvchi ijroiya organi',
+        'subtitle' => '"Toshkent Invest Kompaniyasi" AJ ning kompaniya faoliyatini operativ boshqaruvchi ijroiya organi',
         'executive_body' => 'Ijroiya organi',
         'management' => 'Rahbariyat',
         'general_director' => 'Bosh direktor',
@@ -443,7 +544,7 @@ Jamiyat xalqaro moliyaviy hisobotlash standartlariga muvofiq moliyaviy hisobot t
 
     // Supervisory Board
     'supervisory' => [
-        'title' => 'AJ "Toshkent Invest Kompaniyasi" Kuzatuv kengashi',
+        'title' => '"Toshkent Invest Kompaniyasi" AJ Kuzatuv kengashi',
         'management' => 'Rahbariyat',
         'phone' => 'Telefon',
         'email' => 'Elektron pochta',
@@ -454,12 +555,14 @@ Jamiyat xalqaro moliyaviy hisobotlash standartlariga muvofiq moliyaviy hisobot t
         'member1_position' => 'Toshkent shahar Hokimining birinchi o\'rinbosari',
         'member2_name' => 'Rahmanov Sharof Dierovich',
         'member2_position' => 'Toshkent shahar Hokimining o\'rinbosari - investitsiyalar, sanoat va tashqi savdo bo\'limi boshlig\'i',
+        'independent1_name' => 'Adamas Ilkevicius',
+        'independent2_name' => 'Shariq Wali Khan',
     ],
 
     // Committees
     'committees' => [
         'title' => 'Kuzatuv kengashi qoshidagi qo\'mitalar',
-        'subtitle' => 'AJ "Toshkent Invest Kompaniyasi" Kuzatuv kengashi qoshidagi qo\'mitalarning taklif etilgan tarkibi',
+        'subtitle' => '"Toshkent Invest Kompaniyasi" AJ Kuzatuv kengashi qoshidagi qo\'mitalarning taklif etilgan tarkibi',
         'structural_divisions' => 'Tarkibiy bo\'linmalar',
         'committees' => 'Qo\'mitalar',
         'audit_committee' => 'Audit qo\'mitasi',
@@ -475,7 +578,7 @@ Jamiyat xalqaro moliyaviy hisobotlash standartlariga muvofiq moliyaviy hisobot t
     // Share Structure
     'share' => [
         'title' => 'Yagona aksiyador',
-        'subtitle' => 'AJ "Toshkent Invest Kompaniyasi"ning strategik boshqaruv va kompaniya faoliyatini nazorat qilishni ta\'minlovchi boshqaruv organi',
+        'subtitle' => '"Toshkent Invest Kompaniyasi" AJning strategik boshqaruv va kompaniya faoliyatini nazorat qilishni ta\'minlovchi boshqaruv organi',
         'governing_body' => 'Boshqaruv organi',
         'structure_title' => 'Aksiyadorlik kapitali tuzilmasi',
         'issue_volume' => 'Aksiyalar emissiyasi hajmi',
@@ -530,6 +633,62 @@ Jamiyat xalqaro moliyaviy hisobotlash standartlariga muvofiq moliyaviy hisobot t
     // Charter Capital
     'charter_capital' => [
         'title' => 'Ustav fond',
-        'content' => 'AJ "Toshkent Invest Kompaniyasi"ning Ustav fondi hajmi 100 000 000 000 so\'mni tashkil qiladi, 100 000 000 000 dona oddiy aktsiyalarga (hujjatsiz) bo\'lingan, nominal qiymati 1 so\'m',
+        'content' => '"Toshkent Invest Kompaniyasi" AJning Ustav fondi hajmi 100 000 000 000 so\'mni tashkil qiladi, 100 000 000 000 dona oddiy aktsiyalarga (hujjatsiz) bo\'lingan, nominal qiymati 1 so\'m',
+    ],
+
+    // Tender
+    'tender' => [
+        'new_announcement' => 'НОВОЕ ОБЪЯВЛЕНИЕ',
+        'open_tender_announcement' => 'ОЧИҚ ТЕНДЕР ЭЪЛОНИ',
+        'technical_consulting_purchase' => 'Техник назорат консалтинг хизматларини харид қилиш бўйича',
+        'company_name' => '«Тошкент Инвест компанияси» акциядорлик жамияти',
+        'purchase_subject' => 'Харид Предмети',
+        'technical_consulting_services' => 'Қурилиш-монтаж ишларига техник назоратни амалга ошириш бўйича консалтинг',
+        'code' => 'Код',
+        'project_address' => 'Лойиҳа Манзили',
+        'project_location' => 'Тошкент шаҳри, Олмазор тумани, Қорасарой кўчаси',
+        'connected_territory' => '«Ўзбекистондаги Ислом цивилизацияси маркази»га туташ ҳудуд',
+        'technical_requirements' => 'Техник Талаблар',
+        'personnel_info' => 'Кадрлар хақида маълумот',
+        'anti_corruption' => 'Коррупцияга йўл кўймаслик принципи талаблари',
+        'service_familiarization' => 'Хизмат кўрсатиладиган жой билан танишиш ва кўздан кечирганлик тўғрисида маълумот',
+        'participant_info' => 'Иштирокчининг умумий маълумотлари',
+        'financial_info' => 'Иштирокчининг молиявий ва иқтисодий кўрсаткичлари тўғрисида',
+        'stability_rating' => 'Иштирокчининг барқарорлик рейтинги',
+        'license_certificates' => 'Ташкилотда лицензия мавжудлиги ва ходимда сертификат мавжудлиги',
+        'qualification_requirements' => 'Иштирокчиларга Қўйиладиган Асосий Малака Талаблари',
+        'necessary_resources' => 'Шартномани бажариш учун зарур техник, молиявий, моддий, кадрлар ресурсларининг ҳамда бошқа ресурсларнинг мавжудлиги',
+        'legal_right' => 'Шартнома тузиш учун қонуний ҳуқуққа эгалик',
+        'no_tax_debt' => 'Солиқлар ва йиғимларни тўлаш бўйича муддати ўтган қарздорликнинг мавжуд эмаслиги',
+        'no_bankruptcy' => 'Ўзига нисбатан жорий этилган банкротлик тартиб-таомилларининг мавжуд эмаслиги',
+        'no_enforcement_record' => 'Инсофсиз ижрочиларнинг ягона реестрида қайд этилмаганлиги',
+        'no_unfulfilled_obligations' => 'Ўзбекистон Республикаси Бош прокуратураси ҳузуридаги Мажбурий ижро бюросининг маълумотлар базаларида иштирокчининг суд қарорлари бўйича бажарилмаган мажбуриятлари мавжуд эмаслиги',
+        'download_documents' => 'Тендер ҳужжатларини юклаб олиш',
+        'technical_requirements_uz' => 'Техник талаблар (Ўзбек тилида)',
+        'technical_assignment_ru' => 'Техническое задание (Русский)',
+        'purchase_documents' => 'Харид ҳужжатлари',
+        'pdf_format' => 'PDF формат',
+        'download' => 'Юклаб олиш',
+        'participation_procedure' => 'Тендерда Иштирок Этиш Тартиби',
+        'important_dates' => 'Эълон Берилган Сана ва Муддатлар',
+        'customer_information' => 'Буюртмачи Ҳақида Маълумот',
+        'submission_deadline' => 'Таклифларни қабул қилишнинг охирги муддати',
+        'tender_date' => 'Тендер эълони жойлаштирилган сана',
+        'customer_name' => 'Буюртмачи номи',
+        'customer_address' => 'Буюртмачи манзили',
+        'tin' => 'СТИР (ИНН)',
+        'phone' => 'Телефон',
+        'email' => 'Электрон почта',
+        'electronic_trading_platform' => 'Электрон савдо майдончаси',
+        'tender_description' => 'Тендер',
+        'trading_platform' => 'электрон савдо майдончаси орқали ўтказилади',
+        'all_applicants_submit_proposals' => 'Барча талабгорлар ўз тижорат таклифларини фақат',
+        'portal_submission' => 'портали орқали тақдим этилади',
+        'customer_full_address' => 'Тошкент шаҳри, Чилонзор тумани, И.Каримов кўчаси, 51-уй',
+        'tender_date' => 'Тендер эълони жойлаштирилган сана',
+        'submission_deadline' => 'Таклифларни қабул қилишнинг охирги муддати',
+        'announcement_date' => '11 / 12 / 2025',
+        'submission_deadline_date' => '31 / 12 / 2025',
+        'announcement_badge' => 'Эълон',
     ],
 ];

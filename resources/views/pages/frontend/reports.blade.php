@@ -1,122 +1,101 @@
 @extends('layouts.frontend_app')
+@section('title', __('frontend.footer.reports') . ' | ' . __('frontend.seo.site_name'))
+
 @section('frontent_content')
-    <div id="rec748345496" class="r t-rec t-rec_pt_45 t-rec_pb_75"
-        style="padding-top:45px;padding-bottom:75px;background-color:#efefef; " data-animationappear="off"
-        data-record-type="650" data-bg-color="#efefef"><!-- T650 -->
-        <div class="t650">
-            <div class="t-section__container t-container t-container_flex">
-                <div class="t-col t-col_12 ">
-                    <div class="t-section__title t-title t-title_xs t-align_center t-margin_auto" field="btitle">Отчеты</div>
+<div class="gov-page">
+    {{-- Hero Section --}}
+    <x-frontend.hero
+        :title="__('frontend.footer.reports')"
+        badge="Tashkent Invest"
+        badgeIcon="fa-file-invoice"
+        :breadcrumbs="[
+            ['url' => route('frontend.index'), 'label' => __('frontend.breadcrumb.home')],
+            ['url' => '#', 'label' => __('frontend.footer.reports')]
+        ]"
+    />
+
+    {{-- Reports Grid --}}
+    <x-frontend.section bg="white">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+            {{-- Balance Sheet --}}
+            <div class="gov-card gov-animate-fade" data-delay="0.1">
+                <div class="gov-card-header">
+                    <div class="gov-card-icon"><i class="fa-solid fa-balance-scale"></i></div>
+                    <h3 class="gov-card-title">
+                        @if(app()->getLocale() == 'ru')
+                            Бухгалтерский баланс
+                        @elseif(app()->getLocale() == 'uz')
+                            Buxgalteriya balansi
+                        @else
+                            Balance Sheet
+                        @endif
+                    </h3>
+                </div>
+                <div class="gov-card-body">
+                    <p style="color: var(--gov-text-muted); margin-bottom: 20px;">
+                        @if(app()->getLocale() == 'ru')
+                            1 квартал 2024 года
+                        @elseif(app()->getLocale() == 'uz')
+                            2024 yil 1-chorak
+                        @else
+                            Q1 2024
+                        @endif
+                    </p>
+                    <a href="{{ route('frontend.balance') }}" class="gov-btn gov-btn-primary" style="width: 100%;">
+                        <i class="fa-solid fa-eye"></i>
+                        {{ __('frontend.common.open') }}
+                    </a>
                 </div>
             </div>
-            <style>
-                .t-section__descr {
-                    max-width: 560px;
-                }
 
-                #rec748345496 .t-section__title {
-                    margin-bottom: 90px;
-                }
-
-                #rec748345496 .t-section__descr {}
-
-                @media screen and (max-width: 960px) {
-                    #rec748345496 .t-section__title {
-                        margin-bottom: 75px;
-                    }
-                }
-            </style>
-            <div class="t650__container t-card__container t-container" data-columns-in-row="3">
-                <div class="t-card__col t-col t-col_4 t-align_left" style="cursor: pointer;">
-                    <div class="t650__inner-col" style="background-color: rgb(255, 255, 255); height: 196px;">
-                        <div class="t650__text">
-                            <div class="t-card__title t-name t-name_lg" field="li_title__4974161772310"><a
-                                    href="{{route('frontend.balance')}}" class="t-card__link" id="cardtitle1_748345496"
-                                    aria-labelledby="cardtitle1_748345496 cardbtn1_748345496">Бухгалтерский баланс&nbsp;— 1
-                                    квартал 2024</a></div>
-                        </div>
-                        <div class="t650__btn-container">
-                            <div class="t-card__btntext-wrapper">
-                                <a href="{{route('frontend.balance')}}" class="t-card__btn-text t-btntext t-btntext_sm " id="cardbtn1_748345496"
-                                    data-field="li_buttontitle__4974161772310" style="color:#193d88;font-weight:600;"
-                                    aria-hidden="true" data-buttonfieldset="li_button" data-lid="4974161772310">Просмотреть
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+            {{-- Income Statement --}}
+            <div class="gov-card gov-animate-fade" data-delay="0.2">
+                <div class="gov-card-header">
+                    <div class="gov-card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3 class="gov-card-title">
+                        @if(app()->getLocale() == 'ru')
+                            Отчет о финансовых результатах
+                        @elseif(app()->getLocale() == 'uz')
+                            Moliyaviy natijalar hisoboti
+                        @else
+                            Income Statement
+                        @endif
+                    </h3>
                 </div>
-                <div class="t-card__col t-col t-col_4 t-align_left" style="cursor: pointer;">
-                    <div class="t650__inner-col" style="background-color: rgb(255, 255, 255); height: 196px;">
-                        <div class="t650__text">
-                            <div class="t-card__title t-name t-name_lg" field="li_title__1715705842941"><a
-                                    href="{{route('frontend.income')}}" class="t-card__link" id="cardtitle2_748345496"
-                                    aria-labelledby="cardtitle2_748345496 cardbtn2_748345496">Отчет о финансовых результатах
-                                    – 1 квартал 2024</a></div>
-                        </div>
-                        <div class="t650__btn-container">
-                            <div class="t-card__btntext-wrapper">
-                                <a href="{{route('frontend.income')}}" class="t-card__btn-text t-btntext t-btntext_sm " id="cardbtn2_748345496"
-                                    data-field="li_buttontitle__1715705842941" style="color:#193d88;font-weight:600;"
-                                    aria-hidden="true" data-buttonfieldset="li_button" data-lid="1715705842941">Просмотреть
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="gov-card-body">
+                    <p style="color: var(--gov-text-muted); margin-bottom: 20px;">
+                        @if(app()->getLocale() == 'ru')
+                            1 квартал 2024 года
+                        @elseif(app()->getLocale() == 'uz')
+                            2024 yil 1-chorak
+                        @else
+                            Q1 2024
+                        @endif
+                    </p>
+                    <a href="{{ route('frontend.income') }}" class="gov-btn gov-btn-primary" style="width: 100%;">
+                        <i class="fa-solid fa-eye"></i>
+                        {{ __('frontend.common.open') }}
+                    </a>
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
-            t_onReady(function() {
-                t_onFuncLoad('t650_init', function() {
-                    t650_init('748345496');
-                });
-                t_onFuncLoad('t650_unifyHeights', function() {
-                    t650_unifyHeights('748345496');
-                });
-                if (typeof jQuery !== 'undefined') {
-                    $('.t650').on('displayChanged', function() {
-                        t650_unifyHeights('748345496');
-                    });
-                } else {
-                    var rec = document.querySelector('#rec748345496');
-                    if (!rec) return;
-                    var wrapper = rec.querySelector('.t650');
-                    if (wrapper) {
-                        wrapper.addEventListener('displayChanged', function() {
-                            t_onFuncLoad('t650_unifyHeights', function() {
-                                t650_unifyHeights('748345496');
-                            });
-                        });
-                    }
-                }
-            });
-            window.addEventListener('resize', t_throttle(function() {
-                t_onFuncLoad('t650_unifyHeights', function() {
-                    t650_unifyHeights('748345496');
-                });
-            }));
-            window.addEventListener('load', function() {
-                t_onFuncLoad('t650_unifyHeights', function() {
-                    t650_unifyHeights('748345496');
-                });
-            });
-        </script>
-        <style>
-            #rec748345496 .t650__inner-col {
-                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            }
-        </style>
-        <style>
-            #rec748345496 .t650 .t650__inner-col:hover,
-            #rec748345496 .t650 .t-focusable .t650__inner-col,
-            #rec748345496 .t650 .t-card__col_btnfocusable .t650__inner-col {
-                box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1) !important;
-            }
-        </style>
-        <style>
-            #rec748345496 .t650__inner-col {
-                border-radius: 5px;
-            }
-        </style>
-    </div>
+    </x-frontend.section>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        document.querySelector('.gov-page').classList.add('gsap-loaded');
+
+        gsap.utils.toArray('.gov-animate-fade').forEach(el => {
+            gsap.fromTo(el,
+                { opacity: 0, y: 30 },
+                { opacity: 1, y: 0, duration: 0.6, delay: parseFloat(el.dataset.delay) || 0,
+                  scrollTrigger: { trigger: el, start: 'top 85%' } }
+            );
+        });
+    }
+});
+</script>
 @endsection

@@ -1,117 +1,49 @@
 @extends('layouts.frontend_app')
+@section('title', __('frontend.nav.dividends') . ' | ' . __('frontend.seo.site_name'))
+
 @section('frontent_content')
-    <div id="rec748127900" class="r t-rec t-rec_pb_210" style="padding-bottom:0px;" data-animationappear="off"
-        data-record-type="131">
-        <!-- T123 -->
-        <div class="t123">
-            <div class="t-container_100">
-                <div class="t-width t-width_100">
+<div class="gov-page">
+    {{-- Hero Section --}}
+    <x-frontend.hero
+        :title="__('frontend.nav.dividends')"
+        badge="Tashkent Invest"
+        badgeIcon="fa-chart-pie"
+        :breadcrumbs="[
+            ['url' => route('frontend.index'), 'label' => __('frontend.breadcrumb.home')],
+            ['url' => '#', 'label' => __('frontend.nav.dividends')]
+        ]"
+    />
 
-                    <!-- Sahifa sarlavhasi -->
-                    <div class="page-header"
-                        style="text-align: center; margin: 40px 0; padding: 30px 20px; background: #ffffff; border: 1px solid #ddd;">
-                        <h1
-                            style="color: #2c3e50; font-size: 24px; font-weight: 600; margin-bottom: 8px; font-family: 'Times New Roman', serif;">
-                            Дивиденды
-                        </h1>
-                    </div>
-
-                    <!-- Hujjatlar jadvali -->
-                    <div class="documents-container" style="margin: 0 auto; max-width: 1000px; background: #ffffff;">
-                        <p style="font-size: 18px; line-height: 1.6; color: #333; margin: 40px 0;">
-                         В отчетном периоде 2023–2024 годов дивиденды не выплачивались в связи с вовлеченностью компании в финансирование и поддержку инвестиционных проектов, направленных на развитие объектов муниципальной собственности.
-                        </p>
-                    </div>
-
-
-                </div>
+    {{-- Content --}}
+    <x-frontend.section bg="white">
+        <div class="gov-card gov-animate-fade" data-delay="0.1">
+            <div class="gov-card-header">
+                <div class="gov-card-icon"><i class="fa-solid fa-coins"></i></div>
+                <h3 class="gov-card-title">{{ __('frontend.nav.dividends') }} 2023-2024</h3>
+            </div>
+            <div class="gov-card-body">
+                <x-frontend.info-box type="info">
+                    @if(app()->getLocale() == 'ru')
+                        В отчетном периоде 2023–2024 годов дивиденды не выплачивались в связи с вовлеченностью компании в финансирование и поддержку инвестиционных проектов, направленных на развитие объектов муниципальной собственности.
+                    @elseif(app()->getLocale() == 'uz')
+                        2023-2024 hisobot davrida dividendlar to'lanmadi, chunki kompaniya shahar mulki ob'ektlarini rivojlantirishga qaratilgan investitsiya loyihalarini moliyalashtirish va qo'llab-quvvatlash bilan band edi.
+                    @else
+                        In the reporting period 2023-2024, dividends were not paid due to the company's involvement in financing and supporting investment projects aimed at developing municipal property facilities.
+                    @endif
+                </x-frontend.info-box>
             </div>
         </div>
-    </div>
+    </x-frontend.section>
+</div>
 
-    <!-- CSS -->
-    <style>
-        .documents-table {
-            font-family: Arial, sans-serif;
-        }
-
-        .documents-table a {
-            text-decoration: none;
-        }
-
-        .documents-table a:hover {
-            text-decoration: none;
-        }
-
-        .page-header h1 {
-            margin: 0;
-        }
-
-        @media print {
-            .documents-table {
-                border: 1px solid #000;
-            }
-
-            .documents-table th,
-            .documents-table td {
-                border: 1px solid #000;
-                padding: 8px;
-            }
-
-            .documents-table a {
-                color: #000;
-                text-decoration: underline;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .documents-table {
-                font-size: 11px;
-            }
-
-            .documents-table th,
-            .documents-table td {
-                padding: 8px 12px;
-            }
-
-            .documents-table a {
-                padding: 4px 8px !important;
-                font-size: 10px !important;
-            }
-
-            .page-header h1 {
-                font-size: 20px;
-            }
-
-            .documents-container {
-                margin: 0 10px;
-            }
-
-            .stats-section div {
-                flex-direction: column;
-            }
-
-            .signature-section {
-                text-align: center;
-            }
-
-            .signature-section>div {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-
-            .documents-table th:first-child,
-            .documents-table td:first-child {
-                display: none;
-            }
-
-            .documents-table th:nth-child(3),
-            .documents-table td:nth-child(3) {
-                display: none;
-            }
-        }
-    </style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gsap !== 'undefined') {
+        document.querySelector('.gov-page').classList.add('gsap-loaded');
+        gsap.utils.toArray('.gov-animate-fade').forEach(el => {
+            gsap.fromTo(el, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
+        });
+    }
+});
+</script>
 @endsection

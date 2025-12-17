@@ -1,79 +1,75 @@
 @extends('layouts.frontend_app')
+@section('title', __('frontend.purchases.title') . ' | ' . __('frontend.seo.site_name'))
 
 @section('frontent_content')
-    <div id="rec748127900" class="r t-rec t-rec_pb_210" style="padding-bottom:0px;" data-animationappear="off" data-record-type="131">
-        <div class="t123">
-            <div class="t-container_100">
-                <div class="t-width t-width_100">
+<div class="gov-page">
+    <x-frontend.hero
+        :title="__('frontend.purchases.title')"
+        :subtitle="__('frontend.purchases.subtitle')"
+        badge="Tashkent Invest"
+        badgeIcon="fa-file-contract"
+        :breadcrumbs="[
+            ['url' => route('frontend.index'), 'label' => __('frontend.breadcrumb.home')],
+            ['url' => '#', 'label' => __('frontend.purchases.title')]
+        ]"
+    />
 
-                    <!-- Page Title -->
-                    <div class="page-header"
-                         style="text-align: center; margin: 40px 0; padding: 30px 20px; background: #ffffff; border: 1px solid #ddd;">
-                        <h1 style="color: #2c3e50; font-size: 24px; font-weight: 600; margin-bottom: 8px; font-family: 'Times New Roman', serif;">
-                            Закупки
-                        </h1>
+    <x-frontend.section bg="white">
+        @php
+            $documents = [
+                'план закупок на 2025 год.pdf' => __('frontend.purchases.plan_2025'),
+                'план закупок на 2026 год.pdf' => __('frontend.purchases.plan_2026'),
+            ];
+            $folder = public_path('assets/xarid_uchun');
+        @endphp
+
+        <div class="gov-docs-grid">
+            @foreach ($documents as $fileName => $displayName)
+                @php
+                    $filePath = $folder . '/' . $fileName;
+                    $exists = file_exists($filePath);
+                    $fileSize = $exists ? filesize($filePath) : 0;
+                    $formattedSize = $exists ? ($fileSize >= 1048576 ? number_format($fileSize / 1048576, 1) . ' MB' : number_format($fileSize / 1024, 1) . ' KB') : '';
+                @endphp
+                <div class="gov-doc-card gov-animate-fade" data-delay="{{ $loop->index * 0.1 + 0.1 }}">
+                    <div class="gov-doc-icon">
+                        <i class="fa-solid fa-file-pdf"></i>
                     </div>
-
-                    @php
-                        // Files list with display names
-                        $documents = [
-                            'план закупок на 2025 год.pdf' => 'План закупок на 2025 год',
-                            'план закупок на 2026 год.pdf' => 'План закупок на 2026 год',
-                        ];
-
-                        // File folder
-                        $folder = public_path('assets/xarid_uchun');
-
-                        // Size formatter
-                        function formatFileSize($size)
-                        {
-                            if ($size >= 1048576) {
-                                return number_format($size / 1048576, 1, ',', ' ') . ' МБ';
-                            } elseif ($size >= 1024) {
-                                return number_format($size / 1024, 1, ',', ' ') . ' КБ';
-                            } else {
-                                return $size . ' Б';
-                            }
-                        }
-                    @endphp
-
-                    <!-- Document List -->
-                    <div class="documents-container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
-                        @foreach ($documents as $fileName => $displayName)
-                            @php
-                                $filePath = $folder . '/' . $fileName;
-                                $fileSize = file_exists($filePath) ? formatFileSize(filesize($filePath)) : 'Файл не найден';
-                            @endphp
-                            <div style="margin-bottom: 25px; padding: 15px; background: #f9f9f9; border: 1px solid #ccc;">
-                                <p style="margin: 0 0 10px; font-weight: bold; font-size: 16px; color: #2c3e50;">
-                                    📄 {{ $displayName }}
-                                </p>
-                                <p style="margin: 0 0 10px; font-size: 13px; color: #7f8c8d;">
-                                    Размер файла: {{ $fileSize }}
-                                </p>
-                                @if (file_exists($filePath))
-                                    <a href="{{ asset('assets/xarid_uchun/' . $fileName) }}?v=1.0" target="_blank"
-                                       style="display: inline-block; padding: 8px 16px; background: #34495e; color: #fff; text-decoration: none; font-size: 12px; text-transform: uppercase; border-radius: 4px;">
-                                        Открыть
-                                    </a>
-                                @else
-                                    <span style="color: red; font-size: 13px;">Файл недоступен</span>
-                                @endif
-                            </div>
-                        @endforeach
+                    <div class="gov-doc-info">
+                        <h3 class="gov-doc-title">{{ $displayName }}</h3>
+                        @if($exists)
+                            <span class="gov-doc-size">{{ $formattedSize }}</span>
+                        @endif
                     </div>
-
-                    <!-- Info -->
-                    <div class="info-section"
-                         style="margin-top: 30px; padding: 20px; background: #ffffff; border: 1px solid #ddd; text-align: center;">
-                        <p style="color: #7f8c8d; font-size: 12px; margin: 0; line-height: 1.5;">
-                            В этом разделе размещены внутренние регламенты, положения и другие официальные документы общества.<br>
-                            Документы представлены в формате PDF и доступны для скачивания.
-                        </p>
-                    </div>
-
+                    @if($exists)
+                        <a href="{{ asset('assets/xarid_uchun/' . $fileName) }}" target="_blank" class="gov-btn gov-btn-primary">
+                            <i class="fa-solid fa-eye"></i>
+                            <span>{{ __('frontend.common.view') }}</span>
+                        </a>
+                    @else
+                        <span class="gov-doc-unavailable">{{ __('frontend.common.not_available') }}</span>
+                    @endif
                 </div>
-            </div>
+            @endforeach
         </div>
-    </div>
+
+        <x-frontend.info-box type="info" class="gov-animate-fade" style="margin-top: 2rem;" data-delay="0.3">
+            <p>{{ __('frontend.purchases.info_text') }}</p>
+        </x-frontend.info-box>
+    </x-frontend.section>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        document.querySelector('.gov-page').classList.add('gsap-loaded');
+        gsap.utils.toArray('.gov-animate-fade').forEach(el => {
+            gsap.fromTo(el, { opacity: 0, y: 30 },
+                { opacity: 1, y: 0, duration: 0.6, delay: parseFloat(el.dataset.delay) || 0,
+                  scrollTrigger: { trigger: el, start: 'top 85%' } });
+        });
+    }
+});
+</script>
 @endsection

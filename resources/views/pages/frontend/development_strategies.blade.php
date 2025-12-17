@@ -1,17 +1,37 @@
 @extends('layouts.frontend_app')
+@section('title', __('frontend.nav.development_strategies') . ' | ' . __('frontend.seo.site_name'))
+
 @section('frontent_content')
-    <div id="rec748127900" class="r t-rec t-rec_pb_210" style="padding-bottom:0px; " data-animationappear="off"
-        data-record-type="131"><!-- T123 -->
-        <div class="t123">
-            <div class="t-container_100 ">
-                <div class="t-width t-width_100 ">
+<div class="gov-page">
+    {{-- Hero Section --}}
+    <x-frontend.hero
+        :title="__('frontend.nav.development_strategies')"
+        badge="Tashkent Invest"
+        badgeIcon="fa-compass"
+        :breadcrumbs="[
+            ['url' => route('frontend.index'), 'label' => __('frontend.breadcrumb.home')],
+            ['url' => '#', 'label' => __('frontend.nav.development_strategies')]
+        ]"
+    />
 
-                    <iframe src="{{asset('assets/folders/бизнес_план_20250626_для_включения_в_БП_стратегия_развития.pdf')}}" width="100%"
-                        height="1920" allow="autoplay"></iframe>
+    {{-- PDF Viewer --}}
+    <x-frontend.section bg="white">
+        <x-frontend.pdf-viewer
+            :src="asset('assets/folders/strategiya.pdf')"
+            :title="__('frontend.nav.development_strategies')"
+            height="900px"
+        />
+    </x-frontend.section>
+</div>
 
-
-                </div>
-            </div>
-        </div>
-    </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gsap !== 'undefined') {
+        document.querySelector('.gov-page').classList.add('gsap-loaded');
+        gsap.utils.toArray('.gov-animate-fade').forEach(el => {
+            gsap.fromTo(el, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 });
+        });
+    }
+});
+</script>
 @endsection

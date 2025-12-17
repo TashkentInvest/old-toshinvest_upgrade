@@ -71,6 +71,13 @@
 <!-- FontAwesome 6 CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+<!-- Government Unified CSS -->
+<link rel="stylesheet" href="{{ asset('assets/frontend/css/government-unified.css') }}" type="text/css" media="all" />
+
+<!-- GSAP Animation Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+
 <!-- Assets -->
 <script src="{{ asset('assets/frontend/js/tilda-fallback-1.0.min.js') }}" async="" charset="utf-8"></script>
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/tilda-grid-3.0.min.css') }}" type="text/css" media="all"

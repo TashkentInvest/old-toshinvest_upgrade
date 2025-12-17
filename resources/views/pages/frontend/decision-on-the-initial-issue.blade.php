@@ -1,16 +1,39 @@
 @extends('layouts.frontend_app')
+@section('title', __('frontend.initial_issue.title') . ' | ' . __('frontend.seo.site_name'))
+
 @section('frontent_content')
-    <div id="rec748127900" class="r t-rec t-rec_pb_210" style="padding-bottom:0px; " data-animationappear="off"
-        data-record-type="131"><!-- T123 -->
-        <div class="t123">
-            <div class="t-container_100 ">
-                <div class="t-width t-width_100 ">
+<div class="gov-page">
+    <x-frontend.hero
+        :title="__('frontend.initial_issue.title')"
+        :subtitle="__('frontend.initial_issue.subtitle')"
+        badge="Tashkent Invest"
+        badgeIcon="fa-file-lines"
+        :breadcrumbs="[
+            ['url' => route('frontend.index'), 'label' => __('frontend.breadcrumb.home')],
+            ['url' => '#', 'label' => __('frontend.initial_issue.title')]
+        ]"
+    />
 
-                    <iframe src="https://drive.google.com/file/d/1idn27zGgPK7T-HiBlD5l1MxRmAp4gv75/preview" width="100%" height="1920" allow="autoplay"></iframe>
+    <x-frontend.section bg="white">
+        <x-frontend.pdf-viewer
+            src="https://drive.google.com/file/d/1idn27zGgPK7T-HiBlD5l1MxRmAp4gv75/preview"
+            height="1200px"
+            type="google"
+        />
+    </x-frontend.section>
+</div>
 
-
-                </div>
-            </div>
-        </div>
-    </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        document.querySelector('.gov-page').classList.add('gsap-loaded');
+        gsap.utils.toArray('.gov-animate-fade').forEach(el => {
+            gsap.fromTo(el, { opacity: 0, y: 30 },
+                { opacity: 1, y: 0, duration: 0.6, delay: parseFloat(el.dataset.delay) || 0,
+                  scrollTrigger: { trigger: el, start: 'top 85%' } });
+        });
+    }
+});
+</script>
 @endsection
