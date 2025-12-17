@@ -231,6 +231,31 @@ return [
         'info_text' => 'This section contains internal regulations, policies and other official documents of the company. Documents are presented in PDF format and available for download.',
     ],
 
+    // Regulations
+    'regulations' => [
+        'title' => 'Regulations',
+        'number' => '№',
+        'document_name' => 'Document Name',
+        'size' => 'Size',
+        'action' => 'Action',
+        'russian_version' => 'In Russian',
+        'english_version' => 'In English',
+        'no_documents' => 'No documents found.',
+    ],
+
+    // Governance Assessment
+    'governance_assessment' => [
+        'title' => 'Corporate Governance Assessment Results',
+        'number' => '№',
+        'document_name' => 'Document Name',
+        'size' => 'Size',
+        'actions' => 'Actions',
+        'no_documents_title' => 'DOCUMENTS NOT FOUND',
+        'no_documents_message' => 'There are no documents in this section yet.',
+        'total_documents' => 'TOTAL DOCUMENTS',
+        'info_text' => 'Corporate governance system assessment is conducted in accordance with legislative requirements. Documents are presented in PDF format and available for download.',
+    ],
+
     // Footer
     'footer' => [
         'about_company' => 'About Company',
@@ -300,5 +325,191 @@ return [
         'documents' => 'Tender Documents',
         'requirements' => 'Requirements',
         'location' => 'Location',
+    ],
+
+    // About Page
+    'about' => [
+        'title' => 'About Company',
+        'subtitle' => 'History, mission and goals of Tashkent Invest Company',
+        'description' => 'The Joint Stock Company "Tashkent Invest Company" was established upon the founding of the Tashkent City Hokimiyat in accordance with the Decree of the President of the Republic of Uzbekistan dated July 26, 2023, No. UP-112 "On measures for socio-economic development of Tashkent city until 2030".<br><br>
+
+It is established that the Company\'s charter capital is formed in stages in the amount of 1 trillion sums from additional sources of the Tashkent city budget based on decisions of the Council of People\'s Deputies of the city of Tashkent and other funds not prohibited by legislation; issues of creating and financing the Company\'s project offices in separate directions are determined by its Supervisory Board.<br><br>
+
+The purpose of the Company\'s activities is that the Company performs the tasks of a "bridge" between the state and business entities and aims to assist in the development of the capital\'s infrastructure.<br><br>
+
+The main directions of the company\'s work are:<br>
+– Analysis of the condition of municipal assets, identification of available resources and opportunities to increase the efficiency of their use, as well as development of relevant proposals for their effective use;<br>
+– Management of municipal assets, implementation of public-private partnership projects on their basis, including as a state partner, as well as monitoring and evaluating the effectiveness of such projects;<br>
+– Increasing the investment attractiveness of municipal property, implementing investment projects on their basis, including attracting private investors;<br>
+– Participation in financing promising projects of business entities related to the development of Tashkent city infrastructure, based on their financial attractiveness and efficiency;<br>
+– Organization of development of programs for development and renovation of separate districts of Tashkent, master plan and project documentation of objects planned for construction and others;<br>
+– Coordination of construction and reconstruction works in Tashkent, as well as processes of connecting to infrastructure networks.<br><br>
+
+In accordance with paragraph 8 of the Decree of the President of the Republic of Uzbekistan dated July 26, 2023, No. UP-112, in order to ensure openness of the Company\'s activities and accountability to the public, the following procedure is established:<br>
+The Company draws up financial statements in accordance with International Financial Reporting Standards and from 2025 annually until August 1 posts it on the official website of the Tashkent city hokimiyat after external audit in accordance with International Audit Standards by auditing companies included in the "big four";<br>
+from 2025, the Company\'s financial and non-financial reports, as well as commercial and non-commercial purposes regarding it are posted on the official website of the Tashkent city hokimiyat.',
+    ],
+
+    // Board Pages
+    'board' => [
+        'title' => 'Management Board',
+        'subtitle' => 'The executive body of JSC "Tashkent Invest Company" that carries out operational management of the company\'s activities',
+        'executive_body' => 'Executive Body',
+        'management' => 'Management',
+        'general_director' => 'General Director',
+        'phone' => 'Phone',
+        'email' => 'Email',
+        'reception_days' => 'Reception Days',
+        'by_appointment' => 'By Appointment',
+        'deputy_strategy' => 'Deputy Chairman for Strategic Development',
+        'deputy_projects' => 'Deputy Chairman for Project Management (Industry)',
+        'biography' => 'PERSONAL TRANSLATION',
+        'work_history' => 'Work History',
+        'bio_button' => 'Biography and Responsibilities',
+        'members' => [
+            'shakirov_name' => 'Shakirov Bahrom Askaralievich',
+            'shakirov_bio' => 'Shakirov Bahrom Askaralievich was born in 1977. He has many years of experience in securities market regulation, state administration, industry and corporate management. He obtained a master\'s degree from the International University of Japan.',
+            'shakirov_work' => '<li>1994-1999 — Student of Tashkent State Agrarian University</li>
+<li>1999-2001 — Center for Coordination and Supervision of Securities Market Activities – Chief Specialist, Head of Department</li>
+<li>2001-2004 — Inspector of the Tashkent City IIBB of the MIA</li>
+<li>2004-2005 — State Property Management State Committee – Chief Specialist</li>
+<li>2005-2013 — Center for Securities Market – Chief Specialist, Head of Department, Head of Regional Department</li>
+<li>2013-2015 — International University of Japan – Master\'s student</li>
+<li>2015-2017 — CCMS Center – Head of Tashkent City Department</li>
+<li>2017-2017 — CCMS Center – Director General</li>
+<li>2017-2018 — Competition Development Committee – Head of Department</li>
+<li>2018-2019 — JSC "Ozmetkombinat" – Head of Social Development Department, Acting</li>
+<li>2019-2019 — Agency for Management of State Assets – Head of Tashkent City Department, Acting</li>
+<li>2019-2020 — CJV "Auto Universal Servis" – Director General</li>
+<li>2020-2021 — JSC "Ozavtosanoat" – Head of Human Resources Department</li>
+<li>2021-2022 — CJV "UzAuto Passenger Vehicles Management" – Head of Corporate Relations Service</li>
+<li>2022-2023 — CJV "Autosanoat Invest" – Deputy Director General</li>
+<li>2023-2023 — Center for Management of Municipal Assets of the Tashkent City Hokimiyat – First Deputy Director General</li>
+<li>2023-2024 — JSC "Tashkent Invest Company" – Chairman of the Management Board, Acting</li>
+<li>2024 — JSC "Tashkent Invest Company" – Chairman of the Management Board</li>',
+            'kodirov_name' => 'Qodirov Rustam Shuxratovich',
+            'kodirov_bio' => 'Qodirov Rustam Shuxratovich studied at Westminster University from 2002-2005. He held senior positions in procurement, strategic development and transformation in a number of major companies in the "Ozavtosanoat" system. He has extensive experience in managing promising projects for enterprise development and strategic analysis.',
+            'kodirov_work' => '<li>2002-2005 — Student of Westminster University (Bachelor)</li>
+<li>2011-2018 — CJV "JV MAN Auto-Uzbekistan" – Specialist, Leading Agent, Chief Specialist of Procurement and Localization Department</li>
+<li>2017-2018 — CJV "UzAuto TRAILER" – Director of Prospective Development and Innovation Department</li>
+<li>2018-2021 — JSC "Ozavtosanoat" – Head of Strategic Planning, Analysis and Development Department</li>
+<li>2021-2022 — JSC "Ozavtosanoat" – Head of Transformation Office</li>
+<li>2022-2023 — CJV "Uzchasys" – Director General</li>
+<li>2023-2024 — JSC "Ozavtosanoat" – Director of External Economic Cooperation, Investment and Innovation Department</li>
+<li>2024 — JSC "Tashkent Invest Company" – Deputy Chairman of the Management Board for Strategic Development Issues</li>',
+            'otahonova_name' => 'Otaxonova Nargizaxon Ganievna',
+            'otahonova_bio' => 'Otaxonova Nargizaxon Ganievna studied at the Andijan Engineering and Economics Institute from 1997-2002. She has more than 25 years of practical experience in economics and corporate management. She worked in leadership positions in various private and state enterprises, gaining extensive experience in project management, corporate governance and securities market regulation.',
+            'otahonova_work' => '<li>1997-2002 — Student of Andijan Engineering and Economics Institute</li>
+<li>1997-1999 — CJV "Sohibqiron" – Operator</li>
+<li>1999-2006 — GIF "Davinkom" – Chief Specialist, Head of Marketing Department</li>
+<li>2006-2010 — CJV "TREPANG" – Director</li>
+<li>2010-2013 — CCMS Center – Chief Specialist of Department for Supervising Issuers\' Activities</li>
+<li>2015-2019 — CCMS Center – Head of Department for Improving Legislation and Analysis</li>
+<li>2019-2019 — JSC "UzAuto Motors" – Head of Corporate Governance Department</li>
+<li>2019-2023 — JSC "UzAuto Motors" – Advisor to the First Deputy Director General</li>
+<li>2023-2024 — JSC "UzAuto Motors" – Executive Director for Procurement, Acting</li>
+<li>2024 — JSC "Tashkent Invest Company" – Deputy Chairman of the Management Board for Project Management</li>',
+        ]
+    ],
+
+    // Documents
+    'docs' => [
+        'code_of_ethics' => 'Corporate Code of Ethics',
+        'corporate_governance_code' => 'Corporate Governance Code',
+        'corporate_governance_rules' => 'Corporate Governance Rules',
+        'view' => 'View',
+        'title' => 'Corporate Governance Code and Rules',
+    ],
+
+    // Supervisory Board
+    'supervisory' => [
+        'title' => 'Supervisory Board of JSC "Tashkent Invest Company"',
+        'management' => 'Management',
+        'phone' => 'Phone',
+        'email' => 'Email',
+        'independent_member' => 'Independent Member of the Supervisory Board',
+        'chairman_name' => 'Umurzakov Shavkat Buranovich',
+        'chairman_position' => 'Mayor of Tashkent City',
+        'member1_name' => 'Haydarov Bakhtiyor Khalimovich',
+        'member1_position' => 'First Deputy Mayor of Tashkent City',
+        'member2_name' => 'Rakhmanov Sharof Dierovich',
+        'member2_position' => 'Deputy Mayor of Tashkent City - Head of Investment, Industry and Foreign Trade Department',
+    ],
+
+    // Committees
+    'committees' => [
+        'title' => 'Supervisory Board Committees',
+        'subtitle' => 'Proposed composition of the committees under the Supervisory Board of JSC "Tashkent Invest Company"',
+        'structural_divisions' => 'Structural Divisions',
+        'committees' => 'Committees',
+        'audit_committee' => 'Audit Committee',
+        'strategy_committee' => 'Strategy and Investment Committee',
+        'full_name' => 'Full Name',
+        'role_in_committee' => 'Role in Committee',
+        'chairman' => 'Chairman',
+        'member' => 'Member',
+        'committee_chairman' => 'Committee Chairman',
+        'committee_member' => 'Committee Member',
+    ],
+
+    // Share Structure
+    'share' => [
+        'title' => 'Sole Shareholder',
+        'subtitle' => 'The governing body of JSC "Tashkent Invest Company" that ensures strategic management and control of the company\'s activities',
+        'governing_body' => 'Governing Body',
+        'structure_title' => 'Share Capital Structure',
+        'issue_volume' => 'Share Issue Volume',
+        'issue_value' => '100 billion',
+        'million_sum' => '(million UZS)',
+        'shares_count' => 'Number of Shares',
+        'shares_value' => '100 billion',
+        'pieces' => '(pcs)',
+        'hokimiyat_share' => 'City Hokimiyat Share',
+        'in_charter_capital' => 'in charter capital',
+        'shareholder' => 'Shareholder',
+        'sole' => 'sole',
+    ],
+    ],
+
+    // Essential Facts
+    'essential_facts' => [
+        'title' => 'Essential Facts',
+        'number' => '№',
+        'document_name' => 'Document Name',
+        'size' => 'Size',
+        'actions' => 'Actions',
+        'fact_title' => 'Essential Facts',
+        'documents_singular' => 'document',
+        'documents_plural' => 'documents',
+        'open' => 'OPEN',
+        'no_documents_title' => 'DOCUMENTS NOT FOUND',
+        'no_documents_message' => 'There are no documents in this section yet.',
+        'categories_count' => 'DOCUMENT CATEGORIES',
+        'total_size' => 'TOTAL SIZE',
+        'info_text' => 'This section contains internal regulations, bylaws and other official documents of the company. The documents are presented in PDF format and are available for download.',
+        'mb' => 'MB',
+        'kb' => 'KB',
+        'b' => 'B',
+    ],
+
+    // NPA
+    'npa' => [
+        'title' => 'Normative Legal Act',
+        'number' => '№',
+        'document_name' => 'Document Name',
+        'actions' => 'Actions',
+        'download' => 'DOWNLOAD',
+        'info_text' => 'This section contains internal regulations, bylaws and other official documents of the company. The documents are presented in PDF format and are available for download.',
+    ],
+
+    // Share Purchase
+    'share_purchase' => [
+        'title' => 'Information on the Purchase of Shares by the Company',
+    ],
+
+    // Charter Capital
+    'charter_capital' => [
+        'title' => 'Charter Fund',
+        'content' => 'The size of the Charter Fund of JSC "Tashkent Invest Company" is 100 000 000 000 UZS, divided into 100 000 000 000 ordinary shares (documentary), with a nominal value of 1 UZS',
     ],
 ];

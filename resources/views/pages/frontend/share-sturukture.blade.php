@@ -30,20 +30,20 @@
             <!-- Statistics Grid -->
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-value">100 млрд</div>
+                    <div class="stat-value">{{ __('frontend.share.issue_value') }}</div>
                     <div class="stat-divider"></div>
                     <div class="stat-description">
-                        <span class="stat-label">Объем выпуска акций</span>
-                        <span class="stat-unit">(млн сум)</span>
+                        <span class="stat-label">{{ __('frontend.share.issue_volume') }}</span>
+                        <span class="stat-unit">{{ __('frontend.share.million_sum') }}</span>
                     </div>
                 </div>
 
                 <div class="stat-card">
-                    <div class="stat-value">100 млрд</div>
+                    <div class="stat-value">{{ __('frontend.share.shares_value') }}</div>
                     <div class="stat-divider"></div>
                     <div class="stat-description">
-                        <span class="stat-label">Количество акций</span>
-                        <span class="stat-unit">(шт.)</span>
+                        <span class="stat-label">{{ __('frontend.share.shares_count') }}</span>
+                        <span class="stat-unit">{{ __('frontend.share.pieces') }}</span>
                     </div>
                 </div>
 
@@ -51,8 +51,8 @@
                     <div class="stat-value">100%</div>
                     <div class="stat-divider"></div>
                     <div class="stat-description">
-                        <span class="stat-label">Доля хакимията города</span>
-                        <span class="stat-unit">в уставном капитале</span>
+                        <span class="stat-label">{{ __('frontend.share.hokimiyat_share') }}</span>
+                        <span class="stat-unit">{{ __('frontend.share.in_charter_capital') }}</span>
                     </div>
                 </div>
 
@@ -60,8 +60,8 @@
                     <div class="stat-value">1</div>
                     <div class="stat-divider"></div>
                     <div class="stat-description">
-                        <span class="stat-label">Акционер</span>
-                        <span class="stat-unit">единственный</span>
+                        <span class="stat-label">{{ __('frontend.share.shareholder') }}</span>
+                        <span class="stat-unit">{{ __('frontend.share.sole') }}</span>
                     </div>
                 </div>
             </div>

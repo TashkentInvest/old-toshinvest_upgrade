@@ -1,6 +1,6 @@
 @extends('layouts.frontend_app')
 @section('frontent_content')
-    <div id="rec748127900" class="r t-rec t-rec_pb_210" style="padding-bottom:0px;" data-animationappear="off"
+    <div id="rec748127900" class="r t-rec t-rec_pb_210" data-animationappear="off"
         data-record-type="131">
         <!-- T123 -->
         <div class="t123">
@@ -8,19 +8,16 @@
                 <div class="t-width t-width_100">
 
                     <!-- Sahifa sarlavhasi -->
-                    <div class="page-header"
-                        style="text-align: center; margin: 40px 0; padding: 30px 20px; background: #ffffff; border: 1px solid #ddd;">
-                        <h1
-                            style="color: #2c3e50; font-size: 24px; font-weight: 600; margin-bottom: 8px; font-family: 'Times New Roman', serif;">
-                            Уставной фонд
+                    <div class="page-header">
+                        <h1 class="page-title">
+                            {{ __('frontend.charter_capital.title') }}
                         </h1>
                     </div>
 
                     <!-- Hujjatlar jadvali -->
-                    <div class="documents-container" style="margin: 0 auto; max-width: 1000px; background: #ffffff;">
-                        <p style="font-size: 18px; line-height: 1.6; color: #333; margin: 40px 0;">
-                            Размер Уставного фонда АО «Компания Ташкент Инвест» составляет 100 000 000 000 сум, разделенный
-                            на 100 000 000 000 штук простых акций (бездокументарных), с номинальной стоимостью 1 сум </p>
+                    <div class="documents-container">
+                        <p class="content-text">
+                            {{ __('frontend.charter_capital.content') }}</p>
                     </div>
 
 
@@ -31,55 +28,53 @@
 
     <!-- CSS -->
     <style>
-        .documents-table {
-            font-family: Arial, sans-serif;
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px 20px;
+            background: #ffffff;
+            border: 1px solid #ddd;
         }
 
-        .documents-table a {
-            text-decoration: none;
-        }
-
-        .documents-table a:hover {
-            text-decoration: none;
-        }
-
-        .page-header h1 {
+        .page-title {
+            color: #2c3e50;
+            font-size: 24px;
+            font-weight: 600;
             margin: 0;
+            font-family: 'Times New Roman', serif;
+        }
+
+        /* Documents Container */
+        .documents-container {
+            margin: 0 auto;
+            max-width: 1000px;
+            background: #ffffff;
+        }
+
+        .content-text {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            margin: 40px 0;
         }
 
         @media print {
-            .documents-table {
+            .page-header {
                 border: 1px solid #000;
             }
 
-            .documents-table th,
-            .documents-table td {
-                border: 1px solid #000;
-                padding: 8px;
-            }
-
-            .documents-table a {
+            .page-title {
                 color: #000;
-                text-decoration: underline;
             }
         }
 
         @media (max-width: 768px) {
-            .documents-table {
-                font-size: 11px;
+            .page-header {
+                padding: 20px 15px;
             }
 
-            .documents-table th,
-            .documents-table td {
-                padding: 8px 12px;
-            }
-
-            .documents-table a {
-                padding: 4px 8px !important;
-                font-size: 10px !important;
-            }
-
-            .page-header h1 {
+            .page-title {
                 font-size: 20px;
             }
 
@@ -87,30 +82,25 @@
                 margin: 0 10px;
             }
 
-            .stats-section div {
-                flex-direction: column;
-            }
-
-            .signature-section {
-                text-align: center;
-            }
-
-            .signature-section>div {
-                flex-direction: column;
-                text-align: center;
+            .content-text {
+                font-size: 16px;
+                margin: 30px 0;
             }
         }
 
         @media (max-width: 480px) {
-
-            .documents-table th:first-child,
-            .documents-table td:first-child {
-                display: none;
+            .page-header {
+                padding: 15px 10px;
+                margin: 20px 0;
             }
 
-            .documents-table th:nth-child(3),
-            .documents-table td:nth-child(3) {
-                display: none;
+            .page-title {
+                font-size: 18px;
+            }
+
+            .content-text {
+                font-size: 14px;
+                margin: 20px 0;
             }
         }
     </style>

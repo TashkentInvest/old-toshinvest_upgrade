@@ -1,6 +1,6 @@
 @extends('layouts.frontend_app')
 @section('frontent_content')
-    <div id="rec748127900" class="r t-rec t-rec_pb_210" style="padding-bottom:0px;" data-animationappear="off"
+    <div id="rec748127900" class="r t-rec t-rec_pb_210" data-animationappear="off"
         data-record-type="131">
         <!-- T123 -->
         <div class="t123">
@@ -8,35 +8,28 @@
                 <div class="t-width t-width_100">
 
                     <!-- Sahifa sarlavhasi -->
-                    <div class="page-header"
-                        style="text-align: center; margin: 40px 0; padding: 30px 20px; background: #ffffff; border: 1px solid #ddd;">
-                        <h1
-                            style="color: #2c3e50; font-size: 24px; font-weight: 600; margin-bottom: 8px; font-family: 'Times New Roman', serif;">
-                            Оценка систем корпоративного управления
+                    <div class="page-header">
+                        <h1 class="page-title">
+                            {{ __('frontend.governance_assessment.title') }}
                         </h1>
                     </div>
 
                     <!-- Hujjatlar jadvali -->
-                    <div class="documents-container" style="margin: 0 auto; max-width: 1000px; background: #ffffff;">
-                        <table class="documents-table"
-                            style="width: 100%; border-collapse: collapse; border: 2px solid #34495e; font-family: Arial, sans-serif;">
+                    <div class="documents-container">
+                        <table class="documents-table">
                             <thead>
-                                <tr style="background-color: #34495e;">
-                                    <th
-                                        style="padding: 15px 20px; text-align: left; font-weight: 600; font-size: 14px; color: #ffffff; border-right: 1px solid #2c3e50; text-transform: uppercase; letter-spacing: 0.5px;">
-                                        №
+                                <tr>
+                                    <th class="table-header-cell number">
+                                        {{ __('frontend.governance_assessment.number') }}
                                     </th>
-                                    <th
-                                        style="padding: 15px 20px; text-align: left; font-weight: 600; font-size: 14px; color: #ffffff; border-right: 1px solid #2c3e50; text-transform: uppercase; letter-spacing: 0.5px;">
-                                        Название документа
+                                    <th class="table-header-cell name">
+                                        {{ __('frontend.governance_assessment.document_name') }}
                                     </th>
-                                    <th
-                                        style="padding: 15px 20px; text-align: center; font-weight: 600; font-size: 14px; color: #ffffff; border-right: 1px solid #2c3e50; text-transform: uppercase; letter-spacing: 0.5px; width: 100px;">
-                                        Размер
+                                    <th class="table-header-cell size">
+                                        {{ __('frontend.governance_assessment.size') }}
                                     </th>
-                                    <th
-                                        style="padding: 15px 20px; text-align: center; font-weight: 600; font-size: 14px; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px; width: 120px;">
-                                        Действия
+                                    <th class="table-header-cell actions">
+                                        {{ __('frontend.governance_assessment.actions') }}
                                     </th>
                                 </tr>
                             </thead>
@@ -88,31 +81,24 @@
                                                 : pathinfo($file, PATHINFO_FILENAME);
                                         @endphp
 
-                                        <tr
-                                            style="border-bottom: 1px solid #bdc3c7; @if ($index % 2 == 0) background-color: #f8f9fa; @else background-color: #ffffff; @endif">
-                                            <td
-                                                style="padding: 12px 20px; font-size: 13px; color: #2c3e50; border-right: 1px solid #bdc3c7; text-align: center; font-weight: 600;">
+                                        <tr class="table-row @if ($index % 2 == 0) even @else odd @endif">
+                                            <td class="table-cell number">
                                                 {{ $index + 1 }}
                                             </td>
-                                            <td
-                                                style="padding: 12px 20px; font-size: 13px; color: #2c3e50; border-right: 1px solid #bdc3c7; line-height: 1.4;">
-                                                <div style="font-weight: 600; margin-bottom: 3px;">{{ $displayName }}</div>
-                                                <div style="font-size: 11px; color: #7f8c8d; font-style: italic;">
+                                            <td class="table-cell name">
+                                                <div class="document-name">{{ $displayName }}</div>
+                                                <div class="file-name">
                                                     {{ $file }}</div>
                                             </td>
-                                            <td
-                                                style="padding: 12px 20px; text-align: center; font-size: 12px; color: #7f8c8d; border-right: 1px solid #bdc3c7;">
+                                            <td class="table-cell size">
                                                 {{ formatFileSize($fileSize) }}
                                             </td>
-                                            <td style="padding: 12px 20px; text-align: center;">
-                                                <div
-                                                    style="display: flex; flex-direction: column; gap: 4px; align-items: center;">
+                                            <td class="table-cell actions">
+                                                <div class="action-buttons">
                                                     <a href="{{ asset('assets/frontend/korparativ_boshqaruv_tizimlarini_baholash/' . $file) }}"
                                                         target="_blank"
-                                                        style="display: inline-block; padding: 6px 12px; background-color: #34495e; color: #ffffff; text-decoration: none; border: 1px solid #2c3e50; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.3px; transition: background-color 0.2s;"
-                                                        onmouseover="this.style.backgroundColor='#2c3e50'"
-                                                        onmouseout="this.style.backgroundColor='#34495e'">
-                                                        ОТКРЫТЬ
+                                                        class="btn btn-open">
+                                                        {{ __('frontend.common.open') }}
                                                     </a>
                                                 </div>
                                             </td>
@@ -120,10 +106,9 @@
                                     @endforeach
                                 @else
                                     <tr>
-                                        <td colspan="4"
-                                            style="padding: 40px 20px; text-align: center; color: #7f8c8d; font-size: 14px; background-color: #f8f9fa;">
-                                           <div style="font-weight: 600; margin-bottom: 5px;">ДОКУМЕНТЫ НЕ НАЙДЕНЫ</div>
-                                            <div style="font-size: 12px;">В этом разделе пока нет ни одного документа.</div>
+                                        <td colspan="4" class="no-documents">
+                                           <div class="no-documents-title">{{ __('frontend.governance_assessment.no_documents_title') }}</div>
+                                            <div class="no-documents-message">{{ __('frontend.governance_assessment.no_documents_message') }}</div>
                                         </td>
                                     </tr>
                                 @endif
@@ -132,16 +117,13 @@
                     </div>
 
                     <!-- Statistika -->
-                    <div class="stats-section"
-                        style="margin-top: 30px; padding: 20px; background: #f8f9fa; border: 1px solid #ddd;">
-                        <div
-                            style="display: flex; justify-content: space-around; align-items: center; max-width: 600px; margin: 0 auto; flex-wrap: wrap; gap: 20px;">
-                            <div style="text-align: center; padding: 15px;">
-                                <div style="font-size: 24px; font-weight: 700; color: #2c3e50; margin-bottom: 5px;">
+                    <div class="stats-section">
+                        <div class="stats-container">
+                            <div class="stat-item">
+                                <div class="stat-value">
                                     {{ count($files) }}</div>
-                                <div
-                                    style="font-size: 12px; color: #7f8c8d; text-transform: uppercase; letter-spacing: 0.5px;">
-                                    ВСЕГО ДОКУМЕНТОВ</div>
+                                <div class="stat-label">
+                                    {{ __('frontend.governance_assessment.total_documents') }}</div>
                             </div>
 
                             @php
@@ -154,24 +136,21 @@
                                 }
                             @endphp
 
-                            <div style="width: 1px; height: 40px; background-color: #bdc3c7;"></div>
+                            <div class="stat-divider"></div>
 
-                            <div style="text-align: center; padding: 15px;">
-                                <div style="font-size: 24px; font-weight: 700; color: #2c3e50; margin-bottom: 5px;">
+                            <div class="stat-item">
+                                <div class="stat-value">
                                     {{ formatFileSize($totalSize) }}</div>
-                                <div
-                                    style="font-size: 12px; color: #7f8c8d; text-transform: uppercase; letter-spacing: 0.5px;">
-                                    ОБЩИЙ РАЗМЕР</div>
+                                <div class="stat-label">
+                                    {{ __('frontend.documents.total_size') }}</div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Ma'lumot -->
-                    <div class="info-section"
-                        style="margin-top: 30px; padding: 20px; background: #ffffff; border: 1px solid #ddd; text-align: center;">
-                        <p style="color: #7f8c8d; font-size: 12px; margin: 0; line-height: 1.5;">
-                            Оценка систем корпоративного управления проводится в соответствии с требованиями законодательства.<br>
-                            Документы представлены в формате PDF и доступны для скачивания.
+                    <div class="info-section">
+                        <p class="info-text">
+                            {{ __('frontend.governance_assessment.info_text') }}
                         </p>
                     </div>
 
@@ -182,7 +161,35 @@
 
     <!-- CSS -->
     <style>
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px 20px;
+            background: #ffffff;
+            border: 1px solid #ddd;
+        }
+
+        .page-title {
+            color: #2c3e50;
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0;
+            font-family: 'Times New Roman', serif;
+        }
+
+        /* Documents Container */
+        .documents-container {
+            margin: 0 auto;
+            max-width: 1000px;
+            background: #ffffff;
+        }
+
+        /* Documents Table */
         .documents-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #34495e;
             font-family: Arial, sans-serif;
         }
 
@@ -194,8 +201,195 @@
             text-decoration: none;
         }
 
-        .page-header h1 {
+        /* Table Header */
+        .table-header-cell {
+            padding: 15px 20px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+            color: #ffffff;
+            border-right: 1px solid #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background-color: #34495e;
+        }
+
+        .table-header-cell.number {
+            text-align: left;
+        }
+
+        .table-header-cell.name {
+            text-align: left;
+        }
+
+        .table-header-cell.size {
+            text-align: center;
+            width: 100px;
+        }
+
+        .table-header-cell.actions {
+            text-align: center;
+            width: 120px;
+            border-right: none;
+        }
+
+        /* Table Rows */
+        .table-row {
+            border-bottom: 1px solid #bdc3c7;
+        }
+
+        .table-row.even {
+            background-color: #f8f9fa;
+        }
+
+        .table-row.odd {
+            background-color: #ffffff;
+        }
+
+        /* Table Cells */
+        .table-cell {
+            padding: 12px 20px;
+            font-size: 13px;
+            color: #2c3e50;
+            border-right: 1px solid #bdc3c7;
+        }
+
+        .table-cell.number {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .table-cell.name {
+            line-height: 1.4;
+        }
+
+        .table-cell.size {
+            text-align: center;
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+
+        .table-cell.actions {
+            text-align: center;
+            border-right: none;
+        }
+
+        /* Document Names */
+        .document-name {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .file-name {
+            font-size: 11px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            text-decoration: none;
+            border: 1px solid #2c3e50;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            transition: background-color 0.2s;
+        }
+
+        .btn-open {
+            background-color: #34495e;
+            color: #ffffff;
+        }
+
+        .btn-open:hover {
+            background-color: #2c3e50;
+        }
+
+        /* No Documents */
+        .no-documents {
+            padding: 40px 20px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14px;
+            background-color: #f8f9fa;
+        }
+
+        .no-documents-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .no-documents-message {
+            font-size: 12px;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-divider {
+            width: 1px;
+            height: 40px;
+            background-color: #bdc3c7;
+        }
+
+        /* Info Section */
+        .info-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .info-text {
+            color: #7f8c8d;
+            font-size: 12px;
             margin: 0;
+            line-height: 1.5;
         }
 
         @media print {
@@ -230,7 +424,7 @@
                 font-size: 10px !important;
             }
 
-            .page-header h1 {
+            .page-title {
                 font-size: 20px;
             }
 
@@ -238,7 +432,7 @@
                 margin: 0 10px;
             }
 
-            .stats-section div {
+            .stats-container {
                 flex-direction: column;
             }
 
@@ -253,7 +447,6 @@
         }
 
         @media (max-width: 480px) {
-
             .documents-table th:first-child,
             .documents-table td:first-child {
                 display: none;

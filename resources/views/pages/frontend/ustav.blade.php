@@ -27,15 +27,15 @@
                                     </th>
                                     <th
                                         style="padding: 15px 20px; text-align: left; font-weight: 600; font-size: 14px; color: #ffffff; border-right: 1px solid #2c3e50; text-transform: uppercase; letter-spacing: 0.5px;">
-                                        Название документа
+                                        {{ __('frontend.documents.file_name') }}
                                     </th>
                                     <th
                                         style="padding: 15px 20px; text-align: center; font-weight: 600; font-size: 14px; color: #ffffff; border-right: 1px solid #2c3e50; text-transform: uppercase; letter-spacing: 0.5px; width: 100px;">
-                                        Размер
+                                        {{ __('frontend.documents.file_size') }}
                                     </th>
                                     <th
                                         style="padding: 15px 20px; text-align: center; font-weight: 600; font-size: 14px; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px; width: 120px;">
-                                        Действия
+                                        {{ __('frontend.documents.actions') }}
                                     </th>
                                 </tr>
                             </thead>
@@ -113,7 +113,7 @@
                                                         style="display: inline-block; padding: 6px 12px; background-color: #34495e; color: #ffffff; text-decoration: none; border: 1px solid #2c3e50; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.3px; transition: background-color 0.2s;"
                                                         onmouseover="this.style.backgroundColor='#2c3e50'"
                                                         onmouseout="this.style.backgroundColor='#34495e'">
-                                                        ОТКРЫТЬ
+                                                        {{ __('frontend.documents.open_btn') }}
                                                     </a>
                                                 </div>
                                             </td>
@@ -123,8 +123,8 @@
                                     <tr>
                                         <td colspan="4"
                                             style="padding: 40px 20px; text-align: center; color: #7f8c8d; font-size: 14px; background-color: #f8f9fa;">
-                                           <div style="font-weight: 600; margin-bottom: 5px;">ДОКУМЕНТЫ НЕ НАЙДЕНЫ</div>
-                                            <div style="font-size: 12px;">В этом разделе пока нет ни одного документа.</div>
+                                           <div style="font-weight: 600; margin-bottom: 5px;">{{ __('frontend.documents.no_documents') }}</div>
+                                            <div style="font-size: 12px;">{{ __('frontend.documents.no_documents_desc') }}</div>
                                         </td>
                                     </tr>
                                 @endif
@@ -142,7 +142,7 @@
                                     {{ count($files) }}</div>
                                 <div
                                     style="font-size: 12px; color: #7f8c8d; text-transform: uppercase; letter-spacing: 0.5px;">
-                                    ВСЕГО ДОКУМЕНТОВ</div>
+                                    {{ __('frontend.documents.total_files') }}</div>
                             </div>
 
                             @php
@@ -162,7 +162,7 @@
                                     {{ formatFileSize($totalSize) }}</div>
                                 <div
                                     style="font-size: 12px; color: #7f8c8d; text-transform: uppercase; letter-spacing: 0.5px;">
-                                    ОБЩИЙ РАЗМЕР</div>
+                                    {{ __('frontend.documents.total_size') }}</div>
                             </div>
                         </div>
                     </div>
@@ -171,8 +171,7 @@
                     <div class="info-section"
                         style="margin-top: 30px; padding: 20px; background: #ffffff; border: 1px solid #ddd; text-align: center;">
                         <p style="color: #7f8c8d; font-size: 12px; margin: 0; line-height: 1.5;">
-                               В этом разделе размещены внутренние регламенты, положения и другие официальные документы общества.<br>
-                                Документы представлены в формате PDF и доступны для скачивания.
+                            {{ __('frontend.documents.info_text') }}
                         </p>
                     </div>
 

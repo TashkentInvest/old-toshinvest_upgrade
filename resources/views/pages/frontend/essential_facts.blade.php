@@ -8,35 +8,28 @@
                 <div class="t-width t-width_100">
 
                     <!-- Sahifa sarlavhasi -->
-                    <div class="page-header"
-                        style="text-align: center; margin: 40px 0; padding: 30px 20px; background: #ffffff; border: 1px solid #ddd;">
-                        <h1
-                            style="color: #2c3e50; font-size: 24px; font-weight: 600; margin-bottom: 8px; font-family: 'Times New Roman', serif;">
-                            Существенные факты
+                    <div class="page-header">
+                        <h1 class="page-title">
+                            {{ __('frontend.essential_facts.title') }}
                         </h1>
                     </div>
 
                     <!-- Hujjatlar jadvali -->
-                    <div class="documents-container" style="margin: 0 auto; max-width: 1000px; background: #ffffff;">
-                        <table class="documents-table"
-                            style="width: 100%; border-collapse: collapse; border: 2px solid #34495e; font-family: Arial, sans-serif;">
+                    <div class="documents-container">
+                        <table class="documents-table">
                             <thead>
-                                <tr style="background-color: #34495e;">
-                                    <th
-                                        style="padding: 15px 20px; text-align: left; font-weight: 600; font-size: 14px; color: #ffffff; border-right: 1px solid #2c3e50; text-transform: uppercase; letter-spacing: 0.5px;">
-                                        №
+                                <tr class="table-header">
+                                    <th class="table-header-cell number">
+                                        {{ __('frontend.essential_facts.number') }}
                                     </th>
-                                    <th
-                                        style="padding: 15px 20px; text-align: left; font-weight: 600; font-size: 14px; color: #ffffff; border-right: 1px solid #2c3e50; text-transform: uppercase; letter-spacing: 0.5px;">
-                                        Название документа
+                                    <th class="table-header-cell document-name">
+                                        {{ __('frontend.essential_facts.document_name') }}
                                     </th>
-                                    <th
-                                        style="padding: 15px 20px; text-align: center; font-weight: 600; font-size: 14px; color: #ffffff; border-right: 1px solid #2c3e50; text-transform: uppercase; letter-spacing: 0.5px; width: 100px;">
-                                        Размер
+                                    <th class="table-header-cell size">
+                                        {{ __('frontend.essential_facts.size') }}
                                     </th>
-                                    <th
-                                        style="padding: 15px 20px; text-align: center; font-weight: 600; font-size: 14px; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px; width: 120px;">
-                                        Действия
+                                    <th class="table-header-cell actions">
+                                        {{ __('frontend.essential_facts.actions') }}
                                     </th>
                                 </tr>
                             </thead>
@@ -79,11 +72,11 @@
                                     function formatFileSize($size)
                                     {
                                         if ($size >= 1048576) {
-                                            return number_format($size / 1048576, 1, ',', ' ') . ' МБ';
+                                            return number_format($size / 1048576, 1, ',', ' ') . ' ' . __('frontend.essential_facts.mb');
                                         } elseif ($size >= 1024) {
-                                            return number_format($size / 1024, 1, ',', ' ') . ' КБ';
+                                            return number_format($size / 1024, 1, ',', ' ') . ' ' . __('frontend.essential_facts.kb');
                                         } else {
-                                            return $size . ' Б';
+                                            return $size . ' ' . __('frontend.essential_facts.b');
                                         }
                                     }
                                 @endphp
@@ -95,23 +88,19 @@
                                             $filePath = $folderPath . '/' . $firstFile;
                                             $fileSize = file_exists($filePath) ? filesize($filePath) : 0;
                                             $fileCount = count($fileGroup);
-                                            $displayName = 'Существенные факты ' . $number;
+                                            $displayName = __('frontend.essential_facts.fact_title') . ' ' . $number;
                                         @endphp
 
-                                        <tr
-                                            style="border-bottom: 1px solid #bdc3c7; @if ($loop->index % 2 == 0) background-color: #f8f9fa; @else background-color: #ffffff; @endif">
-                                            <td
-                                                style="padding: 12px 20px; font-size: 13px; color: #2c3e50; border-right: 1px solid #bdc3c7; text-align: center; font-weight: 600;">
+                                        <tr class="table-row @if ($loop->index % 2 == 0) even @else odd @endif">
+                                            <td class="table-cell number">
                                                 {{ $loop->iteration }}
                                             </td>
-                                            <td
-                                                style="padding: 12px 20px; font-size: 13px; color: #2c3e50; border-right: 1px solid #bdc3c7; line-height: 1.4;">
-                                                <div style="font-weight: 600; margin-bottom: 3px;">{{ $displayName }}</div>
-                                                <div style="font-size: 11px; color: #7f8c8d; font-style: italic;">
-                                                    {{ $fileCount }} {{ $fileCount > 1 ? 'документов' : 'документ' }}</div>
+                                            <td class="table-cell document-name">
+                                                <div class="document-title">{{ $displayName }}</div>
+                                                <div class="document-count">
+                                                    {{ $fileCount }} {{ $fileCount > 1 ? __('frontend.essential_facts.documents_plural') : __('frontend.essential_facts.documents_singular') }}</div>
                                             </td>
-                                            <td
-                                                style="padding: 12px 20px; text-align: center; font-size: 12px; color: #7f8c8d; border-right: 1px solid #bdc3c7;">
+                                            <td class="table-cell size">
                                                 @php
                                                     $totalSize = 0;
                                                     foreach ($fileGroup as $f) {
@@ -123,25 +112,20 @@
                                                 @endphp
                                                 {{ formatFileSize($totalSize) }}
                                             </td>
-                                            <td style="padding: 12px 20px; text-align: center;">
-                                                <div
-                                                    style="display: flex; flex-direction: column; gap: 4px; align-items: center;">
-                                                    <a href="{{ route('frontend.essential_facts.show', $number) }}"
-                                                        style="display: inline-block; padding: 6px 12px; background-color: #34495e; color: #ffffff; text-decoration: none; border: 1px solid #2c3e50; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.3px; transition: background-color 0.2s;"
-                                                        onmouseover="this.style.backgroundColor='#2c3e50'"
-                                                        onmouseout="this.style.backgroundColor='#34495e'">
-                                                        ОТКРЫТЬ
+                                            <td class="table-cell actions">
+                                                <div class="action-buttons">
+                                                    <a href="{{ route('frontend.essential_facts.show', $number) }}" class="btn btn-primary">
+                                                        {{ __('frontend.essential_facts.open') }}
                                                     </a>
                                                 </div>
                                             </td>
                                         </tr>
                                     @endforeach
                                 @else
-                                    <tr>
-                                        <td colspan="4"
-                                            style="padding: 40px 20px; text-align: center; color: #7f8c8d; font-size: 14px; background-color: #f8f9fa;">
-                                           <div style="font-weight: 600; margin-bottom: 5px;">ДОКУМЕНТЫ НЕ НАЙДЕНЫ</div>
-                                            <div style="font-size: 12px;">В этом разделе пока нет ни одного документа.</div>
+                                    <tr class="no-documents">
+                                        <td colspan="4" class="no-documents-cell">
+                                           <div class="no-documents-title">{{ __('frontend.essential_facts.no_documents_title') }}</div>
+                                            <div class="no-documents-message">{{ __('frontend.essential_facts.no_documents_message') }}</div>
                                         </td>
                                     </tr>
                                 @endif
@@ -150,16 +134,13 @@
                     </div>
 
                     <!-- Statistika -->
-                    <div class="stats-section"
-                        style="margin-top: 30px; padding: 20px; background: #f8f9fa; border: 1px solid #ddd;">
-                        <div
-                            style="display: flex; justify-content: space-around; align-items: center; max-width: 600px; margin: 0 auto; flex-wrap: wrap; gap: 20px;">
-                            <div style="text-align: center; padding: 15px;">
-                                <div style="font-size: 24px; font-weight: 700; color: #2c3e50; margin-bottom: 5px;">
+                    <div class="stats-section">
+                        <div class="stats-container">
+                            <div class="stats-item">
+                                <div class="stats-value">
                                     {{ count($groupedFiles) }}</div>
-                                <div
-                                    style="font-size: 12px; color: #7f8c8d; text-transform: uppercase; letter-spacing: 0.5px;">
-                                    КАТЕГОРИЙ ДОКУМЕНТОВ</div>
+                                <div class="stats-label">
+                                    {{ __('frontend.essential_facts.categories_count') }}</div>
                             </div>
 
                             @php
@@ -176,24 +157,21 @@
                                 }
                             @endphp
 
-                            <div style="width: 1px; height: 40px; background-color: #bdc3c7;"></div>
+                            <div class="stats-divider"></div>
 
-                            <div style="text-align: center; padding: 15px;">
-                                <div style="font-size: 24px; font-weight: 700; color: #2c3e50; margin-bottom: 5px;">
+                            <div class="stats-item">
+                                <div class="stats-value">
                                     {{ formatFileSize($totalSize) }}</div>
-                                <div
-                                    style="font-size: 12px; color: #7f8c8d; text-transform: uppercase; letter-spacing: 0.5px;">
-                                    ОБЩИЙ РАЗМЕР</div>
+                                <div class="stats-label">
+                                    {{ __('frontend.essential_facts.total_size') }}</div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Ma'lumot -->
-                    <div class="info-section"
-                        style="margin-top: 30px; padding: 20px; background: #ffffff; border: 1px solid #ddd; text-align: center;">
-                        <p style="color: #7f8c8d; font-size: 12px; margin: 0; line-height: 1.5;">
-                               В этом разделе размещены внутренние регламенты, положения и другие официальные документы общества.<br>
-                                Документы представлены в формате PDF и доступны для скачивания.
+                    <div class="info-section">
+                        <p class="info-text">
+                               {{ __('frontend.essential_facts.info_text') }}
                         </p>
                     </div>
 
@@ -204,20 +182,222 @@
 
     <!-- CSS -->
     <style>
+        .page-header {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px 20px;
+            background: #ffffff;
+            border: 1px solid #ddd;
+        }
+
+        .page-title {
+            color: #2c3e50;
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0;
+            margin-bottom: 8px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .documents-container {
+            margin: 0 auto;
+            max-width: 1000px;
+            background: #ffffff;
+        }
+
         .documents-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #34495e;
             font-family: Arial, sans-serif;
         }
 
-        .documents-table a {
-            text-decoration: none;
+        .table-header {
+            background-color: #34495e;
         }
 
-        .documents-table a:hover {
-            text-decoration: none;
+        .table-header-cell {
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #ffffff;
+            border-right: 1px solid #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .page-header h1 {
+        .table-header-cell.number {
+            text-align: left;
+        }
+
+        .table-header-cell.document-name {
+            text-align: left;
+        }
+
+        .table-header-cell.size {
+            text-align: center;
+            width: 100px;
+        }
+
+        .table-header-cell.actions {
+            text-align: center;
+            width: 120px;
+        }
+
+        .table-row {
+            border-bottom: 1px solid #bdc3c7;
+        }
+
+        .table-row.even {
+            background-color: #f8f9fa;
+        }
+
+        .table-row.odd {
+            background-color: #ffffff;
+        }
+
+        .table-cell {
+            padding: 12px 20px;
+            font-size: 13px;
+            color: #2c3e50;
+            border-right: 1px solid #bdc3c7;
+        }
+
+        .table-cell.number {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .table-cell.document-name {
+            line-height: 1.4;
+        }
+
+        .table-cell.size {
+            text-align: center;
+            font-size: 12px;
+            color: #7f8c8d;
+        }
+
+        .table-cell.actions {
+            text-align: center;
+        }
+
+        .document-title {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .document-count {
+            font-size: 11px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            transition: background-color 0.2s;
+            border: 1px solid;
+        }
+
+        .btn-primary {
+            background-color: #34495e;
+            color: #ffffff;
+            border-color: #2c3e50;
+        }
+
+        .btn-primary:hover {
+            background-color: #2c3e50;
+        }
+
+        .no-documents {
+            /* Inherits styles from table-row */
+        }
+
+        .no-documents-cell {
+            padding: 40px 20px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 14px;
+            background-color: #f8f9fa;
+        }
+
+        .no-documents-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .no-documents-message {
+            font-size: 12px;
+        }
+
+        .stats-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .stats-item {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .stats-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .stats-label {
+            font-size: 12px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stats-divider {
+            width: 1px;
+            height: 40px;
+            background-color: #bdc3c7;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .info-text {
+            color: #7f8c8d;
+            font-size: 12px;
             margin: 0;
+            line-height: 1.5;
         }
 
         @media print {
@@ -247,12 +427,12 @@
                 padding: 8px 12px;
             }
 
-            .documents-table a {
+            .btn {
                 padding: 4px 8px !important;
                 font-size: 10px !important;
             }
 
-            .page-header h1 {
+            .page-title {
                 font-size: 20px;
             }
 
@@ -260,29 +440,19 @@
                 margin: 0 10px;
             }
 
-            .stats-section div {
+            .stats-container div {
                 flex-direction: column;
-            }
-
-            .signature-section {
-                text-align: center;
-            }
-
-            .signature-section>div {
-                flex-direction: column;
-                text-align: center;
             }
         }
 
         @media (max-width: 480px) {
-
-            .documents-table th:first-child,
-            .documents-table td:first-child {
+            .table-header-cell:first-child,
+            .table-cell:first-child {
                 display: none;
             }
 
-            .documents-table th:nth-child(3),
-            .documents-table td:nth-child(3) {
+            .table-header-cell.size,
+            .table-cell.size {
                 display: none;
             }
         }

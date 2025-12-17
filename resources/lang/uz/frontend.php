@@ -231,6 +231,31 @@ return [
         'info_text' => 'Ushbu bo\'limda ichki qoidalar, nizomlar va jamiyatning boshqa rasmiy hujjatlari joylashtirilgan. Hujjatlar PDF formatida taqdim etilgan va yuklab olish mumkin.',
     ],
 
+    // Regulations
+    'regulations' => [
+        'title' => 'Nizomlar',
+        'number' => '№',
+        'document_name' => 'Hujjat nomi',
+        'size' => 'Hajmi',
+        'action' => 'Harakat',
+        'russian_version' => 'Rus tilida',
+        'english_version' => 'Ingliz tilida',
+        'no_documents' => 'Hujjatlar topilmadi.',
+    ],
+
+    // Governance Assessment
+    'governance_assessment' => [
+        'title' => 'Korporativ boshqaruv tizimini baholash natijalari',
+        'number' => '№',
+        'document_name' => 'Hujjat nomi',
+        'size' => 'Hajmi',
+        'actions' => 'Harakatlar',
+        'no_documents_title' => 'HUJJATLAR TOPILMADI',
+        'no_documents_message' => 'Ushbu bo\'limda hali hujjatlar mavjud emas.',
+        'total_documents' => 'JAMI HUJJATLAR',
+        'info_text' => 'Korporativ boshqaruv tizimini baholash qonunchilik talablari asosida amalga oshiriladi. Hujjatlar PDF formatda taqdim etilgan va yuklab olish mumkin.',
+    ],
+
     // Footer
     'footer' => [
         'about_company' => 'Kompaniya haqida',
@@ -300,5 +325,191 @@ return [
         'documents' => 'Tender hujjatlari',
         'requirements' => 'Talablar',
         'location' => 'Joylashuv',
+    ],
+
+    // About Page
+    'about' => [
+        'title' => 'Kompaniya haqida',
+        'subtitle' => 'Toshkent Invest Kompaniyasining tarixi, missiyasi va maqsadlari',
+        'description' => 'Aksiyadorlik jamiyati "Kompaniya Toshkent Invest" O\'zbekiston Respublikasi Prezidentining 26.07.2023 yildagi № UP-112 "Toshkent shahrida 2030 yilgacha ijtimoiy-iqtisodiy rivojlanish choralari to\'g\'risida" farmoni asosida poytaxt hokimiyati tashabbusi bilan tashkil etilgan.<br><br>
+
+Jamiyatning ustav kapitali Toshkent shahri hokimligining qarorlariga asosan Toshkent shahri xalq deputatlari kengashining qarorlariga hamda qonunchilik tomonidan taqiqlanmagan boshqa mablag\'lar hisobiga bosqichma-bosqich 1 trillion so\'m miqdorida shahar byudjeti qo\'shimcha manbalari hisobidan shakllantirilishi belgilangan; Jamiyatning alohida yo\'nalishlari bo\'yicha loyiha ofislarini yaratish va moliyalashtirish masalalari uning Kuzatuv kengashi tomonidan hal etiladi.<br><br>
+
+Jamiyat faoliyatining maqsadi — Jamiyat davlat va tadbirkorlik sub\'ektlari o\'rtasidagi "ko\'priq" vazifasini bajaradi va poytaxt infratuzilmasini rivojlantirishga yordam beradi.<br><br>
+
+Kompaniyaning asosiy faoliyat yo\'nalishlari quyidagilardir:<br>
+– Shahar aktivlarining holatini tahlil qilish, mavjud resurslarni aniqlash va ularning samarali foydalanish imkoniyatlarini oshirish, shuningdek, ularni samarali foydalanish bo\'yicha tegishli takliflarni ishlab chiqish;<br>
+– Shahar aktivlarini boshqarish, ular asosida davlat-shaxsiy hamkorlik loyihalarini amalga oshirish, jumladan, davlat hamkor sifatida, shuningdek, bunday loyihalarning samaralisligini monitoring qilish va baholash;<br>
+– Shahar mulkining investitsion jalb qilish qobiliyatini oshirish, ular asosida investitsion loyihalarni amalga oshirish, jumladan, xususiy investorlarni jalb qilish;<br>
+– Toshkent shahri infratuzilmasini rivojlantirish bilan bog\'liq bo\'lgan tadbirkorlik sub\'ektlarining istiqbolli loyihalarini moliyalashtirishda ularning moliyaviy jalb qilish qobiliyati va samaradorligiga qarab ishtirok etish;<br>
+– Toshkentning alohida tumanlarini rivojlantirish va renovatsiya qilish dasturlarini, master-rejani va qurilish rejalashtirilgan ob\'ektlar uchun loyiha hujjatlarini tuzish;<br>
+– Toshkentda qurilish va rekonstruksiya ishlarini muvofiqlashtirish, shuningdek, infratuzilma tarmoqlariga ulanish jarayonlarini amalga oshirish.<br><br>
+
+26.07.2023 yildagi O\'zbekiston Respublikasi Prezidentining № UP-112 farmonining 8-bandiga asosan Jamiyat faoliyatining ochiqlikini ta\'minlash va jamoat oldida javobgarlikni ta\'minlash maqsadida quyidagicha tartib belgilangan:<br>
+Jamiyat xalqaro moliyaviy hisobotlash standartlariga muvofiq moliyaviy hisobot tuzadi va 2025 yildan boshlab har yili 1 avgustgacha "katta to\'rtlik"ga kiruvchi auditorlik kompaniyalari tomonidan Xalqaro audit standartlari asosida tashqi auditdan o\'tkazilgandan so\'ng Toshkent shahri hokimiyatining rasmiy veb-saytida joylashtiradi;<br>
+2025 yildan boshlab Jamiyatning moliyaviy va moliyaviy bo\'lmagan hisobotlari, shuningdek, unga nisbatan tijorat va notijorat maqsadlar veb-saytida joylashtiriladi.',
+    ],
+
+    // Board Pages
+    'board' => [
+        'title' => 'Boshqaruv',
+        'subtitle' => 'AJ "Toshkent Invest Kompaniyasi"ning kompaniya faoliyatini operativ boshqaruvchi ijroiya organi',
+        'executive_body' => 'Ijroiya organi',
+        'management' => 'Rahbariyat',
+        'general_director' => 'Bosh direktor',
+        'phone' => 'Telefon',
+        'email' => 'Elektron pochta',
+        'reception_days' => 'Qabul kunlari',
+        'by_appointment' => 'Oldindan yozilish bo\'yicha',
+        'deputy_strategy' => 'Boshqaruv raisi o\'rinbosari strategik rivojlanish bo\'yicha',
+        'deputy_projects' => 'Boshqaruv raisi o\'rinbosari loyihalarni boshqarish (sanoat) bo\'yicha',
+        'biography' => 'SHAXSIY TARJIMAI HOL',
+        'work_history' => 'Mehnat faoliyati',
+        'bio_button' => 'Tarjimai hol va majburiyatlari',
+        'members' => [
+            'shakirov_name' => 'Shakirov Bahrom Askaralievich',
+            'shakirov_bio' => 'Shakirov Bahrom Askaralievich 1977 yilda tug\'ilgan. Qimmatli qog\'ozlar bozorini tartibga solish, davlat boshqaruvi, sanoat va korporativ boshqaruv sohalarida ko\'p yillik tajribaga ega. Yaponiya Xalqaro Universitetida (International University of Japan) magistr darajasini olgan.',
+            'shakirov_work' => '<li>1994-1999 yy. — Toshkent davlat agrar universiteti talabasi</li>
+<li>1999-2001 yy. — Qimmatli qog\'ozlar bozori faoliyatini muvofiqlashtirish va nazorat qilish markazi – bosh mutaxassis, boshqarma boshlig\'i</li>
+<li>2001-2004 yy. — IIV Toshkent shahar IIBB inspektori</li>
+<li>2004-2005 yy. — Davlat mulkini boshqarish davlat qo\'mitasi – bosh mutaxassis</li>
+<li>2005-2013 yy. — Qimmatli qog\'ozlar bozori markazi – bosh mutaxassis, boshqarma boshlig\'i, hududiy boshqarma boshlig\'i</li>
+<li>2013-2015 yy. — International University of Japan – magistratura talabasi</li>
+<li>2015-2017 yy. — QQB markazi – Toshkent shahar boshqarma boshlig\'i</li>
+<li>2017-2017 yy. — QQB markazi – Bosh direktor</li>
+<li>2017-2018 yy. — Raqobatni rivojlantirish qo\'mitasi – boshqarma boshlig\'i</li>
+<li>2018-2019 yy. — "O\'zmetkombinat" AJ – ijtimoiy rivojlanish boshqarmasi boshlig\'i v.b.</li>
+<li>2019-2019 yy. — Davlat aktivlarini boshqarish agentligi – Toshkent shahar boshqarma boshlig\'i v.b.</li>
+<li>2019-2020 yy. — "Auto Universal Servis" MCHJ – bosh direktor</li>
+<li>2020-2021 yy. — "O\'zavtosanoat" AJ – xodimlar bilan ishlash boshqarmasi boshlig\'i</li>
+<li>2021-2022 yy. — "UzAuto Passenger Vehicles Management" MCHJ – korporativ munosabatlar xizmati boshlig\'i</li>
+<li>2022-2023 yy. — "Autosanoat Invest" MCHJ – Bosh direktor o\'rinbosari</li>
+<li>2023-2023 yy. — Toshkent shahar hokimligi Municipal aktivlarni boshqarish markazi – Bosh direktorning birinchi o\'rinbosari</li>
+<li>2023-2024 yy. — "Toshkent Invest Kompaniyasi" AJ – Boshqaruv raisi v.v.b.</li>
+<li>2024 y. – h.v. — "Toshkent Invest Kompaniyasi" AJ – Boshqaruv raisi</li>',
+            'kodirov_name' => 'Qodirov Rustam Shuxratovich',
+            'kodirov_bio' => 'Qodirov Rustam Shuxratovich 2002-2005 yillarda Vestminster universitetida tahsil olgan. U "O\'zavtosanoat" tizimidagi qator yirik kompaniyalarda xaridlar, strategik rivojlanish va transformatsiya sohalarida yuqori lavozimlarda faoliyat yuritgan. Korxona rivoji uchun istiqbolli loyihalarni boshqarish va strategik tahlil sohalarida katta tajribaga ega.',
+            'kodirov_work' => '<li>2002-2005 yy. — Vestminster universiteti talabasi (bakalavr)</li>
+<li>2011-2018 yy. — "JV MAN Auto-Uzbekistan" MCHJ qo\'shma korxonasi – xaridlar va lokalizatsiya bo\'limi mutaxassisi, yetakchi agent, bosh mutaxassis</li>
+<li>2017-2018 yy. — "UzAuto TRAILER" MCHJ – istiqbolli rivojlanish va innovatsiyalar departamenti direktori</li>
+<li>2018-2021 yy. — "O\'zavtosanoat" AJ – strategik rejalashtirish, tahlil va rivojlanish boshqarmasi boshlig\'i</li>
+<li>2021-2022 yy. — "O\'zavtosanoat" AJ – Transformatsiya ofisi rahbari</li>
+<li>2022-2023 yy. — "Uzchasys" qo\'shma korxonasi MCHJ – Bosh direktor</li>
+<li>2023-2024 yy. — "O\'zavtosanoat" AJ – Tashqi iqtisodiy kooperatsiya, investitsiya va innovatsiya departamenti direktori</li>
+<li>2024 y. – h.v. — "Toshkent Invest Kompaniyasi" AJ – Strategik rivojlanish masalalari bo\'yicha Boshqaruv raisi o\'rinbosari</li>',
+            'otahonova_name' => 'Otaxonova Nargizaxon Ganievna',
+            'otahonova_bio' => 'Otaxonova Nargizaxon Ganievna 1997-2002 yillarda Andijon muhandislik-iqtisodiyot institutida tahsil olgan. Iqtisod va korporativ boshqaruv sohalarida 25 yildan ziyo\'d amaliy tajribaga ega. U turli xususiy va davlat korxonalarda rahbar lavozimlarda ishlab, loyihalarni boshqarish, korporativ boshqaruv va qimmatli qog\'ozlar bozorini muvofiqlashtirish sohalarida katta tajriba orttirgan.',
+            'otahonova_work' => '<li>1997-2002 yy. — Andijon muhandislik-iqtisodiyot instituti talabasi</li>
+<li>1997-1999 yy. — "Sohibqiron" MCHJ – operator</li>
+<li>1999-2006 yy. — "Davinkom" GIF – marketing bo\'yicha bosh mutaxassis, bo\'lim boshlig\'i</li>
+<li>2006-2010 yy. — "TREPANG" MCHJ – direktor</li>
+<li>2010-2013 yy. — QQB markazi – emitentlar faoliyatini nazorat qilish bo\'limi bosh mutaxassisi</li>
+<li>2015-2019 yy. — QQB markazi – qonunchilikni takomillashtirish va tahlil bo\'limi boshlig\'i</li>
+<li>2019-2019 yy. — "UzAuto Motors" AJ – korporativ boshqaruv bo\'limi boshlig\'i</li>
+<li>2019-2023 yy. — "UzAuto Motors" AJ – Bosh direktorning birinchi o\'rinbosari maslahatchisi</li>
+<li>2023-2024 yy. — "UzAuto Motors" AJ – Xarid qilish bo\'yicha boshqaruvchi direktor v.v.b.</li>
+<li>2024 y. – h.v. — "Toshkent Invest Kompaniyasi" AJ – Loyiha boshqaruvi bo\'yicha Boshqaruv raisi o\'rinbosari</li>',
+        ]
+    ],
+
+    // Documents
+    'docs' => [
+        'code_of_ethics' => 'Korporativ axloq kodeksi',
+        'corporate_governance_code' => 'Korporativ boshqaruv kodeksi',
+        'corporate_governance_rules' => 'Korporativ boshqaruv qoidalari',
+        'view' => 'Ko\'rish',
+        'title' => 'Korporativ boshqaruv kodeksi va qoidalari',
+    ],
+
+    // Supervisory Board
+    'supervisory' => [
+        'title' => 'AJ "Toshkent Invest Kompaniyasi" Kuzatuv kengashi',
+        'management' => 'Rahbariyat',
+        'phone' => 'Telefon',
+        'email' => 'Elektron pochta',
+        'independent_member' => 'Kuzatuv kengashining mustaqil a\'zosi',
+        'chairman_name' => 'Umurzakov Shavkat Buranovich',
+        'chairman_position' => 'Toshkent shahar hokimi',
+        'member1_name' => 'Haydarov Bahtiyor Halimovich',
+        'member1_position' => 'Toshkent shahar Hokimining birinchi o\'rinbosari',
+        'member2_name' => 'Rahmanov Sharof Dierovich',
+        'member2_position' => 'Toshkent shahar Hokimining o\'rinbosari - investitsiyalar, sanoat va tashqi savdo bo\'limi boshlig\'i',
+    ],
+
+    // Committees
+    'committees' => [
+        'title' => 'Kuzatuv kengashi qoshidagi qo\'mitalar',
+        'subtitle' => 'AJ "Toshkent Invest Kompaniyasi" Kuzatuv kengashi qoshidagi qo\'mitalarning taklif etilgan tarkibi',
+        'structural_divisions' => 'Tarkibiy bo\'linmalar',
+        'committees' => 'Qo\'mitalar',
+        'audit_committee' => 'Audit qo\'mitasi',
+        'strategy_committee' => 'Strategiya va investitsiyalar qo\'mitasi',
+        'full_name' => 'F.I.O.',
+        'role_in_committee' => 'Qo\'mitadagi roli',
+        'chairman' => 'Rais',
+        'member' => 'A\'zo',
+        'committee_chairman' => 'Qo\'mita raisi',
+        'committee_member' => 'Qo\'mita a\'zosi',
+    ],
+
+    // Share Structure
+    'share' => [
+        'title' => 'Yagona aksiyador',
+        'subtitle' => 'AJ "Toshkent Invest Kompaniyasi"ning strategik boshqaruv va kompaniya faoliyatini nazorat qilishni ta\'minlovchi boshqaruv organi',
+        'governing_body' => 'Boshqaruv organi',
+        'structure_title' => 'Aksiyadorlik kapitali tuzilmasi',
+        'issue_volume' => 'Aksiyalar emissiyasi hajmi',
+        'issue_value' => '100 mlrd',
+        'million_sum' => '(mln so\'m)',
+        'shares_count' => 'Aksiyalar soni',
+        'shares_value' => '100 mlrd',
+        'pieces' => '(dona)',
+        'hokimiyat_share' => 'Shahar hokimiyatining ulushi',
+        'in_charter_capital' => 'ustav kapitalida',
+        'shareholder' => 'Aksiyador',
+        'sole' => 'yagona',
+    ],
+
+
+    // Essential Facts
+    'essential_facts' => [
+        'title' => 'Muhim faktlar',
+        'number' => '№',
+        'document_name' => 'Hujjat nomi',
+        'size' => 'Hajmi',
+        'actions' => 'Harakatlar',
+        'fact_title' => 'Muhim faktlar',
+        'documents_singular' => 'hujjat',
+        'documents_plural' => 'hujjatlar',
+        'open' => 'OCHISH',
+        'no_documents_title' => 'HUJJATLAR TOPILMADI',
+        'no_documents_message' => 'Ushbu bo\'limda hali hujjatlar mavjud emas.',
+        'categories_count' => 'HUJJATLAR KATEGORIYALARI',
+        'total_size' => 'UMUMIY HAJMI',
+        'info_text' => 'Ushbu bo\'limda korxona ichki tartib qoidalar, nizomlar va boshqa rasmiy hujjatlari joylashtirilgan. Hujjatlar PDF formatda taqdim etilgan va yuklab olish mumkin.',
+        'mb' => 'MB',
+        'kb' => 'KB',
+        'b' => 'B',
+    ],
+
+    // NPA
+    'npa' => [
+        'title' => 'Normativ huquqiy hujjat',
+        'number' => '№',
+        'document_name' => 'Hujjat nomi',
+        'actions' => 'Harakatlar',
+        'download' => 'YUKLAB OLISH',
+        'info_text' => 'Ushbu bo\'limda ichki tartib qoidalar, nizomlar va korxonaning boshqa rasmiy hujjatlari joylashtirilgan. Hujjatlar PDF formatda taqdim etilgan va yuklab olish mumkin.',
+    ],
+
+    // Share Purchase
+    'share_purchase' => [
+        'title' => 'Korxona tomonidan aktsiyalarni sotib olish to\'g\'risida ma\'lumot',
+    ],
+
+    // Charter Capital
+    'charter_capital' => [
+        'title' => 'Ustav fond',
+        'content' => 'AJ "Toshkent Invest Kompaniyasi"ning Ustav fondi hajmi 100 000 000 000 so\'mni tashkil qiladi, 100 000 000 000 dona oddiy aktsiyalarga (hujjatsiz) bo\'lingan, nominal qiymati 1 so\'m',
     ],
 ];

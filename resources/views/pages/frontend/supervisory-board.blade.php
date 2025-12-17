@@ -23,11 +23,11 @@
                 <img src="https://tashkent.uz/_next/image?url=https%3A%2F%2Fapi.tashkent.uz%2Fupload%2Fgovernance%2Fstructure%2F29d0dec1019b53a9cf367bb3e222252c.jpg&w=750&q=75" alt="Умурзаков Шавкат Буранович">
             </div>
             <div class="profile-info">
-                <h2 class="profile-name">Умурзаков Шавкат Буранович</h2>
-                <p class="profile-position">Хоким города Ташкента</p>
+                <h2 class="profile-name">{{ __('frontend.supervisory.chairman_name') }}</h2>
+                <p class="profile-position">{{ __('frontend.supervisory.chairman_position') }}</p>
                 <div class="profile-details">
-                    <p><strong>Телефон:</strong> 71 210-01-10</p>
-                    <p><strong>Эл. почта:</strong> sh.umurzakov@tashkent.uz</p>
+                    <p><strong>{{ __('frontend.supervisory.phone') }}:</strong> 71 210-01-10</p>
+                    <p><strong>{{ __('frontend.supervisory.email') }}:</strong> sh.umurzakov@tashkent.uz</p>
                 </div>
             </div>
         </div>
@@ -45,8 +45,8 @@
                     <img src="https://tashkent.uz/_next/image?url=https%3A%2F%2Fapi.tashkent.uz%2Fupload%2Fgovernance%2Fstructure%2F18e9ee1d9a016face3bb4d850ed7e36e.jpg&w=750&q=75" alt="Хайдаров Бахтиёр Халимович">
                 </div>
                 <div class="member-info">
-                    <h3 class="member-name">Хайдаров Бахтиёр Халимович</h3>
-                    <p class="member-position">Первый заместитель Хокима города Ташкента</p>
+                    <h3 class="member-name">{{ __('frontend.supervisory.member1_name') }}</h3>
+                    <p class="member-position">{{ __('frontend.supervisory.member1_position') }}</p>
                     <p class="member-contact">{{ __('frontend.supervisory.phone') }}: 71 207-20-77</p>
                     <p class="member-contact">{{ __('frontend.supervisory.email') }}: b.xaydarov@tashkent.uz</p>
                 </div>
@@ -58,8 +58,8 @@
                     <img src="https://tashkent.uz/_next/image?url=https%3A%2F%2Fapi.tashkent.uz%2Fupload%2Fgovernance%2Fstructure%2F111.jpg&w=750&q=75" alt="Рахманов Шароф Диерович">
                 </div>
                 <div class="member-info">
-                    <h3 class="member-name">Рахманов Шароф Диерович</h3>
-                    <p class="member-position">Заместитель Хокима города Ташкента — начальник управления инвестиций, промышленности и внешней торговли</p>
+                    <h3 class="member-name">{{ __('frontend.supervisory.member2_name') }}</h3>
+                    <p class="member-position">{{ __('frontend.supervisory.member2_position') }}</p>
                     <p class="member-contact">{{ __('frontend.supervisory.phone') }}: 71 210-02-50</p>
                     <p class="member-contact">{{ __('frontend.supervisory.email') }}: sh.raxmanov@tashkent.uz</p>
                 </div>

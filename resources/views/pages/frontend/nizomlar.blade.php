@@ -50,63 +50,168 @@
 @endphp
 
 <style>
+    /* Container */
+    .documents-container {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    /* Section Header */
+    .section-header {
+        text-align: center;
+        margin: 40px 0 20px;
+    }
+
+    .language-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #34495e;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* Documents Table */
     .documents-table {
         width: 100%;
         border-collapse: collapse;
         font-family: Arial, sans-serif;
         margin-bottom: 40px;
     }
-    .documents-table th, .documents-table td {
+
+    /* Table Header */
+    .table-header-cell {
         padding: 12px 15px;
         border: 1px solid #ddd;
         font-size: 13px;
-    }
-    .documents-table th {
         background-color: #34495e;
         color: #fff;
         text-transform: uppercase;
     }
-    .documents-table td a {
+
+    .table-header-cell.number {
+        text-align: center;
+    }
+
+    .table-header-cell.name {
+        text-align: left;
+    }
+
+    .table-header-cell.size {
+        text-align: center;
+    }
+
+    .table-header-cell.action {
+        text-align: center;
+    }
+
+    /* Table Rows */
+    .table-row {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .table-row.even {
+        background-color: #f8f9fa;
+    }
+
+    .table-row.odd {
+        background-color: #ffffff;
+    }
+
+    /* Table Cells */
+    .table-cell {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        font-size: 13px;
+    }
+
+    .table-cell.number {
+        text-align: center;
+    }
+
+    .table-cell.name {
+        text-align: left;
+    }
+
+    .table-cell.size {
+        text-align: center;
+    }
+
+    .table-cell.action {
+        text-align: center;
+    }
+
+    /* Buttons */
+    .btn {
         padding: 6px 12px;
-        background: #2c3e50;
-        color: #fff;
         text-decoration: none;
         display: inline-block;
         font-size: 11px;
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-    }
-    .section-header {
-        text-align: center;
-        margin: 40px 0 20px;
-    }
-    .section-header button {
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #34495e;
-        color: #fff;
         border: none;
+        cursor: pointer;
     }
+
+    .btn-download {
+        background: #2c3e50;
+        color: #fff;
+    }
+
+    .btn-download:hover {
+        background: #1a252f;
+    }
+
+    /* File Name */
     .filename-small {
         font-size: 11px;
         color: #7f8c8d;
         font-style: italic;
     }
+
+    /* No Documents */
+    .no-documents {
+        text-align: center;
+        color: #999;
+        padding: 40px 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .documents-table {
+            font-size: 12px;
+        }
+
+        .table-header-cell,
+        .table-cell {
+            padding: 8px 10px;
+        }
+
+        .language-button {
+            padding: 8px 16px;
+            font-size: 14px;
+        }
+
+        .btn {
+            padding: 4px 8px;
+            font-size: 10px;
+        }
+    }
 </style>
 
 {{-- Russian Section --}}
-<div class="documents-container" style="max-width: 1000px; margin: 0 auto;">
+<div class="documents-container">
     <div class="section-header">
-        <button>На русском</button>
+        <button class="language-button">{{ __('frontend.regulations.russian_version') }}</button>
     </div>
     <table class="documents-table">
         <thead>
             <tr>
-                <th>№</th>
-                <th>Название документа</th>
-                <th>Размер</th>
-                <th>Действие</th>
+                <th class="table-header-cell number">{{ __('frontend.regulations.number') }}</th>
+                <th class="table-header-cell name">{{ __('frontend.regulations.document_name') }}</th>
+                <th class="table-header-cell size">{{ __('frontend.regulations.size') }}</th>
+                <th class="table-header-cell action">{{ __('frontend.regulations.action') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -116,20 +221,20 @@
                     $size = file_exists($fullPath) ? formatFileSize(filesize($fullPath)) : '0 Б';
                     $display = pathinfo($file, PATHINFO_FILENAME);
                 @endphp
-                <tr style="background-color: {{ $i % 2 === 0 ? '#f8f9fa' : '#ffffff' }};">
-                    <td style="text-align: center;">{{ $i + 1 }}</td>
-                    <td>
+                <tr class="table-row @if ($i % 2 === 0) even @else odd @endif">
+                    <td class="table-cell number">{{ $i + 1 }}</td>
+                    <td class="table-cell name">
                         <strong>{{ $display }}</strong><br>
                         <span class="filename-small">{{ $file }}</span>
                     </td>
-                    <td style="text-align: center;">{{ $size }}</td>
-                    <td style="text-align: center;">
-                        <a href="{{ asset('assets/frontend/nizomlar/' . $file) }}" target="_blank" style="color: white">Скачать</a>
+                    <td class="table-cell size">{{ $size }}</td>
+                    <td class="table-cell action">
+                        <a href="{{ asset('assets/frontend/nizomlar/' . $file) }}" target="_blank" class="btn btn-download">{{ __('frontend.common.download') }}</a>
                     </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="4" style="text-align: center; color: #999;">Документы не найдены.</td>
+                    <td colspan="4" class="no-documents">{{ __('frontend.regulations.no_documents') }}</td>
                 </tr>
             @endforelse
         </tbody>
@@ -137,17 +242,17 @@
 </div>
 
 {{-- English Section --}}
-<div class="documents-container" style="max-width: 1000px; margin: 0 auto;">
+<div class="documents-container">
     <div class="section-header">
-        <button>In English</button>
+        <button class="language-button">{{ __('frontend.regulations.english_version') }}</button>
     </div>
     <table class="documents-table">
         <thead>
             <tr>
-                <th>#</th>
-                <th>Document Name</th>
-                <th>Size</th>
-                <th>Action</th>
+                <th class="table-header-cell number">{{ __('frontend.regulations.number') }}</th>
+                <th class="table-header-cell name">{{ __('frontend.regulations.document_name') }}</th>
+                <th class="table-header-cell size">{{ __('frontend.regulations.size') }}</th>
+                <th class="table-header-cell action">{{ __('frontend.regulations.action') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -157,20 +262,20 @@
                     $size = file_exists($fullPath) ? formatFileSize(filesize($fullPath)) : '0 B';
                     $display = pathinfo($file, PATHINFO_FILENAME);
                 @endphp
-                <tr style="background-color: {{ $i % 2 === 0 ? '#f8f9fa' : '#ffffff' }};">
-                    <td style="text-align: center;">{{ $i + 1 }}</td>
-                    <td>
+                <tr class="table-row @if ($i % 2 === 0) even @else odd @endif">
+                    <td class="table-cell number">{{ $i + 1 }}</td>
+                    <td class="table-cell name">
                         <strong>{{ $display }}</strong><br>
                         <span class="filename-small">{{ $file }}</span>
                     </td>
-                    <td style="text-align: center;">{{ $size }}</td>
-                    <td style="text-align: center;">
-                        <a href="{{ asset('assets/frontend/nizomlar/' . $file) }}" target="_blank" style="color: white">Download</a>
+                    <td class="table-cell size">{{ $size }}</td>
+                    <td class="table-cell action">
+                        <a href="{{ asset('assets/frontend/nizomlar/' . $file) }}" target="_blank" class="btn btn-download">{{ __('frontend.common.download') }}</a>
                     </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="4" style="text-align: center; color: #999;">No documents found.</td>
+                    <td colspan="4" class="no-documents">{{ __('frontend.regulations.no_documents') }}</td>
                 </tr>
             @endforelse
         </tbody>

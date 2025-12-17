@@ -24,10 +24,10 @@
         {{-- Chairman Profile --}}
         <div class="chairman-profile">
             <div class="profile-photo">
-                <img src="{{asset('assets/users_img/5.Шакиров Бахром Аскаралиевич.jpg')}}" alt="Шакиров Бахром Аскаралиевич">
+                <img src="{{asset('assets/users_img/5.Шакиров Бахром Аскаралиевич.jpg')}}" alt="{{ __('frontend.board.members.shakirov_name') }}">
             </div>
             <div class="profile-info">
-                <h2 class="profile-name">Шакиров Бахром Аскаралиевич</h2>
+                <h2 class="profile-name">{{ __('frontend.board.members.shakirov_name') }}</h2>
                 <p class="profile-position">{{ __('frontend.board.general_director') }}</p>
                 <div class="profile-details">
                     <p><strong>{{ __('frontend.board.phone') }}:</strong> +998 (71) 210 02 61</p>
@@ -48,28 +48,28 @@
             {{-- Member 1 --}}
             <div class="member-card">
                 <div class="member-photo">
-                    <img style="object-fit:contain" src="{{asset('assets/users_img/6.Кодиров Рустам Шухратович.jpg')}}" alt="Кодиров Рустам Шухратович">
+                    <img style="object-fit:contain" src="{{asset('assets/users_img/6.Кодиров Рустам Шухратович.jpg')}}" alt="{{ __('frontend.board.members.kodirov_name') }}">
                 </div>
                 <div class="member-info">
-                    <h3 class="member-name">Қодиров Рустам Шухратович</h3>
+                    <h3 class="member-name">{{ __('frontend.board.members.kodirov_name') }}</h3>
                     <p class="member-position">{{ __('frontend.board.deputy_strategy') }}</p>
                     <p class="member-contact">{{ __('frontend.board.phone') }}: +998 (71) 210 02 61</p>
                     <p class="member-contact">{{ __('frontend.board.email') }}: rustam.kodirov@tashkentinvest.com</p>
-                    {{-- <button class="bio-button" onclick="openModal('modal-1')">Биография и обязанности</button> --}}
+                    {{-- <button class="bio-button" onclick="openModal('modal-1')">{{ __('frontend.board.bio_button') }}</button> --}}
                 </div>
             </div>
 
             {{-- Member 2 --}}
             <div class="member-card">
                 <div class="member-photo">
-                    <img style="object-fit:contain" src="{{asset('assets/users_img/Nargiza_25-12-02_10-59-13.jpg')}}" alt="Отахонова Наргизахон Ганиевна">
+                    <img style="object-fit:contain" src="{{asset('assets/users_img/Nargiza_25-12-02_10-59-13.jpg')}}" alt="{{ __('frontend.board.members.otahonova_name') }}">
                 </div>
                 <div class="member-info">
-                    <h3 class="member-name">Отахонова Наргизахон Ганиевна</h3>
+                    <h3 class="member-name">{{ __('frontend.board.members.otahonova_name') }}</h3>
                     <p class="member-position">{{ __('frontend.board.deputy_projects') }}</p>
                     <p class="member-contact">{{ __('frontend.board.phone') }}: +998 (71) 210 02 61</p>
                     <p class="member-contact">{{ __('frontend.board.email') }}: n.otahonova@tashkentinvest.com</p>
-                    {{-- <button class="bio-button" onclick="openModal('modal-2')">Биография и обязанности</button> --}}
+                    {{-- <button class="bio-button" onclick="openModal('modal-2')">{{ __('frontend.board.bio_button') }}</button> --}}
                 </div>
             </div>
         </div>
@@ -81,34 +81,14 @@
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('modal-chairman')">&times;</span>
 
-        <h2>Шакиров Бахром Аскаралиевич</h2>
+        <h2>{{ __('frontend.board.members.shakirov_name') }}</h2>
 
-        <h3>ТАРЖИМАИ ҲОЛИ</h3>
-        <p>
-            Шакиров Бахром Аскаралиевич 1977 йилда туғилган. Қимматли қоғозлар бозорини тартибга солиш, давлат бошқаруви, саноат ва корпоратив бошқарув соҳаларида кўп йиллик тажрибага эга. Япония Халқаро Университетида (International University of Japan) магистр даражасини олган.
-        </p>
+        <h3>{{ __('frontend.board.biography') }}</h3>
+        <p>{!! __('frontend.board.members.shakirov_bio') !!}</p>
 
-
-        <h3>Меҳнат фаолияти</h3>
+        <h3>{{ __('frontend.board.work_history') }}</h3>
         <ul style="line-height: 1.6; font-size: 14px;">
-            <li>1994-1999 йй. — Тошкент давлат аграр университети талабаси</li>
-            <li>1999-2001 йй. — Қимматли қоғозлар бозори фаолиятини мувофиқлаштириш ва назорат қилиш маркази – бош мутахассис, бошқарма бошлиғи</li>
-            <li>2001-2004 йй. — ИИВ Тошкент шаҳар ИИББ инспектори</li>
-            <li>2004-2005 йй. — Давлат мулкини бошқариш давлат қўмитаси – бош мутахассис</li>
-            <li>2005-2013 йй. — Қимматли қоғозлар бозори маркази – бош мутахассис, бошқарма бошлиғи, ҳудудий бошқарма бошлиғи</li>
-            <li>2013-2015 йй. — International University of Japan – магистратура талабаси</li>
-            <li>2015-2017 йй. — ҚҚБ маркази – Тошкент шаҳар бошқарма бошлиғи</li>
-            <li>2017-2017 йй. — ҚҚБ маркази – Бош директор</li>
-            <li>2017-2018 йй. — Рақобатни ривожлантириш қўмитаси – бошқарма бошлиғи</li>
-            <li>2018-2019 йй. — “Ўзметкомбинат” АЖ – ижтимоий ривожлантириш бошқармаси бошлиғи в.б.</li>
-            <li>2019-2019 йй. — Давлат активларини бошқариш агентлиги – Тошкент шаҳар бошқарма бошлиғи в.б.</li>
-            <li>2019-2020 йй. — “Auto Universal Servis” МЧЖ – бош директор</li>
-            <li>2020-2021 йй. — “O‘zavtosanoat” АЖ – ходимлар билан ишлаш бошқармаси бошлиғи</li>
-            <li>2021-2022 йй. — “UzAuto Passenger Vehicles Management” МЧЖ – корпоратив муносабатлар хизмати бошлиғи</li>
-            <li>2022-2023 йй. — “Autosanoat Invest” МЧЖ – Бош директор ўринбосари</li>
-            <li>2023-2023 йй. — Тошкент шаҳар ҳокимлиги Муниципал активларни бошқариш маркази – Бош директорнинг биринчи ўринбосари</li>
-            <li>2023-2024 йй. — “Тошкент Инвест Компанияси” АЖ – Бошқарув раиси в.в.б.</li>
-            <li>2024 й. – ҳ.в. — “Тошкент Инвест Компанияси” АЖ – Бошқарув раиси</li>
+            {!! __('frontend.board.members.shakirov_work') !!}
         </ul>
     </div>
 </div>
@@ -117,25 +97,15 @@
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('modal-1')">&times;</span>
 
-        <h2>Қодиров Рустам Шухратович</h2>
+        <h2>{{ __('frontend.board.members.kodirov_name') }}</h2>
 
-        <h3>ТАРЖИМАИ ҲОЛИ</h3>
-        <p>
-            Қодиров Рустам Шухратович 2002-2005 йилларда Вестминстер университетида таҳсил олган. У “Ўзавтосаноат” тизимидаги қатор йирик компанияларда харидлар, стратегик ривожлантириш ва трансформация соҳаларида юқори лавозимларда фаолият юритган. Корхона ривожи учун истиқболли лойиҳаларни бошқариш ва стратегик таҳлил соҳаларида катта тажрибага эга.
-        </p>
+        <h3>{{ __('frontend.board.biography') }}</h3>
+        <p>{!! __('frontend.board.members.kodirov_bio') !!}</p>
 
-        <h3>Меҳнат фаолияти</h3>
+        <h3>{{ __('frontend.board.work_history') }}</h3>
         <ul style="line-height: 1.6; font-size: 14px;">
-            <li>2002-2005 йй. — Вестминстер университети талабаси (бакалавр)</li>
-            <li>2011-2018 йй. — “JV MAN Auto-Uzbekistan” МЧЖ қўшма корхонаси – харидлар ва локализация бўлими мутахассиси, етакчи агент, бош мутахассис</li>
-            <li>2017-2018 йй. — “UzAuto TRAILER” МЧЖ – истиқболли ривожлантириш ва инновациялар департаменти директори</li>
-            <li>2018-2021 йй. — “Ўзавтосаноат” АЖ – стратегик режалаштириш, таҳлил ва ривожлантириш бошқармаси бошлиғи</li>
-            <li>2021-2022 йй. — “Ўзавтосаноат” АЖ – Трансформация офиси раҳбари</li>
-            <li>2022-2023 йй. — “Uzchasys” қўшма корхонаси МЧЖ – Бош директор</li>
-            <li>2023-2024 йй. — “Ўзавтосаноат” АЖ – Ташқи иқтисодий кооперация, инвестиция ва инновация департаменти директори</li>
-            <li>2024 й. – ҳ.в. — “Тошкент Инвест Компанияси” АЖ – Стратегик ривожлантириш масалалари бўйича Бошқарув раиси ўринбосари</li>
+            {!! __('frontend.board.members.kodirov_work') !!}
         </ul>
-
     </div>
 </div>
 
@@ -143,27 +113,15 @@
     <div class="modal-content">
         <span class="modal-close" onclick="closeModal('modal-2')">&times;</span>
 
-        <h2>Отахонова Наргизахон Ганиевна</h2>
+        <h2>{{ __('frontend.board.members.otahonova_name') }}</h2>
 
-        <h3>ТАРЖИМАИ ҲОЛИ</h3>
-        <p>
-            Отахонова Наргизахон Ганиевна 1997-2002 йилларда Андижон муҳандислик-иқтисодиёт институтида таҳсил олган. Иқтисод ва корпоратив бошқарув соҳаларида 25 йилдан зиёд амалий тажрибага эга. У турли хусусий ва давлат корхоналарида раҳбар лавозимларда ишлаб, лойиҳаларни бошқариш, корпоратив бошқарув ва қимматли қоғозлар бозорини мувофиқлаштириш соҳаларида катта тажриба орттирган.
-        </p>
+        <h3>{{ __('frontend.board.biography') }}</h3>
+        <p>{!! __('frontend.board.members.otahonova_bio') !!}</p>
 
-        <h3>Меҳнат фаолияти</h3>
+        <h3>{{ __('frontend.board.work_history') }}</h3>
         <ul style="line-height: 1.6; font-size: 14px;">
-            <li>1997-2002 йй. — Андижон муҳандислик-иқтисодиёт институти талабаси</li>
-            <li>1997-1999 йй. — “Соҳибқирон” МЧЖ – оператор</li>
-            <li>1999-2006 йй. — “Давинком” ГИФ – маркетинг бўйича бош мутахассис, бўлим бошлиғи</li>
-            <li>2006-2010 йй. — “ТРЕПАНГ” МЧЖ – директор</li>
-            <li>2010-2013 йй. — ҚҚБ маркази – емитентлар фаолиятини назорат қилиш бўлими бош мутахассиси</li>
-            <li>2015-2019 йй. — ҚҚБ маркази – қонунчиликни такомиллаштириш ва таҳлил бўлими бошлиғи</li>
-            <li>2019-2019 йй. — “UzAuto Motors” АЖ – корпоратив бошқарув бўлими бошлиғи</li>
-            <li>2019-2023 йй. — “UzAuto Motors” АЖ – Бош директорнинг биринчи ўринбосари маслахатчиси</li>
-            <li>2023-2024 йй. — “UzAuto Motors” АЖ – Харид қилиш бўйича бошқарувчи директор в.в.б.</li>
-            <li>2024 й. – ҳ.в. — “Тошкент Инвест Компанияси” АЖ – Лойиҳа бошқаруви бўйича Бошқарув раиси ўринбосари</li>
+            {!! __('frontend.board.members.otahonova_work') !!}
         </ul>
-
     </div>
 </div>
 
