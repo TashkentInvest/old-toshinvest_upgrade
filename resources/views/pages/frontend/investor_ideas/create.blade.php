@@ -1,6 +1,6 @@
 @extends('layouts.frontend_app')
 
-@section('content')
+@section('frontent_content')
 <div class="investor-ideas-form-page">
     <!-- Hero Section -->
     <div class="form-hero">

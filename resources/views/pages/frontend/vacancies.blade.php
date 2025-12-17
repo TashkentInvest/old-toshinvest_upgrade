@@ -16,7 +16,7 @@
             </div>
 
             <h1 class="page-title">{{ __('frontend.nav.vacancies') }}</h1>
-            <p class="page-subtitle">Присоединяйтесь к команде профессионалов {{ __('frontend.company.name') }} и развивайте свою карьеру в сфере инвестиций и строительства</p>
+            <p class="page-subtitle">{{ __('frontend.career.join_us') }}</p>
 
 
         </div>
@@ -37,20 +37,20 @@
                         </svg>
                     </div>
                     <div class="access-text">
-                        <h3 class="access-title">Открытые вакансии на hh.uz</h3>
-                        <p class="access-description">Просмотрите актуальные вакансии нашей компании на официальной странице HeadHunter</p>
+                        <h3 class="access-title">{{ __('frontend.nav.open_vacancies_hh') }}</h3>
+                        <p class="access-description">{{ __('frontend.nav.view_vacancies_description') }}</p>
                         <div class="access-features">
                             <div class="feature-item">
                                 <span class="feature-icon">✓</span>
-                                <span class="feature-text">Подробные описания должностей</span>
+                                <span class="feature-text">{{ __('frontend.carnaveer.detailed_descriptions') }}</span>
                             </div>
                             <div class="feature-item">
                                 <span class="feature-icon">✓</span>
-                                <span class="feature-text">Онлайн подача резюме</span>
+                                <span class="feature-text">{{ __('frontend.nav.online_resume_submission') }}</span>
                             </div>
                             <div class="feature-item">
                                 <span class="feature-icon">✓</span>
-                                <span class="feature-text">Быстрая обратная связь</span>
+                                <span class="feature-text">{{ __('frontend.nav.fast_feedback') }}</span>
                             </div>
                         </div>
                     </div>
@@ -66,11 +66,11 @@
                                 <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </span>
-                        <span class="btn-text">Просмотреть вакансии</span>
+                        <span class="btn-text">{{ __('frontend.career.view_vacancies') }}</span>
                         <span class="btn-arrow">→</span>
                     </a>
                     <div class="access-note">
-                        <small>Перейти на hh.uz</small>
+                        <small>{{ __('frontend.career.go_to_hh') }}</small>
                     </div>
                 </div>
             </div>
@@ -1023,7 +1023,7 @@
         });
 
         value.style.cursor = 'pointer';
-        value.title = 'Нажмите для копирования';
+        value.title = '{{ __('frontend.career.click_to_copy') }}';
     });
 
     // Performance monitoring

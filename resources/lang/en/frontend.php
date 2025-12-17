@@ -64,6 +64,15 @@ return [
         'ppp_projects' => 'PPP Projects',
         'career' => 'Career',
         'vacancies' => 'Vacancies',
+        'join_us' => 'Join the professional team of :company and develop your career in the field of investments and construction',
+        'open_vacancies_hh' => 'Open vacancies on hh.uz',
+        'view_vacancies_description' => 'View current vacancies of our company on the official HeadHunter page',
+        'detailed_descriptions' => 'Detailed job descriptions',
+        'online_resume_submission' => 'Online resume submission',
+        'fast_feedback' => 'Fast feedback',
+        'view_vacancies' => 'View vacancies',
+        'go_to_hh' => 'Go to hh.uz',
+        'click_to_copy' => 'Click to copy',
         'press_center' => 'Press Center',
         'news' => 'News',
         'announcements' => 'Announcements',
@@ -468,7 +477,6 @@ from 2025, the Company\'s financial and non-financial reports, as well as commer
         'in_charter_capital' => 'in charter capital',
         'shareholder' => 'Shareholder',
         'sole' => 'sole',
-    ],
     ],
 
     // Essential Facts

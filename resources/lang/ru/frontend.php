@@ -64,6 +64,15 @@ return [
         'ppp_projects' => 'Проекты ГЧП',
         'career' => 'Карьера',
         'vacancies' => 'Вакансии',
+        'join_us' => 'Присоединяйтесь к команде профессионалов :company и развивайте свою карьеру в сфере инвестиций и строительства',
+        'open_vacancies_hh' => 'Открытые вакансии на hh.uz',
+        'view_vacancies_description' => 'Просмотрите актуальные вакансии нашей компании на официальной странице HeadHunter',
+        'detailed_descriptions' => 'Подробные описания должностей',
+        'online_resume_submission' => 'Онлайн подача резюме',
+        'fast_feedback' => 'Быстрая обратная связь',
+        'view_vacancies' => 'Просмотреть вакансии',
+        'go_to_hh' => 'Перейти на hh.uz',
+        'click_to_copy' => 'Нажмите для копирования',
         'press_center' => 'Пресс-центр',
         'news' => 'Новости',
         'announcements' => 'Объявление',
@@ -469,7 +478,7 @@ return [
         'shareholder' => 'Акционер',
         'sole' => 'единственный',
     ],
-    ],
+
 
     // Essential Facts
     'essential_facts' => [

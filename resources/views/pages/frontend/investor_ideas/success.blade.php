@@ -1,6 +1,6 @@
 @extends('layouts.frontend_app')
 
-@section('content')
+@section('frontent_content')
 <div class="success-page">
     <div class="container">
         <div class="success-card">
