@@ -128,18 +128,18 @@
                         <a href="https://uz.linkedin.com/company/%D0%B0%D0%BE-%D0%BA%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F-%D1%82%D0%B0%D1%88%D0%BA%D0%B5%D0%BD%D1%82-%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82"
                            target="_blank"
                            rel="nofollow"
-                           class="social-link linkedin"
+                           class="social-link linkedin" style="color: #fff"
                            aria-label="LinkedIn">
                             <svg width="24" height="24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M50 100c27.6142 0 50-22.3858 50-50S77.6142 0 50 0 0 22.3858 0 50s22.3858 50 50 50Zm23-31.0002V52.363c0-8.9114-4.7586-13.0586-11.1079-13.0586-5.1234 0-7.4123 2.8199-8.6942 4.7942v-4.1124h-9.6468c.1297 2.7235 0 29.0136 0 29.0136h9.6484v-16.203c0-.8675.0657-1.731.3203-2.3513.6981-1.7351 2.284-3.5286 4.9491-3.5286 3.4905 0 4.8859 2.6611 4.8859 6.5602v15.5227H73ZM53.1979 44.0986v.094h-.0632c.0069-.0111.0148-.0228.0229-.0346.0137-.0198.0281-.0401.0403-.0594ZM28 31.0123C28 28.1648 30.1583 26 33.4591 26c3.3016 0 5.3302 2.1648 5.3934 5.0123 0 2.7851-2.0918 5.0156-5.4567 5.0156h-.064c-3.2351 0-5.3318-2.2305-5.3318-5.0156Zm10.2177 37.9875h-9.6445V39.9862h9.6445v29.0136Z" fill="currentColor"/>
                             </svg>
                         </a>
-                        <a href="https://t.me/Toshkentinvestuz" target="_blank" rel="nofollow" class="social-link telegram" aria-label="Telegram">
+                        <a href="https://t.me/Toshkentinvestuz" target="_blank" rel="nofollow" class="social-link telegram" aria-label="Telegram" style="color: #fff">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.11.02-1.93 1.23-5.45 3.61-.52.36-.99.53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.37-.49 1.02-.74 4.02-1.76 6.7-2.92 8.03-3.49 3.82-1.58 4.62-1.85 5.14-1.86.11 0 .37.03.54.17.14.12.18.27.2.38-.01.06.01.24-.02.37z" fill="currentColor"/>
                             </svg>
                         </a>
-                        <a href="https://www.instagram.com/toshkentinvest.uz/" target="_blank" rel="nofollow" class="social-link instagram" aria-label="Instagram">
+                        <a href="https://www.instagram.com/toshkentinvest.uz/" target="_blank" rel="nofollow" class="social-link instagram" aria-label="Instagram" style="color: #fff">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12 2.16c3.2 0 3.584.012 4.85.07 1.17.054 1.805.249 2.227.413.56.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.249 1.805-.413 2.227-.217.56-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.164-1.057.36-2.227.413-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.805-.249-2.227-.413-.56-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227C2.172 15.584 2.16 15.204 2.16 12s.012-3.584.07-4.85c.054-1.17.249-1.805.413-2.227.217-.56.477-.96.896-1.382.42-.419.819-.679 1.381-.896.422-.164 1.057-.36 2.227-.413C8.416 2.172 8.796 2.16 12 2.16zM12 0C8.741 0 8.333.014 7.053.072 5.775.13 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384C1.347 2.681.936 3.35.63 4.14c-.297.765-.5 1.635-.558 2.913C.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.058 1.278.261 2.148.558 2.913.306.789.717 1.459 1.384 2.126.667.667 1.337 1.078 2.126 1.384.765.297 1.635.5 2.913.558C8.333 23.986 8.741 24 12 24s3.667-.014 4.947-.072c1.278-.058 2.148-.261 2.913-.558.789-.306 1.459-.717 2.126-1.384.667-.667 1.078-1.337 1.384-2.126.297-.765.5-1.635.558-2.913.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.058-1.278-.261-2.148-.558-2.913-.306-.789-.717-1.459-1.384-2.126C19.459 1.347 18.789.936 18 .63c-.765-.297-1.635-.5-2.913-.558C15.667.014 15.259 0 12 0zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162S8.597 18.162 12 18.162s6.162-2.759 6.162-6.162S15.403 5.838 12 5.838zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.44 1.44-1.44.793 0 1.44.646 1.44 1.44z" fill="currentColor"/>
                             </svg>
@@ -414,39 +414,27 @@
 }
 
 .social-link {
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 10px;
+    width: 38px;
+    height: 38px;
+    background: transparent;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--footer-text-muted);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
     border: 1px solid var(--footer-border);
 }
 
 .social-link:hover {
-    background: rgba(255, 255, 255, 0.1);
     color: var(--footer-accent);
-    transform: translateY(-2px);
     border-color: var(--footer-accent);
 }
 
-.social-link.linkedin:hover {
-    color: #0077b5;
-    border-color: #0077b5;
-}
-
-.social-link.telegram:hover {
-    color: #0088cc;
-    border-color: #0088cc;
-}
-
-.social-link.instagram:hover {
-    color: #e1306c;
-    border-color: #e1306c;
+.social-link svg {
+    width: 18px;
+    height: 18px;
 }
 
 /* ============================================
