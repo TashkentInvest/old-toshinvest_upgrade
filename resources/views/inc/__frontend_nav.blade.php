@@ -1,4 +1,6 @@
 <div id="rec748107215" class="parliament-clean-nav" data-animationappear="off" data-record-type="257">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Top Notice Bar -->
     <div class="notice-bar">
         <div class="container">
@@ -333,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="nav-special-btn">
                 <a href="https://projects.toshkentinvest.uz?from_toshknetinvest_official_website/" target="_blank"
                     class="map-link">
-                    <span class="map-icon">📍</span>
+                    <i class="fas fa-map-marker-alt map-icon"></i>
                     {{ __('frontend.nav.interactive_map') }}
                 </a>
             </div>
@@ -842,6 +844,7 @@ z-index: 9999;
     .map-icon {
         font-size: 16px;
         opacity: 0.9;
+        margin-right: 8px;
     }
 
     /* Hamburger Menu */

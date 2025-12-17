@@ -79,6 +79,14 @@ return [
         'interactive_map' => 'Interaktiv xarita',
     ],
 
+    // Offers
+    'offers' => [
+        'title' => 'Takliflar',
+        'valuation_organizations' => 'Baholash tashkilotlariga',
+        'announcement_text' => 'AO "Toshkent Invest kompaniyasi" Toshkent shahridagi 15 ta renovatsiya hududlari bo\'yicha loyihalarning bozor qiymatini aniqlash uchun tajribali baholash tashkilotlaridan tijorat takliflarini qabul qiladi.',
+        'call_to_action' => 'Takliflaringizni belgilangan tartibda taqdim etishingizni so\'raymiz.',
+    ],
+
     // Common
     'common' => [
         'new' => 'YANGI',
@@ -86,6 +94,9 @@ return [
         'download' => 'Yuklab olish',
         'open' => 'Ochish',
         'close' => 'Yopish',
+        'home' => 'Bosh sahifa',
+        'announcement' => 'E\'LON!',
+        'download_documents' => 'Hujjatlarni yuklab olish',
         'search' => 'Qidirish',
         'filter' => 'Filtr',
         'all' => 'Hammasi',

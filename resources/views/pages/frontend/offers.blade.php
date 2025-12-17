@@ -11,11 +11,11 @@
     <div class="container">
         <div class="hero-content">
             <div class="breadcrumb">
-                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">Главная</a>
+                <a href="{{ route('frontend.index') }}" class="breadcrumb-link">{{ __('frontend.common.home') }}</a>
                 <span class="breadcrumb-separator">→</span>
-                <span class="breadcrumb-current">Объявление</span>
+                <span class="breadcrumb-current">{{ __('frontend.nav.announcements') }}</span>
             </div>
-            <h1 class="page-title">Оценочным организациям</h1>
+            <h1 class="page-title">{{ __('frontend.offers.valuation_organizations') }}</h1>
             {{-- <p class="page-subtitle"></p> --}}
 
 
@@ -28,16 +28,16 @@
     <div class="container">
         <div class="announcement-post">
             <div class="post-content">
-                <h1 class="announcement-title">ОБЪЯВЛЕНИЕ!</h1>
+                <h1 class="announcement-title">{{ __('frontend.common.announcement') }}</h1>
 
-                <h2 class="target-audience">Оценочным организациям</h2>
+                <h2 class="target-audience">{{ __('frontend.offers.valuation_organizations') }}</h2>
 
                 <p class="announcement-text">
-                    АО «Компания Ташкент Инвест» принимает коммерческие предложения от опытных оценочных организаций для определения рыночной стоимости прав на проекты по 15 реновационным зонам города Ташкента.
+                    {{ __('frontend.offers.announcement_text') }}
                 </p>
 
                 <p class="call-to-action">
-                    Просим предоставить ваши предложения в установленном порядке.
+                    {{ __('frontend.offers.call_to_action') }}
                 </p>
 
                 <a href="{{asset('assets/offers/Объявление_15.pdf')}}" style="color: #fff" class="download-button">
@@ -46,7 +46,7 @@
                         <polyline points="7,10 12,15 17,10" stroke="currentColor" stroke-width="2"/>
                         <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2"/>
                     </svg>
-                    Скачать документы
+                    {{ __('frontend.common.download_documents') }}
                 </a>
 
             </div>

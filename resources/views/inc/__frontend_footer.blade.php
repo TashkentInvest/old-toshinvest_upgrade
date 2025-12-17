@@ -1,4 +1,6 @@
 {{-- Parliament.gov.uz Style Footer --}}
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <footer class="parliament-footer" id="parliamentFooter">
     {{-- Main Footer Content --}}
     <div class="footer-main">
@@ -49,15 +51,15 @@
                     <h4 class="footer-section-title">{{ __('frontend.nav.contact') }}</h4>
                     <div class="footer-contact-info">
                         <div class="contact-item">
-                            <span class="contact-icon">📍</span>
+                            <i class="fas fa-map-marker-alt contact-icon"></i>
                             <span class="contact-text">Узбекистан, город Ташкент, улица Ислама Каримова, 51</span>
                         </div>
                         <div class="contact-item">
-                            <span class="contact-icon">📞</span>
+                            <i class="fas fa-phone contact-icon"></i>
                             <span class="contact-text">+998 (71) 210 02 61</span>
                         </div>
                         <div class="contact-item">
-                            <span class="contact-icon">✉️</span>
+                            <i class="fas fa-envelope contact-icon"></i>
                             <span class="contact-text">info@toshkentinvest.uz</span>
                         </div>
                     </div>
@@ -73,7 +75,7 @@
         <div class="container">
             <div class="stats-content">
                 <div class="stats-title">
-                    <span class="stats-icon">🌐</span>
+                    <i class="fas fa-chart-line stats-icon"></i>
                     <h4>{{ __('frontend.footer.visitor_statistics') }}</h4>
                 </div>
                 <div class="stats-grid">
@@ -300,6 +302,9 @@
     margin-right: 12px;
     opacity: 0.8;
     min-width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .contact-text {
@@ -430,6 +435,9 @@
 .stats-icon {
     font-size: 32px;
     animation: rotate 20s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes rotate {

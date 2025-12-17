@@ -79,12 +79,23 @@ return [
         'interactive_map' => 'Interactive Map',
     ],
 
+    // Offers
+    'offers' => [
+        'title' => 'Offers',
+        'valuation_organizations' => 'To Valuation Organizations',
+        'announcement_text' => 'JSC "Tashkent Invest Company" accepts commercial proposals from experienced valuation organizations to determine the market value of rights to projects in 15 renovation zones of Tashkent city.',
+        'call_to_action' => 'We ask you to submit your proposals in the established manner.',
+    ],
+
     // Common
     'common' => [
         'new' => 'NEW',
         'read_more' => 'Read More',
         'download' => 'Download',
         'open' => 'Open',
+        'home' => 'Home',
+        'announcement' => 'ANNOUNCEMENT!',
+        'download_documents' => 'Download Documents',
         'close' => 'Close',
         'search' => 'Search',
         'filter' => 'Filter',

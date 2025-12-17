@@ -16,7 +16,7 @@
             </div>
 
             <h1 class="page-title">{{ __('frontend.nav.vacancies') }}</h1>
-            <p class="page-subtitle">{{ __('frontend.career.join_us') }}</p>
+            <p class="page-subtitle">{{ __('frontend.nav.join_us') }}</p>
 
 
         </div>
@@ -66,11 +66,11 @@
                                 <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </span>
-                        <span class="btn-text">{{ __('frontend.career.view_vacancies') }}</span>
+                        <span class="btn-text">{{ __('frontend.nav.view_vacancies') }}</span>
                         <span class="btn-arrow">→</span>
                     </a>
                     <div class="access-note">
-                        <small>{{ __('frontend.career.go_to_hh') }}</small>
+                        <small>{{ __('frontend.nav.go_to_hh') }}</small>
                     </div>
                 </div>
             </div>
