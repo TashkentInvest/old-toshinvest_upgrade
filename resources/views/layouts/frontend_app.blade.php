@@ -170,6 +170,9 @@
     })('https://widget.replain.cc/dist/client.js');
     </script>
 <style>
+     .gov-table-btn-primary {
+                    color: #fff !important;
+                }
 body{
 overflow-x: hidden;
 font-family:'Inter', sans-serif !important;
