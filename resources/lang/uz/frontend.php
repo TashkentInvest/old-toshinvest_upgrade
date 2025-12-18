@@ -220,12 +220,14 @@ return [
         'all_projects' => 'Barcha loyihalar',
         'date_not_set' => 'Ko\'rsatilmagan',
         'details' => 'Tafsilotlar',
+        'view_all' => 'Barchasini ko\'rish',
+        'view_on_map' => 'Xaritada ko\'rish',
     ],
 
     // Home Page
     'home' => [
         'hero_title' => 'KELAJAKKA SARMOYA KIRITING',
-        'hero_description' => 'Aktsiyadorlik jamiyati "Kompaniya Toshkent Invest" O\'zbekiston Respublikasi Prezidentining №UP-112 farmoni asosida 2023 yil avgust oyida poytaxt hokimiyati tashabbusi bilan tashkil etilgan.',
+        'hero_description' => 'Aktsiyadorlik jamiyati "Kompaniya Toshkent Invest" O\'zbekiston Respublikasi Prezidentining \u2116UP-112 farmoni asosida 2023 yil avgust oyida poytaxt hokimiyati tashabbusi bilan tashkil etilgan.',
         'features_title' => 'Bizning yo\'nalishlarimiz',
         'feature_1_title' => 'Toza havoli va dam olish joylari bo\'lgan shaharga aylanish',
         'feature_1_desc' => 'Madaniyat va dam olish bog\'lari, xiyobonlar, bulvarlar ko\'rinishini o\'zgartirish va yashil zonalar sonini keskin oshirish orqali shahar aholisi va mehmonlari uchun dam olish sharoitlarini yaratish.',
@@ -237,6 +239,8 @@ return [
         'feature_4_desc' => 'Asosiy samaradorlik ko\'rsatkichlariga asoslangan zamonaviy menejmentni joriy etish, shuningdek, hokimiyat tizimidagi har bir yo\'nalish bo\'yicha loyiha ofislarini yaratish hisobiga insoniy resurslarni rivojlantirish.',
         'feature_5_title' => 'Shahar xizmat ko\'rsatishdagi muammolarni bartaraf etish',
         'feature_5_desc' => 'Poytaxtni kommunal xizmat ko\'rsatishda muammolari bo\'lmagan hududga aylantirish, shuningdek, odamlar harakati uchun qulayroq yo\'l infratuzilmasini yaratish.',
+        'latest_news' => 'So\'nggi yangiliklar',
+        'latest_news_subtitle' => 'Toshkent Invest kompaniyasining so\'nggi yangiliklari va e\'lonlaridan xabardor bo\'ling',
     ],
 
     // Contact Page
@@ -249,8 +253,14 @@ return [
         'address_text' => 'O\'zbekiston, Toshkent shahri, Islom Karimov ko\'chasi, 51',
         'phone_title' => 'Telefon',
         'phone_desc' => 'Ish vaqtida qo\'ng\'iroq qiling',
+        'phone' => 'Telefon',
         'email_title' => 'Email',
         'email_desc' => 'Istalgan vaqtda yozing',
+        'email' => 'Email',
+        'address' => 'Manzil',
+        'company_address' => 'Toshkent sh., Islom Karimov ko\'chasi, 51',
+        'our_location' => 'Bizning joylashuvimiz',
+        'find_us' => 'Bizni xaritada toping',
         'hours_title' => 'Ish vaqti',
         'hours_desc' => 'Dushanba - Juma',
         'map_title' => 'Ofis joylashuvi',

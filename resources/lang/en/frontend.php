@@ -212,6 +212,8 @@ return [
         'all_projects' => 'All projects',
         'date_not_set' => 'Not set',
         'details' => 'Details',
+        'view_all' => 'View All',
+        'view_on_map' => 'View on Map',
     ],
 
     // Home Page
@@ -229,6 +231,8 @@ return [
         'feature_4_desc' => 'Implementation of modern management based on key performance indicators, as well as development of human resources through the creation of project offices for each direction in the hokimiyat system.',
         'feature_5_title' => 'Eliminating Problems in Urban Services',
         'feature_5_desc' => 'Transforming the capital into a territory without problems in communal services, as well as creating more comfortable road infrastructure for people\'s movement.',
+        'latest_news' => 'Latest News',
+        'latest_news_subtitle' => 'Stay updated with the latest events and announcements from Tashkent Invest Company',
     ],
 
     // Contact Page
@@ -241,8 +245,14 @@ return [
         'address_text' => 'Uzbekistan, Tashkent city, Islam Karimov Street, 51',
         'phone_title' => 'Phone',
         'phone_desc' => 'Call during business hours',
+        'phone' => 'Phone',
         'email_title' => 'Email',
         'email_desc' => 'Write to us anytime',
+        'email' => 'Email',
+        'address' => 'Address',
+        'company_address' => 'Tashkent city, Islam Karimov Street, 51',
+        'our_location' => 'Our Location',
+        'find_us' => 'Find us on the map',
         'hours_title' => 'Working Hours',
         'hours_desc' => 'Monday - Friday',
         'map_title' => 'Office Location',
