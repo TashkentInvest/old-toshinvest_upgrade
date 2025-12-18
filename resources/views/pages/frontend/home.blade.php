@@ -5,20 +5,16 @@
 <section class="hero-section">
     <div class="hero-background">
         <div class="hero-overlay"></div>
-        <img src="{{asset('assets/users_img/bg.webp')}}"
-             alt="Hero Background" class="hero-image">
-
-{{-- <iframe
-    src="https://www.youtube.com/embed/A1ENkFXPL4o?autoplay=1&mute=1&playlist=A1ENkFXPL4o&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1"
-    title="YouTube video player"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen
-    style="width: 100%; height: 100vh; z-index: -1;object-fit: cover; position: absolute; top: 0; left: 0;">
-</iframe> --}}
-
-
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="{{ asset('assets/video.mp4') }}" type="video/mp4">
+        </video>
     </div>
+    <style>
+        .hero-overlay {
+
+            background: linear-gradient(135deg, rgb(0 34 130 / 65%) 0%, rgba(51, 65, 85, 0.6) 100%) !important;
+            }
+    </style>
     <div class="hero-content">
         <div class="container">
             <div class="hero-text">
@@ -640,6 +636,13 @@ function t_handleYandexApiReady_748107222() {
 }
 
 .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
