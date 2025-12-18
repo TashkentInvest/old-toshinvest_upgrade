@@ -6,26 +6,57 @@
 
 /* CSS Variables - Gov.uz Style Dark Blue Theme */
 :root {
+    /* Primary Blues - Unified across Nav, Hero, Footer */
     --gov-primary: #2d4a6f;
-    --gov-primary-dark: #1e3a5f;
+    --gov-primary-dark: #1e3654;
+    --gov-primary-darker: #152638;
+    --gov-primary-darkest: #0d1a26;
     --gov-primary-light: #3d5a7f;
+
+    /* Gold Accents - Unified */
+    --gov-gold: #c9a962;
+    --gov-gold-bright: #f5c842;
+    --gov-gold-light: #d4b872;
+    --gov-gold-glow: rgba(201, 169, 98, 0.12);
     --gov-accent: #f5c842;
     --gov-accent-light: #ffd54f;
+
+    /* Backgrounds */
     --gov-bg-light: #f8f9fa;
     --gov-bg-gray: #f1f3f5;
+
+    /* Borders */
     --gov-border: #e9ecef;
     --gov-border-dark: #dee2e6;
+    --gov-border-light: rgba(255, 255, 255, 0.1);
+
+    /* Text Colors - Light (for dark backgrounds) */
+    --gov-text-white: #ffffff;
+    --gov-text-light: rgba(255, 255, 255, 0.85);
+    --gov-text-muted: rgba(255, 255, 255, 0.6);
+    --gov-text-subtle: rgba(255, 255, 255, 0.4);
+
+    /* Text Colors - Dark (for light backgrounds) */
     --gov-text-dark: #1a1a1a;
-    --gov-text-muted: #6c757d;
+    --gov-text-body: #374151;
+
+    /* Status Colors */
     --gov-success: #28a745;
     --gov-warning: #ffc107;
     --gov-error: #dc3545;
+
+    /* Typography */
     --gov-font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --gov-font-heading: 'Inter', sans-serif;
+
+    /* Shadows */
     --gov-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
     --gov-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
     --gov-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+
+    /* Radius & Transitions */
     --gov-radius: 8px;
+    --gov-radius-sm: 4px;
     --gov-transition: all 0.2s ease;
 }
 
@@ -37,11 +68,11 @@
     padding-bottom: 60px;
 }
 
-/* Hero Section - Gov.uz Style */
+/* Hero Section - Professional Government Design */
 .gov-hero {
-    background: linear-gradient(135deg, #2d4a6f 0%, #1e3a5f 100%);
+    background: linear-gradient(160deg, var(--gov-primary) 0%, var(--gov-primary-darker) 60%, var(--gov-primary-darkest) 100%);
     color: white;
-    padding: 100px 0 60px;
+    padding: 55px 0 65px;
     position: relative;
     overflow: hidden;
 }
@@ -50,51 +81,73 @@
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
     right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30z' fill='%23ffffff' fill-opacity='0.02'/%3E%3C/svg%3E");
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(ellipse at 80% 20%, var(--gov-gold-glow) 0%, transparent 60%);
     pointer-events: none;
 }
 
-.gov-hero-content {
+.gov-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gov-gold) 0%, var(--gov-gold) 25%, rgba(201, 169, 98, 0.3) 50%, transparent 100%);
+}
+
+.gov-hero .gov-container {
     position: relative;
     z-index: 1;
-    max-width: 900px;
+}
+
+.gov-hero-content {
+    max-width: 680px;
 }
 
 .gov-hero-badge {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: var(--gov-accent);
-    color: #1a1a1a;
-    padding: 10px 20px;
-    border-radius: var(--gov-radius);
-    font-size: 13px;
+    color: var(--gov-gold);
+    font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 3px;
     margin-bottom: 20px;
+    padding-left: 0;
+}
+
+.gov-hero-badge::before {
+    content: '';
+    width: 32px;
+    height: 2px;
+    background: var(--gov-gold);
 }
 
 .gov-hero-badge i {
-    font-size: 16px;
+    display: none;
 }
 
 .gov-hero-title {
     font-family: var(--gov-font-heading);
     font-size: 42px;
     font-weight: 700;
-    margin: 0 0 15px;
+    margin: 0 0 18px;
     line-height: 1.2;
+    letter-spacing: -0.5px;
+    color: #ffffff;
 }
 
 .gov-hero-subtitle {
-    font-size: 18px;
-    line-height: 1.7;
-    opacity: 0.85;
-    max-width: 600px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--gov-text-muted);
+    max-width: 520px;
+    margin: 0;
+    font-weight: 400;
 }
 
 /* Legacy support */
@@ -102,34 +155,42 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: var(--gov-accent);
-    color: #1a1a1a;
-    padding: 10px 20px;
-    border-radius: var(--gov-radius);
-    font-size: 13px;
+    color: var(--gov-gold);
+    font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 3px;
     margin-bottom: 20px;
 }
 
+.gov-badge::before {
+    content: '';
+    width: 32px;
+    height: 2px;
+    background: var(--gov-gold);
+}
+
 .gov-badge i {
-    font-size: 16px;
+    display: none;
 }
 
 .gov-title {
     font-family: var(--gov-font-heading);
     font-size: 42px;
     font-weight: 700;
-    margin: 0 0 15px;
+    margin: 0 0 18px;
     line-height: 1.2;
+    letter-spacing: -0.5px;
+    color: #ffffff;
 }
 
 .gov-subtitle {
-    font-size: 18px;
-    line-height: 1.7;
-    opacity: 0.85;
-    max-width: 600px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--gov-text-muted);
+    max-width: 520px;
+    margin: 0;
+    font-weight: 400;
 }
 
 /* Container */
@@ -564,35 +625,49 @@
 }
 
 /* ============================================
-   BREADCRUMB COMPONENT - Gov.uz Style
+   BREADCRUMB COMPONENT - Professional Style
    ============================================ */
 .gov-breadcrumb {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 25px;
+    gap: 12px;
+    margin-bottom: 28px;
     font-size: 14px;
 }
 
 .gov-breadcrumb-link {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.55);
     text-decoration: none;
-    transition: var(--gov-transition);
+    transition: color 0.2s ease;
+    font-weight: 400;
 }
 
 .gov-breadcrumb-link:hover {
-    color: #fff;
+    color: #ffffff;
 }
 
 .gov-breadcrumb-sep {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 10px;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 8px;
 }
 
 .gov-breadcrumb-current {
-    color: var(--gov-accent);
-    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+/* Hero Responsive */
+@media (max-width: 768px) {
+    .gov-hero {
+        padding: 40px 0 50px;
+    }
+    .gov-hero-title {
+        font-size: 28px;
+    }
+    .gov-hero-subtitle {
+        font-size: 14px;
+    }
 }
 
 /* ============================================

@@ -159,40 +159,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
 
 /* ============================================
-   COLOR PALETTE - Professional Corporate Style
-   Elegant, subtle design for investment company
+   COLOR PALETTE - Unified Government Style
+   Matches Nav and Hero colors
    ============================================ */
 :root {
-    /* Primary Colors - Deep Corporate Blue */
-    --footer-primary: #1e3a5f;
-    --footer-primary-light: #2c4a6e;
-    --footer-primary-dark: #0f1f33;
+    /* Primary Blues - Same as Nav/Hero */
+    --footer-primary: #2d4a6f;
+    --footer-primary-dark: #1e3654;
+    --footer-primary-darker: #152638;
+    --footer-primary-darkest: #0d1a26;
 
-    /* Background Colors - Sophisticated Dark */
-    --footer-bg-start: #1a1f2e;
-    --footer-bg-end: #252b3d;
-    --footer-stats-bg-start: #151a28;
-    --footer-stats-bg-end: #1e2436;
+    /* Footer Background - Dark Government Blue */
+    --footer-bg-start: #152638;
+    --footer-bg-end: #1e3654;
 
-    /* Accent Colors - Subtle Gold/Amber */
+    /* Gold Accents - Same as Nav/Hero */
     --footer-accent: #c9a962;
+    --footer-accent-bright: #f5c842;
     --footer-accent-light: #d4b872;
     --footer-accent-glow: rgba(201, 169, 98, 0.15);
 
     /* Text Colors */
-    --footer-text: #f5f5f5;
+    --footer-text: #ffffff;
     --footer-text-muted: rgba(255, 255, 255, 0.75);
     --footer-text-subtle: rgba(255, 255, 255, 0.5);
 
     /* Border Colors */
     --footer-border: rgba(255, 255, 255, 0.08);
     --footer-border-accent: rgba(201, 169, 98, 0.25);
-
-    /* Stats Colors */
-    --stats-value-color: #e8d5a3;
-    --stats-card-bg: rgba(255, 255, 255, 0.02);
-    --stats-card-border: rgba(201, 169, 98, 0.15);
-    --stats-card-hover-bg: rgba(201, 169, 98, 0.08);
 }
 
 .parliament-footer {
@@ -439,20 +433,16 @@
 
 /* ============================================
    VISITOR STATISTICS SECTION
-   Compact, elegant corporate design
+   Clean, minimal professional design
    ============================================ */
 .footer-stats {
-    background: var(--footer-stats-bg-start);
-    padding: 25px 0;
-    border-top: 1px solid var(--footer-border);
-    border-bottom: 1px solid var(--footer-border);
-    position: relative;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 30px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .stats-content {
     text-align: center;
-    position: relative;
-    z-index: 1;
 }
 
 .stats-title {
@@ -460,121 +450,113 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .stats-icon {
-    font-size: 22px;
+    font-size: 18px;
     color: var(--footer-accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-
-
 .stats-title h4 {
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 600;
-    color: var(--footer-text);
+    color: var(--footer-text-muted);
     margin: 0;
     font-family: 'Inter', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-bottom: 0;
+    gap: 0;
+    max-width: 800px;
+    margin: 0 auto 20px;
 }
 
 .stat-item {
-    background: var(--stats-card-bg);
-    border: 1px solid var(--stats-card-border);
-    border-radius: 10px;
-    padding: 15px 12px;
-    transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 15px 20px;
     position: relative;
-    overflow: hidden;
 }
 
-.stat-item:hover {
-    background: var(--stats-card-hover-bg);
-    border-color: var(--stats-card-border);
+.stat-item:last-child {
+    border-right: none;
+}
+
+.stat-item:hover .stat-value {
+    color: var(--footer-accent);
 }
 
 .stat-value {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--stats-value-color);
-    margin-bottom: 4px;
+    font-size: 32px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 6px;
     font-family: 'Inter', sans-serif;
     line-height: 1;
+    transition: color 0.2s ease;
 }
 
 .stat-label {
     font-size: 11px;
-    color: var(--footer-text-muted);
+    color: var(--footer-text-subtle);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     font-weight: 500;
 }
 
 /* Countries Section */
 .countries-section {
-    background: var(--stats-card-bg);
-    border: 1px solid var(--stats-card-border);
-    border-radius: 10px;
-    padding: 15px;
-    margin-top: 15px;
+    background: transparent;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px 0 0;
+    margin-top: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .countries-title {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--footer-text-muted);
-    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--footer-text-subtle);
+    margin-bottom: 15px;
     text-align: center;
     font-family: 'Inter', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1.5px;
 }
 
 .countries-list {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .country-item {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 3px;
-    padding: 8px 6px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--footer-border);
-    border-radius: 6px;
-    transition: all 0.3s ease;
-}
-
-.country-item:hover {
-    background: var(--stats-card-hover-bg);
-    border-color: var(--stats-card-border);
+    gap: 8px;
+    padding: 0;
+    background: transparent;
+    border: none;
 }
 
 .country-flag {
-    font-size: 20px;
-    margin-bottom: 0;
+    font-size: 18px;
 }
 
 .country-name {
-    font-size: 11px;
+    font-size: 13px;
     color: var(--footer-text-muted);
-    font-weight: 500;
-    text-align: center;
+    font-weight: 400;
 }
 
 .country-count {

@@ -354,7 +354,7 @@
 }
 
 .company-info {
-    border-left: 2px solid #1e40af;
+    border-left: 2px solid #2d4a6f;
     padding-left: 20px;
 }
 
@@ -395,8 +395,8 @@
 }
 
 .search-btn:hover {
-    background: #1e40af;
-    border-color: #1e40af;
+    background: #2d4a6f;
+    border-color: #2d4a6f;
     color: #fff;
 }
 
@@ -417,7 +417,7 @@
 .contact-phone {
     font-size: 18px;
     font-weight: 600;
-    color: #1e40af;
+    color: #2d4a6f;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -429,7 +429,7 @@
 }
 
 .contact-phone:hover {
-    color: #1e3a8a;
+    color: #1e3654;
 }
 
 /* Dark Blue Navigation - gov.uz style */
@@ -526,8 +526,8 @@
 
 .nav-submenu a:hover {
     background: #f8fafc;
-    color: #1e40af;
-    border-left-color: #1e40af;
+    color: #2d4a6f;
+    border-left-color: #2d4a6f;
     padding-left: 24px;
 }
 
@@ -555,7 +555,7 @@
 .mega-title {
     font-size: 12px;
     font-weight: 700;
-    color: #1e40af;
+    color: #2d4a6f;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     padding: 0 0 12px 0;
@@ -578,21 +578,21 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    background: #f5c842;
-    color: #1a1a1a !important;
+    background: #c9a962;
+    color: #0d1a26 !important;
     padding: 12px 20px;
     border-radius: 6px;
     text-decoration: none !important;
     font-size: 13px;
     font-weight: 600;
     transition: all 0.2s;
-    border: 2px solid #f5c842;
+    border: 2px solid #c9a962;
 }
 
 .nav-map-btn:hover {
     background: transparent;
     color: #f5c842 !important;
-    border-color: #f5c842;
+    border-color: #c9a962;
 }
 
 /* Mobile Toggle */
