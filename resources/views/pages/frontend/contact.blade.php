@@ -1,95 +1,99 @@
 @extends('layouts.frontend_app')
+@section('title', __('frontend.contact.title') . ' | ' . __('frontend.seo.site_name'))
+
 @section('frontent_content')
+<div class="gov-page">
+    {{-- Hero Section --}}
+    <x-frontend.hero
+        :title="__('frontend.contact.title')"
+        :subtitle="__('frontend.contact.subtitle')"
+        badge="Tashkent Invest"
+        badgeIcon="fa-phone"
+        :breadcrumbs="[
+            ['url' => route('frontend.index'), 'label' => __('frontend.breadcrumb.home')],
+            ['url' => '#', 'label' => __('frontend.contact.title')]
+        ]"
+    />
 
-{{-- Contact Page Hero --}}
-<section class="contact-hero">
-    <div class="container">
-        <nav class="breadcrumb">
-            <a href="{{ route('frontend.index') }}">{{ __('frontend.breadcrumb.home') }}</a>
-            <i class="fas fa-chevron-right"></i>
-            <span>{{ __('frontend.breadcrumb.contact') }}</span>
-        </nav>
-        <h1 class="hero-title">{{ __('frontend.contact.title') }}</h1>
-        <p class="hero-subtitle">{{ __('frontend.contact.subtitle') }}</p>
-    </div>
-</section>
-
-{{-- Contact Content --}}
-<section class="contact-section">
-    <div class="container">
+    {{-- Contact Info Cards --}}
+    <x-frontend.section bg="light">
         <div class="contact-grid">
-            {{-- Contact Info Cards --}}
-            <div class="contact-info">
-                <div class="info-card">
-                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <div class="info-content">
+            <div class="contact-cards">
+                {{-- Address Card --}}
+                <div class="contact-card gov-animate-fade" data-delay="0.1">
+                    <div class="contact-icon"><i class="fa-solid fa-map-marker-alt"></i></div>
+                    <div class="contact-info">
                         <h3>{{ __('frontend.contact.address_title') }}</h3>
                         <p>{{ __('frontend.contact.address_text') }}</p>
-                        <a href="https://yandex.ru/maps/?rtext=~41.310425,69.248169&rtt=auto" target="_blank" class="info-link">
-                            {{ __('frontend.contact.build_route') }} <i class="fas fa-arrow-right"></i>
+                        <a href="https://yandex.ru/maps/?rtext=~41.310425,69.248169&rtt=auto" target="_blank" class="contact-link">
+                            {{ __('frontend.contact.build_route') }} <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="info-card">
-                    <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
-                    <div class="info-content">
+                {{-- Phone Card --}}
+                <div class="contact-card gov-animate-fade" data-delay="0.2">
+                    <div class="contact-icon"><i class="fa-solid fa-phone-alt"></i></div>
+                    <div class="contact-info">
                         <h3>{{ __('frontend.contact.phone_title') }}</h3>
                         <p>{{ __('frontend.contact.phone_desc') }}</p>
-                        <a href="tel:+998712100261" class="info-link phone">
-                            +998 71 210 02 61 <i class="fas fa-arrow-right"></i>
+                        <a href="tel:+998712100261" class="contact-link phone">
+                            +998 71 210 02 61 <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="info-card">
-                    <div class="info-icon"><i class="fas fa-envelope"></i></div>
-                    <div class="info-content">
+                {{-- Email Card --}}
+                <div class="contact-card gov-animate-fade" data-delay="0.3">
+                    <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="contact-info">
                         <h3>{{ __('frontend.contact.email_title') }}</h3>
                         <p>{{ __('frontend.contact.email_desc') }}</p>
-                        <a href="mailto:info@toshkentinvest.uz" class="info-link">
-                            info@toshkentinvest.uz <i class="fas fa-arrow-right"></i>
+                        <a href="mailto:info@toshkentinvest.uz" class="contact-link">
+                            info@toshkentinvest.uz <i class="fa-solid fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="info-card">
-                    <div class="info-icon"><i class="fas fa-clock"></i></div>
-                    <div class="info-content">
+                {{-- Working Hours Card --}}
+                <div class="contact-card gov-animate-fade" data-delay="0.4">
+                    <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="contact-info">
                         <h3>{{ __('frontend.contact.hours_title') }}</h3>
                         <p>{{ __('frontend.contact.hours_desc') }}</p>
-                        <span class="info-text">09:00 - 18:00</span>
+                        <span class="contact-hours">09:00 - 18:00</span>
                     </div>
                 </div>
 
-                <button class="download-btn" onclick="downloadVCard()">
-                    <i class="fas fa-download"></i>
+                {{-- Download vCard --}}
+                <button class="gov-btn gov-btn-primary contact-download gov-animate-fade" data-delay="0.5" onclick="downloadVCard()">
+                    <i class="fa-solid fa-download"></i>
                     {{ __('frontend.contact.download_contacts') }}
                 </button>
             </div>
 
             {{-- Map --}}
-            <div class="contact-map">
-                <div class="map-header">
-                    <h3>{{ __('frontend.contact.map_title') }}</h3>
-                    <div class="map-switcher">
-                        <button class="map-btn active" data-type="map">{{ __('frontend.contact.map_type_map') }}</button>
-                        <button class="map-btn" data-type="satellite">{{ __('frontend.contact.map_type_satellite') }}</button>
+            <div class="contact-map-wrapper gov-animate-fade" data-delay="0.2">
+                <div class="contact-map-header">
+                    <h3><i class="fa-solid fa-map"></i> {{ __('frontend.contact.map_title') }}</h3>
+                    <div class="map-type-switcher">
+                        <button class="map-type-btn active" data-type="map">{{ __('frontend.contact.map_type_map') }}</button>
+                        <button class="map-type-btn" data-type="satellite">{{ __('frontend.contact.map_type_satellite') }}</button>
                     </div>
                 </div>
-                <div class="map-wrapper">
+                <div class="contact-map-container">
                     <div id="contact-map"></div>
-                    <div class="map-badge">
-                        <i class="fas fa-building"></i>
-                        Tashkent Invest Company
+                    <div class="map-company-badge">
+                        <i class="fa-solid fa-building"></i>
+                        {{ __('frontend.company.name') }}
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </x-frontend.section>
+</div>
 
-{{-- Yandex Map --}}
+{{-- Yandex Map Script --}}
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=a3c154a0-e8ad-438e-ada8-ac2260414d09"></script>
 <script>
 ymaps.ready(function() {
@@ -100,9 +104,9 @@ ymaps.ready(function() {
     });
 
     const placemark = new ymaps.Placemark([41.310425, 69.248169], {
-        balloonContentHeader: '<strong>Tashkent Invest Company</strong>',
+        balloonContentHeader: '<strong>{{ __("frontend.company.name") }}</strong>',
         balloonContentBody: '{{ __("frontend.contact.address_text") }}<br><a href="tel:+998712100261">+998 71 210 02 61</a>',
-        hintContent: 'Tashkent Invest Company'
+        hintContent: '{{ __("frontend.company.name") }}'
     }, {
         preset: 'islands#blueCircleDotIcon'
     });
@@ -111,9 +115,9 @@ ymaps.ready(function() {
     map.behaviors.disable('scrollZoom');
 
     // Map type switcher
-    document.querySelectorAll('.map-btn').forEach(btn => {
+    document.querySelectorAll('.map-type-btn').forEach(btn => {
         btn.addEventListener('click', function() {
-            document.querySelectorAll('.map-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.map-type-btn').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             map.setType(this.dataset.type === 'satellite' ? 'yandex#satellite' : 'yandex#map');
         });
@@ -123,8 +127,8 @@ ymaps.ready(function() {
 function downloadVCard() {
     const vcard = `BEGIN:VCARD
 VERSION:3.0
-FN:Tashkent Invest Company
-ORG:Tashkent Invest Company
+FN:{{ __('frontend.company.name') }}
+ORG:{{ __('frontend.company.name') }}
 ADR:;;Islam Karimov street 51;Tashkent;;100000;Uzbekistan
 TEL:+998712100261
 EMAIL:info@toshkentinvest.uz
@@ -138,104 +142,63 @@ END:VCARD`;
 }
 </script>
 
+{{-- GSAP Animation --}}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        document.querySelector('.gov-page').classList.add('gsap-loaded');
+
+        gsap.utils.toArray('.gov-animate-fade').forEach(el => {
+            gsap.fromTo(el,
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    delay: parseFloat(el.dataset.delay) || 0,
+                    scrollTrigger: { trigger: el, start: 'top 85%' }
+                }
+            );
+        });
+    }
+});
+</script>
+
 <style>
-/* Contact Page - Clean Optimized Styles */
-.contact-hero {
-    background: linear-gradient(135deg, #1e3a5f 0%, #2d4a6f 100%);
-    color: #fff;
-    padding: 100px 0 60px;
-}
-
-.contact-hero .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.contact-hero .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    font-size: 14px;
-}
-
-.contact-hero .breadcrumb a {
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-}
-
-.contact-hero .breadcrumb a:hover {
-    color: #fff;
-}
-
-.contact-hero .breadcrumb i {
-    font-size: 10px;
-    opacity: 0.5;
-}
-
-.contact-hero .breadcrumb span {
-    color: #f5c842;
-}
-
-.hero-title {
-    font-size: 42px;
-    font-weight: 700;
-    margin: 0 0 15px;
-}
-
-.hero-subtitle {
-    font-size: 18px;
-    opacity: 0.85;
-    margin: 0;
-    max-width: 500px;
-}
-
-/* Contact Section */
-.contact-section {
-    padding: 60px 0;
-    background: #f8f9fa;
-}
-
-.contact-section .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
+/* Contact Page Styles */
 .contact-grid {
     display: grid;
-    grid-template-columns: 400px 1fr;
-    gap: 40px;
+    grid-template-columns: 380px 1fr;
+    gap: 30px;
     align-items: start;
 }
 
-/* Info Cards */
-.contact-info {
+.contact-cards {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-.info-card {
+.contact-card {
     background: #fff;
     border-radius: 12px;
     padding: 20px;
     display: flex;
     gap: 16px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    transition: all 0.2s;
+    transition: all 0.2s ease;
 }
 
-.info-card:hover {
+.contact-card:hover {
     box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     transform: translateY(-2px);
 }
 
-.info-icon {
+.contact-icon {
     width: 48px;
     height: 48px;
-    background: linear-gradient(135deg, #2d4a6f, #1e3a5f);
+    background: linear-gradient(135deg, var(--gov-primary), var(--gov-primary-dark));
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -245,120 +208,112 @@ END:VCARD`;
     flex-shrink: 0;
 }
 
-.info-content h3 {
+.contact-info h3 {
     font-size: 15px;
     font-weight: 600;
-    color: #1e293b;
+    color: var(--gov-text-dark);
     margin: 0 0 6px;
 }
 
-.info-content p {
+.contact-info p {
     font-size: 13px;
-    color: #64748b;
+    color: var(--gov-text-muted);
     margin: 0 0 10px;
 }
 
-.info-link {
+.contact-link {
     font-size: 14px;
     font-weight: 500;
-    color: #2d4a6f;
+    color: var(--gov-primary);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 6px;
+    transition: color 0.2s;
 }
 
-.info-link:hover {
-    color: #1e3a5f;
+.contact-link:hover {
+    color: var(--gov-primary-dark);
 }
 
-.info-link i {
+.contact-link i {
     font-size: 10px;
     transition: transform 0.2s;
 }
 
-.info-link:hover i {
+.contact-link:hover i {
     transform: translateX(3px);
 }
 
-.info-text {
+.contact-hours {
     font-size: 14px;
     font-weight: 600;
-    color: #2d4a6f;
+    color: var(--gov-primary);
 }
 
-.download-btn {
-    background: #2d4a6f;
-    color: #fff;
-    border: none;
-    padding: 14px 20px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: background 0.2s;
+.contact-download {
+    width: 100%;
     margin-top: 8px;
 }
 
-.download-btn:hover {
-    background: #1e3a5f;
-}
-
-/* Map */
-.contact-map {
+/* Map Styles */
+.contact-map-wrapper {
     background: #fff;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
-.map-header {
+.contact-map-header {
     padding: 16px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: 1px solid var(--gov-border);
 }
 
-.map-header h3 {
+.contact-map-header h3 {
     font-size: 16px;
     font-weight: 600;
-    color: #1e293b;
+    color: var(--gov-text-dark);
     margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.map-switcher {
+.contact-map-header h3 i {
+    color: var(--gov-primary);
+}
+
+.map-type-switcher {
     display: flex;
-    background: #f1f5f9;
+    background: var(--gov-bg-light);
     border-radius: 6px;
     padding: 3px;
 }
 
-.map-btn {
+.map-type-btn {
     padding: 6px 14px;
     border: none;
     background: transparent;
     font-size: 13px;
     font-weight: 500;
-    color: #64748b;
+    color: var(--gov-text-muted);
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s;
 }
 
-.map-btn.active {
+.map-type-btn.active {
     background: #fff;
-    color: #1e293b;
+    color: var(--gov-text-dark);
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.map-wrapper {
+.contact-map-container {
     position: relative;
-    height: 500px;
+    height: 450px;
 }
 
 #contact-map {
@@ -366,11 +321,11 @@ END:VCARD`;
     height: 100%;
 }
 
-.map-badge {
+.map-company-badge {
     position: absolute;
     top: 16px;
     left: 16px;
-    background: #1e293b;
+    background: var(--gov-text-dark);
     color: #fff;
     padding: 10px 16px;
     border-radius: 20px;
@@ -388,39 +343,26 @@ END:VCARD`;
         grid-template-columns: 1fr;
     }
 
-    .hero-title {
-        font-size: 32px;
-    }
-
-    .map-wrapper {
-        height: 400px;
+    .contact-map-container {
+        height: 350px;
     }
 }
 
 @media (max-width: 600px) {
-    .contact-hero {
-        padding: 80px 0 50px;
-    }
-
-    .hero-title {
-        font-size: 28px;
-    }
-
-    .info-card {
+    .contact-card {
         flex-direction: column;
         text-align: center;
     }
 
-    .info-icon {
+    .contact-icon {
         margin: 0 auto;
     }
 
-    .map-header {
+    .contact-map-header {
         flex-direction: column;
         gap: 12px;
         align-items: flex-start;
     }
 }
 </style>
-
 @endsection
