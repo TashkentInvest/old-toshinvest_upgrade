@@ -92,28 +92,39 @@
 @if($news->count() > 0)
 <section class="home-news">
     <div class="container">
-        <div class="section-header">
-            <div class="section-header-left">
-                <h2 class="section-title">{{ __('frontend.home.latest_news') }}</h2>
-                <p class="section-subtitle">{{ __('frontend.home.latest_news_subtitle') }}</p>
+        <div class="news-section-header">
+            <div class="news-header-badge">
+                <i class="fa-solid fa-newspaper"></i>
+                <span>{{ __('frontend.home.latest_news') }}</span>
             </div>
-            <a href="{{ route('frontend.media') }}" class="section-link">
+            <a href="{{ route('frontend.media') }}" class="news-view-all">
                 {{ __('frontend.common.view_all') }} <i class="fa-solid fa-arrow-right"></i>
             </a>
         </div>
-        <div class="news-grid">
+        <div class="news-cards-grid">
             @foreach($news->take(3) as $newsItem)
-            <article class="news-card">
-                <a href="{{ route('frontend.media.detail', $newsItem->id) }}" class="news-link">
-                    <div class="news-image" style="background-image: url('{{ $newsItem->getImagePath() }}');">
-                    </div>
-                    <div class="news-content">
-                        <span class="news-date">
+            @php
+                $imagePath = $newsItem->getImagePath();
+                $hasImage = $imagePath && !str_contains($imagePath, 'placeholder');
+            @endphp
+            <article class="news-card-item">
+                <a href="{{ route('frontend.media.detail', $newsItem->id) }}" class="news-card-link">
+                    <div class="news-card-image {{ !$hasImage ? 'no-image' : '' }}">
+                        @if($hasImage)
+                            <img src="{{ $imagePath }}" alt="{{ $newsItem->title }}" loading="lazy">
+                        @else
+                            <div class="news-placeholder-icon">
+                                <i class="fa-solid fa-newspaper"></i>
+                            </div>
+                        @endif
+                        <div class="news-card-date">
                             <i class="fa-regular fa-calendar"></i>
                             {{ $newsItem->published_at ? $newsItem->published_at->format('d.m.Y') : __('frontend.common.date_not_set') }}
-                        </span>
-                        <h3 class="news-title">{{ Str::limit($newsItem->title, 80) }}</h3>
-                        <span class="news-read-more">
+                        </div>
+                    </div>
+                    <div class="news-card-body">
+                        <h3 class="news-card-title">{{ Str::limit($newsItem->title, 100) }}</h3>
+                        <span class="news-card-more">
                             {{ __('frontend.common.read_more') }} <i class="fa-solid fa-arrow-right"></i>
                         </span>
                     </div>
