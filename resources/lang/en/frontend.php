@@ -286,6 +286,34 @@ return [
         'project_id' => 'REN-',
     ],
 
+    // Investment Projects
+    'investment' => [
+        'announces_competition' => 'announces a competition to select the best proposals for the implementation of investment projects in construction',
+        'select_project' => 'Select an investment project to participate',
+        'yunusabad_district' => 'Yunusabad District',
+        'deadline' => 'Submission Deadline',
+        'expired' => 'Expired',
+        'attachments' => 'Attachments',
+        'extension_notice' => 'Extension Notice:',
+        'deadline_extended_to' => 'Due to the absence of submitted proposals for this LOT, the deadline has been extended until',
+    ],
+
+    // Months
+    'months' => [
+        'january' => 'January',
+        'february' => 'February',
+        'march' => 'March',
+        'april' => 'April',
+        'may' => 'May',
+        'june' => 'June',
+        'july' => 'July',
+        'august' => 'August',
+        'september' => 'September',
+        'october' => 'October',
+        'november' => 'November',
+        'december' => 'December',
+    ],
+
     // Investor Ideas
     'investor_ideas' => [
         'page_title' => 'Submit Investment Proposal',

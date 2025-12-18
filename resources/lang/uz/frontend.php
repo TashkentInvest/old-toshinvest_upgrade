@@ -294,6 +294,34 @@ return [
         'project_id' => 'REN-',
     ],
 
+    // Investment Projects
+    'investment' => [
+        'announces_competition' => 'qurilish sohasida investitsiya loyihalarini amalga oshirish uchun eng yaxshi takliflarni tanlash tanlovini e\'lon qiladi',
+        'select_project' => 'Ishtirok etish uchun mos investitsiya loyihasini tanlang',
+        'yunusabad_district' => 'Yunusobod tumani',
+        'deadline' => 'Arizalarni topshirish muddati',
+        'expired' => 'Muddati o\'tgan',
+        'attachments' => 'Ilovalar',
+        'extension_notice' => 'Uzaytirish haqida xabar:',
+        'deadline_extended_to' => 'Ushbu LOT bo\'yicha takliflar kelmagan sabab, takliflarni topshirish muddati uzaytirildi',
+    ],
+
+    // Months
+    'months' => [
+        'january' => 'yanvar',
+        'february' => 'fevral',
+        'march' => 'mart',
+        'april' => 'aprel',
+        'may' => 'may',
+        'june' => 'iyun',
+        'july' => 'iyul',
+        'august' => 'avgust',
+        'september' => 'sentyabr',
+        'october' => 'oktyabr',
+        'november' => 'noyabr',
+        'december' => 'dekabr',
+    ],
+
     // Investor Ideas
     'investor_ideas' => [
         'page_title' => 'Investitsiya taklifini yuborish',

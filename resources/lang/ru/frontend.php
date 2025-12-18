@@ -295,6 +295,34 @@ return [
         'project_id' => 'REN-',
     ],
 
+    // Investment Projects
+    'investment' => [
+        'announces_competition' => 'объявляет конкурс на отбор лучших предложений для реализации инвестиционных проектов в сфере строительства',
+        'select_project' => 'Выберите подходящий инвестиционный проект для участия',
+        'yunusabad_district' => 'Юнусабадский район',
+        'deadline' => 'Срок подачи заявок',
+        'expired' => 'Истёк',
+        'attachments' => 'Приложения',
+        'extension_notice' => 'Уведомление о продлении:',
+        'deadline_extended_to' => 'В связи с отсутствием поступивших предложений по данному ЛОТу, срок подачи предложений продлён до',
+    ],
+
+    // Months
+    'months' => [
+        'january' => 'января',
+        'february' => 'февраля',
+        'march' => 'марта',
+        'april' => 'апреля',
+        'may' => 'мая',
+        'june' => 'июня',
+        'july' => 'июля',
+        'august' => 'августа',
+        'september' => 'сентября',
+        'october' => 'октября',
+        'november' => 'ноября',
+        'december' => 'декабря',
+    ],
+
     // Investor Ideas
     'investor_ideas' => [
         'page_title' => 'Подать инвестиционное предложение',
