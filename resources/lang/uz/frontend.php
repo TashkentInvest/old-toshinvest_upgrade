@@ -222,6 +222,7 @@ return [
         'details' => 'Tafsilotlar',
         'view_all' => 'Barchasini ko\'rish',
         'view_on_map' => 'Xaritada ko\'rish',
+        'file_not_available' => 'Fayl mavjud emas',
     ],
 
     // Home Page

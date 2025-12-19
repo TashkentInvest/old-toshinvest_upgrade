@@ -214,6 +214,7 @@ return [
         'details' => 'Details',
         'view_all' => 'View All',
         'view_on_map' => 'View on Map',
+        'file_not_available' => 'File not available',
     ],
 
     // Home Page

@@ -223,6 +223,7 @@ return [
         'details' => 'Подробнее',
         'view_all' => 'Смотреть все',
         'view_on_map' => 'Смотреть на карте',
+        'file_not_available' => 'Файл недоступен',
     ],
 
     // Home Page
