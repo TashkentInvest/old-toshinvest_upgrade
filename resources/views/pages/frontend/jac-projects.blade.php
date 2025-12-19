@@ -210,7 +210,7 @@
                         </div>
                     </div>
                     <div class="jac-download-footer">
-                        <a href="{{ asset('investment-projects/JAC_СМР конкурс эълони.pdf') }}" target="_blank" class="jac-btn jac-btn-primary">
+                        <a style="color: #fff" href="{{ asset('investment-projects/JAC_СМР конкурс эълони.pdf') }}" target="_blank" class="jac-btn jac-btn-primary">
                             <i class="fa-solid fa-eye"></i> {{ __('frontend.common.open') }}
                         </a>
                         <a href="{{ asset('investment-projects/JAC_СМР конкурс эълони.pdf') }}" download class="jac-btn jac-btn-secondary">
@@ -227,7 +227,7 @@
                         </div>
                     </div>
                     <div class="jac-download-footer">
-                        <a href="{{ asset('investment-projects/JAC MT.rar') }}" download class="jac-btn jac-btn-primary">
+                        <a style="color: #fff" href="{{ asset('investment-projects/JAC MT.rar') }}" download class="jac-btn jac-btn-primary">
                             <i class="fa-solid fa-download"></i> {{ __('frontend.common.download') }}
                         </a>
                     </div>
