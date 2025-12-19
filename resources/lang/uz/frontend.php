@@ -574,7 +574,7 @@ Jamiyat xalqaro moliyaviy hisobotlash standartlariga muvofiq moliyaviy hisobot t
         'subtitle' => '"Toshkent Invest Kompaniyasi" AJ ning kompaniya faoliyatini operativ boshqaruvchi ijroiya organi',
         'executive_body' => 'Ijroiya organi',
         'management' => 'Rahbariyat',
-        'general_director' => 'Bosh direktor',
+        'general_director' => 'Boshqaruv raisi',
         'phone' => 'Telefon',
         'email' => 'Elektron pochta',
         'reception_days' => 'Qabul kunlari',

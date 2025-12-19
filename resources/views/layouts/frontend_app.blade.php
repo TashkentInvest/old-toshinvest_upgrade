@@ -184,6 +184,16 @@ display: none !important;
 
 </style>
 
+<script src="https://cdn.jsdelivr.net/npm/magic-snowflakes/dist/snowflakes.min.js"></script>
+<script>
+  new Snowflakes({
+    color: "#ffffff",
+    count: 50,
+    speed: 1
+  });
+</script>
+
+
 </body>
 
 </html>

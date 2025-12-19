@@ -17,7 +17,7 @@
     {{-- PDF Viewer --}}
     <x-frontend.section bg="white">
         <x-frontend.pdf-viewer
-            :src="asset('assets/folders/NIZOM.pdf')"
+            :src="asset('assets/ustav/Устав_TIC_2025.pdf')"
             :title="__('frontend.nav.charter')"
             height="900px"
         />

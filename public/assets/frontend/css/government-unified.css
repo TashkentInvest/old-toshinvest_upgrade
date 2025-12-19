@@ -1043,7 +1043,7 @@
 
 .gov-team-position {
     font-size: 14px;
-    color: var(--gov-text-muted);
+    color: var(--gov-text-dark);
     margin: 0 0 16px;
     line-height: 1.5;
 }

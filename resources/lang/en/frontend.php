@@ -566,7 +566,7 @@ from 2025, the Company\'s financial and non-financial reports, as well as commer
         'subtitle' => 'The executive body of JSC "Tashkent Invest Company" that carries out operational management of the company\'s activities',
         'executive_body' => 'Executive Body',
         'management' => 'Management',
-        'general_director' => 'General Director',
+        'general_director' => 'Chairman of the Board',
         'phone' => 'Phone',
         'email' => 'Email',
         'reception_days' => 'Reception Days',
