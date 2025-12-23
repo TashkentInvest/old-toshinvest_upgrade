@@ -319,22 +319,44 @@ class ImportOldDataSeeder extends Seeder
         }
 
         $sql = file_get_contents($sqlFile);
+        DB::table('page_views')->truncate();
 
-        // Extract page_views INSERT statements
-        if (preg_match_all('/INSERT INTO `page_views`.*?VALUES\s*(.+?);/s', $sql, $matches)) {
-            DB::table('page_views')->truncate();
+        // Extract and process page_views INSERT statements using line-by-line parsing
+        $lines = explode("\n", $sql);
+        $inPageViewsInsert = false;
+        $currentStatement = '';
+        $importedCount = 0;
 
-            foreach ($matches[0] as $insertStatement) {
-                try {
-                    DB::unprepared($insertStatement);
-                } catch (\Exception $e) {
-                    $this->command->warn('Error importing page_views: ' . $e->getMessage());
-                }
+        foreach ($lines as $line) {
+            // Check if this line starts a page_views INSERT
+            if (strpos($line, 'INSERT INTO `page_views`') !== false) {
+                $inPageViewsInsert = true;
+                $currentStatement = $line;
+                continue;
             }
 
-            $count = DB::table('page_views')->count();
-            $this->command->info("Page views imported: {$count}");
+            if ($inPageViewsInsert) {
+                $currentStatement .= "\n" . $line;
+
+                // Check if this line ends the INSERT statement (ends with ); and not inside a string)
+                // A complete INSERT ends with just ); at the end of a line
+                $trimmedLine = rtrim($line);
+                if (preg_match('/^\([^)]*\);$/', $trimmedLine) || preg_match('/\'\);$/', $trimmedLine)) {
+                    // Execute the complete statement
+                    try {
+                        DB::unprepared($currentStatement);
+                        $importedCount++;
+                    } catch (\Exception $e) {
+                        $this->command->warn('Error in page_views batch: ' . substr($e->getMessage(), 0, 100));
+                    }
+                    $inPageViewsInsert = false;
+                    $currentStatement = '';
+                }
+            }
         }
+
+        $count = DB::table('page_views')->count();
+        $this->command->info("Page views imported: {$count} (from {$importedCount} INSERT statements)");
     }
 
     private function importHistories()
