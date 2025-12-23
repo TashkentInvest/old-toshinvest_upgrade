@@ -17,7 +17,7 @@
     {{-- PDF Viewer --}}
     <x-frontend.section bg="white">
         <x-frontend.pdf-viewer
-            :src="asset('assets/folders/biznes_reja.pdf')"
+            :src="asset('assets/folders/Бизнес-план 2025.pdf')"
             :title="__('frontend.nav.business_plan')"
             height="900px"
         />
