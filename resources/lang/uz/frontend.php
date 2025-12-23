@@ -826,4 +826,34 @@ Jamiyat xalqaro moliyaviy hisobotlash standartlariga muvofiq moliyaviy hisobot t
     'download_attachments' => 'Ilovalarni yuklab olish',
 ],
 
+// Vacancies
+'vacancies' => [
+    'direct_application' => 'To\'g\'ridan-to\'g\'ri ariza',
+    'direct_application_desc' => 'Kompaniyamizga to\'g\'ridan-to\'g\'ri ariza yuborish uchun quyidagi shaklni to\'ldiring. Biz sizning arizangizni ko\'rib chiqamiz va aloqaga chiqamiz.',
+    'full_name' => 'To\'liq ismingiz',
+    'full_name_placeholder' => 'Familiya Ism Otasining ismi',
+    'email' => 'Elektron pochta',
+    'email_placeholder' => 'sizning@email.com',
+    'phone' => 'Telefon raqam',
+    'position' => 'Lavozim',
+    'position_placeholder' => 'Qaysi lavozimga murojaat qilmoqchisiz?',
+    'message' => 'Qo\'shimcha xabar',
+    'message_placeholder' => 'O\'zingiz haqingizda qo\'shimcha ma\'lumot yozing...',
+    'resume' => 'Rezyume (CV)',
+    'choose_file' => 'Faylni tanlang yoki bu yerga tashlang',
+    'file_hint' => 'PDF, DOC yoki DOCX formati, maksimal 5MB',
+    'submit_application' => 'Arizani yuborish',
+    'application_sent' => 'Arizangiz muvaffaqiyatli yuborildi! Biz sizga tez orada aloqaga chiqamiz.',
+    'application_error' => 'Ariza yuborishda xatolik yuz berdi. Iltimos, keyinroq qayta urinib ko\'ring.',
+    'validation' => [
+        'full_name_required' => 'To\'liq ismingizni kiriting',
+        'email_required' => 'Elektron pochtangizni kiriting',
+        'email_invalid' => 'Elektron pochta manzili noto\'g\'ri',
+        'phone_required' => 'Telefon raqamingizni kiriting',
+        'position_required' => 'Lavozimni kiriting',
+        'resume_format' => 'Rezyume faqat PDF, DOC yoki DOCX formatida bo\'lishi kerak',
+        'resume_size' => 'Rezyume fayli hajmi 5MB dan oshmasligi kerak',
+    ],
+],
+
 ];

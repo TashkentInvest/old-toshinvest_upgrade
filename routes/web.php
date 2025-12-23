@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\TenderController as AdminTenderController;
+use App\Http\Controllers\Admin\VacancyApplicationController;
 use App\Http\Controllers\Frontend\InvestorIdeaController;
 use App\Http\Controllers\Frontend\TenderController;
 use App\Http\Controllers\SitemapController;
@@ -51,6 +52,14 @@ Route::prefix('admin/news')->name('admin.news.')->group(function () {
 });
 Route::post('news/{news}/remove-image', [NewsController::class, 'removeImage'])
       ->name('news.removeImage');
+
+// Vacancy Applications
+Route::prefix('admin/vacancy-applications')->name('admin.vacancy-applications.')->group(function () {
+    Route::get('/', [VacancyApplicationController::class, 'index'])->name('index');
+    Route::get('/{id}', [VacancyApplicationController::class, 'show'])->name('show');
+    Route::put('/{id}/status', [VacancyApplicationController::class, 'updateStatus'])->name('update-status');
+    Route::delete('/{id}', [VacancyApplicationController::class, 'destroy'])->name('destroy');
+});
 
 // Tenders CRUD
 Route::prefix('admin/tenders')->name('admin.tenders.')->group(function () {
@@ -158,6 +167,7 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/share-struktura', [FrontendController::class, 'share_struktura'])->name('share_struktura');
     Route::get('/kodeks', [FrontendController::class, 'kodeks'])->name('kodeks');
     Route::get('/vacancies', [FrontendController::class, 'vacancies'])->name('vacancies');
+    Route::post('/vacancies/apply', [FrontendController::class, 'submitVacancyApplication'])->name('vacancies.apply');
     Route::get('/development_strategies', [FrontendController::class, 'development_strategies'])->name('development_strategies');
     Route::get('/business_plan', [FrontendController::class, 'business_plan'])->name('business_plan');
     Route::get('/xaridlar', [FrontendController::class, 'xaridlar'])->name('xaridlar');

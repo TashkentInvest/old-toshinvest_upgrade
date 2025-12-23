@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\VacancyApplication;
 use App\Models\News;
 use App\Models\Project;
 use App\Services\InvestorIdeaService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class FrontendController extends Controller
@@ -487,5 +489,50 @@ public function nizomlar()
     public function redirectBidding()
     {
         return redirect()->route('frontend.investoram');
+    }
+
+    /**
+     * Handle vacancy application submission
+     */
+    public function submitVacancyApplication(Request $request)
+    {
+        $validated = $request->validate([
+            'full_name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'required|string|max:50',
+            'position' => 'required|string|max:255',
+            'message' => 'nullable|string|max:2000',
+            'resume' => 'nullable|file|mimes:pdf,doc,docx|max:5120',
+        ], [
+            'full_name.required' => __('frontend.vacancies.validation.full_name_required'),
+            'email.required' => __('frontend.vacancies.validation.email_required'),
+            'email.email' => __('frontend.vacancies.validation.email_invalid'),
+            'phone.required' => __('frontend.vacancies.validation.phone_required'),
+            'position.required' => __('frontend.vacancies.validation.position_required'),
+            'resume.mimes' => __('frontend.vacancies.validation.resume_format'),
+            'resume.max' => __('frontend.vacancies.validation.resume_size'),
+        ]);
+
+        try {
+            $resumePath = null;
+            if ($request->hasFile('resume')) {
+                $resumePath = $request->file('resume')->store('vacancy-resumes', 'public');
+            }
+
+            VacancyApplication::create([
+                'full_name' => $validated['full_name'],
+                'email' => $validated['email'],
+                'phone' => $validated['phone'],
+                'position' => $validated['position'],
+                'message' => $validated['message'] ?? null,
+                'resume_path' => $resumePath,
+                'ip_address' => $request->ip(),
+            ]);
+
+            return back()->with('success', __('frontend.vacancies.application_sent'));
+        } catch (\Exception $e) {
+            Log::error('Vacancy application failed: ' . $e->getMessage());
+            return back()->with('error', __('frontend.vacancies.application_error'))->withInput();
+        }
     }
 }

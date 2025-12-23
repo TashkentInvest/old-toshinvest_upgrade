@@ -50,6 +50,14 @@
                 <!-- CRM Section -->
                 <div class="nav-section">
                     <div class="nav-section-title">CRM</div>
+                    <a href="{{ route('admin.vacancy-applications.index') }}" class="nav-item {{ request()->routeIs('admin.vacancy-applications.*') ? 'active' : '' }}">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Ish arizalari</span>
+                        @php $newApps = \App\Models\VacancyApplication::where('status', 'new')->count(); @endphp
+                        @if($newApps > 0)
+                        <span class="nav-badge" style="background: #f59e0b;">{{ $newApps }}</span>
+                        @endif
+                    </a>
                     <a href="{{ route('frontend.investoram') }}" target="_blank" class="nav-item">
                         <i class="fas fa-users"></i>
                         <span>Investorlar</span>
