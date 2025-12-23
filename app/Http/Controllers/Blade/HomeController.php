@@ -24,21 +24,24 @@ class HomeController extends Controller
             return view('pages.dashboard');
         } else {
             return view('welcome');
-        }   
+        }
     }
 
     public function statistics()
-{
-    $messages = Message::with('user')->orderBy('created_at', 'asc')->get();
-    $categories = ['Ruxsatnoma', 'Apz', 'Kengash'];
+    {
+        $categoryCounts = collect([]);
 
-    $categoryCounts = Category::whereIn('name', $categories)
-        ->withCount('clients')
-        ->get();
-    
+        try {
+            $categories = ['Ruxsatnoma', 'Apz', 'Kengash'];
+            $categoryCounts = Category::whereIn('name', $categories)
+                ->withCount('clients')
+                ->get();
+        } catch (\Exception $e) {
+            // Categories table may not exist or be empty
+        }
 
-    return view('pages.statistics', compact('messages', 'categoryCounts'));
-}
+        return view('pages.statistics', compact('categoryCounts'));
+    }
 
     public function optimize()
     {

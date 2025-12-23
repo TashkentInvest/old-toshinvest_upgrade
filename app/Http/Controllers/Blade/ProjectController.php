@@ -13,14 +13,14 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::orderBy('created_at', 'desc')->get();
-        return view('pages.projects.index', compact('projects'));
+        return view('admin.projects.index', compact('projects'));
     }
 
     // Show the form for creating a new project
     public function create()
     {
 $categories= []; // Assuming you have a way to fetch categories if needed
-        return view('pages.projects.create', compact('categories'));
+        return view('admin.projects.create', compact('categories'));
     }
 
     // Store a newly created project in storage
@@ -82,7 +82,7 @@ $categories= []; // Assuming you have a way to fetch categories if needed
     public function edit($id)
     {
         $project = Project::findOrFail($id);
-        return view('pages.projects.edit', compact('project'));
+        return view('admin.projects.edit', compact('project'));
     }
 
     // Update the specified project in storage

@@ -1,528 +1,215 @@
-{{-- resources/views/admin/news/create.blade.php --}}
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Создать новость</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+@extends('layouts.admin')
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            padding: 20px;
-        }
+@section('title', 'Yangilik yaratish')
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-
-        .header {
-            background: #2c3e50;
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header h1 {
-            font-size: 1.5rem;
-        }
-
-        .form-container {
-            padding: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #333;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-            background: white;
-        }
-
-        .form-group textarea {
-            min-height: 200px;
-            resize: vertical;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #3498db;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-        }
-
-        .form-group small {
-            color: #666;
-            font-size: 0.85rem;
-            margin-top: 5px;
-            display: block;
-        }
-
-        .btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-            cursor: pointer;
-            display: inline-block;
-            font-size: 14px;
-        }
-
-        .btn-primary {
-            background: #3498db;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #2980b9;
-        }
-
-        .btn-secondary {
-            background: #95a5a6;
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background: #7f8c8d;
-        }
-
-        .btn-danger {
-            background: #e74c3c;
-            color: white;
-            padding: 6px 12px;
-            font-size: 12px;
-        }
-
-        .btn-danger:hover {
-            background: #c0392b;
-        }
-
-        .form-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-
-        .image-options {
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            padding: 20px;
-            background: #f9f9f9;
-        }
-
-        .image-option {
-            margin-bottom: 20px;
-        }
-
-        .image-option:last-child {
-            margin-bottom: 0;
-        }
-
-        .image-option h4 {
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-
-        .file-upload-area {
-            border: 2px dashed #ddd;
-            border-radius: 4px;
-            padding: 20px;
-            text-align: center;
-            background: white;
-            transition: all 0.3s ease;
-        }
-
-        .file-upload-area:hover {
-            border-color: #3498db;
-            background: #f8f9ff;
-        }
-
-        .file-upload-area.dragover {
-            border-color: #3498db;
-            background: #e7f3ff;
-        }
-
-        .file-input {
-            display: none;
-        }
-
-        .upload-button {
-            background: #3498db;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        .upload-button:hover {
-            background: #2980b9;
-        }
-
-        .image-preview-container {
-            margin-top: 15px;
-        }
-
-        .image-preview {
-            display: inline-block;
-            position: relative;
-            margin: 5px;
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .image-preview img {
-            width: 150px;
-            height: 100px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .image-preview .remove-btn {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: rgba(231, 76, 60, 0.8);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 25px;
-            height: 25px;
-            cursor: pointer;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .image-preview .remove-btn:hover {
-            background: rgba(192, 57, 43, 0.9);
-        }
-
-        .error {
-            color: #e74c3c;
-            font-size: 0.85rem;
-            margin-top: 5px;
-        }
-
-        .alert {
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .alert-danger {
-            background: #f8d7da;
-            color: #721c24;
-            border-color: #f5c6cb;
-        }
-
-        .divider {
-            margin: 20px 0;
-            text-align: center;
-            position: relative;
-        }
-
-        .divider::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: #ddd;
-        }
-
-        .divider span {
-            background: #f9f9f9;
-            padding: 0 15px;
-            color: #666;
-            font-size: 14px;
-        }
-
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-
-            .form-actions {
-                flex-direction: column;
-            }
-
-            .btn {
-                text-align: center;
-            }
-
-            .image-preview img {
-                width: 120px;
-                height: 80px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>Создать новость</h1>
-            <a href="{{ route('admin.news.index') }}" class="btn btn-secondary">Назад к списку</a>
+@section('content')
+<!-- Page Header -->
+<div class="admin-page-header">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <div>
+            <h1 class="admin-page-title">Yangilik yaratish</h1>
+            <p class="admin-page-subtitle">Yangi yangilik qo'shish formasi</p>
         </div>
+        <a href="{{ route('admin.news.index') }}" class="gov-btn gov-btn-secondary">
+            <i class="fas fa-arrow-left"></i> Ro'yxatga qaytish
+        </a>
+    </div>
+</div>
 
-        <div class="form-container">
-            @if(session('success'))
-                <div class="alert">
-                    {{ session('success') }}
-                </div>
-            @endif
+<!-- Form Card -->
+<div class="admin-card">
+    <div class="admin-card-header">
+        <h3 class="admin-card-title"><i class="fas fa-plus-circle"></i> Yangilik ma'lumotlari</h3>
+    </div>
+    <div class="admin-card-body">
+        <form method="POST" action="{{ route('admin.news.store') }}" enctype="multipart/form-data" id="newsForm">
+            @csrf
 
-            @if($errors->any())
-                <div class="alert alert-danger">
-                    <ul style="margin: 0; padding-left: 20px;">
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+            <!-- Title -->
+            <div class="gov-form-group">
+                <label class="gov-label required">Sarlavha</label>
+                <input type="text" name="title" class="gov-input" value="{{ old('title') }}" placeholder="Yangilik sarlavhasini kiriting..." required>
+                @error('title')
+                <span class="gov-error-message">{{ $message }}</span>
+                @enderror
+            </div>
 
-            <form method="POST" action="{{ route('admin.news.store') }}" enctype="multipart/form-data">
-                @csrf
+            <!-- Content -->
+            <div class="gov-form-group">
+                <label class="gov-label">Matn</label>
+                <textarea name="content" class="gov-textarea" rows="8" placeholder="Yangilik matnini kiriting...">{{ old('content') }}</textarea>
+                <div class="gov-hint">Agar faqat sarlavha va havola nashr qilmoqchi bo'lsangiz, bu maydonni bo'sh qoldirishingiz mumkin</div>
+                @error('content')
+                <span class="gov-error-message">{{ $message }}</span>
+                @enderror
+            </div>
 
-                <div class="form-group">
-                    <label for="title">Заголовок новости *</label>
-                    <input type="text" id="title" name="title" value="{{ old('title') }}" required>
-                    @error('title')
-                        <div class="error">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <div class="form-group">
-                    <label for="content">Содержание новости</label>
-                    <textarea id="content" name="content" placeholder="Введите текст новости...">{{ old('content') }}</textarea>
-                    <small>Вы можете оставить это поле пустым, если хотите опубликовать только заголовок и ссылку</small>
-                    @error('content')
-                        <div class="error">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <div class="form-group">
-                    <label>Изображения новости</label>
-
-                    <div class="image-options">
-                        <!-- File Upload Option -->
-                        <div class="image-option">
-                            <h4>Загрузить изображения</h4>
-                            <div class="file-upload-area" id="fileUploadArea">
-                                <p>Перетащите изображения сюда или</p>
-                                <button type="button" class="upload-button" onclick="document.getElementById('imageFiles').click()">
-                                    Выберите файлы
-                                </button>
-                                <input type="file" id="imageFiles" name="image_files[]" class="file-input" multiple accept="image/*">
-                                <small style="display: block; margin-top: 10px; color: #666;">
-                                    Поддерживаемые форматы: JPEG, PNG, JPG, GIF, WebP. Максимум 5MB на файл.
-                                </small>
-                            </div>
-
-                            <!-- Preview container for uploaded files -->
-                            <div id="uploadPreviewContainer" class="image-preview-container"></div>
+            <!-- Images Section -->
+            <div class="gov-form-group">
+                <label class="gov-label">Rasmlar</label>
+                <div class="gov-card" style="background: var(--gov-bg-light); border: 2px dashed var(--gov-border-dark); padding: 24px;">
+                    <!-- File Upload -->
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="font-size: 15px; font-weight: 600; color: var(--gov-text-dark); margin-bottom: 12px;">
+                            <i class="fas fa-upload" style="color: var(--gov-primary);"></i> Rasm yuklash
+                        </h4>
+                        <div id="fileUploadArea" style="border: 2px dashed var(--gov-border); border-radius: var(--gov-radius); padding: 30px; text-align: center; background: white; cursor: pointer; transition: var(--gov-transition);">
+                            <i class="fas fa-cloud-upload-alt" style="font-size: 36px; color: var(--gov-primary); margin-bottom: 12px;"></i>
+                            <p style="margin: 0 0 12px; color: var(--gov-text-body);">Rasmlarni shu yerga tashlang yoki</p>
+                            <button type="button" class="gov-btn gov-btn-primary gov-btn-sm" onclick="document.getElementById('imageFiles').click()">
+                                <i class="fas fa-folder-open"></i> Fayllarni tanlang
+                            </button>
+                            <input type="file" id="imageFiles" name="image_files[]" multiple accept="image/*" style="display: none;">
+                            <p style="margin: 12px 0 0; font-size: 12px; color: var(--gov-text-muted);">JPEG, PNG, JPG, GIF, WebP - Maksimum 5MB</p>
                         </div>
-
-                        <div class="divider">
-                            <span>ИЛИ</span>
-                        </div>
-
-                        <!-- URL Option -->
-                        <div class="image-option">
-                            <h4>URL изображения</h4>
-                            <input type="url" id="image" name="image" value="{{ old('image') }}"
-                                   placeholder="https://example.com/image.jpg">
-                            <small>Введите полный URL изображения (начинающийся с http:// или https://)</small>
-                            <div id="urlImagePreview" class="image-preview-container"></div>
-                        </div>
+                        <div id="uploadPreviewContainer" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px;"></div>
                     </div>
 
-                    @error('image')
-                        <div class="error">{{ $message }}</div>
-                    @enderror
-                    @error('image_files')
-                        <div class="error">{{ $message }}</div>
-                    @enderror
-                </div>
+                    <div style="text-align: center; padding: 12px 0; color: var(--gov-text-muted); font-size: 13px;">
+                        <span style="background: var(--gov-bg-light); padding: 0 16px;">YOKI</span>
+                    </div>
 
-                <div class="form-group">
-                    <label for="link">Внешняя ссылка на источник</label>
-                    <input type="url" id="link" name="link" value="{{ old('link') }}"
-                           placeholder="https://example.com/article">
-                    <small>Ссылка на первоисточник новости (если есть)</small>
-                    @error('link')
-                        <div class="error">{{ $message }}</div>
-                    @enderror
+                    <!-- URL Input -->
+                    <div>
+                        <h4 style="font-size: 15px; font-weight: 600; color: var(--gov-text-dark); margin-bottom: 12px;">
+                            <i class="fas fa-link" style="color: var(--gov-primary);"></i> Rasm URL manzili
+                        </h4>
+                        <input type="url" name="image" class="gov-input" value="{{ old('image') }}" placeholder="https://example.com/image.jpg">
+                        <div id="urlImagePreview" style="margin-top: 12px;"></div>
+                    </div>
                 </div>
+                @error('image')
+                <span class="gov-error-message">{{ $message }}</span>
+                @enderror
+                @error('image_files')
+                <span class="gov-error-message">{{ $message }}</span>
+                @enderror
+            </div>
 
-                <div class="form-group">
-                    <label for="published_at">Дата и время публикации</label>
-                    <input type="datetime-local" id="published_at" name="published_at"
-                           value="{{ old('published_at', now()->format('Y-m-d\TH:i')) }}">
-                    <small>Оставьте пустым для автоматической установки текущего времени</small>
-                    @error('published_at')
-                        <div class="error">{{ $message }}</div>
-                    @enderror
-                </div>
+            <!-- External Link -->
+            <div class="gov-form-group">
+                <label class="gov-label">Tashqi havola</label>
+                <input type="url" name="link" class="gov-input" value="{{ old('link') }}" placeholder="https://example.com/article">
+                <div class="gov-hint">Yangilik manbasi havolasi (agar mavjud bo'lsa)</div>
+                @error('link')
+                <span class="gov-error-message">{{ $message }}</span>
+                @enderror
+            </div>
 
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-primary">
-                        Создать новость
-                    </button>
-                    <a href="{{ route('admin.news.index') }}" class="btn btn-secondary">Отмена</a>
-                </div>
-            </form>
-        </div>
+            <!-- Published At -->
+            <div class="gov-form-group">
+                <label class="gov-label">Nashr sanasi va vaqti</label>
+                <input type="datetime-local" name="published_at" class="gov-input" value="{{ old('published_at', now()->format('Y-m-d\TH:i')) }}" style="max-width: 300px;">
+                <div class="gov-hint">Bo'sh qoldirilsa, avtomatik ravishda joriy vaqt belgilanadi</div>
+                @error('published_at')
+                <span class="gov-error-message">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <!-- Form Actions -->
+            <div class="gov-form-actions" style="display: flex; gap: 12px; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--gov-border);">
+                <button type="submit" class="gov-btn gov-btn-primary">
+                    <i class="fas fa-save"></i> Saqlash
+                </button>
+                <a href="{{ route('admin.news.index') }}" class="gov-btn gov-btn-secondary">
+                    <i class="fas fa-times"></i> Bekor qilish
+                </a>
+            </div>
+        </form>
     </div>
+</div>
+@endsection
 
-    <script>
-        // File handling
-        const fileInput = document.getElementById('imageFiles');
-        const uploadArea = document.getElementById('fileUploadArea');
-        const previewContainer = document.getElementById('uploadPreviewContainer');
-        const urlInput = document.getElementById('image');
-        const urlPreview = document.getElementById('urlImagePreview');
+@section('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('imageFiles');
+    const uploadArea = document.getElementById('fileUploadArea');
+    const previewContainer = document.getElementById('uploadPreviewContainer');
+    const urlInput = document.querySelector('input[name="image"]');
+    const urlPreview = document.getElementById('urlImagePreview');
 
-        let selectedFiles = [];
+    let selectedFiles = [];
 
-        // Drag and drop functionality
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.classList.add('dragover');
+    // Drag and drop
+    uploadArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        uploadArea.style.borderColor = 'var(--gov-primary)';
+        uploadArea.style.background = 'rgba(45, 74, 111, 0.05)';
+    });
+
+    uploadArea.addEventListener('dragleave', () => {
+        uploadArea.style.borderColor = 'var(--gov-border)';
+        uploadArea.style.background = 'white';
+    });
+
+    uploadArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        uploadArea.style.borderColor = 'var(--gov-border)';
+        uploadArea.style.background = 'white';
+        const files = Array.from(e.dataTransfer.files).filter(file => file.type.startsWith('image/'));
+        handleFiles(files);
+    });
+
+    fileInput.addEventListener('change', (e) => {
+        handleFiles(Array.from(e.target.files));
+    });
+
+    function handleFiles(files) {
+        selectedFiles = [...selectedFiles, ...files];
+        updatePreview();
+        updateFileInput();
+    }
+
+    function updateFileInput() {
+        const dt = new DataTransfer();
+        selectedFiles.forEach(file => dt.items.add(file));
+        fileInput.files = dt.files;
+    }
+
+    function updatePreview() {
+        previewContainer.innerHTML = '';
+        selectedFiles.forEach((file, index) => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const div = document.createElement('div');
+                div.style.cssText = 'position: relative; border-radius: var(--gov-radius); overflow: hidden; box-shadow: var(--gov-shadow-sm);';
+                div.innerHTML = `
+                    <img src="${e.target.result}" style="width: 120px; height: 80px; object-fit: cover; display: block;">
+                    <button type="button" onclick="removeFile(${index})" style="position: absolute; top: 4px; right: 4px; width: 24px; height: 24px; background: var(--gov-error); color: white; border: none; border-radius: 50%; cursor: pointer; font-size: 12px;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                previewContainer.appendChild(div);
+            };
+            reader.readAsDataURL(file);
         });
+    }
 
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.classList.remove('dragover');
-        });
+    window.removeFile = function(index) {
+        selectedFiles.splice(index, 1);
+        updatePreview();
+        updateFileInput();
+    };
 
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.classList.remove('dragover');
-            const files = Array.from(e.dataTransfer.files).filter(file => file.type.startsWith('image/'));
-            handleFiles(files);
-        });
-
-        // File input change
-        fileInput.addEventListener('change', (e) => {
-            const files = Array.from(e.target.files);
-            handleFiles(files);
-        });
-
-        function handleFiles(files) {
-            selectedFiles = [...selectedFiles, ...files];
-            updatePreview();
-            updateFileInput();
+    // URL preview
+    urlInput.addEventListener('input', function() {
+        const url = this.value;
+        if (url) {
+            const img = new Image();
+            img.onload = function() {
+                urlPreview.innerHTML = `<img src="${url}" style="width: 120px; height: 80px; object-fit: cover; border-radius: var(--gov-radius); box-shadow: var(--gov-shadow-sm);">`;
+            };
+            img.onerror = function() {
+                urlPreview.innerHTML = '<span style="color: var(--gov-error); font-size: 13px;"><i class="fas fa-exclamation-triangle"></i> Rasm yuklanmadi</span>';
+            };
+            img.src = url;
+        } else {
+            urlPreview.innerHTML = '';
         }
+    });
 
-        function updateFileInput() {
-            const dt = new DataTransfer();
-            selectedFiles.forEach(file => dt.items.add(file));
-            fileInput.files = dt.files;
-        }
-
-        function updatePreview() {
-            previewContainer.innerHTML = '';
-
-            selectedFiles.forEach((file, index) => {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const previewDiv = document.createElement('div');
-                    previewDiv.className = 'image-preview';
-                    previewDiv.innerHTML = `
-                        <img src="${e.target.result}" alt="Preview ${index + 1}">
-                        <button type="button" class="remove-btn" onclick="removeFile(${index})">×</button>
-                    `;
-                    previewContainer.appendChild(previewDiv);
-                };
-                reader.readAsDataURL(file);
-            });
-        }
-
-        function removeFile(index) {
-            selectedFiles.splice(index, 1);
-            updatePreview();
-            updateFileInput();
-        }
-
-        // URL image preview
-        urlInput.addEventListener('input', function() {
-            const imageUrl = this.value;
-
-            if (imageUrl) {
-                const img = new Image();
-                img.onload = function() {
-                    urlPreview.innerHTML = `
-                        <div class="image-preview">
-                            <img src="${imageUrl}" alt="URL Preview">
-                        </div>
-                    `;
-                };
-                img.onerror = function() {
-                    urlPreview.innerHTML = '<small style="color: #e74c3c;">Не удается загрузить изображение по указанному URL</small>';
-                };
-                img.src = imageUrl;
-            } else {
-                urlPreview.innerHTML = '';
-            }
-        });
-
-        // Form validation
-        document.querySelector('form').addEventListener('submit', function(e) {
-            const title = document.getElementById('title').value.trim();
-
-            if (!title) {
-                e.preventDefault();
-                alert('Пожалуйста, введите заголовок новости');
-                document.getElementById('title').focus();
-                return false;
-            }
-        });
-
-        // Load existing URL image preview on page load
-        window.addEventListener('load', function() {
-            if (urlInput.value) {
-                urlInput.dispatchEvent(new Event('input'));
-            }
-        });
-    </script>
-</body>
-</html>
+    if (urlInput.value) urlInput.dispatchEvent(new Event('input'));
+});
+</script>
+@endsection

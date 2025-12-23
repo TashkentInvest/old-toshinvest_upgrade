@@ -67,6 +67,9 @@ Route::prefix('admin/tenders')->name('admin.tenders.')->group(function () {
 
     Route::get('/optimize-cache', [HomeController::class, 'optimize'])->name('optimize.command');
 
+        // Statistics
+        Route::get('/statistics', [HomeController::class, 'statistics'])->name('admin.statistics');
+
 
     Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
     Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');

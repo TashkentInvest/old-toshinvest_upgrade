@@ -1,604 +1,309 @@
 <!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@lang('panel.site_title')</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{-- <link rel="shortcut icon" href="{{ asset('assets/images/favicon_techwiz.ico') }}"> --}}
-    <link rel="shortcut icon" href="{{ asset('assets/images/dark_logo.png') }}">
-
-    <link href="{{ asset('assets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
-
-
-
-    <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <!-- Include Select2 CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
-
-    <!-- Include Select2 JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
-    {{-- new --}}
-    <link rel="stylesheet" href="{{ asset('assets/new/assets/css/plugins/jsvectormap.min.css') }}">
-    <!-- [Google Font : Public Sans] icon -->
-    <link href="../../../css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- [phosphor Icons] https://phosphoricons.com/ -->
-    <link rel="stylesheet" href="{{ asset('assets/new/assets/fonts/phosphor/duotone/style.css') }}">
-    <!-- [Tabler Icons] https://tablericons.com -->
-    <link rel="stylesheet" href="{{ asset('assets/new/assets/fonts/tabler-icons.min.css') }}">
-    <!-- [Feather Icons] https://feathericons.com -->
-    <link rel="stylesheet" href="{{ asset('assets/new/assets/fonts/feather.css') }}">
-    <!-- [Font Awesome Icons] https://fontawesome.com/icons -->
-    <link rel="stylesheet" href="{{ asset('assets/new/assets/fonts/fontawesome.css') }}">
-    <!-- [Material Icons] https://fonts.google.com/icons -->
-    <link rel="stylesheet" href="{{ asset('assets/new/assets/fonts/material.css') }}">
-    <!-- [Template CSS Files] -->
-    <link rel="stylesheet" href="{{ asset('assets/new/assets/css/style.css') }}" id="main-style-link">
-    <link rel="stylesheet" href="{{ asset('assets/new/assets/css/style-preset.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('assets/new/assets/css/plugins/dropzone.min.css') }}">
-
-
-
-    @yield('styles')
+    @include('inc.__admin_head')
 </head>
 
-<body data-sidebar="{{ auth()->user()->theme()['sidebar'] ?? '' }}"
-    data-layout-mode="{{ auth()->user()->theme()['body'] ?? '' }}">
-
-    {{-- <div id="preloader">
-        <div id="status">
-            <div class="spinner-chase">
-                <div class="chase-dot"></div>
-                <div class="chase-dot"></div>
-                <div class="chase-dot"></div>
-                <div class="chase-dot"></div>
-                <div class="chase-dot"></div>
-                <div class="chase-dot"></div>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <!-- Sidebar Header -->
+            <div class="sidebar-header">
+                <a href="{{ route('home') }}" class="sidebar-logo">
+                    <img src="https://old.toshkentinvest.uz/tild3636-3735-4861-a236-666663383164/TIC_white.png" alt="Logo">
+                </a>
+                <button class="sidebar-toggle" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-        </div>
-    </div> --}}
 
-    <!-- Begin page -->
-    <div id="layout-wrapper">
-
-        <style>
-            @media(max-width: 757px) {
-                .card-body {
-                    overflow: scroll !important;
-                }
-            }
-        </style>
-
-        <header class="pc-header">
-            <div class="header-wrapper"> <!-- [Mobile Media Block] start -->
-                <div class="me-auto pc-mob-drp">
-                    <ul class="list-unstyled">
-                        <!-- ======= Menu collapse Icon ===== -->
-                        <li class="pc-h-item pc-sidebar-collapse">
-                            <a href="#" class="pc-head-link ms-0" id="sidebar-hide">
-                                <i class="ti ti-menu-2"></i>
-                            </a>
-                        </li>
-                        <li class="pc-h-item pc-sidebar-popup">
-                            <a href="#" class="pc-head-link ms-0" id="mobile-collapse">
-                                <i class="ti ti-menu-2"></i>
-                            </a>
-                        </li>
-                        <li class="dropdown pc-h-item d-inline-flex d-md-none">
-                            <a class="pc-head-link dropdown-toggle arrow-none m-0" data-bs-toggle="dropdown"
-                                href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <i class="ph-duotone ph-magnifying-glass"></i>
-                            </a>
-                            <div class="dropdown-menu pc-h-dropdown drp-search">
-                                <form action="" method="GET" class="px-3">
-                                    <div class="mb-0 d-flex align-items-center">
-                                        <input type="search" name="query" class="form-control border-0 shadow-none"
-                                            placeholder="Search...">
-                                        <button type="submit"
-                                            class="btn btn-light-secondary btn-search">Qidirish</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
-                        {{-- <li class="pc-h-item d-none d-md-inline-flex">
-                            <form action="{{ route('search') }}" method="GET" class="form-search">
-                                <i class="ph-duotone ph-magnifying-glass icon-search"></i>
-                                <input type="search" name="query" class="form-control" placeholder="Search...">
-                                <button type="submit" class="btn btn-search" style="padding: 0"><kbd>ctrl+k</kbd></button>
-                            </form>
-
-
-                            <h6 class="text-danger text-bold px-2">MG, MFY, Manzili va Maydoni orqali qidirishingiz mumkin !</h4>
-                        </li> --}}
-
-
-                    </ul>
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar-nav">
+                <!-- Dashboard -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Bosh sahifa</div>
+                    <a href="{{ route('home') }}" class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
+                        <i class="fas fa-home"></i>
+                        <span>Dashboard</span>
+                    </a>
                 </div>
-                <!-- [Mobile Media Block end] -->
-                {{-- <div class="ms-auto">
-                    <ul class="list-unstyled">
-                        <li class="dropdown pc-h-item">
-                            <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown"
-                                href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <i class="ph-duotone ph-sun-dim"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end pc-h-dropdown">
-                                <a href="#!" class="dropdown-item" onclick="layout_change('dark')">
-                                    <i class="ph-duotone ph-moon"></i>
-                                    <span>Dark</span>
-                                </a>
-                                <a href="#!" class="dropdown-item" onclick="layout_change('light')">
-                                    <i class="ph-duotone ph-sun-dim"></i>
-                                    <span>Light</span>
-                                </a>
-                                <a href="#!" class="dropdown-item" onclick="layout_change_default()">
-                                    <i class="ph-duotone ph-cpu"></i>
-                                    <span>Default</span>
-                                </a>
-                            </div>
-                        </li>
 
-                        <div class="dropdown d-inline-block">
-                            <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                @if (session('locale') == 'uz')
-                                    <img id="header-lang-img" src="{{ asset('assets/images/flags/uzbekistan.jpg') }}"
-                                        alt="Header Language" height="16">
-                                @else
-                                    <img id="header-lang-img" src="{{ asset('assets/images/flags/russia.jpg') }}"
-                                        alt="Header Language" height="16">
-                                @endif
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <!-- item-->
+                <!-- Content Management -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Kontent boshqaruvi</div>
+                    <a href="{{ route('admin.news.index') }}" class="nav-item {{ request()->routeIs('admin.news.*') ? 'active' : '' }}">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Yangiliklar</span>
+                    </a>
+                    <a href="{{ route('projects.index') }}" class="nav-item {{ request()->routeIs('projects.*') ? 'active' : '' }}">
+                        <i class="fas fa-building"></i>
+                        <span>Loyihalar</span>
+                    </a>
+                    <a href="{{ route('admin.tenders.index') }}" class="nav-item {{ request()->routeIs('admin.tenders.*') ? 'active' : '' }}">
+                        <i class="fas fa-handshake"></i>
+                        <span>Tenderlar</span>
+                    </a>
+                </div>
 
-                                <a href="{{ route('changelang', 'ru') }}" class="dropdown-item notify-item language"
-                                    data-lang="ru">
-                                    <img src="{{ asset('assets/images/flags/russia.jpg') }}" alt="user-image"
-                                        class="me-1" height="12"> <span class="align-middle">Русский</span>
-                                </a>
-                                <a href="{{ route('changelang', 'uz') }}" class="dropdown-item notify-item language"
-                                    data-lang="uz">
-                                    <img src="{{ asset('assets/images/flags/uzbekistan.jpg') }}" alt="user-image"
-                                        class="me-1" height="12"> <span class="align-middle">O'zbekcha</span>
-                                </a>
-                            </div>
-                        </div>
+                <!-- CRM Section -->
+                <div class="nav-section">
+                    <div class="nav-section-title">CRM</div>
+                    <a href="{{ route('frontend.investoram') }}" target="_blank" class="nav-item">
+                        <i class="fas fa-users"></i>
+                        <span>Investorlar</span>
+                        <span class="nav-badge">Sayt</span>
+                    </a>
+                    <a href="{{ route('admin.statistics') }}" class="nav-item {{ request()->routeIs('admin.statistics') ? 'active' : '' }}">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Statistika</span>
+                    </a>
+                </div>
 
-                        <div class="dropdown d-inline-block">
-                            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user"
-                                    src="{{ asset('assets/images/avatar-dafault.png') }}" alt="Header Avatar">
-                                <span class="d-none d-xl-inline-block ms-1" key="t-henry">
-                                    @if (auth()->user())
-                                        {{ auth()->user()->name }}
-                                    @endif
-                                </span>
-                                <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <!-- item-->
-                                <!-- <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile">Profile</span></a>
-                                              <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span key="t-my-wallet">My Wallet</span></a> -->
-                                @if (auth()->user())
-                                    <a class="dropdown-item d-block" href="{{ route('userEdit', auth()->user()->id) }}">
-                                        <!-- <span class="badge bg-success float-end">11</span> -->
-                                        <i class="bx bx-wrench font-size-16 align-middle me-1"></i>
-                                        <span key="t-settings">@lang('global.settings')</span>
-                                    </a>
-                                @endif
-                                <div class="dropdown-divider"></div>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                    @csrf
-                                </form>
-                                <a class="dropdown-item text-danger" href="#" role="button"
-                                    onclick="
-                                    event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                    <i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i>
-                                    <span key="t-logout">@lang('global.logout')</span>
-                                </a>
-                            </div>
-                        </div>
+                @if (auth()->user() && auth()->user()->roles[0]->name == 'Super Admin')
+                <!-- Administration -->
+                <div class="nav-section">
+                    <div class="nav-section-title">Administratsiya</div>
+                    <a href="{{ route('userIndex') }}" class="nav-item {{ request()->is('user*') ? 'active' : '' }}">
+                        <i class="fas fa-user-cog"></i>
+                        <span>@lang('cruds.user.title')</span>
+                    </a>
+                    <a href="{{ route('roleIndex') }}" class="nav-item {{ request()->is('role*') ? 'active' : '' }}">
+                        <i class="fas fa-user-shield"></i>
+                        <span>@lang('cruds.role.fields.roles')</span>
+                    </a>
+                    <a href="{{ route('permissionIndex') }}" class="nav-item {{ request()->is('permission*') ? 'active' : '' }}">
+                        <i class="fas fa-key"></i>
+                        <span>@lang('cruds.permission.title_singular')</span>
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i class="fas fa-cog"></i>
+                        <span>Sozlamalar</span>
+                    </a>
+                </div>
+                @endif
+            </nav>
 
-                    </ul>
-                </div> --}}
+            <!-- Sidebar Footer -->
+            <div class="sidebar-footer">
+                <img src="{{ asset('assets/images/avatar-dafault.png') }}" alt="User" class="sidebar-user-avatar">
+                <div class="sidebar-user-info">
+                    @if (auth()->user())
+                    <div class="sidebar-user-name">{{ auth()->user()->name }}</div>
+                    <div class="sidebar-user-role">{{ auth()->user()->roles[0]->name ?? 'User' }}</div>
+                    @endif
+                </div>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                <a href="#" class="sidebar-logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
             </div>
-        </header>
+        </aside>
 
-        <!-- ========== Left Sidebar Start ========== -->
-        @include('layouts.sidebar')
-        <!-- Left Sidebar End -->
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle" onclick="toggleMobileSidebar()" style="display: none;">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="header-search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Qidirish...">
+                    </div>
+                </div>
 
-        <div class="pc-container">
-            <div class="pc-content">
+                <div class="header-right">
+                    <!-- Notifications -->
+                    <div class="dropdown" id="notificationDropdown">
+                        <div class="header-action" onclick="toggleDropdown('notificationDropdown')">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge">3</span>
+                        </div>
+                        <div class="dropdown-menu" style="width: 320px;">
+                            <div style="padding: 16px; border-bottom: 1px solid var(--gov-border);">
+                                <strong>Bildirishnomalar</strong>
+                            </div>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-file-alt" style="color: var(--gov-primary);"></i>
+                                <div>
+                                    <div style="font-weight: 500;">Yangi hujjat yuklandi</div>
+                                    <small style="color: var(--gov-text-muted);">2 daqiqa oldin</small>
+                                </div>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-check-circle" style="color: var(--gov-success);"></i>
+                                <div>
+                                    <div style="font-weight: 500;">Loyiha tasdiqlandi</div>
+                                    <small style="color: var(--gov-text-muted);">15 daqiqa oldin</small>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item" style="justify-content: center; color: var(--gov-primary);">
+                                Barchasini ko'rish
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Language -->
+                    <div class="dropdown" id="langDropdown">
+                        <div class="header-lang" onclick="toggleDropdown('langDropdown')">
+                            @if (session('locale') == 'uz')
+                            <img src="{{ asset('assets/images/flags/uzbekistan.jpg') }}" alt="UZ">
+                            <span>O'zbekcha</span>
+                            @else
+                            <img src="{{ asset('assets/images/flags/russia.jpg') }}" alt="RU">
+                            <span>Русский</span>
+                            @endif
+                            <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 4px;"></i>
+                        </div>
+                        <div class="dropdown-menu">
+                            <a href="{{ route('changelang', 'uz') }}" class="dropdown-item">
+                                <img src="{{ asset('assets/images/flags/uzbekistan.jpg') }}" alt="UZ" style="width: 20px; height: 14px; border-radius: 2px;">
+                                O'zbekcha
+                            </a>
+                            <a href="{{ route('changelang', 'ru') }}" class="dropdown-item">
+                                <img src="{{ asset('assets/images/flags/russia.jpg') }}" alt="RU" style="width: 20px; height: 14px; border-radius: 2px;">
+                                Русский
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- User -->
+                    <div class="dropdown" id="userDropdown">
+                        <div class="header-user" onclick="toggleDropdown('userDropdown')">
+                            <img src="{{ asset('assets/images/avatar-dafault.png') }}" alt="User">
+                            @if (auth()->user())
+                            <span class="header-user-name">{{ auth()->user()->name }}</span>
+                            @endif
+                            <i class="fas fa-chevron-down" style="font-size: 10px;"></i>
+                        </div>
+                        <div class="dropdown-menu">
+                            @if (auth()->user())
+                            <a href="{{ route('userEdit', auth()->user()->id) }}" class="dropdown-item">
+                                <i class="fas fa-cog"></i>
+                                @lang('global.settings')
+                            </a>
+                            @endif
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item" style="color: var(--gov-error);" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fas fa-sign-out-alt"></i>
+                                @lang('global.logout')
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="admin-content">
+                <!-- Flash Messages -->
                 @if (session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
+                <div class="admin-alert success fade-in">
+                    <i class="fas fa-check-circle"></i>
+                    <span>{{ session('success') }}</span>
+                </div>
                 @endif
 
-                <!-- Display error message -->
                 @if (session('error'))
-                    <div class="alert alert-danger">
-                        {{ session('error') }}
-                    </div>
+                <div class="admin-alert danger fade-in">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>{{ session('error') }}</span>
+                </div>
                 @endif
 
-                <!-- Display validation errors -->
                 @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
+                <div class="admin-alert danger fade-in">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>
+                        <ul style="margin: 0; padding-left: 20px;">
                             @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
+                            <li>{{ $error }}</li>
                             @endforeach
                         </ul>
                     </div>
+                </div>
                 @endif
 
-                @yield('content')
-            </div>
-
-
-
-
-        </div>
-        <!-- end main content-->
-
-        <footer class="pc-footer">
-            <div class="footer-wrapper container-fluid">
-                <div class="row">
-                    <div class="col-sm-6 my-1">
-                        <p class="m-0">Copyright &copy; {{ date('Y') }} by <a target="_blank"
-                                href="https://toshkentinvest.uz">toshkentinvest.uz</a></a></p>
-                    </div>
-
+                <!-- Page Content -->
+                <div class="fade-in">
+                    @yield('content')
                 </div>
             </div>
-        </footer>
+
+            <!-- Footer -->
+            <footer class="admin-footer">
+                <p>&copy; {{ date('Y') }} <a href="https://toshkentinvest.uz" target="_blank">Tashkent Invest</a> - Barcha huquqlar himoyalangan</p>
+                <p><i class="fas fa-code"></i> v2.0.0</p>
+            </footer>
+        </main>
     </div>
 
-    {{-- new --}}
-    <!-- [Page Specific JS] start -->
-
-    <script src="{{ asset('assets/new/assets/js/plugins/dropzone-amd-module.min.js') }}"></script>
-
-
-    <script src="{{ asset('assets/new/assets/js/plugins/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('assets/new/assets/js/plugins/jsvectormap.min.js') }}"></script>
-    <script src="{{ asset('assets/new/assets/js/plugins/world.js') }}"></script>
-    <script src="{{ asset('assets/new/assets/js/plugins/world-merc.js') }}"></script>
-    <script src="{{ asset('assets/new/assets/js/pages/dashboard-default.js') }}"></script>
-    <!-- [Page Specific JS] end -->
-    <!-- Required Js -->
-    <script src="{{ asset('assets/new/assets/js/plugins/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/new/assets/js/plugins/simplebar.min.js') }}"></script>
-    <script src="{{ asset('assets/new/assets/js/plugins/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/new/assets/js/fonts/custom-font.js') }}"></script>
-    <script src="{{ asset('assets/new/assets/js/pcoded.js') }}"></script>
-    <script src="{{ asset('assets/new/assets/js/plugins/feather.min.js') }}"></script>
-
+    <!-- Core Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>
-        layout_change('light');
-    </script>
+        // Sidebar Toggle
+        function toggleSidebar() {
+            document.getElementById('adminSidebar').classList.toggle('collapsed');
+        }
 
-    <script>
-        layout_sidebar_change('light');
-    </script>
+        function toggleMobileSidebar() {
+            document.getElementById('adminSidebar').classList.toggle('open');
+        }
 
-    <script>
-        change_box_container('false');
-    </script>
+        // Dropdown Toggle
+        function toggleDropdown(id) {
+            const dropdown = document.getElementById(id);
+            const wasActive = dropdown.classList.contains('active');
 
-    <script>
-        layout_caption_change('true');
-    </script>
+            // Close all dropdowns
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
 
-    <script>
-        layout_rtl_change('false');
-    </script>
-
-    <script>
-        preset_change('preset-1');
-    </script>
-
-
-    <div class="offcanvas border-0 pct-offcanvas offcanvas-end" tabindex="-1" id="offcanvas_pc_layout">
-        <div class="offcanvas-header justify-content-between">
-            <h5 class="offcanvas-title">Settings</h5>
-            <button type="button" class="btn btn-icon btn-link-danger" data-bs-dismiss="offcanvas"
-                aria-label="Close"><i class="ti ti-x"></i></button>
-        </div>
-        <div class="pct-body customizer-body">
-            <div class="offcanvas-body py-0">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <div class="pc-dark">
-                            <h6 class="mb-1">Theme Mode</h6>
-                            <p class="text-muted text-sm">Choose light or dark mode or Auto</p>
-                            <div class="row theme-color theme-layout">
-                                <div class="col-4">
-                                    <div class="d-grid">
-                                        <button class="preset-btn btn active" data-value="true"
-                                            onclick="layout_change('light');">
-                                            <span class="btn-label">Light</span>
-                                            <span
-                                                class="pc-lay-icon"><span></span><span></span><span></span><span></span></span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="d-grid">
-                                        <button class="preset-btn btn" data-value="false"
-                                            onclick="layout_change('dark');">
-                                            <span class="btn-label">Dark</span>
-                                            <span
-                                                class="pc-lay-icon"><span></span><span></span><span></span><span></span></span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="d-grid">
-                                        <button class="preset-btn btn" data-value="default"
-                                            onclick="layout_change_default();" data-bs-toggle="tooltip"
-                                            title="Automatically sets the theme based on user's operating system's color scheme.">
-                                            <span class="btn-label">Default</span>
-                                            <span class="pc-lay-icon d-flex align-items-center justify-content-center">
-                                                <i class="ph-duotone ph-cpu"></i>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <h6 class="mb-1">Sidebar Theme</h6>
-                        <p class="text-muted text-sm">Choose Sidebar Theme</p>
-                        <div class="row theme-color theme-sidebar-color">
-                            <div class="col-6">
-                                <div class="d-grid">
-                                    <button class="preset-btn btn" data-value="true"
-                                        onclick="layout_sidebar_change('dark');">
-                                        <span class="btn-label">Dark</span>
-                                        <span
-                                            class="pc-lay-icon"><span></span><span></span><span></span><span></span></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="d-grid">
-                                    <button class="preset-btn btn active" data-value="false"
-                                        onclick="layout_sidebar_change('light');">
-                                        <span class="btn-label">Light</span>
-                                        <span
-                                            class="pc-lay-icon"><span></span><span></span><span></span><span></span></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <h6 class="mb-1">Accent color</h6>
-                        <p class="text-muted text-sm">Choose your primary theme color</p>
-                        <div class="theme-color preset-color">
-                            <a href="#!" class="active" data-value="preset-1"><i class="ti ti-check"></i></a>
-                            <a href="#!" data-value="preset-2"><i class="ti ti-check"></i></a>
-                            <a href="#!" data-value="preset-3"><i class="ti ti-check"></i></a>
-                            <a href="#!" data-value="preset-4"><i class="ti ti-check"></i></a>
-                            <a href="#!" data-value="preset-5"><i class="ti ti-check"></i></a>
-                            <a href="#!" data-value="preset-6"><i class="ti ti-check"></i></a>
-                            <a href="#!" data-value="preset-7"><i class="ti ti-check"></i></a>
-                            <a href="#!" data-value="preset-8"><i class="ti ti-check"></i></a>
-                            <a href="#!" data-value="preset-9"><i class="ti ti-check"></i></a>
-                            <a href="#!" data-value="preset-10"><i class="ti ti-check"></i></a>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <h6 class="mb-1">Sidebar Caption</h6>
-                        <p class="text-muted text-sm">Sidebar Caption Hide/Show</p>
-                        <div class="row theme-color theme-nav-caption">
-                            <div class="col-6">
-                                <div class="d-grid">
-                                    <button class="preset-btn btn active" data-value="true"
-                                        onclick="layout_caption_change('true');">
-                                        <span class="btn-label">Caption Show</span>
-                                        <span
-                                            class="pc-lay-icon"><span></span><span></span><span><span></span><span></span></span><span></span></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="d-grid">
-                                    <button class="preset-btn btn" data-value="false"
-                                        onclick="layout_caption_change('false');">
-                                        <span class="btn-label">Caption Hide</span>
-                                        <span
-                                            class="pc-lay-icon"><span></span><span></span><span><span></span><span></span></span><span></span></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="pc-rtl">
-                            <h6 class="mb-1">Theme Layout</h6>
-                            <p class="text-muted text-sm">LTR/RTL</p>
-                            <div class="row theme-color theme-direction">
-                                <div class="col-6">
-                                    <div class="d-grid">
-                                        <button class="preset-btn btn active" data-value="false"
-                                            onclick="layout_rtl_change('false');">
-                                            <span class="btn-label">LTR</span>
-                                            <span
-                                                class="pc-lay-icon"><span></span><span></span><span></span><span></span></span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="d-grid">
-                                        <button class="preset-btn btn" data-value="true"
-                                            onclick="layout_rtl_change('true');">
-                                            <span class="btn-label">RTL</span>
-                                            <span
-                                                class="pc-lay-icon"><span></span><span></span><span></span><span></span></span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item pc-box-width">
-                        <div class="pc-container-width">
-                            <h6 class="mb-1">Layout Width</h6>
-                            <p class="text-muted text-sm">Choose Full or Container Layout</p>
-                            <div class="row theme-color theme-container">
-                                <div class="col-6">
-                                    <div class="d-grid">
-                                        <button class="preset-btn btn active" data-value="false"
-                                            onclick="change_box_container('false')">
-                                            <span class="btn-label">Full Width</span>
-                                            <span
-                                                class="pc-lay-icon"><span></span><span></span><span></span><span><span></span></span></span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="d-grid">
-                                        <button class="preset-btn btn" data-value="true"
-                                            onclick="change_box_container('true')">
-                                            <span class="btn-label">Fixed Width</span>
-                                            <span
-                                                class="pc-lay-icon"><span></span><span></span><span></span><span><span></span></span></span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="d-grid">
-                            <button class="btn btn-light-danger" id="layoutreset">Reset Layout</button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        $(document).ready(function() {
-            $('.phone2').inputmask('+998 (99) 999-99-99');
-
-            $('#contact').on('focus', function() {
-                if ($(this).val().startsWith('+998') === false) {
-                    $(this).val('+998 ');
-                }
-            });
-
-            $('#contact').on('input', function() {
-                if ($(this).val().length > 14) {
-                    $(this).val($(this).val().substring(0, 14));
-                }
-            });
-        });
-    </script>
-
-    {{-- constructor --}}
-
-    {{-- constructor end --}}
-
-    <!-- JAVASCRIPT -->
-
-    <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
-    {{-- <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script> --}}
-    <script src="{{ asset('assets/libs/metismenu/metisMenu.min.js') }}"></script>
-    {{-- <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script> --}}
-    {{-- <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script> --}}
-    <!-- Select2 -->
-    <script src="{{ asset('assets/libs/select2/js/select2.min.js') }}"></script>
-    <!-- Required datatable js -->
-    <script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <!-- Buttons examples -->
-    <script src="{{ asset('assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/jszip/jszip.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/pdfmake/build/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/pdfmake/build/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
-
-    <!-- Responsive examples -->
-    <script src="{{ asset('assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
-
-    <!-- Datatable init js -->
-    <script src="{{ asset('assets/js/pages/datatables.init.js') }}"></script>
-    <!-- form advanced init -->
-    <script src="{{ asset('assets/js/pages/form-advanced.init.js') }}"></script>
-    <script src="{{ asset('assets/js/pages/job-list.init.js') }}"></script>
-    <script src="{{ asset('assets/js/pages/job-list.init.js') }}"></script>
-
-    <!-- App js -->
-    <script src="{{ asset('assets/js/app.js') }}"></script>
-
-    <!-- bootstrap datepicker -->
-    <script src="{{ asset('assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
-
-    <!-- dropzone plugin -->
-    <script src="{{ asset('assets/libs/dropzone/min/dropzone.min.js') }}"></script>
-
-    {{-- <script src="{{ asset('assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>  --}}
-
-    <script>
-        $("#reset_form").on('click', function() {
-            $('form :input').val('');
-            $("form :input[class*='like-operator']").val('like');
-            $("div[id*='_pair']").hide();
-        });
-    </script>
-
-    <script>
-        function togglePassword(inputId, toggleIconId) {
-            var passwordInput = document.getElementById(inputId);
-            var toggleIcon = document.getElementById(toggleIconId);
-
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                toggleIcon.classList.remove("mdi-eye-outline");
-                toggleIcon.classList.add("mdi-eye-off-outline");
-            } else {
-                passwordInput.type = "password";
-                toggleIcon.classList.remove("mdi-eye-off-outline");
-                toggleIcon.classList.add("mdi-eye-outline");
+            // Toggle clicked dropdown
+            if (!wasActive) {
+                dropdown.classList.add('active');
             }
         }
-    </script>
-    @if (session('_message'))
-        <script>
-            Swal.fire({
-                position: 'top-end',
-                icon: "{{ session('_type') }}",
-                title: "{{ session('_message') }}",
-                showConfirmButton: false,
-                timer: {{ session('_timer') ?? 5000 }}
+
+        // Close dropdowns on outside click
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            }
+        });
+
+        // Auto-hide alerts
+        setTimeout(function() {
+            document.querySelectorAll('.admin-alert').forEach(function(alert) {
+                alert.style.opacity = '0';
+                alert.style.transform = 'translateY(-10px)';
+                setTimeout(() => alert.remove(), 300);
             });
-        </script>
-        @php(message_clear())
-    @endif
+        }, 5000);
+
+        // Responsive sidebar
+        function handleResize() {
+            const sidebar = document.getElementById('adminSidebar');
+            const toggleBtn = document.querySelector('.header-left .sidebar-toggle');
+            if (window.innerWidth <= 992) {
+                sidebar.classList.remove('collapsed');
+                if (toggleBtn) toggleBtn.style.display = 'flex';
+            } else {
+                sidebar.classList.remove('open');
+                if (toggleBtn) toggleBtn.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+    </script>
+
     @yield('scripts')
 </body>
+
+</html>

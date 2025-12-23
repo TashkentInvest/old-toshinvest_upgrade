@@ -1,302 +1,522 @@
-{{-- resources/views/admin/tenders/edit.blade.php --}}
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Редактировать тендер #{{ $tender->id }}</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: #f5f5f5; padding: 20px; }
-        .container { max-width: 1000px; margin: 0 auto; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); overflow: hidden; }
-        .header { background: #1e40af; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
-        .header h1 { font-size: 1.5rem; }
-        .btn { padding: 10px 20px; border: none; border-radius: 4px; text-decoration: none; font-weight: 500; cursor: pointer; display: inline-block; }
-        .btn-primary { background: #3498db; color: white; }
-        .btn-secondary { background: #6c757d; color: white; }
-        .btn-success { background: #27ae60; color: white; font-size: 1rem; }
-        .btn-danger { background: #e74c3c; color: white; }
-        .btn-sm { padding: 5px 10px; font-size: 0.8rem; }
-        .form-body { padding: 30px; }
-        .form-section { margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
-        .section-title { font-size: 1.1rem; font-weight: 600; color: #1e40af; margin-bottom: 20px; }
-        .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 15px; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: 500; color: #333; }
-        .form-group label .required { color: #e74c3c; }
-        .form-control { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; }
-        .form-control:focus { outline: none; border-color: #1e40af; }
-        textarea.form-control { min-height: 100px; resize: vertical; }
-        .checkbox-group { display: flex; align-items: center; gap: 10px; }
-        .checkbox-group input[type="checkbox"] { width: 20px; height: 20px; }
-        .dynamic-list { background: #f8f9fa; padding: 15px; border-radius: 4px; }
-        .dynamic-item { display: flex; gap: 10px; margin-bottom: 10px; }
-        .dynamic-item input { flex: 1; }
-        .dynamic-item button { padding: 8px 12px; background: #e74c3c; color: white; border: none; border-radius: 4px; cursor: pointer; }
-        .add-item-btn { background: #27ae60; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; margin-top: 10px; }
-        .form-actions { padding: 20px 30px; background: #f8f9fa; border-top: 1px solid #dee2e6; display: flex; justify-content: space-between; }
-        .alert { padding: 15px; margin: 20px 30px; border-radius: 4px; }
-        .alert-danger { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-        .alert ul { margin: 10px 0 0 20px; }
-        .tabs { display: flex; border-bottom: 2px solid #e9ecef; margin-bottom: 20px; }
-        .tab { padding: 10px 20px; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; color: #6c757d; }
-        .tab.active { border-bottom-color: #1e40af; color: #1e40af; font-weight: 600; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-        .document-list { margin-top: 15px; }
-        .document-item { display: flex; align-items: center; gap: 10px; padding: 10px; background: #f8f9fa; border-radius: 4px; margin-bottom: 8px; }
-        .document-item .doc-name { flex: 1; }
-        .document-item .doc-size { color: #666; font-size: 0.85rem; }
-        @media (max-width: 768px) { .form-row { grid-template-columns: 1fr; } .header { flex-direction: column; gap: 15px; } }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>✏️ Редактировать тендер #{{ $tender->id }}</h1>
-            <a href="{{ route('admin.tenders.index') }}" class="btn btn-secondary">← Назад</a>
+@extends('layouts.admin')
+
+@section('title', 'Tenderni tahrirlash #' . $tender->id)
+
+@section('content')
+<style>
+    .form-card {
+        background: white;
+        border-radius: var(--gov-radius);
+        box-shadow: var(--gov-shadow);
+        overflow: hidden;
+        margin-bottom: 24px;
+    }
+    .form-card-header {
+        padding: 20px 24px;
+        border-bottom: 1px solid var(--gov-border);
+        background: var(--gov-bg-light);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .form-card-header i {
+        color: var(--gov-primary);
+        font-size: 1.25rem;
+    }
+    .form-card-header h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        color: var(--gov-primary-darker);
+    }
+    .form-card-body {
+        padding: 24px;
+    }
+    .form-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    .form-row:last-child {
+        margin-bottom: 0;
+    }
+    .lang-tabs {
+        display: flex;
+        border-bottom: 2px solid var(--gov-border);
+        margin-bottom: 20px;
+    }
+    .lang-tab {
+        padding: 12px 24px;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        margin-bottom: -2px;
+        color: var(--gov-text-muted);
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .lang-tab:hover {
+        color: var(--gov-primary);
+    }
+    .lang-tab.active {
+        border-bottom-color: var(--gov-primary);
+        color: var(--gov-primary);
+        font-weight: 600;
+    }
+    .lang-tab img {
+        width: 20px;
+        height: 14px;
+        border-radius: 2px;
+    }
+    .lang-content {
+        display: none;
+    }
+    .lang-content.active {
+        display: block;
+    }
+    .dynamic-list {
+        background: var(--gov-bg-light);
+        border-radius: var(--gov-radius);
+        padding: 16px;
+    }
+    .dynamic-item {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 12px;
+    }
+    .dynamic-item:last-child {
+        margin-bottom: 0;
+    }
+    .dynamic-item input {
+        flex: 1;
+    }
+    .dynamic-item .btn-remove {
+        background: var(--gov-error);
+        color: white;
+        border: none;
+        border-radius: var(--gov-radius);
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .dynamic-item .btn-remove:hover {
+        background: #c0392b;
+    }
+    .btn-add {
+        background: var(--gov-success);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: var(--gov-radius);
+        cursor: pointer;
+        margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+    }
+    .btn-add:hover {
+        background: #219a52;
+    }
+    .checkbox-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: var(--gov-bg-light);
+        border-radius: var(--gov-radius);
+        cursor: pointer;
+    }
+    .checkbox-wrapper input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+    .checkbox-wrapper label {
+        margin: 0;
+        cursor: pointer;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .checkbox-wrapper .urgent-icon {
+        color: var(--gov-error);
+    }
+    .form-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 24px;
+        background: var(--gov-bg-light);
+        border-top: 1px solid var(--gov-border);
+    }
+    .document-list {
+        margin-top: 16px;
+    }
+    .document-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        background: var(--gov-bg-light);
+        border-radius: var(--gov-radius);
+        margin-bottom: 8px;
+    }
+    .document-item:last-child {
+        margin-bottom: 0;
+    }
+    .document-item i {
+        color: var(--gov-primary);
+        font-size: 1.25rem;
+    }
+    .document-item .doc-name {
+        flex: 1;
+        font-weight: 500;
+    }
+    .document-item .doc-size {
+        color: var(--gov-text-muted);
+        font-size: 0.875rem;
+    }
+    .document-item .doc-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .document-item .delete-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.875rem;
+        color: var(--gov-error);
+    }
+    .file-upload-info {
+        color: var(--gov-text-muted);
+        font-size: 0.875rem;
+        margin-top: 8px;
+    }
+</style>
+
+<!-- Page Header -->
+<div class="admin-page-header">
+    <div class="page-header-content">
+        <h1><i class="fas fa-edit"></i> Tenderni tahrirlash #{{ $tender->id }}</h1>
+        <p>{{ Str::limit($tender->title, 60) }}</p>
+    </div>
+    <a href="{{ route('admin.tenders.index') }}" class="gov-btn gov-btn-secondary">
+        <i class="fas fa-arrow-left"></i> Orqaga
+    </a>
+</div>
+
+<form method="POST" action="{{ route('admin.tenders.update', $tender) }}" enctype="multipart/form-data">
+    @csrf
+    @method('PUT')
+
+    <!-- Basic Information -->
+    <div class="form-card">
+        <div class="form-card-header">
+            <i class="fas fa-file-alt"></i>
+            <h3>Asosiy ma'lumotlar</h3>
         </div>
-
-        @if($errors->any())
-            <div class="alert alert-danger">
-                <strong>Ошибки:</strong>
-                <ul>@foreach($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>
-            </div>
-        @endif
-
-        <form method="POST" action="{{ route('admin.tenders.update', $tender) }}" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-            <div class="form-body">
-                {{-- Basic Information --}}
-                <div class="form-section">
-                    <div class="section-title">📝 Основная информация</div>
-                    <div class="tabs">
-                        <div class="tab active" onclick="switchTab('title', 'ru', this)">🇷🇺 Русский</div>
-                        <div class="tab" onclick="switchTab('title', 'uz', this)">🇺🇿 Узбекский</div>
-                        <div class="tab" onclick="switchTab('title', 'en', this)">🇬🇧 Английский</div>
-                    </div>
-                    <div id="title-ru" class="tab-content active">
-                        <div class="form-group">
-                            <label>Название <span class="required">*</span></label>
-                            <input type="text" name="title" class="form-control" value="{{ old('title', $tender->title) }}" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Предмет закупки <span class="required">*</span></label>
-                            <textarea name="subject" class="form-control" required>{{ old('subject', $tender->subject) }}</textarea>
-                        </div>
-                    </div>
-                    <div id="title-uz" class="tab-content">
-                        <div class="form-group">
-                            <label>Название (узб.)</label>
-                            <input type="text" name="title_uz" class="form-control" value="{{ old('title_uz', $tender->title_uz) }}">
-                        </div>
-                        <div class="form-group">
-                            <label>Предмет закупки (узб.)</label>
-                            <textarea name="subject_uz" class="form-control">{{ old('subject_uz', $tender->subject_uz) }}</textarea>
-                        </div>
-                    </div>
-                    <div id="title-en" class="tab-content">
-                        <div class="form-group">
-                            <label>Title (English)</label>
-                            <input type="text" name="title_en" class="form-control" value="{{ old('title_en', $tender->title_en) }}">
-                        </div>
-                        <div class="form-group">
-                            <label>Subject (English)</label>
-                            <textarea name="subject_en" class="form-control">{{ old('subject_en', $tender->subject_en) }}</textarea>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Код</label>
-                            <input type="text" name="code" class="form-control" value="{{ old('code', $tender->code) }}">
-                        </div>
-                        <div class="form-group">
-                            <label>Номер лота</label>
-                            <input type="text" name="lot_number" class="form-control" value="{{ old('lot_number', $tender->lot_number) }}">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>URL лота</label>
-                        <input type="url" name="lot_url" class="form-control" value="{{ old('lot_url', $tender->lot_url) }}">
-                    </div>
+        <div class="form-card-body">
+            <div class="lang-tabs">
+                <div class="lang-tab active" onclick="switchLang('ru', this)">
+                    <img src="{{ asset('assets/images/flags/russia.jpg') }}" alt="RU">
+                    Русский
                 </div>
-
-                {{-- Location --}}
-                <div class="form-section">
-                    <div class="section-title">📍 Местоположение</div>
-                    <div class="form-group">
-                        <label>Адрес <span class="required">*</span></label>
-                        <input type="text" name="location" class="form-control" value="{{ old('location', $tender->location) }}" required>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Адрес (узб.)</label>
-                            <input type="text" name="location_uz" class="form-control" value="{{ old('location_uz', $tender->location_uz) }}">
-                        </div>
-                        <div class="form-group">
-                            <label>Address (English)</label>
-                            <input type="text" name="location_en" class="form-control" value="{{ old('location_en', $tender->location_en) }}">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Описание</label>
-                        <textarea name="location_description" class="form-control">{{ old('location_description', $tender->location_description) }}</textarea>
-                    </div>
+                <div class="lang-tab" onclick="switchLang('uz', this)">
+                    <img src="{{ asset('assets/images/flags/uzbekistan.jpg') }}" alt="UZ">
+                    O'zbekcha
                 </div>
-
-                {{-- Requirements --}}
-                <div class="form-section">
-                    <div class="section-title">📋 Требования</div>
-                    <div class="form-group">
-                        <label>Технические требования</label>
-                        <div class="dynamic-list" id="technical-requirements">
-                            @forelse($tender->technical_requirements ?? [] as $req)
-                                <div class="dynamic-item">
-                                    <input type="text" name="technical_requirements[]" class="form-control" value="{{ $req }}">
-                                    <button type="button" onclick="removeItem(this)">✕</button>
-                                </div>
-                            @empty
-                                <div class="dynamic-item">
-                                    <input type="text" name="technical_requirements[]" class="form-control" placeholder="Введите требование...">
-                                    <button type="button" onclick="removeItem(this)">✕</button>
-                                </div>
-                            @endforelse
-                        </div>
-                        <button type="button" class="add-item-btn" onclick="addItem('technical-requirements', 'technical_requirements[]')">+ Добавить</button>
-                    </div>
-                    <div class="form-group">
-                        <label>Квалификационные требования</label>
-                        <div class="dynamic-list" id="qualification-requirements">
-                            @forelse($tender->qualification_requirements ?? [] as $req)
-                                <div class="dynamic-item">
-                                    <input type="text" name="qualification_requirements[]" class="form-control" value="{{ $req }}">
-                                    <button type="button" onclick="removeItem(this)">✕</button>
-                                </div>
-                            @empty
-                                <div class="dynamic-item">
-                                    <input type="text" name="qualification_requirements[]" class="form-control" placeholder="Введите требование...">
-                                    <button type="button" onclick="removeItem(this)">✕</button>
-                                </div>
-                            @endforelse
-                        </div>
-                        <button type="button" class="add-item-btn" onclick="addItem('qualification-requirements', 'qualification_requirements[]')">+ Добавить</button>
-                    </div>
-                </div>
-
-                {{-- Customer --}}
-                <div class="form-section">
-                    <div class="section-title">🏢 Заказчик</div>
-                    <div class="form-group">
-                        <label>Название <span class="required">*</span></label>
-                        <input type="text" name="customer_name" class="form-control" value="{{ old('customer_name', $tender->customer_name) }}" required>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>ИНН</label>
-                            <input type="text" name="customer_tin" class="form-control" value="{{ old('customer_tin', $tender->customer_tin) }}">
-                        </div>
-                        <div class="form-group">
-                            <label>Телефон</label>
-                            <input type="text" name="customer_phone" class="form-control" value="{{ old('customer_phone', $tender->customer_phone) }}">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" name="customer_email" class="form-control" value="{{ old('customer_email', $tender->customer_email) }}">
-                        </div>
-                        <div class="form-group">
-                            <label>Адрес</label>
-                            <input type="text" name="customer_address" class="form-control" value="{{ old('customer_address', $tender->customer_address) }}">
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Dates --}}
-                <div class="form-section">
-                    <div class="section-title">📅 Даты и статус</div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Дата объявления <span class="required">*</span></label>
-                            <input type="date" name="announcement_date" class="form-control" value="{{ old('announcement_date', $tender->announcement_date->format('Y-m-d')) }}" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Дедлайн <span class="required">*</span></label>
-                            <input type="date" name="submission_deadline" class="form-control" value="{{ old('submission_deadline', $tender->submission_deadline->format('Y-m-d')) }}" required>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Статус <span class="required">*</span></label>
-                            <select name="status" class="form-control" required>
-                                <option value="draft" {{ $tender->status == 'draft' ? 'selected' : '' }}>Черновик</option>
-                                <option value="active" {{ $tender->status == 'active' ? 'selected' : '' }}>Активный</option>
-                                <option value="closed" {{ $tender->status == 'closed' ? 'selected' : '' }}>Закрыт</option>
-                                <option value="cancelled" {{ $tender->status == 'cancelled' ? 'selected' : '' }}>Отменён</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label>&nbsp;</label>
-                            <div class="checkbox-group">
-                                <input type="checkbox" name="is_urgent" id="is_urgent" value="1" {{ $tender->is_urgent ? 'checked' : '' }}>
-                                <label for="is_urgent" style="margin: 0;">🔴 Срочный</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Documents --}}
-                <div class="form-section">
-                    <div class="section-title">📎 Документы</div>
-                    @if($tender->documents && count($tender->documents) > 0)
-                        <div class="document-list">
-                            <p style="margin-bottom: 10px; font-weight: 500;">Текущие документы:</p>
-                            @foreach($tender->documents as $index => $doc)
-                                <div class="document-item">
-                                    <span>📄</span>
-                                    <span class="doc-name">{{ $doc['name'] }}</span>
-                                    <span class="doc-size">{{ number_format($doc['size'] / 1024, 1) }} KB</span>
-                                    <a href="{{ Storage::url($doc['path']) }}" target="_blank" class="btn btn-sm btn-primary">Открыть</a>
-                                    <label style="display: flex; align-items: center; gap: 5px;">
-                                        <input type="checkbox" name="remove_documents[]" value="{{ $index }}"> Удалить
-                                    </label>
-                                </div>
-                            @endforeach
-                        </div>
-                    @endif
-                    <div class="form-group" style="margin-top: 15px;">
-                        <label>Добавить документы</label>
-                        <input type="file" name="new_documents[]" class="form-control" multiple accept=".pdf,.doc,.docx">
-                    </div>
+                <div class="lang-tab" onclick="switchLang('en', this)">
+                    <i class="fas fa-globe"></i>
+                    English
                 </div>
             </div>
 
-            <div class="form-actions">
-                <a href="{{ route('admin.tenders.index') }}" class="btn btn-secondary">Отмена</a>
-                <button type="submit" class="btn btn-success">💾 Сохранить изменения</button>
+            <div id="lang-ru" class="lang-content active">
+                <div class="gov-form-group">
+                    <label class="gov-form-label">Nomi <span class="required">*</span></label>
+                    <input type="text" name="title" class="gov-form-control" value="{{ old('title', $tender->title) }}" required>
+                </div>
+                <div class="gov-form-group">
+                    <label class="gov-form-label">Xarid mavzusi <span class="required">*</span></label>
+                    <textarea name="subject" class="gov-form-control" rows="3" required>{{ old('subject', $tender->subject) }}</textarea>
+                </div>
             </div>
-        </form>
+
+            <div id="lang-uz" class="lang-content">
+                <div class="gov-form-group">
+                    <label class="gov-form-label">Nomi (O'zbekcha)</label>
+                    <input type="text" name="title_uz" class="gov-form-control" value="{{ old('title_uz', $tender->title_uz) }}">
+                </div>
+                <div class="gov-form-group">
+                    <label class="gov-form-label">Xarid mavzusi (O'zbekcha)</label>
+                    <textarea name="subject_uz" class="gov-form-control" rows="3">{{ old('subject_uz', $tender->subject_uz) }}</textarea>
+                </div>
+            </div>
+
+            <div id="lang-en" class="lang-content">
+                <div class="gov-form-group">
+                    <label class="gov-form-label">Title (English)</label>
+                    <input type="text" name="title_en" class="gov-form-control" value="{{ old('title_en', $tender->title_en) }}">
+                </div>
+                <div class="gov-form-group">
+                    <label class="gov-form-label">Subject (English)</label>
+                    <textarea name="subject_en" class="gov-form-control" rows="3">{{ old('subject_en', $tender->subject_en) }}</textarea>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="gov-form-group">
+                    <label class="gov-form-label">Kod</label>
+                    <input type="text" name="code" class="gov-form-control" value="{{ old('code', $tender->code) }}">
+                </div>
+                <div class="gov-form-group">
+                    <label class="gov-form-label">Lot raqami</label>
+                    <input type="text" name="lot_number" class="gov-form-control" value="{{ old('lot_number', $tender->lot_number) }}">
+                </div>
+            </div>
+
+            <div class="gov-form-group">
+                <label class="gov-form-label">Lot URL</label>
+                <input type="url" name="lot_url" class="gov-form-control" value="{{ old('lot_url', $tender->lot_url) }}">
+            </div>
+        </div>
     </div>
 
-    <script>
-        function switchTab(section, lang, el) {
-            document.querySelectorAll(`[id^="${section}-"]`).forEach(c => c.classList.remove('active'));
-            document.getElementById(`${section}-${lang}`).classList.add('active');
-            el.parentElement.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            el.classList.add('active');
+    <!-- Location -->
+    <div class="form-card">
+        <div class="form-card-header">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Joylashuv</h3>
+        </div>
+        <div class="form-card-body">
+            <div class="gov-form-group">
+                <label class="gov-form-label">Manzil <span class="required">*</span></label>
+                <input type="text" name="location" class="gov-form-control" value="{{ old('location', $tender->location) }}" required>
+            </div>
+            <div class="form-row">
+                <div class="gov-form-group">
+                    <label class="gov-form-label">Manzil (O'zbekcha)</label>
+                    <input type="text" name="location_uz" class="gov-form-control" value="{{ old('location_uz', $tender->location_uz) }}">
+                </div>
+                <div class="gov-form-group">
+                    <label class="gov-form-label">Address (English)</label>
+                    <input type="text" name="location_en" class="gov-form-control" value="{{ old('location_en', $tender->location_en) }}">
+                </div>
+            </div>
+            <div class="gov-form-group">
+                <label class="gov-form-label">Tavsif</label>
+                <textarea name="location_description" class="gov-form-control" rows="2">{{ old('location_description', $tender->location_description) }}</textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Requirements -->
+    <div class="form-card">
+        <div class="form-card-header">
+            <i class="fas fa-list-check"></i>
+            <h3>Talablar</h3>
+        </div>
+        <div class="form-card-body">
+            <div class="gov-form-group">
+                <label class="gov-form-label">Texnik talablar</label>
+                <div class="dynamic-list" id="technical-requirements">
+                    @forelse($tender->technical_requirements ?? [] as $req)
+                        <div class="dynamic-item">
+                            <input type="text" name="technical_requirements[]" class="gov-form-control" value="{{ $req }}">
+                            <button type="button" class="btn-remove" onclick="removeItem(this)"><i class="fas fa-times"></i></button>
+                        </div>
+                    @empty
+                        <div class="dynamic-item">
+                            <input type="text" name="technical_requirements[]" class="gov-form-control" placeholder="Talabni kiriting...">
+                            <button type="button" class="btn-remove" onclick="removeItem(this)"><i class="fas fa-times"></i></button>
+                        </div>
+                    @endforelse
+                </div>
+                <button type="button" class="btn-add" onclick="addItem('technical-requirements', 'technical_requirements[]')">
+                    <i class="fas fa-plus"></i> Qo'shish
+                </button>
+            </div>
+
+            <div class="gov-form-group" style="margin-top: 24px;">
+                <label class="gov-form-label">Malaka talablari</label>
+                <div class="dynamic-list" id="qualification-requirements">
+                    @forelse($tender->qualification_requirements ?? [] as $req)
+                        <div class="dynamic-item">
+                            <input type="text" name="qualification_requirements[]" class="gov-form-control" value="{{ $req }}">
+                            <button type="button" class="btn-remove" onclick="removeItem(this)"><i class="fas fa-times"></i></button>
+                        </div>
+                    @empty
+                        <div class="dynamic-item">
+                            <input type="text" name="qualification_requirements[]" class="gov-form-control" placeholder="Talabni kiriting...">
+                            <button type="button" class="btn-remove" onclick="removeItem(this)"><i class="fas fa-times"></i></button>
+                        </div>
+                    @endforelse
+                </div>
+                <button type="button" class="btn-add" onclick="addItem('qualification-requirements', 'qualification_requirements[]')">
+                    <i class="fas fa-plus"></i> Qo'shish
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer -->
+    <div class="form-card">
+        <div class="form-card-header">
+            <i class="fas fa-building"></i>
+            <h3>Buyurtmachi</h3>
+        </div>
+        <div class="form-card-body">
+            <div class="gov-form-group">
+                <label class="gov-form-label">Nomi <span class="required">*</span></label>
+                <input type="text" name="customer_name" class="gov-form-control" value="{{ old('customer_name', $tender->customer_name) }}" required>
+            </div>
+            <div class="form-row">
+                <div class="gov-form-group">
+                    <label class="gov-form-label">INN</label>
+                    <input type="text" name="customer_tin" class="gov-form-control" value="{{ old('customer_tin', $tender->customer_tin) }}">
+                </div>
+                <div class="gov-form-group">
+                    <label class="gov-form-label">Telefon</label>
+                    <input type="text" name="customer_phone" class="gov-form-control" value="{{ old('customer_phone', $tender->customer_phone) }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="gov-form-group">
+                    <label class="gov-form-label">Email</label>
+                    <input type="email" name="customer_email" class="gov-form-control" value="{{ old('customer_email', $tender->customer_email) }}">
+                </div>
+                <div class="gov-form-group">
+                    <label class="gov-form-label">Manzil</label>
+                    <input type="text" name="customer_address" class="gov-form-control" value="{{ old('customer_address', $tender->customer_address) }}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dates -->
+    <div class="form-card">
+        <div class="form-card-header">
+            <i class="fas fa-calendar-alt"></i>
+            <h3>Sanalar va holat</h3>
+        </div>
+        <div class="form-card-body">
+            <div class="form-row">
+                <div class="gov-form-group">
+                    <label class="gov-form-label">E'lon qilingan sana <span class="required">*</span></label>
+                    <input type="date" name="announcement_date" class="gov-form-control" value="{{ old('announcement_date', $tender->announcement_date->format('Y-m-d')) }}" required>
+                </div>
+                <div class="gov-form-group">
+                    <label class="gov-form-label">Muddat <span class="required">*</span></label>
+                    <input type="date" name="submission_deadline" class="gov-form-control" value="{{ old('submission_deadline', $tender->submission_deadline->format('Y-m-d')) }}" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="gov-form-group">
+                    <label class="gov-form-label">Holat <span class="required">*</span></label>
+                    <select name="status" class="gov-form-control" required>
+                        <option value="draft" {{ $tender->status == 'draft' ? 'selected' : '' }}>Qoralama</option>
+                        <option value="active" {{ $tender->status == 'active' ? 'selected' : '' }}>Faol</option>
+                        <option value="closed" {{ $tender->status == 'closed' ? 'selected' : '' }}>Yopiq</option>
+                        <option value="cancelled" {{ $tender->status == 'cancelled' ? 'selected' : '' }}>Bekor qilingan</option>
+                    </select>
+                </div>
+                <div class="gov-form-group">
+                    <label class="gov-form-label">&nbsp;</label>
+                    <div class="checkbox-wrapper">
+                        <input type="checkbox" name="is_urgent" id="is_urgent" value="1" {{ $tender->is_urgent ? 'checked' : '' }}>
+                        <label for="is_urgent">
+                            <i class="fas fa-exclamation-circle urgent-icon"></i>
+                            Shoshilinch
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Documents -->
+    <div class="form-card">
+        <div class="form-card-header">
+            <i class="fas fa-paperclip"></i>
+            <h3>Hujjatlar</h3>
+        </div>
+        <div class="form-card-body">
+            @if($tender->documents && count($tender->documents) > 0)
+                <div class="gov-form-group">
+                    <label class="gov-form-label">Joriy hujjatlar</label>
+                    <div class="document-list">
+                        @foreach($tender->documents as $index => $doc)
+                            <div class="document-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <span class="doc-name">{{ $doc['name'] }}</span>
+                                <span class="doc-size">{{ number_format($doc['size'] / 1024, 1) }} KB</span>
+                                <div class="doc-actions">
+                                    <a href="{{ Storage::url($doc['path']) }}" target="_blank" class="gov-btn gov-btn-primary" style="padding: 6px 12px; font-size: 0.875rem;">
+                                        <i class="fas fa-external-link-alt"></i> Ochish
+                                    </a>
+                                    <label class="delete-checkbox">
+                                        <input type="checkbox" name="remove_documents[]" value="{{ $index }}">
+                                        O'chirish
+                                    </label>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+
+            <div class="gov-form-group" style="margin-top: 20px;">
+                <label class="gov-form-label">Yangi hujjatlar qo'shish</label>
+                <input type="file" name="new_documents[]" class="gov-form-control" multiple accept=".pdf,.doc,.docx">
+                <div class="file-upload-info">
+                    <i class="fas fa-info-circle"></i>
+                    PDF, DOC, DOCX formatlarida yuklash mumkin
+                </div>
+            </div>
+        </div>
+        <div class="form-actions">
+            <a href="{{ route('admin.tenders.index') }}" class="gov-btn gov-btn-secondary">
+                <i class="fas fa-times"></i> Bekor qilish
+            </a>
+            <button type="submit" class="gov-btn gov-btn-primary">
+                <i class="fas fa-save"></i> Saqlash
+            </button>
+        </div>
+    </div>
+</form>
+@endsection
+
+@section('scripts')
+<script>
+    function switchLang(lang, el) {
+        document.querySelectorAll('.lang-content').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.lang-tab').forEach(t => t.classList.remove('active'));
+        document.getElementById('lang-' + lang).classList.add('active');
+        el.classList.add('active');
+    }
+
+    function addItem(containerId, inputName) {
+        const container = document.getElementById(containerId);
+        const div = document.createElement('div');
+        div.className = 'dynamic-item';
+        div.innerHTML = `
+            <input type="text" name="${inputName}" class="gov-form-control" placeholder="Talabni kiriting...">
+            <button type="button" class="btn-remove" onclick="removeItem(this)"><i class="fas fa-times"></i></button>
+        `;
+        container.appendChild(div);
+    }
+
+    function removeItem(btn) {
+        const container = btn.parentElement.parentElement;
+        if (container.children.length > 1) {
+            btn.parentElement.remove();
         }
-        function addItem(containerId, inputName) {
-            const container = document.getElementById(containerId);
-            const div = document.createElement('div');
-            div.className = 'dynamic-item';
-            div.innerHTML = `<input type="text" name="${inputName}" class="form-control" placeholder="Введите требование..."><button type="button" onclick="removeItem(this)">✕</button>`;
-            container.appendChild(div);
-        }
-        function removeItem(btn) {
-            const container = btn.parentElement.parentElement;
-            if (container.children.length > 1) btn.parentElement.remove();
-        }
-    </script>
-</body>
-</html>
+    }
+</script>
+@endsection

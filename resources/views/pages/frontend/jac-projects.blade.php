@@ -227,7 +227,7 @@
                         </div>
                     </div>
                     <div class="jac-download-footer">
-                        <a style="color: #fff" href="{{ asset('investment-projects/JAC MT.rar') }}" download class="jac-btn jac-btn-primary">
+                        <a style="color: #fff"  href="{{ asset('investment-projects/JAC MT.rar') }}" download class="jac-btn jac-btn-primary">
                             <i class="fa-solid fa-download"></i> {{ __('frontend.common.download') }}
                         </a>
                     </div>

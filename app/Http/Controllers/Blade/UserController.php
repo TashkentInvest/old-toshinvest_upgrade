@@ -29,7 +29,7 @@ class UserController extends Controller
         // else
         //     $roles = Role::where('name', '!=', 'Super Admin')->with('permissions')->get();
 
-        return view('pages.user.index', compact('users'));
+        return view('admin.user.index', compact('users'));
     }
     // user add page
     public function add()
@@ -40,7 +40,7 @@ class UserController extends Controller
         else
             $roles = Role::where('name', '!=', 'Super Admin')->get();
 
-        return view('pages.user.add', compact('roles'));
+        return view('admin.user.add', compact('roles'));
     }
     // user create
     public function create(Request $request)
@@ -85,7 +85,7 @@ class UserController extends Controller
         else
             $roles = Role::where('name', '!=', 'Super Admin')->get();
 
-        return view('pages.user.edit', compact('user', 'roles'));
+        return view('admin.user.edit', compact('user', 'roles'));
     }
     // update user dates
     public function update(Request $request, $id)

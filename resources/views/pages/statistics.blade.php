@@ -1,282 +1,294 @@
 @extends('layouts.admin')
 
+@section('title', 'Statistika')
+
 @section('content')
-    <!-- start page title -->
-    <div class="row">
-        <div class="col-12">
-            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">@lang('global.dashboard')</h4>
+<style>
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    .stat-box {
+        background: white;
+        border-radius: var(--gov-radius);
+        padding: 24px;
+        box-shadow: var(--gov-shadow-sm);
+        border-left: 4px solid var(--gov-primary);
+        transition: var(--gov-transition);
+    }
+    .stat-box:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--gov-shadow-md);
+    }
+    .stat-box.success { border-left-color: var(--gov-success); }
+    .stat-box.warning { border-left-color: #f39c12; }
+    .stat-box.info { border-left-color: #17a2b8; }
+    .stat-box.danger { border-left-color: var(--gov-error); }
+    .stat-box-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: var(--gov-radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        margin-bottom: 16px;
+        background: rgba(45, 74, 111, 0.1);
+        color: var(--gov-primary);
+    }
+    .stat-box.success .stat-box-icon { background: rgba(40, 167, 69, 0.1); color: var(--gov-success); }
+    .stat-box.warning .stat-box-icon { background: rgba(255, 193, 7, 0.15); color: #f39c12; }
+    .stat-box.info .stat-box-icon { background: rgba(23, 162, 184, 0.1); color: #17a2b8; }
+    .stat-box.danger .stat-box-icon { background: rgba(220, 53, 69, 0.1); color: var(--gov-error); }
+    .stat-box-value {
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--gov-text-dark);
+        line-height: 1;
+        margin-bottom: 6px;
+    }
+    .stat-box-label {
+        color: var(--gov-text-body);
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    .data-table {
+        width: 100%;
+    }
+    .data-table tr {
+        border-bottom: 1px solid var(--gov-border);
+    }
+    .data-table tr:last-child {
+        border-bottom: none;
+    }
+    .data-table td {
+        padding: 14px 0;
+    }
+    .data-table td:last-child {
+        text-align: right;
+        font-weight: 700;
+        font-size: 1.1rem;
+        color: var(--gov-primary);
+    }
+    .status-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+    }
+    .status-item {
+        padding: 20px;
+        border-radius: var(--gov-radius);
+        text-align: center;
+    }
+    .status-item-icon {
+        font-size: 1.75rem;
+        margin-bottom: 8px;
+    }
+    .status-item-value {
+        font-size: 1.75rem;
+        font-weight: 800;
+        margin-bottom: 4px;
+    }
+    .status-item-label {
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+    @media (max-width: 768px) {
+        .status-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>
 
-                <div class="page-title-right">
-                    <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="javascript: void(0);">@lang('global.dashboard')</a></li>
-                        <li class="breadcrumb-item active">@lang('global.dashboard')</li>
-                    </ol>
-                </div>
+<!-- Page Header -->
+<div class="admin-page-header">
+    <div class="page-header-content">
+        <h1><i class="fas fa-chart-line"></i> Statistika</h1>
+        <p>Tizim statistikasi va ko'rsatkichlari</p>
+    </div>
+</div>
 
+<!-- Main Stats -->
+<div class="stats-grid">
+    <div class="stat-box">
+        <div class="stat-box-icon"><i class="fas fa-newspaper"></i></div>
+        <div class="stat-box-value">{{ \App\Models\News::count() }}</div>
+        <div class="stat-box-label">Yangiliklar</div>
+    </div>
+    <div class="stat-box success">
+        <div class="stat-box-icon"><i class="fas fa-building"></i></div>
+        <div class="stat-box-value">{{ \App\Models\Project::count() }}</div>
+        <div class="stat-box-label">Loyihalar</div>
+    </div>
+    <div class="stat-box warning">
+        <div class="stat-box-icon"><i class="fas fa-gavel"></i></div>
+        <div class="stat-box-value">{{ \App\Models\Tender::count() }}</div>
+        <div class="stat-box-label">Tenderlar</div>
+    </div>
+    <div class="stat-box info">
+        <div class="stat-box-icon"><i class="fas fa-users"></i></div>
+        <div class="stat-box-value">{{ \App\Models\User::count() }}</div>
+        <div class="stat-box-label">Foydalanuvchilar</div>
+    </div>
+</div>
+
+<!-- Page Views Stats -->
+@php
+    $totalViews = \App\Models\PageView::count();
+    $uniqueVisitors = \App\Models\PageView::distinct('ip_address')->count('ip_address');
+    $todayViews = \App\Models\PageView::whereDate('visited_at', today())->count();
+    $monthViews = \App\Models\PageView::whereMonth('visited_at', now()->month)->whereYear('visited_at', now()->year)->count();
+@endphp
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+    <!-- Page Views -->
+    <div class="admin-card">
+        <div class="admin-card-header">
+            <h3 class="admin-card-title"><i class="fas fa-eye"></i> Sayt ko'rishlari</h3>
+        </div>
+        <div class="admin-card-body">
+            <table class="data-table">
+                <tr>
+                    <td><i class="fas fa-chart-bar" style="color: var(--gov-primary); margin-right: 10px;"></i> Jami ko'rishlar</td>
+                    <td>{{ number_format($totalViews) }}</td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-user" style="color: var(--gov-success); margin-right: 10px;"></i> Unikal tashrif buyuruvchilar</td>
+                    <td>{{ number_format($uniqueVisitors) }}</td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-calendar-day" style="color: #17a2b8; margin-right: 10px;"></i> Bugungi ko'rishlar</td>
+                    <td>{{ number_format($todayViews) }}</td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-calendar-alt" style="color: #f39c12; margin-right: 10px;"></i> Ushbu oydagi ko'rishlar</td>
+                    <td>{{ number_format($monthViews) }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Investor Ideas -->
+    @php
+        $totalIdeas = \App\Models\InvestorIdea::count();
+        $pendingIdeas = \App\Models\InvestorIdea::where('status', 'pending')->count();
+        $approvedIdeas = \App\Models\InvestorIdea::where('status', 'approved')->count();
+        $recentIdeas = \App\Models\InvestorIdea::where('created_at', '>=', now()->subDays(30))->count();
+    @endphp
+    <div class="admin-card">
+        <div class="admin-card-header">
+            <h3 class="admin-card-title"><i class="fas fa-lightbulb"></i> Investor takliflari</h3>
+        </div>
+        <div class="admin-card-body">
+            <table class="data-table">
+                <tr>
+                    <td><i class="fas fa-inbox" style="color: var(--gov-primary); margin-right: 10px;"></i> Jami takliflar</td>
+                    <td>{{ $totalIdeas }}</td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-clock" style="color: #f39c12; margin-right: 10px;"></i> Kutilayotgan</td>
+                    <td>{{ $pendingIdeas }}</td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-check-circle" style="color: var(--gov-success); margin-right: 10px;"></i> Tasdiqlangan</td>
+                    <td>{{ $approvedIdeas }}</td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-calendar-plus" style="color: #17a2b8; margin-right: 10px;"></i> So'nggi 30 kunda</td>
+                    <td>{{ $recentIdeas }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Project Status -->
+<div class="admin-card" style="margin-bottom: 24px;">
+    <div class="admin-card-header">
+        <h3 class="admin-card-title"><i class="fas fa-project-diagram"></i> Loyiha holatlari</h3>
+    </div>
+    <div class="admin-card-body">
+        <div class="status-grid">
+            <div class="status-item" style="background: rgba(45, 74, 111, 0.1);">
+                <div class="status-item-icon" style="color: var(--gov-primary);"><i class="fas fa-play-circle"></i></div>
+                <div class="status-item-value" style="color: var(--gov-primary);">{{ \App\Models\Project::where('status', '1_step')->count() }}</div>
+                <div class="status-item-label">1-Bosqich</div>
+            </div>
+            <div class="status-item" style="background: rgba(255, 193, 7, 0.15);">
+                <div class="status-item-icon" style="color: #f39c12;"><i class="fas fa-forward"></i></div>
+                <div class="status-item-value" style="color: #f39c12;">{{ \App\Models\Project::where('status', '2_step')->count() }}</div>
+                <div class="status-item-label">2-Bosqich</div>
+            </div>
+            <div class="status-item" style="background: rgba(40, 167, 69, 0.1);">
+                <div class="status-item-icon" style="color: var(--gov-success);"><i class="fas fa-check-circle"></i></div>
+                <div class="status-item-value" style="color: var(--gov-success);">{{ \App\Models\Project::where('status', 'completed')->count() }}</div>
+                <div class="status-item-label">Yakunlangan</div>
+            </div>
+            <div class="status-item" style="background: rgba(108, 117, 125, 0.1);">
+                <div class="status-item-icon" style="color: #6c757d;"><i class="fas fa-archive"></i></div>
+                <div class="status-item-value" style="color: #6c757d;">{{ \App\Models\Project::where('status', 'archive')->count() }}</div>
+                <div class="status-item-label">Arxiv</div>
             </div>
         </div>
     </div>
-    <!-- end page title -->
+</div>
 
-    <div class="row">
-
+<!-- Tender Status -->
+<div class="admin-card" style="margin-bottom: 24px;">
+    <div class="admin-card-header">
+        <h3 class="admin-card-title"><i class="fas fa-gavel"></i> Tender holatlari</h3>
     </div>
-    <!-- end row -->
-
-    <div class="row">
-        <div class="col-xl-4">
-            <div class="card bg-primary bg-soft">
-                <div>
-                    <div class="row">
-                        <div class="col-7">
-                            <div class="text-primary p-3">
-                                <h5 class="text-primary">Добро пожаловать обратно!</h5>
-                                <p>Панель управления Tashkent Invest</p>
-
-                                <ul class="ps-3 mb-0">
-                                    <li class="py-1">Статистика компании</li>
-                                    <li class="py-1"><a target="_blank"
-                                            href="https://toshkentinvest.uz/">Toshkentinvest.uz</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-5 align-self-end">
-                            <img src="assets/images/profile-img.png" alt="" class="img-fluid">
-                        </div>
-                    </div>
-
-                </div>
+    <div class="admin-card-body">
+        <div class="status-grid">
+            <div class="status-item" style="background: rgba(255, 193, 7, 0.15);">
+                <div class="status-item-icon" style="color: #f39c12;"><i class="fas fa-edit"></i></div>
+                <div class="status-item-value" style="color: #f39c12;">{{ \App\Models\Tender::where('status', 'draft')->count() }}</div>
+                <div class="status-item-label">Qoralama</div>
             </div>
-        </div>
-        <div class="col-xl-8">
-            <div class="row">
-
-                @foreach ($categoryCounts as $category)
-                    <div class="col-sm-4 mb-4">
-                        <div class="card shadow-sm border-0">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="avatar-xs me-3">
-                                        <span
-                                            class="avatar-title rounded-circle bg-primary bg-soft text-primary font-size-18">
-                                            <i class="bx bx-copy-alt"></i>
-                                        </span>
-                                    </div>
-                                    <h5 class="font-size-14 mb-0 text-truncate">{{ $category->name }}</h5>
-                                </div>
-
-                                <div class="text-muted mt-4 d-flex align-items-center">
-                                    <h4 class="mb-0 me-2 text-secondary">Количества:</h4>
-                                    <span class="fs-4 fw-bold text-dark">{{ $category->clients_count }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-
-
+            <div class="status-item" style="background: rgba(40, 167, 69, 0.1);">
+                <div class="status-item-icon" style="color: var(--gov-success);"><i class="fas fa-check-circle"></i></div>
+                <div class="status-item-value" style="color: var(--gov-success);">{{ \App\Models\Tender::where('status', 'active')->count() }}</div>
+                <div class="status-item-label">Faol</div>
             </div>
-            <!-- end row -->
-        </div>
-    </div>
-
-    <div class="row">
-
-
-        <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-        <div class="col-xl-4">
-
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title mb-4"></h4>
-
-                    <div>
-                        <div id="donut-chart" data-colors='["--bs-primary", "--bs-success", "--bs-danger"]'
-                            class="apex-charts">Отчёты</div>
-                    </div>
-
-                    <div class="text-left text-muted">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="mt-4 d-flex justify-content-between">
-                                    <p class="mb-2 text-truncate"><i class="mdi mdi-circle text-primary me-1"></i> Apz Olamaganlar
-                                    </p>
-                                    <h5>0</h5>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="mt-4 d-flex justify-content-between">
-                                    <p class="mb-2 text-truncate"><i class="mdi mdi-circle text-success me-1"></i> Ariza bermaganlar
-                                    </p>
-                                    <h5>0</h5>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="mt-4 d-flex justify-content-between">
-                                    <p class="mb-2 text-truncate"><i class="mdi mdi-circle text-danger me-1"></i> Kenashdan ruxsat olmaganlar
-                                    </p>
-                                    <h5>0</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="status-item" style="background: rgba(108, 117, 125, 0.1);">
+                <div class="status-item-icon" style="color: #6c757d;"><i class="fas fa-lock"></i></div>
+                <div class="status-item-value" style="color: #6c757d;">{{ \App\Models\Tender::where('status', 'closed')->count() }}</div>
+                <div class="status-item-label">Yopiq</div>
             </div>
-        </div>
-
-        <div class="col-xl-8">
-            <div class="card">
-                <div class="p-4 border-bottom">
-                    <div class="row">
-                        <div class="col-md-4 col-9">
-                            <h5 class="font-size-15 mb-1">Ташкент Инвест Чат</h5>
-                            <p class="text-muted mb-0"><i
-                                    class="mdi mdi-circle text-success align-middle me-1"></i>@lang('global.active')</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div id="chat-conversation" class="chat-conversation p-3" style="height: 350px; overflow-y: auto;">
-                        <ul class="list-unstyled mb-0" data-simplebar>
-                            @php
-                                $lastDate = null;
-                            @endphp
-                            @foreach ($messages as $message)
-                                @php
-                                    $messageDate = $message->created_at->format('Y-m-d');
-                                @endphp
-                                @if ($lastDate !== $messageDate)
-                                    <li class="chat-day-title">
-                                        <span class="title">{{ $message->created_at->format('F j, Y') }}</span>
-                                    </li>
-                                    @php
-                                        $lastDate = $messageDate;
-                                    @endphp
-                                @endif
-                                <li class="{{ $message->user->id === auth()->id() ? 'right' : '' }}">
-                                    <div class="conversation-list">
-                                        <div class="dropdown">
-                                            <button class="btn btn-link dropdown-toggle" type="button"
-                                                id="dropdownMenuButton-{{ $message->id }}" data-bs-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
-                                                <i class="bx bx-dots-vertical-rounded"></i>
-                                            </button>
-                                            <div class="dropdown-menu"
-                                                aria-labelledby="dropdownMenuButton-{{ $message->id }}">
-                                                {{-- <a class="dropdown-item" href="#">Copy</a> --}}
-                                                <button class="dropdown-item edit-message" data-id="{{ $message->id }}"
-                                                    data-message="{{ $message->message }}">Edit</button>
-                                                <form action="{{ route('chat.destroy', $message->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="dropdown-item text-danger">Delete</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <div class="ctext-wrap">
-                                            <div class="conversation-name">{{ $message->user->name }}</div>
-                                            <p>{{ $message->message }}</p>
-                                            <p class="chat-time mb-0">
-                                                <i class="bx bx-time-five align-middle me-1"></i>
-                                                {{ $message->created_at->format('H:i') }}
-                                                @if ($message->updated_at != $message->created_at)
-                                                    <span class="badge bg-info text-dark">Edited</span>
-                                                @endif
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-
-                    <div class="p-3 chat-input-section">
-                        <form action="{{ route('chat.store') }}" method="POST">
-                            @csrf
-                            <div class="row">
-                                <div class="col">
-                                    <div class="position-relative">
-                                        <input type="text" name="message" class="form-control chat-input"
-                                            placeholder="@lang('global.new_message')">
-                                    </div>
-                                </div>
-                                <div class="col-auto">
-                                    <button type="submit"
-                                        class="btn btn-primary btn-rounded chat-send w-md waves-effect waves-light">
-                                        <span class="d-none d-sm-inline-block me-2">@lang('global.send')</span>
-                                        <i class="mdi mdi-send"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+            <div class="status-item" style="background: rgba(220, 53, 69, 0.1);">
+                <div class="status-item-icon" style="color: var(--gov-error);"><i class="fas fa-ban"></i></div>
+                <div class="status-item-value" style="color: var(--gov-error);">{{ \App\Models\Tender::where('status', 'cancelled')->count() }}</div>
+                <div class="status-item-label">Bekor qilingan</div>
             </div>
         </div>
     </div>
-    <!-- end row -->
+</div>
 
-    <!-- end row -->
-
-    <div class="modal fade" id="editMessageModal" tabindex="-1" aria-labelledby="editMessageModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form id="editMessageForm" action="{{ route('chat.update', 0) }}" method="POST">
-                    @csrf
-                    @method('PUT')
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="editMessageModalLabel">Edit Message</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <input type="hidden" name="message_id" id="editMessageId">
-                        <div class="mb-3">
-                            <label for="editMessage" class="form-label">Message</label>
-                            <textarea class="form-control" id="editMessage" name="message" rows="3"></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
-                </form>
-            </div>
+<!-- Quick Links -->
+<div class="admin-card">
+    <div class="admin-card-header">
+        <h3 class="admin-card-title"><i class="fas fa-link"></i> Tezkor havolalar</h3>
+    </div>
+    <div class="admin-card-body">
+        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+            <a href="{{ route('admin.news.index') }}" class="gov-btn gov-btn-primary">
+                <i class="fas fa-newspaper"></i> Yangiliklar
+            </a>
+            <a href="{{ route('projects.index') }}" class="gov-btn gov-btn-secondary">
+                <i class="fas fa-building"></i> Loyihalar
+            </a>
+            <a href="{{ route('admin.tenders.index') }}" class="gov-btn gov-btn-secondary">
+                <i class="fas fa-gavel"></i> Tenderlar
+            </a>
+            <a href="{{ route('userIndex') }}" class="gov-btn gov-btn-secondary">
+                <i class="fas fa-users"></i> Foydalanuvchilar
+            </a>
+            <a href="{{ route('frontend.index') }}" target="_blank" class="gov-btn gov-btn-success">
+                <i class="fas fa-globe"></i> Saytni ko'rish
+            </a>
         </div>
     </div>
-@endsection
-@section('scripts')
-    <!-- apexcharts -->
-    <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
-
-    <!-- saas dashboard init -->
-    <script src="{{ asset('assets/js/pages/saas-dashboard.init.js') }}"></script>
-
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var chatConversation = document.getElementById('chat-conversation');
-            chatConversation.scrollTop = chatConversation.scrollHeight;
-
-            document.querySelectorAll('.edit-message').forEach(button => {
-                button.addEventListener('click', function() {
-                    var messageId = this.getAttribute('data-id');
-                    var messageText = this.getAttribute('data-message');
-
-                    document.getElementById('editMessageId').value = messageId;
-                    document.getElementById('editMessage').value = messageText;
-
-                    var formAction = '{{ route('chat.update', 0) }}';
-                    formAction = formAction.replace('0', messageId);
-                    document.getElementById('editMessageForm').action = formAction;
-
-                    var editModal = new bootstrap.Modal(document.getElementById(
-                    'editMessageModal'), {});
-                    editModal.show();
-                });
-            });
-        });
-    </script>
+</div>
 @endsection
