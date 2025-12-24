@@ -17,7 +17,7 @@
     {{-- PDF Viewer --}}
     <x-frontend.section bg="white">
         <x-frontend.pdf-viewer
-            :src="asset('assets/folders/strategiya.pdf')"
+            :src="asset('assets/frontend/strategiya/бизнес_план_20250626_для_включения_в_БП_стратегия_развития.pdf')"
             :title="__('frontend.nav.development_strategies')"
             height="900px"
         />
