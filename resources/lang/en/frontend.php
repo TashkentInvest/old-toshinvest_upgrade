@@ -217,6 +217,20 @@ return [
         'file_not_available' => 'File not available',
     ],
 
+    // Buttons
+    'buttons' => [
+        'view' => 'View',
+        'download' => 'Download',
+        'submit' => 'Submit',
+        'cancel' => 'Cancel',
+        'save' => 'Save',
+        'edit' => 'Edit',
+        'delete' => 'Delete',
+        'back' => 'Back',
+        'next' => 'Next',
+        'previous' => 'Previous',
+    ],
+
     // Home Page
     'home' => [
         'hero_title' => 'INVEST IN THE FUTURE',
@@ -712,6 +726,12 @@ from 2025, the Company\'s financial and non-financial reports, as well as commer
         'actions' => 'Actions',
         'download' => 'DOWNLOAD',
         'info_text' => 'This section contains internal regulations, bylaws and other official documents of the company. The documents are presented in PDF format and are available for download.',
+        'types' => [
+            'presidential_decree' => 'Presidential Decree',
+            'presidential_resolution' => 'Presidential Resolution',
+            'cabinet_resolution' => 'Cabinet of Ministers Resolution',
+            'city_council' => 'City Council Decision',
+        ],
     ],
 
     // Share Purchase

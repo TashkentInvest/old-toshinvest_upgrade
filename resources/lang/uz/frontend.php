@@ -225,6 +225,20 @@ return [
         'file_not_available' => 'Fayl mavjud emas',
     ],
 
+    // Buttons
+    'buttons' => [
+        'view' => 'Ko\'rish',
+        'download' => 'Yuklab olish',
+        'submit' => 'Yuborish',
+        'cancel' => 'Bekor qilish',
+        'save' => 'Saqlash',
+        'edit' => 'Tahrirlash',
+        'delete' => 'O\'chirish',
+        'back' => 'Orqaga',
+        'next' => 'Keyingi',
+        'previous' => 'Oldingi',
+    ],
+
     // Home Page
     'home' => [
         'hero_title' => 'KELAJAKKA SARMOYA KIRITING',
@@ -721,6 +735,12 @@ Jamiyat xalqaro moliyaviy hisobotlash standartlariga muvofiq moliyaviy hisobot t
         'actions' => 'Harakatlar',
         'download' => 'YUKLAB OLISH',
         'info_text' => 'Ushbu bo\'limda ichki tartib qoidalar, nizomlar va korxonaning boshqa rasmiy hujjatlari joylashtirilgan. Hujjatlar PDF formatda taqdim etilgan va yuklab olish mumkin.',
+        'types' => [
+            'presidential_decree' => 'Prezident Farmoni',
+            'presidential_resolution' => 'Prezident Qarori',
+            'cabinet_resolution' => 'Vazirlar Mahkamasi Qarori',
+            'city_council' => 'Shahar Kengashi Qarori',
+        ],
     ],
 
     // Share Purchase

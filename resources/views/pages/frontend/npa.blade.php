@@ -18,46 +18,104 @@
     <x-frontend.section bg="white">
         @php
             $folder = 'assets/frontend/Normativ-huquqiy hujjatlar';
-            $folderPath = public_path($folder);
-            $files = [];
-            if (is_dir($folderPath)) {
-                $allFiles = scandir($folderPath);
-                foreach ($allFiles as $file) {
-                    if ($file !== '.' && $file !== '..' && is_file($folderPath . '/' . $file)) {
-                        $ext = strtolower(pathinfo($file, PATHINFO_EXTENSION));
-                        if (in_array($ext, ['pdf', 'doc', 'docx', 'xls', 'xlsx'])) {
-                            $files[] = $file;
-                        }
-                    }
-                }
-            }
-            sort($files);
+
+            // Document metadata with detailed information
+            $documents = [
+                [
+                    'number' => 'ПФ-112',
+                    'type' => 'presidential_decree',
+                    'type_label' => __('frontend.npa.types.presidential_decree'),
+                    'date' => '26.07.2023',
+                    'title' => [
+                        'uz' => 'Toshkent shahrida davlat va tadbirkorlik sub\'ektlari o\'rtasida o\'zaro manfaatli hamkorlik asosida investitsiya loyihalarini amalga oshirish va shahar infratuzilmasini yaxshilash bo\'yicha huquqiy eksperimentni o\'tkazish chora-tadbirlari to\'g\'risida',
+                        'ru' => 'О мерах по проведению правового эксперимента по реализации инвестиционных проектов и улучшению городской инфраструктуры в городе Ташкенте',
+                        'en' => 'On measures to conduct a legal experiment on the implementation of investment projects and improvement of urban infrastructure in Tashkent city',
+                    ],
+                    'file' => 'ПФ-112.pdf',
+                    'icon' => 'fa-landmark',
+                ],
+                [
+                    'number' => 'ПҚ-236',
+                    'type' => 'presidential_resolution',
+                    'type_label' => __('frontend.npa.types.presidential_resolution'),
+                    'date' => '26.07.2023',
+                    'title' => [
+                        'uz' => 'Toshkent shahrida davlat va tadbirkorlik sub\'ektlari o\'rtasida o\'zaro manfaatli hamkorlik asosida investitsiya loyihalarini amalga oshirish va shahar infratuzilmasini yaxshilash bo\'yicha huquqiy eksperimentni o\'tkazish chora-tadbirlari to\'g\'risida',
+                        'ru' => 'О мерах по проведению правового эксперимента по реализации инвестиционных проектов и улучшению городской инфраструктуры в городе Ташкенте',
+                        'en' => 'On measures to conduct a legal experiment on the implementation of investment projects and improvement of urban infrastructure in Tashkent city',
+                    ],
+                    'file' => 'ПҚ-236.pdf',
+                    'icon' => 'fa-landmark',
+                ],
+                [
+                    'number' => 'ВМҚ-149',
+                    'type' => 'cabinet_resolution',
+                    'type_label' => __('frontend.npa.types.cabinet_resolution'),
+                    'date' => '25.03.2024',
+                    'title' => [
+                        'uz' => 'O\'zbekiston Respublikasi Vazirlar Mahkamasining qarori',
+                        'ru' => 'Постановление Кабинета Министров Республики Узбекистан',
+                        'en' => 'Resolution of the Cabinet of Ministers of the Republic of Uzbekistan',
+                    ],
+                    'file' => 'ВМҚ 149.pdf',
+                    'icon' => 'fa-building-columns',
+                ],
+                [
+                    'number' => 'VI-104-94-14-0-K/24',
+                    'type' => 'city_council',
+                    'type_label' => __('frontend.npa.types.city_council'),
+                    'date' => '02.07.2024',
+                    'title' => [
+                        'uz' => 'Xalq deputatlari Toshkent shahar Kengashining qarori',
+                        'ru' => 'Решение Ташкентского городского совета народных депутатов',
+                        'en' => 'Decision of the Tashkent City Council of People\'s Deputies',
+                    ],
+                    'file' => 'Toshkent shahri_VI-104-94-14-0-K_24.pdf',
+                    'icon' => 'fa-file-lines',
+                ],
+            ];
+
+            $locale = app()->getLocale();
         @endphp
 
-        @if(count($files) > 0)
+        @if(count($documents) > 0)
             <div class="npa-docs-grid">
-                @foreach($files as $index => $file)
+                @foreach($documents as $index => $doc)
                     @php
-                        $fileName = pathinfo($file, PATHINFO_FILENAME);
-                        $ext = strtoupper(pathinfo($file, PATHINFO_EXTENSION));
+                        $filePath = public_path($folder . '/' . $doc['file']);
+                        $fileExists = file_exists($filePath);
+                        $title = $doc['title'][$locale] ?? $doc['title']['uz'];
                     @endphp
                     <div class="npa-doc-card">
                         <div class="npa-doc-header">
                             <div class="npa-doc-icon">
-                                <i class="fa-solid fa-file-lines"></i>
-                                <span>{{ $ext }}</span>
+                                <i class="fa-solid {{ $doc['icon'] }}"></i>
                             </div>
-                            <div class="npa-doc-info">
-                                <h4 class="npa-doc-title">{{ $fileName }}</h4>
+                            <div class="npa-doc-meta">
+                                <span class="npa-doc-type">{{ $doc['type_label'] }}</span>
+                                <span class="npa-doc-number">{{ $doc['number'] }}</span>
+                            </div>
+                        </div>
+                        <div class="npa-doc-body">
+                            <h4 class="npa-doc-title">{{ $title }}</h4>
+                            <div class="npa-doc-date">
+                                <i class="fa-regular fa-calendar"></i>
+                                {{ $doc['date'] }}
                             </div>
                         </div>
                         <div class="npa-doc-footer">
-                            <a style="color:#fff" href="{{ asset($folder . '/' . $file) }}" target="_blank" class="npa-btn npa-btn-open">
-                                <i class="fa-solid fa-eye"></i> {{ __('frontend.common.open') }}
-                            </a>
-                            <a href="{{ asset($folder . '/' . $file) }}" download class="npa-btn npa-btn-download">
-                                <i class="fa-solid fa-download"></i> {{ __('frontend.common.download') }}
-                            </a>
+                            @if($fileExists)
+                                <a style="color: #fff" href="{{ asset($folder . '/' . $doc['file']) }}" target="_blank" class="npa-btn npa-btn-open">
+                                    <i class="fa-solid fa-eye"></i> {{ __('frontend.buttons.view') }}
+                                </a>
+                                <a href="{{ asset($folder . '/' . $doc['file']) }}" download class="npa-btn npa-btn-download">
+                                    <i class="fa-solid fa-download"></i> {{ __('frontend.buttons.download') }}
+                                </a>
+                            @else
+                                <span class="npa-btn npa-btn-disabled">
+                                    <i class="fa-solid fa-file-circle-exclamation"></i> {{ __('frontend.common.file_not_available') }}
+                                </span>
+                            @endif
                         </div>
                     </div>
                 @endforeach
@@ -82,71 +140,97 @@
     .npa-doc-card {
         background: #fff;
         border-radius: 16px;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         overflow: hidden;
         transition: all 0.3s ease;
+        border: 1px solid #e5e7eb;
     }
 
     .npa-doc-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 16px 48px rgba(0,0,0,0.15);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.12);
     }
 
     .npa-doc-header {
-        background: linear-gradient(145deg, #2d4a6f 0%, #1e3654 50%, #152638 100%);
-        padding: 24px;
+        padding: 20px 24px;
         display: flex;
-        align-items: flex-start;
-        gap: 18px;
+        align-items: center;
+        gap: 16px;
+        border-bottom: 1px solid #f3f4f6;
+        background: #fafbfc;
     }
 
     .npa-doc-icon {
-        width: 56px;
-        min-width: 56px;
-        height: 70px;
-        background: #fff;
-        border-radius: 10px;
+        width: 52px;
+        height: 52px;
+        min-width: 52px;
+        border-radius: 12px;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 4px;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        background: #1e40af;
+        box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
     }
 
     .npa-doc-icon i {
-        font-size: 24px;
-        color: #dc2626;
+        font-size: 22px;
+        color: #fff;
     }
 
-    .npa-doc-icon span {
-        font-size: 9px;
-        font-weight: 800;
-        color: #dc2626;
+    .npa-doc-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .npa-doc-type {
+        font-size: 12px;
+        font-weight: 600;
+        color: #6b7280;
+        text-transform: uppercase;
         letter-spacing: 0.5px;
     }
 
-    .npa-doc-info {
-        flex: 1;
-        min-width: 0;
-        display: flex;
-        align-items: center;
+    .npa-doc-number {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1f2937;
+        font-family: 'JetBrains Mono', monospace;
+    }
+
+    .npa-doc-body {
+        padding: 20px 24px;
     }
 
     .npa-doc-title {
-        color: #fff;
+        color: #1f2937;
         font-size: 15px;
-        font-weight: 600;
-        margin: 0;
-        line-height: 1.5;
-        word-break: break-word;
+        font-weight: 500;
+        margin: 0 0 12px 0;
+        line-height: 1.6;
+    }
+
+    .npa-doc-date {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        color: #6b7280;
+        background: #f3f4f6;
+        padding: 6px 12px;
+        border-radius: 6px;
+    }
+
+    .npa-doc-date i {
+        color: #9ca3af;
     }
 
     .npa-doc-footer {
-        padding: 18px 24px 24px;
+        padding: 16px 24px 20px;
         display: flex;
         gap: 12px;
         background: #fff;
+        border-top: 1px solid #f3f4f6;
     }
 
     .npa-btn {
@@ -164,36 +248,56 @@
     }
 
     .npa-btn-open {
-        background: #2d4a6f;
+        background: #1e40af;
         color: #fff;
     }
 
     .npa-btn-open:hover {
-        background: #1e3654;
+        background: #1e3a8a;
         color: #fff;
     }
 
     .npa-btn-download {
         background: #f1f3f5;
-        color: #2d4a6f;
-        border: 1px solid #dee2e6;
+        color: #374151;
+        border: 1px solid #e5e7eb;
     }
 
     .npa-btn-download:hover {
-        background: #e9ecef;
-        border-color: #2d4a6f;
-        color: #2d4a6f;
+        background: #e5e7eb;
+        border-color: #d1d5db;
+        color: #1f2937;
     }
 
-    @media (max-width: 768px) {
+    .npa-btn-disabled {
+        background: #f9fafb;
+        color: #9ca3af;
+        border: 1px solid #e5e7eb;
+        cursor: not-allowed;
+    }
+
+    @media (max-width: 991px) {
         .npa-docs-grid {
             grid-template-columns: 1fr;
         }
+    }
 
+    @media (max-width: 576px) {
         .npa-doc-header {
             flex-direction: column;
-            align-items: center;
             text-align: center;
+        }
+
+        .npa-doc-meta {
+            align-items: center;
+        }
+
+        .npa-doc-body {
+            text-align: center;
+        }
+
+        .npa-doc-date {
+            justify-content: center;
         }
 
         .npa-doc-footer {
