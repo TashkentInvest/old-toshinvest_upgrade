@@ -95,7 +95,6 @@
                         </div>
                         <div class="mega-column">
                             <div class="mega-title">{{ __('frontend.nav.disclosure') }}</div>
-                            <a href="{{ route('frontend.charter_capital') }}">{{ __('frontend.nav.charter_capital') }}</a>
                             <a href="{{ route('frontend.essential_facts') }}">{{ __('frontend.nav.essential_facts') }}</a>
                             <a href="{{ route('frontend.assessment_system') }}">{{ __('frontend.nav.governance_assessment') }}</a>
                             <a href="{{ route('frontend.npa') }}">{{ __('frontend.nav.legal_acts') }}</a>
