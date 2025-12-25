@@ -24,6 +24,23 @@
     <div class="gov-content">
         <div class="gov-container" style="max-width: 1000px;">
 
+            <!-- Announcement PDF Preview -->
+            <div class="gov-card" style="margin-bottom: 30px;">
+                <div class="gov-card-header">
+                    <div class="gov-card-icon">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </div>
+                    <h2 class="gov-card-title">{{ app()->getLocale() == 'ru' ? 'Объявление' : "E'lon" }}</h2>
+                </div>
+                <div class="gov-card-body" style="padding: 0;">
+                    <iframe
+                        src="{{ asset('assets/eng_yaxshi_takliflarni_tanlab_olish/Эълон _(ЎЗБ).pdf') }}"
+                        style="width: 100%; height: 600px; border: none; border-radius: 0 0 12px 12px;"
+                        title="{{ app()->getLocale() == 'ru' ? 'Объявление' : "E'lon" }}"
+                    ></iframe>
+                </div>
+            </div>
+
             <!-- Deadline Card -->
             <div class="gov-card" style="margin-bottom: 30px; border-left: 4px solid #f59e0b;">
                 <div class="gov-card-body" style="display: flex; align-items: center; gap: 20px;">
