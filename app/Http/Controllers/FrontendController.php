@@ -455,6 +455,47 @@ public function nizomlar()
         return view('pages.frontend.open_tender_notice');
     }
 
+    public function open_tender_notice_show($slug)
+    {
+        $procurements = $this->getProcurementsData();
+
+        $procurement = collect($procurements)->firstWhere('slug', $slug);
+
+        if (!$procurement) {
+            abort(404);
+        }
+
+        return view('pages.frontend.open_tender_notice_show', compact('procurement'));
+    }
+
+    private function getProcurementsData()
+    {
+        return [
+            [
+                'id' => 1,
+                'slug' => 'eng-yaxshi-takliflar-1',
+                'title_uz' => "Eng yaxshi takliflarni tanlab olish orqali xaridni amalga oshirish to'g'risida",
+                'title_ru' => 'О закупках путём отбора лучших предложений',
+                'deadline' => '6 yanvar 2026 yil, 18:00',
+                'deadline_ru' => '6 января 2026 года, 18:00',
+                'status' => 'active',
+                'docs_count' => 9,
+                'folder' => 'assets/eng_yaxshi_takliflarni_tanlab_olish',
+                'documents' => [
+                    ['name' => "E'lon (O'zbekcha)", 'file' => 'Эълон _(ЎЗБ).pdf'],
+                    ['name' => "E'lon (Ruscha)", 'file' => 'Эълон _(РУС).pdf'],
+                    ['name' => "Ariza (O'zbekcha)", 'file' => 'Ариза _(ЎЗБ).pdf'],
+                    ['name' => "Ariza (Ruscha)", 'file' => 'Ариза _(РУС).pdf'],
+                    ['name' => "Texnik hujjat (O'zbekcha)", 'file' => 'Тех_Хужжат_экс_шота_Ислом_Цивилизацияси_маркази_Туннел_ЎЗБ.pdf'],
+                    ['name' => "Texnik hujjat (Ruscha)", 'file' => 'Тех_Хужжат_экс_шота_Ислом_Цивилизацияси_маркази_Туннел_РУС.pdf'],
+                    ['name' => "Texnik topshiriq (O'zbekcha)", 'file' => 'ТЕХНИЧЕСКОЕ_ЗАДАНИЕ_Ислом_Цивилизацияси_маркази_Туннел_ЎЗБ.pdf'],
+                    ['name' => "Texnik topshiriq (Ruscha)", 'file' => 'ТЕХНИЧЕСКОЕ_ЗАДАНИЕ_Ислом_Цивилизацияси_маркази_Туннел_РУС.pdf'],
+                    ['name' => 'Shartnoma shakli', 'file' => 'шартнома шакли12.pdf'],
+                ],
+            ],
+        ];
+    }
+
     /**
      * Handle language switching
      */

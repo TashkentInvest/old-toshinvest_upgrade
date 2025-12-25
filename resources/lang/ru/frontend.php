@@ -224,6 +224,21 @@ return [
         'view_all' => 'Смотреть все',
         'view_on_map' => 'Смотреть на карте',
         'file_not_available' => 'Файл недоступен',
+        'back_to_list' => 'Вернуться к списку',
+    ],
+
+    // Procurement
+    'procurement' => [
+        'title' => 'Закупки',
+        'subtitle' => 'Закупки путём отбора лучших предложений',
+        'description' => 'Закупки и тендеры АО "Ташкент Инвест Компания"',
+        'badge' => 'Закупки',
+        'status_active' => 'Активный',
+        'status_completed' => 'Завершён',
+        'deadline' => 'Срок подачи',
+        'deadline_label' => 'Конечная дата приёма предложений',
+        'view_details' => 'Подробнее',
+        'documents' => 'Документы',
     ],
 
     // Buttons

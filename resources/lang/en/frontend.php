@@ -215,6 +215,21 @@ return [
         'view_all' => 'View All',
         'view_on_map' => 'View on Map',
         'file_not_available' => 'File not available',
+        'back_to_list' => 'Back to list',
+    ],
+
+    // Procurement
+    'procurement' => [
+        'title' => 'Procurement',
+        'subtitle' => 'Procurement through selection of best offers',
+        'description' => 'Procurement and tenders of JSC "Tashkent Invest Company"',
+        'badge' => 'Procurement',
+        'status_active' => 'Active',
+        'status_completed' => 'Completed',
+        'deadline' => 'Deadline',
+        'deadline_label' => 'Deadline for proposal submission',
+        'view_details' => 'View Details',
+        'documents' => 'Documents',
     ],
 
     // Buttons

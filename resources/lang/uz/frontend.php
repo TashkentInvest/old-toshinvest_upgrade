@@ -223,6 +223,21 @@ return [
         'view_all' => 'Barchasini ko\'rish',
         'view_on_map' => 'Xaritada ko\'rish',
         'file_not_available' => 'Fayl mavjud emas',
+        'back_to_list' => 'Ro\'yxatga qaytish',
+    ],
+
+    // Procurement
+    'procurement' => [
+        'title' => 'Xaridlar',
+        'subtitle' => 'Eng yaxshi takliflarni tanlab olish orqali xaridlar',
+        'description' => 'AJ "Toshkent Invest Kompaniyasi" xaridlar va tenderlar',
+        'badge' => 'Xaridlar',
+        'status_active' => 'Faol',
+        'status_completed' => 'Tugallangan',
+        'deadline' => 'Oxirgi muddat',
+        'deadline_label' => 'Takliflarni qabul qilishning oxirgi sanasi',
+        'view_details' => 'Batafsil ko\'rish',
+        'documents' => 'Hujjatlar',
     ],
 
     // Buttons

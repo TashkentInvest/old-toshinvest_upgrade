@@ -187,6 +187,7 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/dividends', [FrontendController::class, 'dividends'])->name('dividends');
     Route::get('/charter_capital', [FrontendController::class, 'charter_capital'])->name('charter_capital');
     Route::get('/open_tender_notice', [FrontendController::class, 'open_tender_notice'])->name('open_tender_notice');
+    Route::get('/open_tender_notice/{slug}', [FrontendController::class, 'open_tender_notice_show'])->name('open_tender_notice.show');
 
         // Dynamic Tenders
         Route::prefix('tenders')->name('tenders.')->group(function () {
