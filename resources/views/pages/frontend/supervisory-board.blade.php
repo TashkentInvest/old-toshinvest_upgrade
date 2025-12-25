@@ -30,7 +30,7 @@
             <x-frontend.team-member
                 :name="__('frontend.supervisory.member1_name')"
                 :position="__('frontend.supervisory.member1_position')"
-                photo="assets/users_img/2.Хайдаров Бахтиёр Халимович.jpeg"
+                photo="assets/users_img/2.Хайдаров Бахтиёр Халимович.jpg"
                 delay="0.2"
             />
 
