@@ -97,7 +97,7 @@
                 <i class="fa-solid fa-newspaper"></i>
                 <span>{{ __('frontend.home.latest_news') }}</span>
             </div>
-            <a href="{{ route('frontend.media') }}" class="news-view-all">
+            <a style="color: #fff" href="{{ route('frontend.media') }}" class="news-view-all">
                 {{ __('frontend.common.view_all') }} <i class="fa-solid fa-arrow-right"></i>
             </a>
         </div>
