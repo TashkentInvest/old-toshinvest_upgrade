@@ -21,7 +21,7 @@
             <x-frontend.team-member
                 :name="__('frontend.supervisory.chairman_name')"
                 :position="__('frontend.supervisory.chairman_position')"
-                photo="assets/users_img/1.УМУРЗАКОВ Шавкат Буранович.jpg"
+                photo="assets/users_img/1.Умурзаков Шавкат Буранович.jpg"
                 :featured="true"
                 delay="0.1"
             />
