@@ -228,14 +228,17 @@ return [
 
     // Procurement
     'procurement' => [
+        'main_title' => 'Eng yaxshi takliflar',
+        'main_subtitle' => 'O\'zbekiston Respublikasi qonunchiligiga muvofiq eng yaxshi takliflarni tanlab olish orqali xaridlarni o\'tkazish',
         'title' => 'Xaridlar',
         'subtitle' => 'Eng yaxshi takliflarni tanlab olish orqali xaridlar',
         'description' => 'AJ "Toshkent Invest Kompaniyasi" xaridlar va tenderlar',
-        'badge' => 'Xaridlar',
+        'badge' => 'Eng yaxshi takliflar',
         'status_active' => 'Faol',
         'status_completed' => 'Tugallangan',
         'deadline' => 'Oxirgi muddat',
         'deadline_label' => 'Takliflarni qabul qilishning oxirgi sanasi',
+        'announcement_date' => 'E\'lon sanasi',
         'view_details' => 'Batafsil ko\'rish',
         'documents' => 'Hujjatlar',
     ],
@@ -859,6 +862,23 @@ Jamiyat xalqaro moliyaviy hisobotlash standartlariga muvofiq moliyaviy hisobot t
     'feature_3' => 'Barcha zarur ilovalar',
     'download_announcement' => 'E\'lonni yuklab olish',
     'download_attachments' => 'Ilovalarni yuklab olish',
+],
+
+// Procurement
+'procurement' => [
+    'main_title' => 'Eng yaxshi takliflar',
+    'main_subtitle' => 'O\'zbekiston Respublikasi qonunchiligiga muvofiq eng yaxshi takliflarni tanlab olish orqali xaridlarni o\'tkazish',
+    'title' => 'Xaridlar',
+    'subtitle' => 'Eng yaxshi takliflarni tanlab olish orqali xaridlar',
+    'description' => 'AJ "Toshkent Invest Kompaniyasi" xaridlar va tenderlar',
+    'badge' => 'Eng yaxshi takliflar',
+    'status_active' => 'Faol',
+    'status_completed' => 'Tugallangan',
+    'deadline' => 'Oxirgi muddat',
+    'deadline_label' => 'Takliflarni qabul qilishning oxirgi sanasi',
+    'announcement_date' => 'E\'lon sanasi',
+    'view_details' => 'Batafsil ko\'rish',
+    'documents' => 'Hujjatlar',
 ],
 
 // Vacancies

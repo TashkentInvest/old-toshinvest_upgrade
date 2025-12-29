@@ -452,7 +452,8 @@ public function nizomlar()
 
     public function open_tender_notice()
     {
-        return view('pages.frontend.open_tender_notice');
+        $procurements = $this->getProcurementsData();
+        return view('pages.frontend.open_tender_notice', compact('procurements'));
     }
 
     public function open_tender_notice_show($slug)
@@ -473,14 +474,36 @@ public function nizomlar()
         return [
             [
                 'id' => 1,
-                'slug' => 'eng-yaxshi-takliflar-1',
-                'title_uz' => "Eng yaxshi takliflarni tanlab olish orqali xaridni amalga oshirish to'g'risida",
-                'title_ru' => 'О закупках путём отбора лучших предложений',
+                'slug' => 'hunan-brt-project',
+                'title_uz' => "Toshkent shahri ko'chalarida avtobuslar uchun alohida ajratilgan yo'laklarni tashkil etish maqsadida avtomobil yo'llari va yo'l bo'yi infratuzilmasini loyihalash, rekonstruksiya qilish va ta'mirlash bo'yicha bosh pudratchi va loyihachini tanlab olish",
+                'title_ru' => 'Отбор генерального подрядчика и проектировщика по проектированию, реконструкции и ремонту автомобильных дорог и придорожной инфраструктуры на улицах города Ташкента, с целью организации отдельных выделенных полос для автобусов',
+                'deadline' => '5 yanvar 2026 yil, 18:00',
+                'deadline_ru' => '5 января 2026 года, 18:00',
+                'announcement_date' => '25 dekabr 2025 yil',
+                'announcement_date_ru' => '25 декабря 2025 года',
+                'status' => 'active',
+                'docs_count' => 5,
+                'folder' => 'assets/eng_yaxshi_takliflarni_tanlab_olish/Hunan',
+                'announcement_pdf' => 'assets/eng_yaxshi_takliflarni_tanlab_olish/Hunan/Эълон _HUNAN (РУС).pdf',
+                'documents' => [
+                    ['name' => "E'lon (Ruscha)", 'file' => 'Эълон _HUNAN (РУС).pdf'],
+                    ['name' => "Ariza (Ruscha)", 'file' => 'Ариза _HUNAN (РУС).pdf'],
+                    ['name' => "Texnik hujjat (Ruscha)", 'file' => 'Тех_Хужжат_HUNAN_(РУС).pdf'],
+                    ['name' => "Texnik topshiriq", 'file' => 'ТЕХНИЧЕСКОЕ_ЗАДАНИЕ_HUNAN.pdf'],
+                    ['name' => 'FIDIC kontrakt shablon', 'file' => 'FIDIC контракт шаблон 22.10.2025 (3).pdf'],
+                ],
+            ],
+            [
+                'id' => 2,
+                'slug' => 'qorasaroy-tunnel-project',
+                'title_uz' => "Islom sivilizatsiyasi markazi tunnel loyihasi bo'yicha ekspert hisobini tayyorlash xizmatlari",
+                'title_ru' => 'Услуги по подготовке экспертной сметы по проекту туннеля Центра Исламской Цивилизации',
                 'deadline' => '6 yanvar 2026 yil, 18:00',
                 'deadline_ru' => '6 января 2026 года, 18:00',
                 'status' => 'active',
-                'docs_count' => 9,
-                'folder' => 'assets/eng_yaxshi_takliflarni_tanlab_olish',
+                'docs_count' => 8,
+                'folder' => 'assets/eng_yaxshi_takliflarni_tanlab_olish/Qorasaroy',
+                'announcement_pdf' => 'assets/eng_yaxshi_takliflarni_tanlab_olish/Qorasaroy/Эълон _(ЎЗБ).pdf',
                 'documents' => [
                     ['name' => "E'lon (O'zbekcha)", 'file' => 'Эълон _(ЎЗБ).pdf'],
                     ['name' => "E'lon (Ruscha)", 'file' => 'Эълон _(РУС).pdf'],

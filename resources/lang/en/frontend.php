@@ -220,14 +220,17 @@ return [
 
     // Procurement
     'procurement' => [
+        'main_title' => 'Selection of Best Proposals',
+        'main_subtitle' => 'Conducting procurement through the selection of the best proposals in accordance with the legislation of the Republic of Uzbekistan',
         'title' => 'Procurement',
         'subtitle' => 'Procurement through selection of best offers',
         'description' => 'Procurement and tenders of JSC "Tashkent Invest Company"',
-        'badge' => 'Procurement',
+        'badge' => 'Selection of Best Proposals',
         'status_active' => 'Active',
         'status_completed' => 'Completed',
         'deadline' => 'Deadline',
         'deadline_label' => 'Deadline for proposal submission',
+        'announcement_date' => 'Announcement Date',
         'view_details' => 'View Details',
         'documents' => 'Documents',
     ],

@@ -12,8 +12,8 @@
                 <div class="gov-hero-badge">
                     <span>{{ __('frontend.procurement.badge') }}</span>
                 </div>
-                <h1 class="gov-hero-title">{{ __('frontend.procurement.title') }}</h1>
-                <p class="gov-hero-subtitle">{{ __('frontend.procurement.subtitle') }}</p>
+                <h1 class="gov-hero-title">{{ __('frontend.procurement.main_title') }}</h1>
+                <p class="gov-hero-subtitle">{{ __('frontend.procurement.main_subtitle') }}</p>
             </div>
         </div>
     </div>
@@ -22,18 +22,6 @@
     <div class="gov-content">
         <div class="gov-container">
             @php
-                $procurements = [
-                    [
-                        'id' => 1,
-                        'title_uz' => "Eng yaxshi takliflarni tanlab olish orqali xaridni amalga oshirish to'g'risida",
-                        'title_ru' => 'О закупках путём отбора лучших предложений',
-                        'deadline' => '6 yanvar 2026, 18:00',
-                        'deadline_ru' => '6 января 2026, 18:00',
-                        'status' => 'active',
-                        'docs_count' => 9,
-                        'slug' => 'eng-yaxshi-takliflar-1',
-                    ],
-                ];
                 $locale = app()->getLocale();
             @endphp
 
