@@ -32,18 +32,18 @@ class ProcurementNoticeSeeder extends Seeder
             'deadline_en' => 'January 5, 2026, 18:00',
 
             'status' => 'active',
-            'folder' => 'assets/eng_yaxshi_takliflarni_tanlab_olish/NewBRT',
-            'announcement_pdf' => 'assets/eng_yaxshi_takliflarni_tanlab_olish/NewBRT/Эълон_BRT (РУС).pdf',
+            'folder' => 'assets/eng_yaxshi_takliflarni_tanlab_olish/new_brt',
+            'announcement_pdf' => 'assets/eng_yaxshi_takliflarni_tanlab_olish/new_brt/Эълон _new_brt (РУС).pdf',
             'order' => 1,
             'is_featured' => true,
         ]);
 
         // Add documents for New BRT project
         $newBrtDocs = [
-            ['name_uz' => "E'lon (Ruscha)", 'name_ru' => 'Объявление (Русский)', 'name_en' => 'Announcement (Russian)', 'file' => 'Эълон_BRT (РУС).pdf', 'order' => 1],
-            ['name_uz' => "Ariza (Ruscha)", 'name_ru' => 'Заявка (Русский)', 'name_en' => 'Application (Russian)', 'file' => 'Ариза_BRT (РУС).pdf', 'order' => 2],
-            ['name_uz' => "Texnik hujjat (Ruscha)", 'name_ru' => 'Технический документ (Русский)', 'name_en' => 'Technical Document (Russian)', 'file' => 'Тех_Хужжат_BRT_(РУС).pdf', 'order' => 3],
-            ['name_uz' => "Texnik topshiriq", 'name_ru' => 'Техническое задание', 'name_en' => 'Technical Assignment', 'file' => 'ТЕХНИЧЕСКОЕ_ЗАДАНИЕ_BRT.pdf', 'order' => 4],
+            ['name_uz' => "E'lon (Ruscha)", 'name_ru' => 'Объявление (Русский)', 'name_en' => 'Announcement (Russian)', 'file' => 'Эълон _new_brt (РУС).pdf', 'order' => 1],
+            ['name_uz' => "Ariza (Ruscha)", 'name_ru' => 'Заявка (Русский)', 'name_en' => 'Application (Russian)', 'file' => 'Ариза _new_brt(РУС).pdf', 'order' => 2],
+            ['name_uz' => "Texnik hujjat (Ruscha)", 'name_ru' => 'Технический документ (Русский)', 'name_en' => 'Technical Document (Russian)', 'file' => 'Тех_Хужжат_new_brt_(РУС).pdf', 'order' => 3],
+            ['name_uz' => "Texnik topshiriq", 'name_ru' => 'Техническое задание', 'name_en' => 'Technical Assignment', 'file' => 'ТЕХНИЧЕСКОЕ_ЗАДАНИЕ_new_brt.pdf', 'order' => 4],
             ['name_uz' => 'FIDIC kontrakt shablon', 'name_ru' => 'FIDIC шаблон контракта', 'name_en' => 'FIDIC Contract Template', 'file' => 'FIDIC контракт шаблон 22.10.2025 (3).pdf', 'order' => 5],
         ];
 
