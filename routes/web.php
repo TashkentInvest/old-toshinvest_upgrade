@@ -73,6 +73,16 @@ Route::prefix('admin/tenders')->name('admin.tenders.')->group(function () {
     Route::post('/{tender}/remove-document', [AdminTenderController::class, 'removeDocument'])->name('removeDocument');
 });
 
+// Investment Projects CRUD
+Route::prefix('admin/investment-projects')->name('admin.investment-projects.')->group(function () {
+    Route::get('/', [App\Http\Controllers\Admin\InvestmentProjectController::class, 'index'])->name('index');
+    Route::get('/create', [App\Http\Controllers\Admin\InvestmentProjectController::class, 'create'])->name('create');
+    Route::post('/', [App\Http\Controllers\Admin\InvestmentProjectController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [App\Http\Controllers\Admin\InvestmentProjectController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [App\Http\Controllers\Admin\InvestmentProjectController::class, 'update'])->name('update');
+    Route::delete('/{id}', [App\Http\Controllers\Admin\InvestmentProjectController::class, 'destroy'])->name('destroy');
+});
+
 
     Route::get('/optimize-cache', [HomeController::class, 'optimize'])->name('optimize.command');
 

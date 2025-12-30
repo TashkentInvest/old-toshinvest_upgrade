@@ -41,6 +41,10 @@
                         <i class="fas fa-building"></i>
                         <span>Loyihalar</span>
                     </a>
+                    <a href="{{ route('admin.investment-projects.index') }}" class="nav-item {{ request()->routeIs('admin.investment-projects.*') ? 'active' : '' }}">
+                        <i class="fas fa-coins"></i>
+                        <span>Investitsiya loyihalari</span>
+                    </a>
                     <a href="{{ route('admin.tenders.index') }}" class="nav-item {{ request()->routeIs('admin.tenders.*') ? 'active' : '' }}">
                         <i class="fas fa-handshake"></i>
                         <span>Tenderlar</span>

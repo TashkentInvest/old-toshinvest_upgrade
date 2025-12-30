@@ -41,14 +41,14 @@
 
         {{-- Projects Grid --}}
         <div class="gov-projects-grid" id="projectsGrid">
-            {{-- Project Card 1 - Archived --}}
-            <article class="gov-project-card archive" data-category="archive">
+            @forelse($projects as $project)
+            <article class="gov-project-card {{ $project->status }}" data-category="{{ $project->status }}">
                 <div class="gov-project-header">
-                    <div class="gov-project-status archive">
-                        <i class="fa-solid fa-box-archive"></i>
-                        {{ __('frontend.common.archive') }}
+                    <div class="gov-project-status {{ $project->status == 'active' ? 'success' : 'archive' }}">
+                        <i class="fa-solid fa-{{ $project->status == 'active' ? 'check-circle' : 'box-archive' }}"></i>
+                        {{ $project->status == 'active' ? __('frontend.common.active') : __('frontend.common.archive') }}
                     </div>
-                    <div class="gov-project-id">TI-2025-001</div>
+                    <div class="gov-project-id">{{ $project->project_code }}</div>
                 </div>
 
                 <div class="gov-project-location">
@@ -56,8 +56,10 @@
                         <i class="fa-solid fa-location-dot"></i>
                     </div>
                     <div>
-                        <h3 class="gov-project-title">{{ __('frontend.investment.yunusabad_district') }}</h3>
-                        <p class="gov-project-subtitle">{{ __('frontend.renovation.mahalla') }} Янгитарнов</p>
+                        <h3 class="gov-project-title">{{ $project->getDistrict($locale) }}</h3>
+                        @if($project->getMahalla($locale))
+                        <p class="gov-project-subtitle">{{ __('frontend.renovation.mahalla') }} {{ $project->getMahalla($locale) }}</p>
+                        @endif
                     </div>
                 </div>
 
@@ -68,7 +70,7 @@
                                 <i class="fa-solid fa-vector-square"></i>
                                 {{ __('frontend.renovation.land_area') }}
                             </div>
-                            <div class="gov-detail-value">0,8528 {{ __('frontend.renovation.hectares') }}</div>
+                            <div class="gov-detail-value">{{ number_format($project->land_area, 4) }} {{ __('frontend.renovation.hectares') }}</div>
                         </div>
                         <div class="gov-detail-row">
                             <div class="gov-detail-label">
@@ -76,155 +78,51 @@
                                 {{ __('frontend.investment.deadline') }}
                             </div>
                             <div class="gov-detail-value">
-                                09.06.2025, 18:00
+                                {{ $project->has_extension && $project->extended_deadline ? $project->getFormattedExtendedDeadline() : $project->getFormattedDeadline() }}
+                                @if($project->isExpired())
                                 <span class="gov-deadline-expired">{{ __('frontend.investment.expired') }}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gov-project-actions">
-                        <a href="{{ asset('investment-projects/Эълон_Yunusobod KSZ  02.06.2025.pdf') }}"
-                           class="gov-project-btn primary" download>
-                            <i class="fa-solid fa-file-pdf"></i>
-                            {{ __('frontend.tenders.announcement') }}
-                        </a>
-                        <a href="#" class="gov-project-btn secondary" download>
-                            <i class="fa-solid fa-download"></i>
-                            {{ __('frontend.investment.attachments') }}
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            {{-- Project Card 2 - Archived --}}
-            <article class="gov-project-card archive" data-category="archive">
-                <div class="gov-project-header">
-                    <div class="gov-project-status archive">
-                        <i class="fa-solid fa-box-archive"></i>
-                        {{ __('frontend.common.archive') }}
-                    </div>
-                    <div class="gov-project-id">TI-2025-002</div>
-                </div>
-
-                <div class="gov-project-location">
-                    <div class="gov-project-icon">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </div>
-                    <div>
-                        <h3 class="gov-project-title">{{ __('frontend.investment.yunusabad_district') }}</h3>
-                        <p class="gov-project-subtitle">{{ __('frontend.renovation.mahalla') }} Янгитарнов</p>
-                    </div>
-                </div>
-
-                <div class="gov-project-body">
-                    <div class="gov-project-details">
-                        <div class="gov-detail-row">
-                            <div class="gov-detail-label">
-                                <i class="fa-solid fa-vector-square"></i>
-                                {{ __('frontend.renovation.land_area') }}
-                            </div>
-                            <div class="gov-detail-value">0,8528 {{ __('frontend.renovation.hectares') }}</div>
-                        </div>
-                        <div class="gov-detail-row">
-                            <div class="gov-detail-label">
-                                <i class="fa-solid fa-clock"></i>
-                                {{ __('frontend.investment.deadline') }}
-                            </div>
-                            <div class="gov-detail-value">
-                                16.06.2025, 18:00
-                                <span class="gov-deadline-expired">{{ __('frontend.investment.expired') }}</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gov-project-notice">
-                        <div class="gov-project-notice-icon">
-                            <i class="fa-solid fa-bell"></i>
-                        </div>
-                        <div>
-                            <div class="gov-project-notice-title">{{ __('frontend.investment.extension_notice') }}</div>
-                            <p class="gov-project-notice-text">{{ __('frontend.investment.deadline_extended_to') }} 18:00, 16 {{ __('frontend.months.june') }} 2025.</p>
-                        </div>
-                    </div>
-
-                    <div class="gov-project-actions">
-                        <a href="{{ asset('investment-projects/Эълон_Yunusobod KSZ  02.06.2025.pdf') }}"
-                           class="gov-project-btn primary" download>
-                            <i class="fa-solid fa-file-pdf"></i>
-                            {{ __('frontend.tenders.announcement') }}
-                        </a>
-                        <a href="#" class="gov-project-btn secondary" download>
-                            <i class="fa-solid fa-download"></i>
-                            {{ __('frontend.investment.attachments') }}
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            {{-- Project Card 3 - Active --}}
-            <article class="gov-project-card" data-category="active">
-                <div class="gov-project-header">
-                    <div class="gov-project-status success">
-                        <i class="fa-solid fa-check-circle"></i>
-                        {{ __('frontend.common.active') }}
-                    </div>
-                    <div class="gov-project-id">TI-2025-003</div>
-                </div>
-
-                <div class="gov-project-location">
-                    <div class="gov-project-icon">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </div>
-                    <div>
-                        <h3 class="gov-project-title">{{ __('frontend.investment.yunusabad_district') }}</h3>
-                        <p class="gov-project-subtitle">{{ __('frontend.renovation.mahalla') }} Янгитарнов</p>
-                    </div>
-                </div>
-
-                <div class="gov-project-body">
-                    <div class="gov-project-details">
-                        <div class="gov-detail-row">
-                            <div class="gov-detail-label">
-                                <i class="fa-solid fa-vector-square"></i>
-                                {{ __('frontend.renovation.land_area') }}
-                            </div>
-                            <div class="gov-detail-value">0,8528 {{ __('frontend.renovation.hectares') }}</div>
-                        </div>
-                        <div class="gov-detail-row">
-                            <div class="gov-detail-label">
-                                <i class="fa-solid fa-clock"></i>
-                                {{ __('frontend.investment.deadline') }}
-                            </div>
-                            <div class="gov-detail-value">
-                                10.07.2025, 18:00
+                                @else
                                 <span class="gov-deadline-active">{{ __('frontend.common.active') }}</span>
+                                @endif
                             </div>
                         </div>
                     </div>
 
+                    @if($project->has_extension && $project->getExtensionNote($locale))
                     <div class="gov-project-notice">
                         <div class="gov-project-notice-icon">
                             <i class="fa-solid fa-bell"></i>
                         </div>
                         <div>
                             <div class="gov-project-notice-title">{{ __('frontend.investment.extension_notice') }}</div>
-                            <p class="gov-project-notice-text">{{ __('frontend.investment.deadline_extended_to') }} 18:00, 10 {{ __('frontend.months.july') }} 2025.</p>
+                            <p class="gov-project-notice-text">{{ $project->getExtensionNote($locale) }}</p>
                         </div>
                     </div>
+                    @endif
 
                     <div class="gov-project-actions">
-                        <a href="{{ asset('investment-projects/Эълон_Yunusobod KSZ  24.06.2025.pdf') }}"
+                        @if($project->announcement_pdf)
+                        <a href="{{ asset($project->announcement_pdf) }}"
                            class="gov-project-btn primary" download>
                             <i class="fa-solid fa-file-pdf"></i>
                             {{ __('frontend.tenders.announcement') }}
                         </a>
-                        <a href="{{ asset('assets/folders/Приложения.zip') }}" class="gov-project-btn secondary" download>
+                        @endif
+                        @if($project->attachments_zip)
+                        <a href="{{ asset($project->attachments_zip) }}" class="gov-project-btn secondary" download>
                             <i class="fa-solid fa-download"></i>
                             {{ __('frontend.investment.attachments') }}
                         </a>
+                        @endif
                     </div>
                 </div>
             </article>
+            @empty
+            <div class="gov-empty-state">
+                <i class="fa-solid fa-inbox" style="font-size: 3rem; color: var(--gov-text-muted); margin-bottom: 16px;"></i>
+                <p>{{ __('frontend.common.no_projects') }}</p>
+            </div>
+            @endforelse
         </div>
     </div>
 </section>

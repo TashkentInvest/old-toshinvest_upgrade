@@ -26,15 +26,15 @@
             @endphp
 
             <div class="gov-projects-grid" style="margin-top: 30px;">
-                @foreach($procurements as $item)
-                    <a href="{{ route('frontend.open_tender_notice.show', $item['slug']) }}" class="gov-project-card" style="text-decoration: none;">
+                @foreach($notices as $notice)
+                    <a href="{{ route('frontend.open_tender_notice.show', $notice->slug) }}" class="gov-project-card" style="text-decoration: none;">
                         <div class="gov-project-header">
-                            <span class="gov-project-status {{ $item['status'] == 'active' ? 'success' : 'archive' }}">
-                                <i class="fa-solid {{ $item['status'] == 'active' ? 'fa-circle' : 'fa-check' }}"></i>
-                                {{ $item['status'] == 'active' ? __('frontend.procurement.status_active') : __('frontend.procurement.status_completed') }}
+                            <span class="gov-project-status {{ $notice->status == 'active' ? 'success' : 'archive' }}">
+                                <i class="fa-solid {{ $notice->status == 'active' ? 'fa-circle' : 'fa-check' }}"></i>
+                                {{ $notice->status == 'active' ? __('frontend.procurement.status_active') : __('frontend.procurement.status_completed') }}
                             </span>
                             <span class="gov-project-id">
-                                <i class="fa-solid fa-file-pdf" style="color: #dc2626;"></i> {{ $item['docs_count'] }}
+                                <i class="fa-solid fa-file-pdf" style="color: #dc2626;"></i> {{ $notice->documents->count() }}
                             </span>
                         </div>
                         <div class="gov-project-location">
@@ -43,7 +43,7 @@
                             </div>
                             <div>
                                 <h3 class="gov-project-title" style="font-size: 1.1rem;">
-                                    {{ $locale == 'ru' ? $item['title_ru'] : $item['title_uz'] }}
+                                    {{ $notice->getTitle($locale) }}
                                 </h3>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                                         {{ __('frontend.procurement.deadline') }}
                                     </span>
                                     <span class="gov-detail-value" style="color: #d97706;">
-                                        {{ $locale == 'ru' ? $item['deadline_ru'] : $item['deadline'] }}
+                                        {{ $notice->getDeadline($locale) }}
                                     </span>
                                 </div>
                             </div>

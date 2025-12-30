@@ -452,21 +452,25 @@ public function nizomlar()
 
     public function open_tender_notice()
     {
-        $procurements = $this->getProcurementsData();
-        return view('pages.frontend.open_tender_notice', compact('procurements'));
+        $notices = \App\Models\ProcurementNotice::with('documents')
+            ->active()
+            ->ordered()
+            ->get();
+
+        $locale = app()->getLocale();
+
+        return view('pages.frontend.open_tender_notice', compact('notices', 'locale'));
     }
 
     public function open_tender_notice_show($slug)
     {
-        $procurements = $this->getProcurementsData();
+        $notice = \App\Models\ProcurementNotice::with('documents')
+            ->where('slug', $slug)
+            ->firstOrFail();
 
-        $procurement = collect($procurements)->firstWhere('slug', $slug);
+        $locale = app()->getLocale();
 
-        if (!$procurement) {
-            abort(404);
-        }
-
-        return view('pages.frontend.open_tender_notice_show', compact('procurement'));
+        return view('pages.frontend.open_tender_notice_show', compact('notice', 'locale'));
     }
 
     private function getProcurementsData()
@@ -536,7 +540,10 @@ public function nizomlar()
      */
     public function investmentProjects()
     {
-        return view('pages.frontend.investment-projects');
+        $projects = \App\Models\InvestmentProject::ordered()->get();
+        $locale = app()->getLocale();
+
+        return view('pages.frontend.investment-projects', compact('projects', 'locale'));
     }
 
     /**
