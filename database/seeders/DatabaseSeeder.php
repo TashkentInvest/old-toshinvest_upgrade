@@ -26,6 +26,9 @@ class DatabaseSeeder extends Seeder
             TenderSeeder::class,
             BannerSeeder::class,
             
+            // Analytics
+            PageViewSeeder::class,
+            
             // ImportOldDataSeeder::class,  // Disabled for now - run manually if needed
         ]);
     }
