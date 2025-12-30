@@ -478,7 +478,7 @@ public function nizomlar()
         return [
             [
                 'id' => 1,
-                'slug' => 'hunan-brt-project',
+                'slug' => 'new-brt-project',
                 'title_uz' => "Toshkent shahri ko'chalarida avtobuslar uchun alohida ajratilgan yo'laklarni tashkil etish maqsadida avtomobil yo'llari va yo'l bo'yi infratuzilmasini loyihalash, rekonstruksiya qilish va ta'mirlash bo'yicha bosh pudratchi va loyihachini tanlab olish",
                 'title_ru' => 'Отбор генерального подрядчика и проектировщика по проектированию, реконструкции и ремонту автомобильных дорог и придорожной инфраструктуры на улицах города Ташкента, с целью организации отдельных выделенных полос для автобусов',
                 'deadline' => '5 yanvar 2026 yil, 18:00',
@@ -487,13 +487,13 @@ public function nizomlar()
                 'announcement_date_ru' => '25 декабря 2025 года',
                 'status' => 'active',
                 'docs_count' => 5,
-                'folder' => 'assets/eng_yaxshi_takliflarni_tanlab_olish/Hunan',
-                'announcement_pdf' => 'assets/eng_yaxshi_takliflarni_tanlab_olish/Hunan/Эълон _HUNAN (РУС).pdf',
+                'folder' => 'assets/eng_yaxshi_takliflarni_tanlab_olish/NewBRT',
+                'announcement_pdf' => 'assets/eng_yaxshi_takliflarni_tanlab_olish/NewBRT/Эълон_BRT (РУС).pdf',
                 'documents' => [
-                    ['name' => "E'lon (Ruscha)", 'file' => 'Эълон _HUNAN (РУС).pdf'],
-                    ['name' => "Ariza (Ruscha)", 'file' => 'Ариза _HUNAN (РУС).pdf'],
-                    ['name' => "Texnik hujjat (Ruscha)", 'file' => 'Тех_Хужжат_HUNAN_(РУС).pdf'],
-                    ['name' => "Texnik topshiriq", 'file' => 'ТЕХНИЧЕСКОЕ_ЗАДАНИЕ_HUNAN.pdf'],
+                    ['name' => "E'lon (Ruscha)", 'file' => 'Эълон_BRT (РУС).pdf'],
+                    ['name' => "Ariza (Ruscha)", 'file' => 'Ариза_BRT (РУС).pdf'],
+                    ['name' => "Texnik hujjat (Ruscha)", 'file' => 'Тех_Хужжат_BRT_(РУС).pdf'],
+                    ['name' => "Texnik topshiriq", 'file' => 'ТЕХНИЧЕСКОЕ_ЗАДАНИЕ_BRT.pdf'],
                     ['name' => 'FIDIC kontrakt shablon', 'file' => 'FIDIC контракт шаблон 22.10.2025 (3).pdf'],
                 ],
             ],
