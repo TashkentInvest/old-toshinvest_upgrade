@@ -53,13 +53,13 @@ class ProjectDocumentsTableSeeder extends Seeder
             $projectId = $project->id;
             foreach ($documentTemplates as $template) {
                 $filePath = "documents/projects/project_{$projectId}/{$template['file_name']}";
-                
+
                 ProjectDocument::create([
                     'project_id' => $project->id,
                     'title' => $template['title'],
                     'file_path' => $filePath,
                 ]);
-                
+
                 $totalDocs++;
             }
         }

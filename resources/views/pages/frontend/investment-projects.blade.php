@@ -102,14 +102,14 @@
 
                     <div class="gov-project-actions">
                         @if($project->announcement_pdf)
-                        <a href="{{ asset($project->announcement_pdf) }}"
-                           class="gov-project-btn primary" style="color: white" download>
+                        <a href="{{ asset('storage/' . $project->announcement_pdf) }}"
+                           class="gov-project-btn primary" style="color: white" target="_blank">
                             <i class="fa-solid fa-file-pdf"></i>
                             {{ __('frontend.tenders.announcement') }}
                         </a>
                         @endif
                         @if($project->attachments_zip)
-                        <a href="{{ asset($project->attachments_zip) }}" class="gov-project-btn secondary" download>
+                        <a href="{{ asset('storage/' . $project->attachments_zip) }}" class="gov-project-btn secondary" download>
                             <i class="fa-solid fa-download"></i>
                             {{ __('frontend.investment.attachments') }}
                         </a>

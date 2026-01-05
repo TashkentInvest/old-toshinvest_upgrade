@@ -2,9 +2,9 @@
 
 /**
  * Production Database Summary Script
- * 
+ *
  * Run: php show_production_summary.php
- * 
+ *
  * This script displays a complete overview of all seeded data
  * in the production database.
  */
@@ -27,30 +27,30 @@ $tables = [
     'users' => ['label' => '👥 Users', 'icon' => '👤'],
     'roles' => ['label' => '🔐 Roles', 'icon' => '🛡️'],
     'permissions' => ['label' => '🔑 Permissions', 'icon' => '🔓'],
-    
+
     // Reference Data
     'regions' => ['label' => '🗺️  Regions', 'icon' => '🌍'],
     'districts' => ['label' => '📍 Districts', 'icon' => '🏘️'],
     'categories' => ['label' => '🏷️  Categories', 'icon' => '📂'],
-    
+
     // Core Content
     'news' => ['label' => '📰 News Articles', 'icon' => '📄'],
     'projects' => ['label' => '🏗️  Renovation Projects', 'icon' => '🏢'],
     'project_stages' => ['label' => '📊 Project Stages', 'icon' => '⏱️'],
     'project_documents' => ['label' => '📄 Project Documents', 'icon' => '📋'],
-    
+
     // Procurement & Investment
     'procurement_notices' => ['label' => '📢 Procurement Notices', 'icon' => '📣'],
     'procurement_documents' => ['label' => '📎 Procurement Documents', 'icon' => '📎'],
     'investment_projects' => ['label' => '💼 Investment Projects', 'icon' => '💰'],
     'tenders' => ['label' => '📋 Tenders', 'icon' => '🔨'],
-    
+
     // Marketing & Frontend
     'banners' => ['label' => '🎨 Homepage Banners', 'icon' => '🖼️'],
-    
+
     // Analytics
     'page_views' => ['label' => '📈 Page Views (Analytics)', 'icon' => '📊'],
-    
+
     // Optional/Empty (for production readiness)
     'investor_ideas' => ['label' => '💡 Investor Ideas', 'icon' => '💭'],
     'vacancy_applications' => ['label' => '📝 Vacancy Applications', 'icon' => '👔'],
@@ -74,23 +74,23 @@ foreach ($tables as $table => $config) {
     if (isset($categoryHeaders[$table])) {
         echo $categoryHeaders[$table];
     }
-    
+
     try {
         $count = DB::table($table)->count();
         $totalRecords += $count;
-        
+
         $status = $count > 0 ? "✅" : "⚪";
         $countDisplay = str_pad($count, 6, ' ', STR_PAD_LEFT);
-        
-        echo sprintf("  %s %s %s %s\n", 
+
+        echo sprintf("  %s %s %s %s\n",
             $status,
             $config['icon'],
             str_pad($config['label'], 35),
             $countDisplay . " records"
         );
-        
+
     } catch (\Exception $e) {
-        echo sprintf("  ❌ %s %s %s\n", 
+        echo sprintf("  ❌ %s %s %s\n",
             $config['icon'],
             str_pad($config['label'], 35),
             "ERROR: Table not found"
