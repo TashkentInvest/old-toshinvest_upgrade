@@ -184,15 +184,15 @@ class FrontendController extends Controller
             'allTotal'
         ));
     }
- public function media(Request $request)
+    public function media(Request $request)
     {
         $query = News::query();
 
         // Search functionality
         if ($request->filled('search')) {
-            $query->where(function($q) use ($request) {
+            $query->where(function ($q) use ($request) {
                 $q->where('title', 'like', '%' . $request->search . '%')
-                  ->orWhere('content', 'like', '%' . $request->search . '%');
+                    ->orWhere('content', 'like', '%' . $request->search . '%');
             });
         }
 
@@ -228,9 +228,9 @@ class FrontendController extends Controller
 
         // Get related news (exclude current news, limit to 3)
         $relatedNews = News::where('id', '!=', $id)
-                          ->orderBy('published_at', 'desc')
-                          ->limit(3)
-                          ->get();
+            ->orderBy('published_at', 'desc')
+            ->limit(3)
+            ->get();
 
         // SEO Meta Tags for News Article
         $seoTitle = $news->title . ' - ' . __('frontend.seo.site_name');
@@ -282,11 +282,11 @@ class FrontendController extends Controller
     {
         return view('pages.frontend.struktura');
     }
- public function about_us()
+    public function about_us()
     {
         return view('pages.frontend.about_us');
     }
- public function investoram_slayd()
+    public function investoram_slayd()
     {
         return view('pages.frontend.investoram_slayd');
     }
@@ -350,18 +350,16 @@ class FrontendController extends Controller
 
     //     return view('pages.frontend.business_plan');
     // }
-public function business_plan()
-{
-    // abort(404);
+    public function business_plan()
+    {
+        // abort(404);
         return view('pages.frontend.business_plan');
-
-}
-public function xaridlar()
-{
-    // abort(404);
+    }
+    public function xaridlar()
+    {
+        // abort(404);
         return view('pages.frontend.xaridlar');
-
-}
+    }
 
 
     public function offers()
@@ -374,7 +372,7 @@ public function xaridlar()
         return view('pages.frontend.internal_documents_of_the_company');
     }
 
-public function essential_facts()
+    public function essential_facts()
     {
         return view('pages.frontend.essential_facts');
     }
@@ -417,12 +415,12 @@ public function essential_facts()
         return view('pages.frontend.essential_facts_show', compact('files', 'number'));
     }
 
-public function npa()
+    public function npa()
     {
         return view('pages.frontend.npa');
     }
 
-public function nizomlar()
+    public function nizomlar()
     {
         return view('pages.frontend.nizomlar');
     }
@@ -466,6 +464,7 @@ public function nizomlar()
     {
         $notice = \App\Models\ProcurementNotice::with('documents')
             ->where('slug', $slug)
+            ->orWhere('status', 'active')
             ->firstOrFail();
 
         $locale = app()->getLocale();
