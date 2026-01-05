@@ -464,7 +464,7 @@ class FrontendController extends Controller
     {
         $notice = \App\Models\ProcurementNotice::with('documents')
             ->where('slug', $slug)
-            ->orWhere('status', 'active')
+            ->where('status', 'active')
             ->firstOrFail();
 
         $locale = app()->getLocale();
