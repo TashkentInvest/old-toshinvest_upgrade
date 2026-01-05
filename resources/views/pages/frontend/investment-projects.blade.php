@@ -58,7 +58,7 @@
                     <div>
                         <h3 class="gov-project-title">{{ $project->getDistrict($locale) }}</h3>
                         @if($project->getMahalla($locale))
-                        <p class="gov-project-subtitle">{{ __('frontend.renovation.mahalla') }} {{ $project->getMahalla($locale) }}</p>
+                        <p class="gov-project-subtitle">{{ $project->getMahalla($locale) }}</p>
                         @endif
                     </div>
                 </div>
