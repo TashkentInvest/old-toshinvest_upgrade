@@ -103,7 +103,7 @@
                     <div class="gov-project-actions">
                         @if($project->announcement_pdf)
                         <a href="{{ asset($project->announcement_pdf) }}"
-                           class="gov-project-btn primary" download>
+                           class="gov-project-btn primary" style="color: white" download>
                             <i class="fa-solid fa-file-pdf"></i>
                             {{ __('frontend.tenders.announcement') }}
                         </a>
