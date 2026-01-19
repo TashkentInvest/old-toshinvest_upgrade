@@ -96,7 +96,7 @@
                         <div class="stat-label">{{ __('frontend.footer.views_this_month') }}</div>
                     </div>
                 </div>
-                @if(isset($pageViewStats['top_countries']) && $pageViewStats['top_countries']->count() > 0)
+                {{-- @if(isset($pageViewStats['top_countries']) && $pageViewStats['top_countries']->count() > 0)
                 <div class="countries-section">
                     <h5 class="countries-title">{{ __('frontend.footer.top_countries') }}</h5>
                     <div class="countries-list">
@@ -109,7 +109,7 @@
                         @endforeach
                     </div>
                 </div>
-                @endif
+                @endif --}}
             </div>
         </div>
     </div>
