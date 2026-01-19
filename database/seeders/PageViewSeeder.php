@@ -41,7 +41,7 @@ class PageViewSeeder extends Seeder
             for ($i = 0; $i < $viewCount; $i++) {
                 // Random date within last 30 days
                 $randomDate = Carbon::now()->subDays(rand(0, 30));
-                
+
                 // Random hour of the day
                 $randomHour = rand(8, 22);
                 $randomMinute = rand(0, 59);

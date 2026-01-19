@@ -51,10 +51,10 @@ class ProjectStagesTableSeeder extends Seeder
         $totalStages = 0;
         foreach ($projects as $project) {
             $startDate = now()->subDays(60); // Start 60 days ago
-            
+
             foreach ($stageTemplates as $index => $template) {
                 $endDate = (clone $startDate)->addDays($template['days_duration']);
-                
+
                 ProjectStage::create([
                     'project_id' => $project->id,
                     'name' => $template['name'],
@@ -63,7 +63,7 @@ class ProjectStagesTableSeeder extends Seeder
                     'description' => $template['description'],
                     'protocol_signed' => $index == 3, // Last stage is signed
                 ]);
-                
+
                 $startDate = (clone $endDate)->addDay(); // Next stage starts after previous ends
                 $totalStages++;
             }

@@ -85,12 +85,13 @@ class ProcurementNoticeSeeder extends Seeder
         $qorasaroyDocs = [
             ['name_uz' => "E'lon (O'zbekcha)", 'name_ru' => 'Объявление (Узбекский)', 'name_en' => 'Announcement (Uzbek)', 'file' => 'Эълон _(ЎЗБ).pdf', 'order' => 1],
             ['name_uz' => "E'lon (Ruscha)", 'name_ru' => 'Объявление (Русский)', 'name_en' => 'Announcement (Russian)', 'file' => 'Эълон _(РУС).pdf', 'order' => 2],
-            ['name_uz' => "Ariza shakli (O'zbekcha)", 'name_ru' => 'Форма заявки (Узбекский)', 'name_en' => 'Application Form (Uzbek)', 'file' => 'Ариза шакли _(ЎЗБ).pdf', 'order' => 3],
-            ['name_uz' => "Ariza shakli (Ruscha)", 'name_ru' => 'Форма заявки (Русский)', 'name_en' => 'Application Form (Russian)', 'file' => 'Ариза шакли _(РУС).pdf', 'order' => 4],
-            ['name_uz' => "Texnik topshiriq (O'zbekcha)", 'name_ru' => 'Техническое задание (Узбекский)', 'name_en' => 'Technical Assignment (Uzbek)', 'file' => 'Техник топшириқ _(ЎЗБ).pdf', 'order' => 5],
-            ['name_uz' => "Texnik topshiriq (Ruscha)", 'name_ru' => 'Техническое задание (Русский)', 'name_en' => 'Technical Assignment (Russian)', 'file' => 'Техническое задание _(РУС).pdf', 'order' => 6],
-            ['name_uz' => "1-Ilova (O'zbekcha)", 'name_ru' => 'Приложение 1 (Узбекский)', 'name_en' => 'Appendix 1 (Uzbek)', 'file' => '1_илова _(ЎЗБ).pdf', 'order' => 7],
-            ['name_uz' => "1-Ilova (Ruscha)", 'name_ru' => 'Приложение 1 (Русский)', 'name_en' => 'Appendix 1 (Russian)', 'file' => '1_Приложение _(РУС).pdf', 'order' => 8],
+            ['name_uz' => "Ariza (O'zbekcha)", 'name_ru' => 'Заявка (Узбекский)', 'name_en' => 'Application (Uzbek)', 'file' => 'Ариза _(ЎЗБ).pdf', 'order' => 3],
+            ['name_uz' => "Ariza (Ruscha)", 'name_ru' => 'Заявка (Русский)', 'name_en' => 'Application (Russian)', 'file' => 'Ариза _(РУС).pdf', 'order' => 4],
+            ['name_uz' => "Texnik hujjat (O'zbekcha)", 'name_ru' => 'Технический документ (Узбекский)', 'name_en' => 'Technical Document (Uzbek)', 'file' => 'Тех_Хужжат_экс_шота_Ислом_Цивилизацияси_маркази_Туннел_ЎЗБ.pdf', 'order' => 5],
+            ['name_uz' => "Texnik hujjat (Ruscha)", 'name_ru' => 'Технический документ (Русский)', 'name_en' => 'Technical Document (Russian)', 'file' => 'Тех_Хужжат_экс_шота_Ислом_Цивилизацияси_маркази_Туннел_РУС.pdf', 'order' => 6],
+            ['name_uz' => "Texnik topshiriq (O'zbekcha)", 'name_ru' => 'Техническое задание (Узбекский)', 'name_en' => 'Technical Assignment (Uzbek)', 'file' => 'ТЕХНИЧЕСКОЕ_ЗАДАНИЕ_Ислом_Цивилизацияси_маркази_Туннел_ЎЗБ.pdf', 'order' => 7],
+            ['name_uz' => "Texnik topshiriq (Ruscha)", 'name_ru' => 'Техническое задание (Русский)', 'name_en' => 'Technical Assignment (Russian)', 'file' => 'ТЕХНИЧЕСКОЕ_ЗАДАНИЕ_Ислом_Цивилизацияси_маркази_Туннел_РУС.pdf', 'order' => 8],
+            ['name_uz' => 'Shartnoma shakli', 'name_ru' => 'Форма контракта', 'name_en' => 'Contract Form', 'file' => 'шартнома шакли12.pdf', 'order' => 9],
         ];
 
         foreach ($qorasaroyDocs as $docData) {

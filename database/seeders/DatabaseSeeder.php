@@ -19,13 +19,13 @@ class DatabaseSeeder extends Seeder
             // SYSTEM INITIALIZATION
             // ==================================================
             SystemInitSeeder::class,
-            
+
             // ==================================================
             // REFERENCE DATA (Foundation - Must be first)
             // ==================================================
             RegionsDistrictsSeeder::class,
             CategorySeeder::class,
-            
+
             // ==================================================
             // CORE CONTENT (Main business data)
             // ==================================================
@@ -33,30 +33,30 @@ class DatabaseSeeder extends Seeder
             ProjectsTableSeeder::class,
             ProjectStagesTableSeeder::class,      // Project workflow stages
             ProjectDocumentsTableSeeder::class,   // Project documents
-            
+
             // ==================================================
             // PROCUREMENT & INVESTMENT
             // ==================================================
             ProcurementNoticeSeeder::class,
             InvestmentProjectSeeder::class,
             TenderSeeder::class,
-            
+
             // ==================================================
             // FRONTEND & MARKETING
             // ==================================================
             BannerSeeder::class,
-            
+
             // ==================================================
             // ANALYTICS & TRACKING
             // ==================================================
             PageViewSeeder::class,
-            
+
             // ==================================================
             // OPTIONAL: Import legacy data (run manually if needed)
             // ==================================================
             // ImportOldDataSeeder::class,
         ]);
-        
+
         // Production-ready confirmation
         $this->command->newLine();
         $this->command->info('╔════════════════════════════════════════════════════════════╗');
