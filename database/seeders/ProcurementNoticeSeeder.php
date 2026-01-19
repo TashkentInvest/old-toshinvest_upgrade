@@ -27,9 +27,9 @@ class ProcurementNoticeSeeder extends Seeder
             'announcement_date_ru' => '25 декабря 2025 года',
             'announcement_date_en' => 'December 25, 2025',
 
-            'deadline_uz' => '5 yanvar 2026 yil, 18:00',
-            'deadline_ru' => '5 января 2026 года, 18:00',
-            'deadline_en' => 'January 5, 2026, 18:00',
+            'deadline_uz' => '19 yanvar 2026 yil, 18:00',
+            'deadline_ru' => '19 января 2026 года, 18:00',
+            'deadline_en' => 'January 19, 2026, 18:00',
 
             'status' => 'active',
             'folder' => 'assets/eng_yaxshi_takliflarni_tanlab_olish/new_brt',
