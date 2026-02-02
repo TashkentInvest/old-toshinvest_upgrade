@@ -260,7 +260,7 @@ return [
     // Home Page
     'home' => [
         'hero_title' => 'KELAJAKKA SARMOYA KIRITING',
-        'hero_description' => 'Aktsiyadorlik jamiyati "Kompaniya Toshkent Invest" O\'zbekiston Respublikasi Prezidentining \u2116UP-112 farmoni asosida 2023 yil avgust oyida poytaxt hokimiyati tashabbusi bilan tashkil etilgan.',
+        'hero_description' => '"Toshkent Invest kompaniyasi" aksiyadorlik jamiyati  O\'zbekiston Respublikasi Prezidentining 2023-yil 26-iyuldagi PF-112 farmoni asosida 2023-yil avgust oyida tashkil etilgan.',
         'features_title' => 'Bizning yo\'nalishlarimiz',
         'feature_1_title' => 'Toza havoli va dam olish joylari bo\'lgan shaharga aylanish',
         'feature_1_desc' => 'Madaniyat va dam olish bog\'lari, xiyobonlar, bulvarlar ko\'rinishini o\'zgartirish va yashil zonalar sonini keskin oshirish orqali shahar aholisi va mehmonlari uchun dam olish sharoitlarini yaratish.',
@@ -612,8 +612,8 @@ Jamiyat xalqaro moliyaviy hisobotlash standartlariga muvofiq moliyaviy hisobot t
         'email' => 'Elektron pochta',
         'reception_days' => 'Qabul kunlari',
         'by_appointment' => 'Oldindan yozilish bo\'yicha',
-        'deputy_strategy' => 'Boshqaruv raisi o\'rinbosari strategik rivojlanish bo\'yicha',
-        'deputy_projects' => 'Boshqaruv raisi o\'rinbosari loyihalarni boshqarish (sanoat) bo\'yicha',
+        'deputy_strategy' => ' Strategik rivojlanish bo\'yicha Boshqaruv raisi o\'rinbosari',
+        'deputy_projects' => 'Loyihalarni boshqarish (sanoat) bo\'yicha Boshqaruv raisi o\'rinbosari',
         'biography' => 'SHAXSIY TARJIMAI HOL',
         'work_history' => 'Mehnat faoliyati',
         'bio_button' => 'Tarjimai hol va majburiyatlari',
