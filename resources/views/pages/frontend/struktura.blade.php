@@ -17,7 +17,7 @@
     {{-- PDF Viewer --}}
     <x-frontend.section bg="white">
         <x-frontend.pdf-viewer
-            :src="asset('assets/folders/орг структура 120825.PDF')"
+            :src="asset('assets/folders/img20260202_17260805.pdf')"
             :title="__('frontend.footer.structural_divisions')"
             height="900px"
         />

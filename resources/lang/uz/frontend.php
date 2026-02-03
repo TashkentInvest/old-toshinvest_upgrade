@@ -33,7 +33,7 @@ return [
         'tenders' => 'Tenderlar va tanlovlar',
         'management' => 'Rahbariyat',
         'presentations' => 'Kompaniya taqdimotlari',
-        'charter' => 'Nizom',
+        'charter' => 'Ustav',
         'corporate_governance' => 'Korporativ boshqaruv',
         'management_bodies' => 'Boshqaruv va nazorat organlari',
         'sole_shareholder' => 'Yagona aksiyador',
