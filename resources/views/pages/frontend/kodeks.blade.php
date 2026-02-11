@@ -43,11 +43,11 @@
                 <div class="gov-doc-meta">PDF</div>
             </div>
             <div class="gov-doc-actions">
-                <a href="{{ asset('assets/folders/korporativ_boshqaruv_kodeksi.pdf') }}" target="_blank" class="gov-table-btn gov-table-btn-secondary">
+                <a href="{{ asset('assets/folders/kodeks/korporativ_boshqaruv_kodeksi.pdf') }}" target="_blank" class="gov-table-btn gov-table-btn-secondary">
                     <i class="fa-solid fa-eye"></i>
                     {{ __('frontend.docs.view') }}
                 </a>
-                <a href="{{ asset('assets/folders/korporativ_boshqaruv_kodeksi.pdf') }}" download class="gov-table-btn gov-table-btn-primary">
+                <a href="{{ asset('assets/folders/kodeks/korporativ_boshqaruv_kodeksi.pdf') }}" download class="gov-table-btn gov-table-btn-primary">
                     <i class="fa-solid fa-download"></i>
                     {{ __('frontend.common.download') }}
                 </a>
