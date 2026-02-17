@@ -49,6 +49,10 @@
                         <i class="fas fa-handshake"></i>
                         <span>Tenderlar</span>
                     </a>
+                    <a href="{{ route('admin.open-data.index') }}" class="nav-item {{ request()->routeIs('admin.open-data.*') ? 'active' : '' }}">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Ochiq ma'lumotlar</span>
+                    </a>
                 </div>
 
                 <!-- CRM Section -->

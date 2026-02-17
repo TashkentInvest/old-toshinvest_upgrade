@@ -355,6 +355,8 @@ class FrontendController extends Controller
         // abort(404);
         return view('pages.frontend.business_plan');
     }
+
+
     public function xaridlar()
     {
         // abort(404);
@@ -604,5 +606,15 @@ class FrontendController extends Controller
             Log::error('Vacancy application failed: ' . $e->getMessage());
             return back()->with('error', __('frontend.vacancies.application_error'))->withInput();
         }
+    }
+
+    public function open_data()
+    {
+        $openData = \App\Models\OpenData::where('is_active', true)
+                                        ->orderBy('sort_order', 'asc')
+                                        ->orderBy('created_at', 'desc')
+                                        ->get();
+
+        return view('pages.frontend.open_data', compact('openData'));
     }
 }

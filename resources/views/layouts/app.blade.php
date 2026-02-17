@@ -71,7 +71,6 @@
 
 </head>
 <body>
-
     @yield('styles')
 
     <style>

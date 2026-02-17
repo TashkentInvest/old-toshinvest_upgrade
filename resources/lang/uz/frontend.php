@@ -80,6 +80,7 @@ return [
         'news' => 'Yangiliklar',
         'announcements' => 'E\'lonlar',
         'interactive_map' => 'Interaktiv xarita',
+        'open_data' => 'Ochiq Ma\'lumotlar',
     ],
 
     // Offers
@@ -909,6 +910,18 @@ Jamiyat xalqaro moliyaviy hisobotlash standartlariga muvofiq moliyaviy hisobot t
         'resume_format' => 'Rezyume faqat PDF, DOC yoki DOCX formatida bo\'lishi kerak',
         'resume_size' => 'Rezyume fayli hajmi 5MB dan oshmasligi kerak',
     ],
-],
+    ],
+
+    // Breadcrumb
+    'breadcrumb' => [
+        'home' => 'Bosh sahifa',
+    ],
+
+    // Messages
+    'messages' => [
+        'no_data_available' => 'Ma\'lumotlar mavjud emas',
+    ],
 
 ];
+
+

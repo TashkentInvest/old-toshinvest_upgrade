@@ -80,6 +80,7 @@ return [
         'news' => 'News',
         'announcements' => 'Announcements',
         'interactive_map' => 'Interactive Map',
+        'open_data' => 'Open Data',
     ],
 
     // Offers
@@ -865,4 +866,16 @@ from 2025, the Company\'s financial and non-financial reports, as well as commer
         'download_announcement' => 'Download Announcement',
         'download_attachments' => 'Download Attachments',
     ],
+
+    // Breadcrumb
+    'breadcrumb' => [
+        'home' => 'Home',
+    ],
+
+    // Messages
+    'messages' => [
+        'no_data_available' => 'No data available',
+    ],
 ];
+
+

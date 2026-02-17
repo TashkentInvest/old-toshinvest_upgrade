@@ -80,6 +80,7 @@ return [
         'news' => 'Новости',
         'announcements' => 'Объявление',
         'interactive_map' => 'Интерактивная карта',
+        'open_data' => 'Открытые данные',
     ],
 
     // Offers
@@ -911,6 +912,18 @@ return [
         'resume_format' => 'Резюме должно быть в формате PDF, DOC или DOCX',
         'resume_size' => 'Размер файла резюме не должен превышать 5МБ',
     ],
-],
+    ],
+
+    // Breadcrumb
+    'breadcrumb' => [
+        'home' => 'Главная',
+    ],
+
+    // Messages
+    'messages' => [
+        'no_data_available' => 'Данные недоступны',
+    ],
 
 ];
+
+

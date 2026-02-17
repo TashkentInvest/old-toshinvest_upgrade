@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\TenderController as AdminTenderController;
 use App\Http\Controllers\Admin\VacancyApplicationController;
+use App\Http\Controllers\Admin\OpenDataController;
 use App\Http\Controllers\Frontend\InvestorIdeaController;
 use App\Http\Controllers\Frontend\TenderController;
 use App\Http\Controllers\SitemapController;
@@ -83,6 +84,17 @@ Route::prefix('admin/investment-projects')->name('admin.investment-projects.')->
     Route::delete('/{id}', [App\Http\Controllers\Admin\InvestmentProjectController::class, 'destroy'])->name('destroy');
 });
 
+// Open Data CRUD
+Route::prefix('admin/open-data')->name('admin.open-data.')->group(function () {
+    Route::get('/', [OpenDataController::class, 'index'])->name('index');
+    Route::get('/create', [OpenDataController::class, 'create'])->name('create');
+    Route::post('/', [OpenDataController::class, 'store'])->name('store');
+    Route::get('/{id}', [OpenDataController::class, 'show'])->name('show');
+    Route::get('/{id}/edit', [OpenDataController::class, 'edit'])->name('edit');
+    Route::put('/{id}', [OpenDataController::class, 'update'])->name('update');
+    Route::delete('/{id}', [OpenDataController::class, 'destroy'])->name('destroy');
+    Route::post('/{id}/remove-file', [OpenDataController::class, 'removeFile'])->name('removeFile');
+});
 
     Route::get('/optimize-cache', [HomeController::class, 'optimize'])->name('optimize.command');
 
@@ -198,6 +210,7 @@ Route::prefix('')->name('frontend.')->group(function () {
     Route::get('/charter_capital', [FrontendController::class, 'charter_capital'])->name('charter_capital');
     Route::get('/open_tender_notice', [FrontendController::class, 'open_tender_notice'])->name('open_tender_notice');
     Route::get('/open_tender_notice/{slug}', [FrontendController::class, 'open_tender_notice_show'])->name('open_tender_notice.show');
+    Route::get('/open-data', [FrontendController::class, 'open_data'])->name('open_data');
 
         // Dynamic Tenders
         Route::prefix('tenders')->name('tenders.')->group(function () {

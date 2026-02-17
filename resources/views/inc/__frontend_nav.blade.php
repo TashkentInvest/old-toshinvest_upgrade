@@ -107,6 +107,7 @@
                             <a href="{{ route('frontend.spisok') }}">{{ __('frontend.nav.affiliated_list') }}</a>
                             <a href="{{ route('frontend.dividends') }}">{{ __('frontend.nav.dividends') }}</a>
                             <a href="{{ route('frontend.business_plan') }}">{{ __('frontend.nav.business_plan') }}</a>
+                            <a href="{{ route('frontend.open_data') }}">{{ __('frontend.nav.open_data' ?? '') }}</a>
                         </div>
                     </div>
                 </li>
