@@ -494,7 +494,6 @@ class FrontendController extends Controller
                     ['name' => "E'lon (Ruscha)", 'file' => 'Эълон _new_brt (РУС).pdf'],
                     ['name' => "Ariza (Ruscha)", 'file' => 'Ариза _new_brt(РУС).pdf'],
                     ['name' => "Texnik hujjat (Ruscha)", 'file' => 'Тех_Хужжат_new_brt_(РУС).pdf'],
-                    ['name' => "Texnik topshiriq", 'file' => 'ТЕХНИЧЕСКОЕ_ЗАДАНИЕ_new_brt.pdf'],
                     ['name' => 'FIDIC kontrakt shablon', 'file' => 'FIDIC контракт шаблон 22.10.2025 (3).pdf'],
                 ],
             ],
