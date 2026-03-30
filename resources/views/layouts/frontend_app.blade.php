@@ -183,7 +183,7 @@ display: none !important;
 }
 
 </style>
-
+{{--
 <script src="https://cdn.jsdelivr.net/npm/magic-snowflakes/dist/snowflakes.min.js"></script>
 <script>
   new Snowflakes({
@@ -191,7 +191,9 @@ display: none !important;
     count: 50,
     speed: 1
   });
-</script>
+</script> --}}
+
+
 
 
 </body>
