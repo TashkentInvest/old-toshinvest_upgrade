@@ -46,18 +46,7 @@
             <!-- Deadline Card -->
             <div class="gov-card" style="margin-bottom: 30px; border-left: 4px solid #f59e0b;">
                 <div class="gov-card-body">
-                    @if($notice->getAnnouncementDate($locale))
-                    <div style="display: flex; align-items: center; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid #e5e7eb;">
-                        <div style="width: 56px; height: 56px; background: linear-gradient(135deg, #3b82f6, #2563eb); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fa-solid fa-calendar-plus" style="font-size: 24px; color: white;"></i>
-                        </div>
-                        <div>
-                            <div style="font-size: 13px; color: #1e40af; font-weight: 500; margin-bottom: 4px;">{{ __('frontend.procurement.announcement_date') }}</div>
-                            <div style="font-size: 18px; font-weight: 600; color: #1f2937;">{{ $notice->getAnnouncementDate($locale) }}</div>
-                        </div>
-                    </div>
-                    @endif
-                    <div style="display: flex; align-items: center; gap: 20px;" @if($notice->getAnnouncementDate($locale)) style="padding-top: 20px;" @endif>
+                    <div style="display: flex; align-items: center; gap: 20px;">
                         <div style="width: 56px; height: 56px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                             <i class="fa-solid fa-clock" style="font-size: 24px; color: white;"></i>
                         </div>

@@ -275,6 +275,11 @@ return [
         'feature_5_desc' => 'Poytaxtni kommunal xizmat ko\'rsatishda muammolari bo\'lmagan hududga aylantirish, shuningdek, odamlar harakati uchun qulayroq yo\'l infratuzilmasini yaratish.',
         'latest_news' => 'So\'nggi yangiliklar',
         'latest_news_subtitle' => 'Toshkent Invest kompaniyasining so\'nggi yangiliklari va e\'lonlaridan xabardor bo\'ling',
+        'tender_alert_title' => 'Tender lotlar bo\'yicha bildirishnoma',
+        'tender_alert_new' => 'Yangi tender lot e\'lon qilindi. Hozir ko\'rib chiqishingiz mumkin.',
+        'tender_alert_active' => 'Hozirda :count ta faol tender lot mavjud.',
+        'tender_alert_cta' => 'Yangi lotni ko\'rish',
+        'tender_alert_all' => 'Barcha tender lotlar',
     ],
 
     // Contact Page

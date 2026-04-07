@@ -48,6 +48,10 @@ class ProcurementDocument extends Model
      */
     public function getFileUrlAttribute()
     {
+        if (preg_match('/^https?:\/\//i', $this->file_path)) {
+            return $this->file_path;
+        }
+
         return asset($this->procurementNotice->folder . '/' . $this->file_path);
     }
 

@@ -267,6 +267,11 @@ return [
         'feature_5_desc' => 'Transforming the capital into a territory without problems in communal services, as well as creating more comfortable road infrastructure for people\'s movement.',
         'latest_news' => 'Latest News',
         'latest_news_subtitle' => 'Stay updated with the latest events and announcements from Tashkent Invest Company',
+        'tender_alert_title' => 'Tender Lot Notification',
+        'tender_alert_new' => 'A new tender lot has been published. You can open it now.',
+        'tender_alert_active' => 'There are currently :count active tender lots.',
+        'tender_alert_cta' => 'Open New Lot',
+        'tender_alert_all' => 'All Tender Lots',
     ],
 
     // Contact Page

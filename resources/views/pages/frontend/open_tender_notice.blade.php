@@ -23,15 +23,36 @@
         <div class="gov-container">
             @php
                 $locale = app()->getLocale();
+                $sortedNotices = $notices->sortBy(function ($notice) {
+                    return $notice->isArchived() ? 1 : 0;
+                })->values();
+                $activeCount = $sortedNotices->filter(function ($notice) {
+                    return !$notice->isArchived();
+                })->count();
+                $archivedCount = $sortedNotices->count() - $activeCount;
             @endphp
 
+            <div style="margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap;">
+                <span class="gov-project-status success" style="display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-circle"></i>
+                    {{ __('frontend.procurement.status_active') }}: {{ $activeCount }}
+                </span>
+                <span class="gov-project-status archive" style="display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-check"></i>
+                    {{ __('frontend.procurement.status_completed') }}: {{ $archivedCount }}
+                </span>
+            </div>
+
             <div class="gov-projects-grid" style="margin-top: 30px;">
-                @foreach($notices as $notice)
+                @foreach($sortedNotices as $notice)
+                    @php
+                        $isArchived = $notice->isArchived();
+                    @endphp
                     <a href="{{ route('frontend.open_tender_notice.show', $notice->slug) }}" class="gov-project-card" style="text-decoration: none;">
                         <div class="gov-project-header">
-                            <span class="gov-project-status {{ $notice->status == 'active' ? 'success' : 'archive' }}">
-                                <i class="fa-solid {{ $notice->status == 'active' ? 'fa-circle' : 'fa-check' }}"></i>
-                                {{ $notice->status == 'active' ? __('frontend.procurement.status_active') : __('frontend.procurement.status_completed') }}
+                            <span class="gov-project-status {{ $isArchived ? 'archive' : 'success' }}">
+                                <i class="fa-solid {{ $isArchived ? 'fa-check' : 'fa-circle' }}"></i>
+                                {{ $isArchived ? __('frontend.procurement.status_completed') : __('frontend.procurement.status_active') }}
                             </span>
                             <span class="gov-project-id">
                                 <i class="fa-solid fa-file-pdf" style="color: #dc2626;"></i> {{ $notice->documents->count() }}

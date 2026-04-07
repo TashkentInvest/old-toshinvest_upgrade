@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\VacancyApplication;
 use App\Models\News;
 use App\Models\Project;
+use App\Models\ProcurementNotice;
 use App\Services\InvestorIdeaService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -28,6 +29,22 @@ class FrontendController extends Controller
         // Get recent investor ideas (approved only)
         $recentIdeas = $this->investorIdeaService->getRecentForHomepage(3);
 
+        // Tender notification data for homepage hero
+        $activeNotices = ProcurementNotice::with('documents')
+            ->where('status', 'active')
+            ->ordered()
+            ->get()
+            ->filter(function ($notice) {
+                return !$notice->isArchived();
+            })
+            ->values();
+
+        $activeTenderCount = $activeNotices->count();
+        $latestActiveTender = $activeNotices->first();
+        $hasNewTenderLot = $latestActiveTender
+            ? $latestActiveTender->created_at && $latestActiveTender->created_at->greaterThanOrEqualTo(now()->subDays(14))
+            : false;
+
         // SEO Meta Tags
         $seoTitle = __('frontend.seo.default_title');
         $seoDescription = __('frontend.seo.default_description');
@@ -44,6 +61,9 @@ class FrontendController extends Controller
             'news',
             'subcategory',
             'recentIdeas',
+            'activeTenderCount',
+            'latestActiveTender',
+            'hasNewTenderLot',
             'seoTitle',
             'seoDescription',
             'seoKeywords',
@@ -466,7 +486,7 @@ class FrontendController extends Controller
     {
         $notice = \App\Models\ProcurementNotice::with('documents')
             ->where('slug', $slug)
-            ->where('status', 'active')
+            ->whereIn('status', ['active', 'completed'])
             ->firstOrFail();
 
         $locale = app()->getLocale();

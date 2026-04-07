@@ -17,19 +17,20 @@ class ProcurementNoticeSeeder extends Seeder
     public function run()
     {
         // Procurement 1: New BRT Project
-        $newBrt = ProcurementNotice::create([
+        $newBrt = ProcurementNotice::updateOrCreate([
             'slug' => 'new-brt-project',
+        ], [
             'title_uz' => "Toshkent shahri ko'chalarida avtobuslar uchun alohida ajratilgan yo'laklarni tashkil etish maqsadida avtomobil yo'llari va yo'l bo'yi infratuzilmasini loyihalash, rekonstruksiya qilish va ta'mirlash bo'yicha bosh pudratchi va loyihachi xizmatlari (EPC+F shartlarida)",
             'title_ru' => 'Услуги генерального подрядчика и проектировщика по проектированию, реконструкции и ремонту автомобильных дорог и придорожной инфраструктуры на улицах города Ташкента (на условиях EPC+F), с целью организации отдельных выделенных полос для автобусов',
             'title_en' => 'General contractor and designer services for the design, reconstruction and repair of roads and roadside infrastructure on the streets of Tashkent (on EPC+F terms), with the aim of organizing separate dedicated lanes for buses',
 
-            'announcement_date_uz' => '25 dekabr 2025 yil',
-            'announcement_date_ru' => '25 декабря 2025 года',
-            'announcement_date_en' => 'December 25, 2025',
+            'announcement_date_uz' => '24 yanvar 2026 yil',
+            'announcement_date_ru' => '24 января 2026 года',
+            'announcement_date_en' => 'January 24, 2026',
 
-            'deadline_uz' => '19 yanvar 2026 yil, 18:00',
-            'deadline_ru' => '19 января 2026 года, 18:00',
-            'deadline_en' => 'January 19, 2026, 18:00',
+            'deadline_uz' => '9 fevral 2026 yil, 18:00',
+            'deadline_ru' => '9 февраля 2026 года, 18:00',
+            'deadline_en' => 'February 9, 2026, 18:00',
 
             'status' => 'active',
             'folder' => 'assets/eng_yaxshi_takliflarni_tanlab_olish/new_brt',
@@ -37,6 +38,8 @@ class ProcurementNoticeSeeder extends Seeder
             'order' => 1,
             'is_featured' => true,
         ]);
+
+        $newBrt->documents()->delete();
 
         // Add documents for New BRT project
         $newBrtDocs = [
@@ -64,8 +67,9 @@ class ProcurementNoticeSeeder extends Seeder
         }
 
         // Procurement 2: Qorasaroy Tunnel Project
-        $qorasaroy = ProcurementNotice::create([
+        $qorasaroy = ProcurementNotice::updateOrCreate([
             'slug' => 'qorasaroy-tunnel-project',
+        ], [
             'title_uz' => "Islom sivilizatsiyasi markazi tunnel loyihasi bo'yicha ekspert hisobini tayyorlash xizmatlari",
             'title_ru' => 'Услуги по подготовке экспертной сметы по проекту туннеля Центра Исламской Цивилизации',
             'title_en' => 'Services for the preparation of expert estimates for the tunnel project of the Center of Islamic Civilization',
@@ -80,6 +84,8 @@ class ProcurementNoticeSeeder extends Seeder
             'order' => 2,
             'is_featured' => false,
         ]);
+
+        $qorasaroy->documents()->delete();
 
         // Add documents for Qorasaroy project
         $qorasaroyDocs = [
@@ -110,8 +116,49 @@ class ProcurementNoticeSeeder extends Seeder
             ]);
         }
 
+        // Procurement 3: Technical Supervision Consulting Services
+        $technicalSupervision = ProcurementNotice::updateOrCreate([
+            'slug' => 'technical-supervision-consulting-services',
+        ], [
+            'title_uz' => 'ОЧИҚ ТЕНДЕР ЭЪЛОНИ: "Тошкент Инвест компанияси" АЖ техник назорат консалтинг хизматлари',
+            'title_ru' => 'ОТКРЫТОЕ ТЕНДЕРНОЕ ОБЪЯВЛЕНИЕ: АО "Toshkent Invest kompaniyasi" на услуги технического надзора',
+            'title_en' => 'OPEN TENDER NOTICE: Technical supervision consulting services for JSC "Toshkent Invest kompaniyasi"',
+
+            'description_uz' => 'Лот рақами: Tender No 26120012476710. Харид предмети: объектлардаги қурилиш-монтаж ишларига техник назоратни амалга ошириш хизмати. Хизмат коди: 70.22.12.000-00001.',
+            'description_ru' => 'Номер лота: Tender No 26120012476710. Предмет закупки: услуги по техническому надзору за строительно-монтажными работами на объектах. Код услуги: 70.22.12.000-00001.',
+            'description_en' => 'Lot number: Tender No 26120012476710. Procurement subject: technical supervision services for construction and installation works at facilities. Service code: 70.22.12.000-00001.',
+
+            'announcement_date_uz' => '26.03.2026 йил',
+            'announcement_date_ru' => '26.03.2026',
+            'announcement_date_en' => 'March 26, 2026',
+
+            'deadline_uz' => '13.04.2026 йил',
+            'deadline_ru' => '13.04.2026',
+            'deadline_en' => 'April 13, 2026, 23:59',
+
+            'status' => 'active',
+            'folder' => 'assets/eng_yaxshi_takliflarni_tanlab_olish/Tender_26120012476710',
+            'announcement_pdf' => 'assets/eng_yaxshi_takliflarni_tanlab_olish/Tender_26120012476710/ОЧИҚ ТЕНДЕР ЭЪЛОНИ.pdf',
+            'order' => 3,
+            'is_featured' => false,
+        ]);
+
+        $technicalSupervision->documents()->delete();
+
+        ProcurementDocument::create([
+            'procurement_notice_id' => $technicalSupervision->id,
+            'name_uz' => 'Лот ҳаволаси (etender.uzex.uz)',
+            'name_ru' => 'Ссылка на лот (etender.uzex.uz)',
+            'name_en' => 'Lot link (etender.uzex.uz)',
+            'file_path' => 'https://etender.uzex.uz/lot/476710',
+            'file_type' => 'link',
+            'file_size' => null,
+            'order' => 1,
+        ]);
+
         $this->command->info('Procurement notices seeded successfully!');
         $this->command->info('- New BRT Project: ' . $newBrt->documents->count() . ' documents');
         $this->command->info('- Qorasaroy Tunnel Project: ' . $qorasaroy->documents->count() . ' documents');
+        $this->command->info('- Technical Supervision Services: ' . $technicalSupervision->documents->count() . ' documents');
     }
 }

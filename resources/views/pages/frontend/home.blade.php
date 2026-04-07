@@ -1,6 +1,43 @@
 @extends('layouts.frontend_app')
 @section('frontent_content')
 
+<style>
+    .gov-surprise-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+        padding: 11px 18px;
+        border-radius: 11px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: rgba(15, 23, 42, 0.38);
+        color: #ffffff !important;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        backdrop-filter: blur(3px);
+        animation: govPulse 2.8s ease-in-out infinite;
+        transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+    }
+
+    .gov-surprise-btn:hover {
+        transform: translateY(-1px);
+        background: rgba(30, 64, 175, 0.45);
+        border-color: rgba(191, 219, 254, 0.65);
+        color: #ffffff;
+    }
+
+    @keyframes govPulse {
+        0%, 100% {
+            box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.0);
+        }
+        50% {
+            box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.18);
+        }
+    }
+</style>
+
 {{-- Hero Section --}}
 <section class="home-hero">
     <div class="hero-background">
@@ -14,6 +51,17 @@
             <div class="hero-text">
                 <h1 class="hero-title">{{ __('frontend.home.hero_title') }}</h1>
                 <p class="hero-description">{{ __('frontend.home.hero_description') }}</p>
+                @if(($activeTenderCount ?? 0) > 0)
+                    @php
+                        $tenderLink = !empty($latestActiveTender)
+                            ? route('frontend.open_tender_notice.show', $latestActiveTender->slug)
+                            : route('frontend.open_tender_notice');
+                    @endphp
+                    <a href="{{ $tenderLink }}" class="gov-surprise-btn" style="color:white !important">
+                        <i class="fa-solid fa-bullhorn"></i>
+                        {{ __('frontend.home.tender_alert_cta') }}
+                    </a>
+                @endif
             </div>
         </div>
     </div>
