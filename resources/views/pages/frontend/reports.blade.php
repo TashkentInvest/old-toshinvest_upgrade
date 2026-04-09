@@ -34,14 +34,14 @@
                 <div class="gov-card-body">
                     <p style="color: var(--gov-text-muted); margin-bottom: 20px;">
                         @if(app()->getLocale() == 'ru')
-                            1 квартал 2024 года
+                            4 квартал 2025 года
                         @elseif(app()->getLocale() == 'uz')
-                            2024 yil 1-chorak
+                            2025 yil 4-chorak
                         @else
-                            Q1 2024
+                            Q4 2025
                         @endif
                     </p>
-                    <a href="{{ route('frontend.balance') }}" class="gov-btn gov-btn-primary" style="width: 100%;">
+                    <a href="{{ route('frontend.balance') }}" class="gov-btn gov-btn-primary" style="width: 100%;color:white">
                         <i class="fa-solid fa-eye"></i>
                         {{ __('frontend.common.open') }}
                     </a>
@@ -65,14 +65,14 @@
                 <div class="gov-card-body">
                     <p style="color: var(--gov-text-muted); margin-bottom: 20px;">
                         @if(app()->getLocale() == 'ru')
-                            1 квартал 2024 года
+                            4 квартал 2025 года
                         @elseif(app()->getLocale() == 'uz')
-                            2024 yil 1-chorak
+                            2025 yil 4-chorak
                         @else
-                            Q1 2024
+                            Q4 2025
                         @endif
                     </p>
-                    <a href="{{ route('frontend.income') }}" class="gov-btn gov-btn-primary" style="width: 100%;">
+                    <a href="{{ route('frontend.income') }}" class="gov-btn gov-btn-primary" style="width: 100%;color:white">
                         <i class="fa-solid fa-eye"></i>
                         {{ __('frontend.common.open') }}
                     </a>
