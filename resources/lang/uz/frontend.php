@@ -687,7 +687,7 @@ Jamiyat xalqaro moliyaviy hisobotlash standartlariga muvofiq moliyaviy hisobot t
         'independent_member' => 'Kuzatuv kengashining mustaqil a\'zosi',
         'chairman_name' => 'Umurzakov Shavkat Buranovich',
         'chairman_position' => 'Toshkent shahar hokimi',
-        'member1_name' => 'Haydarov Bahtiyor Halimovich',
+        'member1_name' => 'Xaydarov Baxtiyor Xalimovich',
         'member1_position' => 'Toshkent shahar Hokimining birinchi o\'rinbosari',
         'member2_name' => 'Rahmanov Sharof Dierovich',
         'member2_position' => 'Toshkent shahar Hokimining o\'rinbosari - investitsiyalar, sanoat va tashqi savdo bo\'limi boshlig\'i',

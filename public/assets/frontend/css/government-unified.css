@@ -1203,7 +1203,7 @@
 .gov-team-card.featured {
     grid-column: 1 / -1;
     background: var(--gov-bg-light);
-    border-left: 4px solid var(--gov-accent);
+    /* border-left: 4px solid var(--gov-accent); */
 }
 
 .gov-team-photo {
