@@ -22,7 +22,7 @@
             // Document metadata with detailed information
             $documents = [
                 [
-                    'number' => 'ПФ-112',
+                    'number' => 'PF-112',
                     'type' => 'presidential_decree',
                     'type_label' => __('frontend.npa.types.presidential_decree'),
                     'date' => '26.07.2023',
@@ -35,7 +35,7 @@
                     'icon' => 'fa-landmark',
                 ],
                 [
-                    'number' => 'ПҚ-236',
+                    'number' => 'PQ-236',
                     'type' => 'presidential_resolution',
                     'type_label' => __('frontend.npa.types.presidential_resolution'),
                     'date' => '26.07.2023',
@@ -48,7 +48,7 @@
                     'icon' => 'fa-landmark',
                 ],
                 [
-                    'number' => 'ВМҚ-149',
+                    'number' => 'VMQ-149',
                     'type' => 'cabinet_resolution',
                     'type_label' => __('frontend.npa.types.cabinet_resolution'),
                     'date' => '25.03.2024',
@@ -72,6 +72,104 @@
                     ],
                     'file' => 'Toshkent shahri_VI-104-94-14-0-K_24.pdf',
                     'icon' => 'fa-file-lines',
+                ],
+                [
+                    'number' => '83-son',
+                    'type' => 'cabinet_resolution',
+                    'type_label' => __('frontend.npa.types.cabinet_resolution'),
+                    'date' => '28.02.2026',
+                    'effective_date' => '03.03.2026',
+                    'title' => [
+                        'uz' => 'Toshkent shahrida kompleks qurilish tamoyili asosida yirik investitsiya loyihalarini amalga oshirish hamda yashil hududlarni barpo etish jarayonlarini jadallashtirish chora-tadbirlari to\'g\'risida',
+                        'ru' => 'Тошкент шаҳрида комплекс қурилиш тамойили асосида йирик инвестиция лойиҳаларини амалга ошириш ҳамда яшил ҳудудларни барпо этиш жараёнларини жадаллаштириш чора-тадбирлари тўғрисида',
+                        'en' => 'Тошкент шаҳрида комплекс қурилиш тамойили асосида йирик инвестиция лойиҳаларини амалга ошириш ҳамда яшил ҳудудларни барпо этиш жараёнларини жадаллаштириш чора-тадбирлари тўғрисида',
+                    ],
+                    'file' => 'ВМҚ 83-сон.pdf',
+                    'icon' => 'fa-building-columns',
+                ],
+                [
+                    'number' => '116-son',
+                    'type' => 'cabinet_resolution',
+                    'type_label' => __('frontend.npa.types.cabinet_resolution'),
+                    'date' => '06.03.2024',
+                    'effective_date' => '07.03.2024',
+                    'title' => [
+                        'uz' => '"Hayotiy davr shartnomasi" asosida ishlash tartibi to\'g\'risidagi nizomni tasdiqlash haqida',
+                        'ru' => '«Ҳаётий давр шартномаси» асосида ишлаш тартиби тўғрисидаги низомни тасдиқлаш ҳақида',
+                        'en' => '«Ҳаётий давр шартномаси» асосида ишлаш тартиби тўғрисидаги низомни тасдиқлаш ҳақида',
+                    ],
+                    'file' => 'ВМҚ 116-сон.pdf',
+                    'icon' => 'fa-building-columns',
+                ],
+                [
+                    'number' => '151-son',
+                    'type' => 'cabinet_resolution',
+                    'type_label' => __('frontend.npa.types.cabinet_resolution'),
+                    'date' => '08.04.2026',
+                    'effective_date' => '09.04.2026',
+                    'title' => [
+                        'uz' => 'Qoraqalpog\'iston Respublikasi, viloyatlar va Toshkent shahrida investitsiya loyihalarini davlat va tadbirkorlik subyektlari o\'rtasida o\'zaro manfaatli hamkorlik asosida amalga oshirishni takomillashtirish va ko\'p kvartirali uylar qurilishini samarali tashkil etish chora-tadbirlari to\'g\'risida',
+                        'ru' => 'Қорақалпоғистон Республикаси, вилоятлар ва Тошкент шаҳрида инвестиция лойиҳаларини давлат ва тадбиркорлик субъектлари ўртасида ўзаро манфаатли ҳамкорлик асосида амалга оширишни такомиллаштириш ва кўп квартирали уйлар қурилишини самарали ташкил этиш чора-тадбирлари тўғрисида',
+                        'en' => 'Қорақалпоғистон Республикаси, вилоятлар ва Тошкент шаҳрида инвестиция лойиҳаларини давлат ва тадбиркорлик субъектлари ўртасида ўзаро манфаатли ҳамкорлик асосида амалга оширишни такомиллаштириш ва кўп квартирали уйлар қурилишини самарали ташкил этиш чора-тадбирлари тўғрисида',
+                    ],
+                    'file' => 'ВМҚ 151-сон.pdf',
+                    'icon' => 'fa-building-columns',
+                ],
+                [
+                    'number' => 'PQ-73',
+                    'type' => 'presidential_resolution',
+                    'type_label' => __('frontend.npa.types.presidential_resolution'),
+                    'date' => '24.02.2026',
+                    'effective_date' => '27.02.2026',
+                    'title' => [
+                        'uz' => 'Ko\'p kvartirali turar joy majmualarini qurishda kompleks qurilish mexanizmlarini joriy etish va shaffoflikni ta\'minlash chora-tadbirlari to\'g\'risida',
+                        'ru' => 'Кўп квартирали турар жой мажмуаларини қуришда комплекс қурилиш механизмларини жорий этиш ва шаффофликни таъминлаш чора-тадбирлари тўғрисида',
+                        'en' => 'Кўп квартирали турар жой мажмуаларини қуришда комплекс қурилиш механизмларини жорий этиш ва шаффофликни таъминлаш чора-тадбирлари тўғрисида',
+                    ],
+                    'file' => 'ПҚ-73-сон.pdf',
+                    'icon' => 'fa-landmark',
+                ],
+                [
+                    'number' => 'PP-138',
+                    'type' => 'presidential_resolution',
+                    'type_label' => __('frontend.npa.types.presidential_resolution'),
+                    'date' => '20.03.2024',
+                    'effective_date' => '25.03.2024',
+                    'title' => [
+                        'uz' => 'Toshkent shahrida "Yangi avlod" maxsus sanoat zonasini tashkil etish to\'g\'risida',
+                        'ru' => 'О создании специальной промышленной зоны «Янги авлод» в городе Ташкенте',
+                        'en' => 'О создании специальной промышленной зоны «Янги авлод» в городе Ташкенте',
+                    ],
+                    'file' => 'ПП-138.pdf',
+                    'icon' => 'fa-landmark',
+                ],
+                [
+                    'number' => 'PQ-368',
+                    'type' => 'presidential_resolution',
+                    'type_label' => __('frontend.npa.types.presidential_resolution'),
+                    'date' => '04.12.2025',
+                    'effective_date' => '05.12.2025',
+                    'title' => [
+                        'uz' => 'Toshkent shahrida transport tizimi boshqaruvini takomillashtirish hamda tirbandliklarning oldini olishga qaratilgan qo\'shimcha chora-tadbirlar to\'g\'risida',
+                        'ru' => 'Тошкент шаҳрида транспорт тизими бошқарувини такомиллаштириш ҳамда тирбандликларнинг олдини олишга қаратилган қўшимча чора-тадбирлар тўғрисида',
+                        'en' => 'Тошкент шаҳрида транспорт тизими бошқарувини такомиллаштириш ҳамда тирбандликларнинг олдини олишга қаратилган қўшимча чора-тадбирлар тўғрисида',
+                    ],
+                    'file' => 'ПҚ-368-сон.pdf',
+                    'icon' => 'fa-landmark',
+                ],
+                [
+                    'number' => 'PF-29',
+                    'type' => 'presidential_decree',
+                    'type_label' => __('frontend.npa.types.presidential_decree'),
+                    'date' => '24.02.2026',
+                    'effective_date' => '27.02.2026',
+                    'title' => [
+                        'uz' => 'Aholini uy-joy bilan ta\'minlash ishlarini jadallashtirish va ko\'p kvartirali uylar qurilishini samarali tashkil etish chora-tadbirlari to\'g\'risida',
+                        'ru' => 'Аҳолини уй-жой билан таъминлаш ишларини жадаллаштириш ва кўп квартирали уйлар қурилишини самарали ташкил этиш чора-тадбирлари тўғрисида',
+                        'en' => 'Аҳолини уй-жой билан таъминлаш ишларини жадаллаштириш ва кўп квартирали уйлар қурилишини самарали ташкил этиш чора-тадбирлари тўғрисида',
+                    ],
+                    'file' => 'ПФ-29.pdf',
+                    'icon' => 'fa-landmark',
                 ],
             ];
 
@@ -102,6 +200,12 @@
                                 <i class="fa-regular fa-calendar"></i>
                                 {{ $doc['date'] }}
                             </div>
+                            @if(!empty($doc['effective_date']))
+                                <div class="npa-doc-date npa-doc-date-effective">
+                                    <i class="fa-regular fa-circle-check"></i>
+                                    {{ $doc['effective_date'] }}
+                                </div>
+                            @endif
                         </div>
                         <div class="npa-doc-footer">
                             @if($fileExists)
@@ -223,6 +327,16 @@
 
     .npa-doc-date i {
         color: #9ca3af;
+    }
+
+    .npa-doc-date-effective {
+        margin-top: 8px;
+        background: #ecfdf5;
+        color: #065f46;
+    }
+
+    .npa-doc-date-effective i {
+        color: #059669;
     }
 
     .npa-doc-footer {
