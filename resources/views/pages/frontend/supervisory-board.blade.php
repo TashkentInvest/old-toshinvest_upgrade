@@ -54,7 +54,7 @@
             <x-frontend.team-member
                 :name="__('frontend.supervisory.independent2_name')"
                 :position="__('frontend.supervisory.independent_member')"
-                photo="https://gov.uz/img/icons/employee.svg"
+                photo="assets/users_img/shariq.jpg"
                 delay="0.5"
             />
 
