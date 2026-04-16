@@ -54,9 +54,10 @@
             <x-frontend.team-member
                 :name="__('frontend.supervisory.independent2_name')"
                 :position="__('frontend.supervisory.independent_member')"
-                photo="assets/users_img/shariq_wali_khan.jpg"
+                photo="https://gov.uz/img/icons/employee.svg"
                 delay="0.5"
             />
+
         </div>
     </x-frontend.section>
 </div>
