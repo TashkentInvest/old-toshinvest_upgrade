@@ -24,11 +24,11 @@
                 <div class="gov-doc-meta">PDF</div>
             </div>
             <div class="gov-doc-actions">
-                <a href="{{ asset('assets/folders/korporativ_axloq_kodeksi.pdf') }}" target="_blank" class="gov-table-btn gov-table-btn-secondary">
+                <a href="{{ asset('assets/folders/kodeks/Кодекс корпоративной этики.PDF') }}" target="_blank" class="gov-table-btn gov-table-btn-secondary">
                     <i class="fa-solid fa-eye"></i>
                     {{ __('frontend.docs.view') }}
                 </a>
-                <a href="{{ asset('assets/folders/korporativ_axloq_kodeksi.pdf') }}" download class="gov-table-btn gov-table-btn-primary">
+                <a href="{{ asset('assets/folders/kodeks/Кодекс корпоративной этики.PDF') }}" download class="gov-table-btn gov-table-btn-primary">
                     <i class="fa-solid fa-download"></i>
                     {{ __('frontend.common.download') }}
                 </a>
@@ -62,11 +62,11 @@
                 <div class="gov-doc-meta">PDF</div>
             </div>
             <div class="gov-doc-actions">
-                <a href="{{ asset('assets/folders/korporativ_boshqaruv_qoidalari.pdf') }}" target="_blank" class="gov-table-btn gov-table-btn-secondary">
+                <a href="{{ asset('assets/folders/kodeks/KODEKS.pdf') }}" target="_blank" class="gov-table-btn gov-table-btn-secondary">
                     <i class="fa-solid fa-eye"></i>
                     {{ __('frontend.docs.view') }}
                 </a>
-                <a href="{{ asset('assets/folders/korporativ_boshqaruv_qoidalari.pdf') }}" download class="gov-table-btn gov-table-btn-primary">
+                <a href="{{ asset('assets/folders/kodeks/KODEKS.pdf') }}" download class="gov-table-btn gov-table-btn-primary">
                     <i class="fa-solid fa-download"></i>
                     {{ __('frontend.common.download') }}
                 </a>
