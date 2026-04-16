@@ -60,7 +60,7 @@ return [
         'dividends' => 'Dividendlar',
         'business_plan' => 'Biznes-reja',
         'securities_prospectus' => 'Qimmatli qog\'ozlar emissiyasi prospekti',
-        'yangi_avlod' => 'MAH "Yangi Avlod"',
+        'yangi_avlod' => 'MSZ "Yangi Avlod"',
         'promobility' => 'MChJ "PROMOBILITY"',
         'jac_motors' => 'MChJ "JAC MOTORS TASHKENT"',
         'renovation' => 'Renovatsiya va qurilish',
