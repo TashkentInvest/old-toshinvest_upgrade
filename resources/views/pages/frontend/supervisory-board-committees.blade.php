@@ -17,38 +17,8 @@
 
     {{-- Committees --}}
     <x-frontend.section bg="white">
-        {{-- Audit Committee --}}
+        {{-- Strategy and Investment Committee --}}
         <div class="gov-card gov-animate-fade" data-delay="0.1">
-            <div class="gov-card-header">
-                <div class="gov-card-icon"><i class="fa-solid fa-clipboard-check"></i></div>
-                <h3 class="gov-card-title">{{ __('frontend.committees.audit_committee') }}</h3>
-            </div>
-            <div class="gov-card-body">
-                <div class="gov-table-container">
-                    <table class="gov-table">
-                        <thead>
-                            <tr>
-                                <th>{{ __('frontend.committees.full_name') }}</th>
-                                <th class="center" style="width: 200px;">{{ __('frontend.committees.role_in_committee') }}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>{{ __('frontend.supervisory.member2_name') }}</td>
-                                <td class="center"><span style="background: var(--gov-primary); color: white; padding: 4px 12px; font-size: 12px; font-weight: 600;">{{ __('frontend.committees.committee_chairman') }}</span></td>
-                            </tr>
-                            <tr>
-                                <td>{{ __('frontend.supervisory.member1_name') }}</td>
-                                <td class="center">{{ __('frontend.committees.committee_member') }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        {{-- Strategy Committee --}}
-        <div class="gov-card gov-animate-fade" data-delay="0.2">
             <div class="gov-card-header">
                 <div class="gov-card-icon"><i class="fa-solid fa-chart-line"></i></div>
                 <h3 class="gov-card-title">{{ __('frontend.committees.strategy_committee') }}</h3>
@@ -59,17 +29,159 @@
                         <thead>
                             <tr>
                                 <th>{{ __('frontend.committees.full_name') }}</th>
-                                <th class="center" style="width: 200px;">{{ __('frontend.committees.role_in_committee') }}</th>
+                                <th>{{ __('frontend.committees.role_in_committee') }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{ __('frontend.supervisory.member1_name') }}</td>
-                                <td class="center"><span style="background: var(--gov-primary); color: white; padding: 4px 12px; font-size: 12px; font-weight: 600;">{{ __('frontend.committees.committee_chairman') }}</span></td>
+                                <td>
+                                    {{ __('frontend.supervisory.member2_name') }}<br>
+                                    <small class="gov-text-muted">{{ __('frontend.supervisory.member2_position_short') }}</small>
+                                </td>
+                                <td><span style="background: var(--gov-primary); color: white; padding: 4px 12px; font-size: 12px; font-weight: 600;">{{ __('frontend.committees.committee_chairman') }}</span></td>
                             </tr>
                             <tr>
-                                <td>{{ __('frontend.supervisory.member2_name') }}</td>
-                                <td class="center">{{ __('frontend.committees.committee_member') }}</td>
+                                <td>
+                                    {{ __('frontend.supervisory.independent1_name') }}<br>
+                                    <small class="gov-text-muted">{{ __('frontend.supervisory.independent_member') }}</small>
+                                </td>
+                                <td>{{ __('frontend.committees.committee_member') }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ __('frontend.supervisory.independent2_name') }}<br>
+                                    <small class="gov-text-muted">{{ __('frontend.supervisory.independent_member') }}</small>
+                                </td>
+                                <td>{{ __('frontend.committees.committee_member') }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        {{-- Audit Committee --}}
+        <div class="gov-card gov-animate-fade" data-delay="0.2">
+            <div class="gov-card-header">
+                <div class="gov-card-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                <h3 class="gov-card-title">{{ __('frontend.committees.audit_committee') }}</h3>
+            </div>
+            <div class="gov-card-body">
+                <div class="gov-table-container">
+                    <table class="gov-table">
+                        <thead>
+                            <tr>
+                                <th>{{ __('frontend.committees.full_name') }}</th>
+                                <th>{{ __('frontend.committees.role_in_committee') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    {{ __('frontend.supervisory.independent2_name') }}<br>
+                                    <small class="gov-text-muted">{{ __('frontend.supervisory.independent_member') }}</small>
+                                </td>
+                                <td><span style="background: var(--gov-primary); color: white; padding: 4px 12px; font-size: 12px; font-weight: 600;">{{ __('frontend.committees.committee_chairman') }}</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ __('frontend.supervisory.member1_name') }}<br>
+                                    <small class="gov-text-muted">{{ __('frontend.supervisory.member1_position_short') }}</small>
+                                </td>
+                                <td>{{ __('frontend.committees.committee_member') }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ __('frontend.supervisory.independent1_name') }}<br>
+                                    <small class="gov-text-muted">{{ __('frontend.supervisory.independent_member') }}</small>
+                                </td>
+                                <td>{{ __('frontend.committees.committee_member') }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        {{-- Appointment and Remuneration Committee --}}
+        <div class="gov-card gov-animate-fade" data-delay="0.3">
+            <div class="gov-card-header">
+                <div class="gov-card-icon"><i class="fa-solid fa-user-check"></i></div>
+                <h3 class="gov-card-title">{{ __('frontend.committees.appointment_committee') }}</h3>
+            </div>
+            <div class="gov-card-body">
+                <div class="gov-table-container">
+                    <table class="gov-table">
+                        <thead>
+                            <tr>
+                                <th>{{ __('frontend.committees.full_name') }}</th>
+                                <th>{{ __('frontend.committees.role_in_committee') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    {{ __('frontend.supervisory.independent1_name') }}<br>
+                                    <small class="gov-text-muted">{{ __('frontend.supervisory.independent_member') }}</small>
+                                </td>
+                                <td><span style="background: var(--gov-primary); color: white; padding: 4px 12px; font-size: 12px; font-weight: 600;">{{ __('frontend.committees.committee_chairman') }}</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ __('frontend.supervisory.independent2_name') }}<br>
+                                    <small class="gov-text-muted">{{ __('frontend.supervisory.independent_member') }}</small>
+                                </td>
+                                <td>{{ __('frontend.committees.committee_member') }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ __('frontend.supervisory.member2_name') }}<br>
+                                    <small class="gov-text-muted">{{ __('frontend.supervisory.member2_position_short') }}</small>
+                                </td>
+                                <td>{{ __('frontend.committees.committee_member') }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        {{-- Ethics and Anti-Corruption Committee --}}
+        <div class="gov-card gov-animate-fade" data-delay="0.4">
+            <div class="gov-card-header">
+                <div class="gov-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3 class="gov-card-title">{{ __('frontend.committees.ethics_committee') }}</h3>
+            </div>
+            <div class="gov-card-body">
+                <div class="gov-table-container">
+                    <table class="gov-table">
+                        <thead>
+                            <tr>
+                                <th>{{ __('frontend.committees.full_name') }}</th>
+                                <th>{{ __('frontend.committees.role_in_committee') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    {{ __('frontend.supervisory.member1_name') }}<br>
+                                    <small class="gov-text-muted">{{ __('frontend.supervisory.member1_position_short') }}</small>
+                                </td>
+                                <td><span style="background: var(--gov-primary); color: white; padding: 4px 12px; font-size: 12px; font-weight: 600;">{{ __('frontend.committees.committee_chairman') }}</span></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ __('frontend.supervisory.independent2_name') }}<br>
+                                    <small class="gov-text-muted">{{ __('frontend.supervisory.independent_member') }}</small>
+                                </td>
+                                <td>{{ __('frontend.committees.committee_member') }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ __('frontend.supervisory.member2_name') }}<br>
+                                    <small class="gov-text-muted">{{ __('frontend.supervisory.member2_position_short') }}</small>
+                                </td>
+                                <td>{{ __('frontend.committees.committee_member') }}</td>
                             </tr>
                         </tbody>
                     </table>
