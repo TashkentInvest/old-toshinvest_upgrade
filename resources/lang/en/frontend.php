@@ -217,6 +217,8 @@ return [
         'view_on_map' => 'View on Map',
         'file_not_available' => 'File not available',
         'back_to_list' => 'Back to list',
+        'view' => 'View',
+        'not_available' => 'Not available',
     ],
 
     // Procurement
@@ -880,6 +882,15 @@ from 2025, the Company\'s financial and non-financial reports, as well as commer
     // Messages
     'messages' => [
         'no_data_available' => 'No data available',
+    ],
+
+    // Purchases
+    'purchases' => [
+        'title' => 'Purchases',
+        'subtitle' => 'Procurement plans and documents of JSC "Tashkent Invest Company"',
+        'plan_2025' => 'Procurement plan for 2025',
+        'plan_2026' => 'Procurement plan for 2026',
+        'info_text' => 'Procurement is carried out through the selection of the best proposals in accordance with the legislation of the Republic of Uzbekistan.',
     ],
 ];
 

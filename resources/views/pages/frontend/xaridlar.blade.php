@@ -42,7 +42,7 @@
                         @endif
                     </div>
                     @if($exists)
-                        <a href="{{ asset('assets/xarid_uchun/' . $fileName) }}" target="_blank" class="gov-btn gov-btn-primary">
+                        <a href="{{ asset('assets/xarid_uchun/' . $fileName) }}" target="_blank" class="gov-btn gov-btn-primary" style="color:#fff">
                             <i class="fa-solid fa-eye"></i>
                             <span>{{ __('frontend.common.view') }}</span>
                         </a>

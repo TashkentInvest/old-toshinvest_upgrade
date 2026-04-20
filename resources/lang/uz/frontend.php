@@ -225,6 +225,8 @@ return [
         'view_on_map' => 'Xaritada ko\'rish',
         'file_not_available' => 'Fayl mavjud emas',
         'back_to_list' => 'Ro\'yxatga qaytish',
+        'view' => 'Ko\'rish',
+        'not_available' => 'Mavjud emas',
     ],
 
     // Procurement
@@ -925,6 +927,15 @@ Jamiyat xalqaro moliyaviy hisobotlash standartlariga muvofiq moliyaviy hisobot t
     // Messages
     'messages' => [
         'no_data_available' => 'Ma\'lumotlar mavjud emas',
+    ],
+
+    // Purchases (Xaridlar)
+    'purchases' => [
+        'title' => 'Xaridlar',
+        'subtitle' => 'AJ "Toshkent Invest Kompaniyasi" xaridlar rejalari va hujjatlari',
+        'plan_2025' => '2025 yil uchun xaridlar rejasi',
+        'plan_2026' => '2026 yil uchun xaridlar rejasi',
+        'info_text' => 'Xaridlar O\'zbekiston Respublikasi qonunchiligiga muvofiq eng yaxshi takliflarni tanlab olish orqali amalga oshiriladi.',
     ],
 
 ];
