@@ -691,7 +691,7 @@ Jamiyat xalqaro moliyaviy hisobotlash standartlariga muvofiq moliyaviy hisobot t
         'chairman_position' => 'Toshkent shahar hokimi',
         'member1_name' => 'Xaydarov Baxtiyor Xalimovich',
         'member1_position' => 'O‘zbekiston Respublikasi Sanoat kooperatsiyasi va davlat xaridlari agentligi direktori ',
-        'member1_position_short' => 'Toshkent shahar hokimining birinchi o\'rinbosari',
+        'member1_position_short' => 'O‘zbekiston Respublikasi Sanoat kooperatsiyasi va davlat xaridlari agentligi direktori',
         'member2_name' => 'Rahmanov Sharof Dierovich',
         'member2_position' => 'Toshkent shahar Hokimining o\'rinbosari - investitsiyalar, sanoat va tashqi savdo bo\'limi boshlig\'i',
         'member2_position_short' => 'Toshkent shahar hokimining o\'rinbosari',

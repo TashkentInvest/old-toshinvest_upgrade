@@ -683,7 +683,7 @@ from 2025, the Company\'s financial and non-financial reports, as well as commer
         'chairman_position' => 'Mayor of Tashkent City',
         'member1_name' => 'Khaydarov Bakhtiyor Khalimovich',
         'member1_position' => 'Director of the Agency for Industrial Cooperation and Public Procurement of the Republic of Uzbekistan',
-        'member1_position_short' => 'First Deputy Mayor of Tashkent City',
+        'member1_position_short' => 'Director of the Agency for Industrial Cooperation and Public Procurement of the Republic of Uzbekistan',
         'member2_name' => 'Rakhmanov Sharof Dierovich',
         'member2_position' => 'Deputy Mayor of Tashkent City - Head of Investment, Industry and Foreign Trade Department',
         'member2_position_short' => 'Deputy Mayor of Tashkent City',
