@@ -739,6 +739,8 @@ Jamiyat xalqaro moliyaviy hisobotlash standartlariga muvofiq moliyaviy hisobot t
     // Essential Facts
     'essential_facts' => [
         'title' => 'Muhim faktlar',
+        'view_title' => 'Muhim faktlar',
+        'view_subtitle' => 'Muhim faktlarga oid hujjatlar ro\'yxati',
         'number' => '№',
         'document_name' => 'Hujjat nomi',
         'size' => 'Hajmi',

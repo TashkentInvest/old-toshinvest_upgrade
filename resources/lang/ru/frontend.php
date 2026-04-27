@@ -740,6 +740,8 @@ return [
     // Essential Facts
     'essential_facts' => [
         'title' => 'Существенные факты',
+        'view_title' => 'Существенные факты',
+        'view_subtitle' => 'Список документов по существенным фактам',
         'number' => '№',
         'document_name' => 'Название документа',
         'size' => 'Размер',

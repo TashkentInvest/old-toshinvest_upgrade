@@ -730,6 +730,8 @@ from 2025, the Company\'s financial and non-financial reports, as well as commer
     // Essential Facts
     'essential_facts' => [
         'title' => 'Essential Facts',
+        'view_title' => 'Essential Facts',
+        'view_subtitle' => 'List of documents related to essential facts',
         'number' => '№',
         'document_name' => 'Document Name',
         'size' => 'Size',
